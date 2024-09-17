@@ -18,6 +18,7 @@ class ArmsData with _$ArmsData {
     int? price,
     @AttributesConverter() Attributes? modifier,
     bool? isProficient,
+    String? weaponType,
     @DamageTypesConverter() DamageTypes? damageType,
     @Uint8ListConverter() Uint8List? image,
   }) = _ArmsData;

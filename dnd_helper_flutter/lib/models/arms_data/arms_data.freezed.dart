@@ -27,6 +27,7 @@ mixin _$ArmsData {
   @AttributesConverter()
   Attributes? get modifier => throw _privateConstructorUsedError;
   bool? get isProficient => throw _privateConstructorUsedError;
+  String? get weaponType => throw _privateConstructorUsedError;
   @DamageTypesConverter()
   DamageTypes? get damageType => throw _privateConstructorUsedError;
   @Uint8ListConverter()
@@ -54,6 +55,7 @@ abstract class $ArmsDataCopyWith<$Res> {
       int? price,
       @AttributesConverter() Attributes? modifier,
       bool? isProficient,
+      String? weaponType,
       @DamageTypesConverter() DamageTypes? damageType,
       @Uint8ListConverter() Uint8List? image});
 }
@@ -79,6 +81,7 @@ class _$ArmsDataCopyWithImpl<$Res, $Val extends ArmsData>
     Object? price = freezed,
     Object? modifier = freezed,
     Object? isProficient = freezed,
+    Object? weaponType = freezed,
     Object? damageType = freezed,
     Object? image = freezed,
   }) {
@@ -107,6 +110,10 @@ class _$ArmsDataCopyWithImpl<$Res, $Val extends ArmsData>
           ? _value.isProficient
           : isProficient // ignore: cast_nullable_to_non_nullable
               as bool?,
+      weaponType: freezed == weaponType
+          ? _value.weaponType
+          : weaponType // ignore: cast_nullable_to_non_nullable
+              as String?,
       damageType: freezed == damageType
           ? _value.damageType
           : damageType // ignore: cast_nullable_to_non_nullable
@@ -134,6 +141,7 @@ abstract class _$$ArmsDataImplCopyWith<$Res>
       int? price,
       @AttributesConverter() Attributes? modifier,
       bool? isProficient,
+      String? weaponType,
       @DamageTypesConverter() DamageTypes? damageType,
       @Uint8ListConverter() Uint8List? image});
 }
@@ -157,6 +165,7 @@ class __$$ArmsDataImplCopyWithImpl<$Res>
     Object? price = freezed,
     Object? modifier = freezed,
     Object? isProficient = freezed,
+    Object? weaponType = freezed,
     Object? damageType = freezed,
     Object? image = freezed,
   }) {
@@ -185,6 +194,10 @@ class __$$ArmsDataImplCopyWithImpl<$Res>
           ? _value.isProficient
           : isProficient // ignore: cast_nullable_to_non_nullable
               as bool?,
+      weaponType: freezed == weaponType
+          ? _value.weaponType
+          : weaponType // ignore: cast_nullable_to_non_nullable
+              as String?,
       damageType: freezed == damageType
           ? _value.damageType
           : damageType // ignore: cast_nullable_to_non_nullable
@@ -207,6 +220,7 @@ class _$ArmsDataImpl implements _ArmsData {
       this.price,
       @AttributesConverter() this.modifier,
       this.isProficient,
+      this.weaponType,
       @DamageTypesConverter() this.damageType,
       @Uint8ListConverter() this.image});
 
@@ -228,6 +242,8 @@ class _$ArmsDataImpl implements _ArmsData {
   @override
   final bool? isProficient;
   @override
+  final String? weaponType;
+  @override
   @DamageTypesConverter()
   final DamageTypes? damageType;
   @override
@@ -236,7 +252,7 @@ class _$ArmsDataImpl implements _ArmsData {
 
   @override
   String toString() {
-    return 'ArmsData(name: $name, damage: $damage, weight: $weight, price: $price, modifier: $modifier, isProficient: $isProficient, damageType: $damageType, image: $image)';
+    return 'ArmsData(name: $name, damage: $damage, weight: $weight, price: $price, modifier: $modifier, isProficient: $isProficient, weaponType: $weaponType, damageType: $damageType, image: $image)';
   }
 
   @override
@@ -252,6 +268,8 @@ class _$ArmsDataImpl implements _ArmsData {
                 other.modifier == modifier) &&
             (identical(other.isProficient, isProficient) ||
                 other.isProficient == isProficient) &&
+            (identical(other.weaponType, weaponType) ||
+                other.weaponType == weaponType) &&
             (identical(other.damageType, damageType) ||
                 other.damageType == damageType) &&
             const DeepCollectionEquality().equals(other.image, image));
@@ -267,6 +285,7 @@ class _$ArmsDataImpl implements _ArmsData {
       price,
       modifier,
       isProficient,
+      weaponType,
       damageType,
       const DeepCollectionEquality().hash(image));
 
@@ -294,6 +313,7 @@ abstract class _ArmsData implements ArmsData {
       final int? price,
       @AttributesConverter() final Attributes? modifier,
       final bool? isProficient,
+      final String? weaponType,
       @DamageTypesConverter() final DamageTypes? damageType,
       @Uint8ListConverter() final Uint8List? image}) = _$ArmsDataImpl;
 
@@ -313,6 +333,8 @@ abstract class _ArmsData implements ArmsData {
   Attributes? get modifier;
   @override
   bool? get isProficient;
+  @override
+  String? get weaponType;
   @override
   @DamageTypesConverter()
   DamageTypes? get damageType;

@@ -13,6 +13,7 @@ Map<String, dynamic> _$ArmsDataToJson(ArmsData instance) => <String, dynamic>{
       'price': instance.price,
       'modifier': const AttributesConverter().toJson(instance.modifier),
       'isProficient': instance.isProficient,
+      'weaponType': instance.weaponType,
       'damageType': const DamageTypesConverter().toJson(instance.damageType),
       'image': _$JsonConverterToJson<List<dynamic>, Uint8List>(
           instance.image, const Uint8ListConverter().toJson),
@@ -50,6 +51,7 @@ _$ArmsDataImpl _$$ArmsDataImplFromJson(Map<String, dynamic> json) =>
       modifier:
           const AttributesConverter().fromJson(json['modifier'] as String?),
       isProficient: json['isProficient'] as bool?,
+      weaponType: json['weaponType'] as String?,
       damageType:
           const DamageTypesConverter().fromJson(json['damageType'] as String?),
       image: _$JsonConverterFromJson<List<dynamic>, Uint8List>(
@@ -64,6 +66,7 @@ Map<String, dynamic> _$$ArmsDataImplToJson(_$ArmsDataImpl instance) =>
       'price': instance.price,
       'modifier': const AttributesConverter().toJson(instance.modifier),
       'isProficient': instance.isProficient,
+      'weaponType': instance.weaponType,
       'damageType': const DamageTypesConverter().toJson(instance.damageType),
       'image': _$JsonConverterToJson<List<dynamic>, Uint8List>(
           instance.image, const Uint8ListConverter().toJson),
