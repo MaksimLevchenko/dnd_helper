@@ -11,8 +11,9 @@ part 'race_data.g.dart';
 class RaceData with _$RaceData {
   const factory RaceData(
       {String? name,
-      // @SkillsConverter() Skills? skills,
+      //@SkillsConverter() Skills? skills,
       String? subClass,
+      Map<String, String>? raceFeatures,
       @Uint8ListConverter() required Uint8List image}) = _RaceData;
 
   factory RaceData.fromJson(Map<String, dynamic> json) =>

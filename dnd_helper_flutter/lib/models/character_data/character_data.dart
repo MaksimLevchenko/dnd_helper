@@ -1,9 +1,13 @@
+import 'package:dnd_helper_flutter/models/.class_data/class_data.dart';
 import 'package:dnd_helper_flutter/models/arms_data/arms_data.dart';
 import 'package:dnd_helper_flutter/models/background_data/background_data.dart';
-import 'package:dnd_helper_flutter/models/class_model/class_data.dart';
+import 'package:dnd_helper_flutter/models/coins_data/coins_data.dart';
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
+import 'package:dnd_helper_flutter/models/enums/conditions.dart';
 import 'package:dnd_helper_flutter/models/enums/dice.dart';
-import 'package:dnd_helper_flutter/models/race_data.dart/race_data.dart';
+import 'package:dnd_helper_flutter/models/enums/alignment.dart';
+import 'package:dnd_helper_flutter/models/enums/skills.dart';
+import 'package:dnd_helper_flutter/models/.race_data.dart/race_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'character_data.freezed.dart';
@@ -15,7 +19,7 @@ class CharacterData with _$CharacterData {
     int? id,
     String? characterName,
     RaceData? characterRace,
-    ClassData? characterData,
+    ClassData? characterClass,
     BackgroundData? background,
     int? level,
     int? experience,
@@ -27,18 +31,20 @@ class CharacterData with _$CharacterData {
     int? speed,
     int? armorClass,
     bool? inspyration,
-    List<String>? conditions,
+    Conditions? conditions,
     int? exhaustion,
-    Map<Attributes, int>? attributes,
-    List<String>? savingThrows,
-    List<String>? skills,
+    Attributes? attributes,
+    List<Attributes>? savingThrows,
+    Skills? skills,
     int? proficiencyBonus,
     List<ArmsData>? attacks,
-    List<String>? preparedSpells,
+    //List<String>? preparedSpells,
+    //List<String>? knownSpells,
+    //List<String>? spellSlots,
     List<String>? languages,
     List<String>? tools,
     List<String>? weapons,
-    String? alignment,
+    Alignment? alignment,
     String? biography,
     String? weight,
     String? height,
@@ -52,7 +58,7 @@ class CharacterData with _$CharacterData {
     String? bonds,
     String? flaws,
     String? notes,
-    Map<String, int>? coins,
+    CoinsData? coins,
     List<String>? equipment,
     List<String>? tresuares,
   }) = _CharacterData;

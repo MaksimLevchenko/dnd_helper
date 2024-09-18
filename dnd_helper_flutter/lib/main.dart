@@ -1,4 +1,4 @@
-import 'package:dnd_helper_flutter/models/class_model/test_class.dart';
+import 'package:dnd_helper_flutter/models/.class_data/test_class.dart';
 import 'package:flutter/material.dart';
 
 void main() {

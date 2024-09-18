@@ -22,8 +22,10 @@ ArmorData _$ArmorDataFromJson(Map<String, dynamic> json) {
 mixin _$ArmorData {
   String get name => throw _privateConstructorUsedError;
   int? get armorClass => throw _privateConstructorUsedError;
+  bool? get grantsDexterityBonus => throw _privateConstructorUsedError;
+  int? get maxDexterityBonus => throw _privateConstructorUsedError;
   int? get weight => throw _privateConstructorUsedError;
-  int? get price => throw _privateConstructorUsedError;
+  CoinsData? get price => throw _privateConstructorUsedError;
   bool? get stelsDisadvantage => throw _privateConstructorUsedError;
   int? get minStrength => throw _privateConstructorUsedError;
   String? get armorType => throw _privateConstructorUsedError;
@@ -48,12 +50,16 @@ abstract class $ArmorDataCopyWith<$Res> {
   $Res call(
       {String name,
       int? armorClass,
+      bool? grantsDexterityBonus,
+      int? maxDexterityBonus,
       int? weight,
-      int? price,
+      CoinsData? price,
       bool? stelsDisadvantage,
       int? minStrength,
       String? armorType,
       @Uint8ListConverter() Uint8List? image});
+
+  $CoinsDataCopyWith<$Res>? get price;
 }
 
 /// @nodoc
@@ -73,6 +79,8 @@ class _$ArmorDataCopyWithImpl<$Res, $Val extends ArmorData>
   $Res call({
     Object? name = null,
     Object? armorClass = freezed,
+    Object? grantsDexterityBonus = freezed,
+    Object? maxDexterityBonus = freezed,
     Object? weight = freezed,
     Object? price = freezed,
     Object? stelsDisadvantage = freezed,
@@ -89,6 +97,14 @@ class _$ArmorDataCopyWithImpl<$Res, $Val extends ArmorData>
           ? _value.armorClass
           : armorClass // ignore: cast_nullable_to_non_nullable
               as int?,
+      grantsDexterityBonus: freezed == grantsDexterityBonus
+          ? _value.grantsDexterityBonus
+          : grantsDexterityBonus // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      maxDexterityBonus: freezed == maxDexterityBonus
+          ? _value.maxDexterityBonus
+          : maxDexterityBonus // ignore: cast_nullable_to_non_nullable
+              as int?,
       weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
@@ -96,7 +112,7 @@ class _$ArmorDataCopyWithImpl<$Res, $Val extends ArmorData>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as CoinsData?,
       stelsDisadvantage: freezed == stelsDisadvantage
           ? _value.stelsDisadvantage
           : stelsDisadvantage // ignore: cast_nullable_to_non_nullable
@@ -115,6 +131,20 @@ class _$ArmorDataCopyWithImpl<$Res, $Val extends ArmorData>
               as Uint8List?,
     ) as $Val);
   }
+
+  /// Create a copy of ArmorData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CoinsDataCopyWith<$Res>? get price {
+    if (_value.price == null) {
+      return null;
+    }
+
+    return $CoinsDataCopyWith<$Res>(_value.price!, (value) {
+      return _then(_value.copyWith(price: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -128,12 +158,17 @@ abstract class _$$ArmorDataImplCopyWith<$Res>
   $Res call(
       {String name,
       int? armorClass,
+      bool? grantsDexterityBonus,
+      int? maxDexterityBonus,
       int? weight,
-      int? price,
+      CoinsData? price,
       bool? stelsDisadvantage,
       int? minStrength,
       String? armorType,
       @Uint8ListConverter() Uint8List? image});
+
+  @override
+  $CoinsDataCopyWith<$Res>? get price;
 }
 
 /// @nodoc
@@ -151,6 +186,8 @@ class __$$ArmorDataImplCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? armorClass = freezed,
+    Object? grantsDexterityBonus = freezed,
+    Object? maxDexterityBonus = freezed,
     Object? weight = freezed,
     Object? price = freezed,
     Object? stelsDisadvantage = freezed,
@@ -167,6 +204,14 @@ class __$$ArmorDataImplCopyWithImpl<$Res>
           ? _value.armorClass
           : armorClass // ignore: cast_nullable_to_non_nullable
               as int?,
+      grantsDexterityBonus: freezed == grantsDexterityBonus
+          ? _value.grantsDexterityBonus
+          : grantsDexterityBonus // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      maxDexterityBonus: freezed == maxDexterityBonus
+          ? _value.maxDexterityBonus
+          : maxDexterityBonus // ignore: cast_nullable_to_non_nullable
+              as int?,
       weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
@@ -174,7 +219,7 @@ class __$$ArmorDataImplCopyWithImpl<$Res>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as CoinsData?,
       stelsDisadvantage: freezed == stelsDisadvantage
           ? _value.stelsDisadvantage
           : stelsDisadvantage // ignore: cast_nullable_to_non_nullable
@@ -201,6 +246,8 @@ class _$ArmorDataImpl implements _ArmorData {
   const _$ArmorDataImpl(
       {this.name = 'name',
       this.armorClass,
+      this.grantsDexterityBonus,
+      this.maxDexterityBonus,
       this.weight,
       this.price,
       this.stelsDisadvantage,
@@ -217,9 +264,13 @@ class _$ArmorDataImpl implements _ArmorData {
   @override
   final int? armorClass;
   @override
+  final bool? grantsDexterityBonus;
+  @override
+  final int? maxDexterityBonus;
+  @override
   final int? weight;
   @override
-  final int? price;
+  final CoinsData? price;
   @override
   final bool? stelsDisadvantage;
   @override
@@ -232,7 +283,7 @@ class _$ArmorDataImpl implements _ArmorData {
 
   @override
   String toString() {
-    return 'ArmorData(name: $name, armorClass: $armorClass, weight: $weight, price: $price, stelsDisadvantage: $stelsDisadvantage, minStrength: $minStrength, armorType: $armorType, image: $image)';
+    return 'ArmorData(name: $name, armorClass: $armorClass, grantsDexterityBonus: $grantsDexterityBonus, maxDexterityBonus: $maxDexterityBonus, weight: $weight, price: $price, stelsDisadvantage: $stelsDisadvantage, minStrength: $minStrength, armorType: $armorType, image: $image)';
   }
 
   @override
@@ -243,6 +294,10 @@ class _$ArmorDataImpl implements _ArmorData {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.armorClass, armorClass) ||
                 other.armorClass == armorClass) &&
+            (identical(other.grantsDexterityBonus, grantsDexterityBonus) ||
+                other.grantsDexterityBonus == grantsDexterityBonus) &&
+            (identical(other.maxDexterityBonus, maxDexterityBonus) ||
+                other.maxDexterityBonus == maxDexterityBonus) &&
             (identical(other.weight, weight) || other.weight == weight) &&
             (identical(other.price, price) || other.price == price) &&
             (identical(other.stelsDisadvantage, stelsDisadvantage) ||
@@ -260,6 +315,8 @@ class _$ArmorDataImpl implements _ArmorData {
       runtimeType,
       name,
       armorClass,
+      grantsDexterityBonus,
+      maxDexterityBonus,
       weight,
       price,
       stelsDisadvantage,
@@ -287,8 +344,10 @@ abstract class _ArmorData implements ArmorData {
   const factory _ArmorData(
       {final String name,
       final int? armorClass,
+      final bool? grantsDexterityBonus,
+      final int? maxDexterityBonus,
       final int? weight,
-      final int? price,
+      final CoinsData? price,
       final bool? stelsDisadvantage,
       final int? minStrength,
       final String? armorType,
@@ -302,9 +361,13 @@ abstract class _ArmorData implements ArmorData {
   @override
   int? get armorClass;
   @override
+  bool? get grantsDexterityBonus;
+  @override
+  int? get maxDexterityBonus;
+  @override
   int? get weight;
   @override
-  int? get price;
+  CoinsData? get price;
   @override
   bool? get stelsDisadvantage;
   @override

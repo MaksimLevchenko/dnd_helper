@@ -21,15 +21,14 @@ ArmsData _$ArmsDataFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ArmsData {
   String get name => throw _privateConstructorUsedError;
+  bool? get isSimple => throw _privateConstructorUsedError;
+  bool? get isMelee => throw _privateConstructorUsedError;
+  CoinsData? get price => throw _privateConstructorUsedError;
   Dice? get damage => throw _privateConstructorUsedError;
-  int? get weight => throw _privateConstructorUsedError;
-  int? get price => throw _privateConstructorUsedError;
-  @AttributesConverter()
-  Attributes? get modifier => throw _privateConstructorUsedError;
-  bool? get isProficient => throw _privateConstructorUsedError;
-  String? get weaponType => throw _privateConstructorUsedError;
   @DamageTypesConverter()
   DamageTypes? get damageType => throw _privateConstructorUsedError;
+  double? get weight => throw _privateConstructorUsedError;
+  List<String>? get armsFeatures => throw _privateConstructorUsedError;
   @Uint8ListConverter()
   Uint8List? get image => throw _privateConstructorUsedError;
 
@@ -50,14 +49,16 @@ abstract class $ArmsDataCopyWith<$Res> {
   @useResult
   $Res call(
       {String name,
+      bool? isSimple,
+      bool? isMelee,
+      CoinsData? price,
       Dice? damage,
-      int? weight,
-      int? price,
-      @AttributesConverter() Attributes? modifier,
-      bool? isProficient,
-      String? weaponType,
       @DamageTypesConverter() DamageTypes? damageType,
+      double? weight,
+      List<String>? armsFeatures,
       @Uint8ListConverter() Uint8List? image});
+
+  $CoinsDataCopyWith<$Res>? get price;
 }
 
 /// @nodoc
@@ -76,13 +77,13 @@ class _$ArmsDataCopyWithImpl<$Res, $Val extends ArmsData>
   @override
   $Res call({
     Object? name = null,
-    Object? damage = freezed,
-    Object? weight = freezed,
+    Object? isSimple = freezed,
+    Object? isMelee = freezed,
     Object? price = freezed,
-    Object? modifier = freezed,
-    Object? isProficient = freezed,
-    Object? weaponType = freezed,
+    Object? damage = freezed,
     Object? damageType = freezed,
+    Object? weight = freezed,
+    Object? armsFeatures = freezed,
     Object? image = freezed,
   }) {
     return _then(_value.copyWith(
@@ -90,39 +91,53 @@ class _$ArmsDataCopyWithImpl<$Res, $Val extends ArmsData>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      isSimple: freezed == isSimple
+          ? _value.isSimple
+          : isSimple // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMelee: freezed == isMelee
+          ? _value.isMelee
+          : isMelee // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      price: freezed == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as CoinsData?,
       damage: freezed == damage
           ? _value.damage
           : damage // ignore: cast_nullable_to_non_nullable
               as Dice?,
-      weight: freezed == weight
-          ? _value.weight
-          : weight // ignore: cast_nullable_to_non_nullable
-              as int?,
-      price: freezed == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as int?,
-      modifier: freezed == modifier
-          ? _value.modifier
-          : modifier // ignore: cast_nullable_to_non_nullable
-              as Attributes?,
-      isProficient: freezed == isProficient
-          ? _value.isProficient
-          : isProficient // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      weaponType: freezed == weaponType
-          ? _value.weaponType
-          : weaponType // ignore: cast_nullable_to_non_nullable
-              as String?,
       damageType: freezed == damageType
           ? _value.damageType
           : damageType // ignore: cast_nullable_to_non_nullable
               as DamageTypes?,
+      weight: freezed == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as double?,
+      armsFeatures: freezed == armsFeatures
+          ? _value.armsFeatures
+          : armsFeatures // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as Uint8List?,
     ) as $Val);
+  }
+
+  /// Create a copy of ArmsData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CoinsDataCopyWith<$Res>? get price {
+    if (_value.price == null) {
+      return null;
+    }
+
+    return $CoinsDataCopyWith<$Res>(_value.price!, (value) {
+      return _then(_value.copyWith(price: value) as $Val);
+    });
   }
 }
 
@@ -136,14 +151,17 @@ abstract class _$$ArmsDataImplCopyWith<$Res>
   @useResult
   $Res call(
       {String name,
+      bool? isSimple,
+      bool? isMelee,
+      CoinsData? price,
       Dice? damage,
-      int? weight,
-      int? price,
-      @AttributesConverter() Attributes? modifier,
-      bool? isProficient,
-      String? weaponType,
       @DamageTypesConverter() DamageTypes? damageType,
+      double? weight,
+      List<String>? armsFeatures,
       @Uint8ListConverter() Uint8List? image});
+
+  @override
+  $CoinsDataCopyWith<$Res>? get price;
 }
 
 /// @nodoc
@@ -160,13 +178,13 @@ class __$$ArmsDataImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? damage = freezed,
-    Object? weight = freezed,
+    Object? isSimple = freezed,
+    Object? isMelee = freezed,
     Object? price = freezed,
-    Object? modifier = freezed,
-    Object? isProficient = freezed,
-    Object? weaponType = freezed,
+    Object? damage = freezed,
     Object? damageType = freezed,
+    Object? weight = freezed,
+    Object? armsFeatures = freezed,
     Object? image = freezed,
   }) {
     return _then(_$ArmsDataImpl(
@@ -174,34 +192,34 @@ class __$$ArmsDataImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      isSimple: freezed == isSimple
+          ? _value.isSimple
+          : isSimple // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMelee: freezed == isMelee
+          ? _value.isMelee
+          : isMelee // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      price: freezed == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as CoinsData?,
       damage: freezed == damage
           ? _value.damage
           : damage // ignore: cast_nullable_to_non_nullable
               as Dice?,
-      weight: freezed == weight
-          ? _value.weight
-          : weight // ignore: cast_nullable_to_non_nullable
-              as int?,
-      price: freezed == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as int?,
-      modifier: freezed == modifier
-          ? _value.modifier
-          : modifier // ignore: cast_nullable_to_non_nullable
-              as Attributes?,
-      isProficient: freezed == isProficient
-          ? _value.isProficient
-          : isProficient // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      weaponType: freezed == weaponType
-          ? _value.weaponType
-          : weaponType // ignore: cast_nullable_to_non_nullable
-              as String?,
       damageType: freezed == damageType
           ? _value.damageType
           : damageType // ignore: cast_nullable_to_non_nullable
               as DamageTypes?,
+      weight: freezed == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as double?,
+      armsFeatures: freezed == armsFeatures
+          ? _value._armsFeatures
+          : armsFeatures // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -215,14 +233,15 @@ class __$$ArmsDataImplCopyWithImpl<$Res>
 class _$ArmsDataImpl implements _ArmsData {
   const _$ArmsDataImpl(
       {this.name = 'name',
-      this.damage,
-      this.weight,
+      this.isSimple,
+      this.isMelee,
       this.price,
-      @AttributesConverter() this.modifier,
-      this.isProficient,
-      this.weaponType,
+      this.damage,
       @DamageTypesConverter() this.damageType,
-      @Uint8ListConverter() this.image});
+      this.weight,
+      final List<String>? armsFeatures,
+      @Uint8ListConverter() this.image})
+      : _armsFeatures = armsFeatures;
 
   factory _$ArmsDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArmsDataImplFromJson(json);
@@ -231,28 +250,35 @@ class _$ArmsDataImpl implements _ArmsData {
   @JsonKey()
   final String name;
   @override
+  final bool? isSimple;
+  @override
+  final bool? isMelee;
+  @override
+  final CoinsData? price;
+  @override
   final Dice? damage;
-  @override
-  final int? weight;
-  @override
-  final int? price;
-  @override
-  @AttributesConverter()
-  final Attributes? modifier;
-  @override
-  final bool? isProficient;
-  @override
-  final String? weaponType;
   @override
   @DamageTypesConverter()
   final DamageTypes? damageType;
+  @override
+  final double? weight;
+  final List<String>? _armsFeatures;
+  @override
+  List<String>? get armsFeatures {
+    final value = _armsFeatures;
+    if (value == null) return null;
+    if (_armsFeatures is EqualUnmodifiableListView) return _armsFeatures;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @Uint8ListConverter()
   final Uint8List? image;
 
   @override
   String toString() {
-    return 'ArmsData(name: $name, damage: $damage, weight: $weight, price: $price, modifier: $modifier, isProficient: $isProficient, weaponType: $weaponType, damageType: $damageType, image: $image)';
+    return 'ArmsData(name: $name, isSimple: $isSimple, isMelee: $isMelee, price: $price, damage: $damage, damageType: $damageType, weight: $weight, armsFeatures: $armsFeatures, image: $image)';
   }
 
   @override
@@ -261,17 +287,16 @@ class _$ArmsDataImpl implements _ArmsData {
         (other.runtimeType == runtimeType &&
             other is _$ArmsDataImpl &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.damage, damage) || other.damage == damage) &&
-            (identical(other.weight, weight) || other.weight == weight) &&
+            (identical(other.isSimple, isSimple) ||
+                other.isSimple == isSimple) &&
+            (identical(other.isMelee, isMelee) || other.isMelee == isMelee) &&
             (identical(other.price, price) || other.price == price) &&
-            (identical(other.modifier, modifier) ||
-                other.modifier == modifier) &&
-            (identical(other.isProficient, isProficient) ||
-                other.isProficient == isProficient) &&
-            (identical(other.weaponType, weaponType) ||
-                other.weaponType == weaponType) &&
+            (identical(other.damage, damage) || other.damage == damage) &&
             (identical(other.damageType, damageType) ||
                 other.damageType == damageType) &&
+            (identical(other.weight, weight) || other.weight == weight) &&
+            const DeepCollectionEquality()
+                .equals(other._armsFeatures, _armsFeatures) &&
             const DeepCollectionEquality().equals(other.image, image));
   }
 
@@ -280,13 +305,13 @@ class _$ArmsDataImpl implements _ArmsData {
   int get hashCode => Object.hash(
       runtimeType,
       name,
-      damage,
-      weight,
+      isSimple,
+      isMelee,
       price,
-      modifier,
-      isProficient,
-      weaponType,
+      damage,
       damageType,
+      weight,
+      const DeepCollectionEquality().hash(_armsFeatures),
       const DeepCollectionEquality().hash(image));
 
   /// Create a copy of ArmsData
@@ -308,13 +333,13 @@ class _$ArmsDataImpl implements _ArmsData {
 abstract class _ArmsData implements ArmsData {
   const factory _ArmsData(
       {final String name,
+      final bool? isSimple,
+      final bool? isMelee,
+      final CoinsData? price,
       final Dice? damage,
-      final int? weight,
-      final int? price,
-      @AttributesConverter() final Attributes? modifier,
-      final bool? isProficient,
-      final String? weaponType,
       @DamageTypesConverter() final DamageTypes? damageType,
+      final double? weight,
+      final List<String>? armsFeatures,
       @Uint8ListConverter() final Uint8List? image}) = _$ArmsDataImpl;
 
   factory _ArmsData.fromJson(Map<String, dynamic> json) =
@@ -323,21 +348,20 @@ abstract class _ArmsData implements ArmsData {
   @override
   String get name;
   @override
+  bool? get isSimple;
+  @override
+  bool? get isMelee;
+  @override
+  CoinsData? get price;
+  @override
   Dice? get damage;
-  @override
-  int? get weight;
-  @override
-  int? get price;
-  @override
-  @AttributesConverter()
-  Attributes? get modifier;
-  @override
-  bool? get isProficient;
-  @override
-  String? get weaponType;
   @override
   @DamageTypesConverter()
   DamageTypes? get damageType;
+  @override
+  double? get weight;
+  @override
+  List<String>? get armsFeatures;
   @override
   @Uint8ListConverter()
   Uint8List? get image;

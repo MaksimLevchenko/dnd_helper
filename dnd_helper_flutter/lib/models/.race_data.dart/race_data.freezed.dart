@@ -21,8 +21,9 @@ RaceData _$RaceDataFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RaceData {
   String? get name =>
-      throw _privateConstructorUsedError; // @SkillsConverter() Skills? skills,
+      throw _privateConstructorUsedError; //@SkillsConverter() Skills? skills,
   String? get subClass => throw _privateConstructorUsedError;
+  Map<String, String>? get raceFeatures => throw _privateConstructorUsedError;
   @Uint8ListConverter()
   Uint8List get image => throw _privateConstructorUsedError;
 
@@ -42,7 +43,10 @@ abstract class $RaceDataCopyWith<$Res> {
       _$RaceDataCopyWithImpl<$Res, RaceData>;
   @useResult
   $Res call(
-      {String? name, String? subClass, @Uint8ListConverter() Uint8List image});
+      {String? name,
+      String? subClass,
+      Map<String, String>? raceFeatures,
+      @Uint8ListConverter() Uint8List image});
 }
 
 /// @nodoc
@@ -62,6 +66,7 @@ class _$RaceDataCopyWithImpl<$Res, $Val extends RaceData>
   $Res call({
     Object? name = freezed,
     Object? subClass = freezed,
+    Object? raceFeatures = freezed,
     Object? image = null,
   }) {
     return _then(_value.copyWith(
@@ -73,6 +78,10 @@ class _$RaceDataCopyWithImpl<$Res, $Val extends RaceData>
           ? _value.subClass
           : subClass // ignore: cast_nullable_to_non_nullable
               as String?,
+      raceFeatures: freezed == raceFeatures
+          ? _value.raceFeatures
+          : raceFeatures // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -90,7 +99,10 @@ abstract class _$$RaceDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? name, String? subClass, @Uint8ListConverter() Uint8List image});
+      {String? name,
+      String? subClass,
+      Map<String, String>? raceFeatures,
+      @Uint8ListConverter() Uint8List image});
 }
 
 /// @nodoc
@@ -108,6 +120,7 @@ class __$$RaceDataImplCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? subClass = freezed,
+    Object? raceFeatures = freezed,
     Object? image = null,
   }) {
     return _then(_$RaceDataImpl(
@@ -119,6 +132,10 @@ class __$$RaceDataImplCopyWithImpl<$Res>
           ? _value.subClass
           : subClass // ignore: cast_nullable_to_non_nullable
               as String?,
+      raceFeatures: freezed == raceFeatures
+          ? _value._raceFeatures
+          : raceFeatures // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -131,23 +148,37 @@ class __$$RaceDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RaceDataImpl implements _RaceData {
   const _$RaceDataImpl(
-      {this.name, this.subClass, @Uint8ListConverter() required this.image});
+      {this.name,
+      this.subClass,
+      final Map<String, String>? raceFeatures,
+      @Uint8ListConverter() required this.image})
+      : _raceFeatures = raceFeatures;
 
   factory _$RaceDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$RaceDataImplFromJson(json);
 
   @override
   final String? name;
-// @SkillsConverter() Skills? skills,
+//@SkillsConverter() Skills? skills,
   @override
   final String? subClass;
+  final Map<String, String>? _raceFeatures;
+  @override
+  Map<String, String>? get raceFeatures {
+    final value = _raceFeatures;
+    if (value == null) return null;
+    if (_raceFeatures is EqualUnmodifiableMapView) return _raceFeatures;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   @Uint8ListConverter()
   final Uint8List image;
 
   @override
   String toString() {
-    return 'RaceData(name: $name, subClass: $subClass, image: $image)';
+    return 'RaceData(name: $name, subClass: $subClass, raceFeatures: $raceFeatures, image: $image)';
   }
 
   @override
@@ -158,13 +189,19 @@ class _$RaceDataImpl implements _RaceData {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.subClass, subClass) ||
                 other.subClass == subClass) &&
+            const DeepCollectionEquality()
+                .equals(other._raceFeatures, _raceFeatures) &&
             const DeepCollectionEquality().equals(other.image, image));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, name, subClass, const DeepCollectionEquality().hash(image));
+      runtimeType,
+      name,
+      subClass,
+      const DeepCollectionEquality().hash(_raceFeatures),
+      const DeepCollectionEquality().hash(image));
 
   /// Create a copy of RaceData
   /// with the given fields replaced by the non-null parameter values.
@@ -186,15 +223,18 @@ abstract class _RaceData implements RaceData {
   const factory _RaceData(
       {final String? name,
       final String? subClass,
+      final Map<String, String>? raceFeatures,
       @Uint8ListConverter() required final Uint8List image}) = _$RaceDataImpl;
 
   factory _RaceData.fromJson(Map<String, dynamic> json) =
       _$RaceDataImpl.fromJson;
 
   @override
-  String? get name; // @SkillsConverter() Skills? skills,
+  String? get name; //@SkillsConverter() Skills? skills,
   @override
   String? get subClass;
+  @override
+  Map<String, String>? get raceFeatures;
   @override
   @Uint8ListConverter()
   Uint8List get image;

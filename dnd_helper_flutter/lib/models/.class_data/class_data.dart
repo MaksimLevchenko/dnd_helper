@@ -21,6 +21,7 @@ class ClassData with _$ClassData {
       List<ArmsData>? proficienciesWeapons,
       List<ArmorData>? proficienciesArmor,
       List<String>? startEquipment,
+      Map<String, String>? classFeatures,
       @Uint8ListConverter() required Uint8List image}) = _ClassData;
 
   factory ClassData.fromJson(Map<String, dynamic> json) =>

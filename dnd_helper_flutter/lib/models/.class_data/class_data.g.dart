@@ -27,6 +27,9 @@ _$ClassDataImpl _$$ClassDataImplFromJson(Map<String, dynamic> json) =>
       startEquipment: (json['startEquipment'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      classFeatures: (json['classFeatures'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
       image: const Uint8ListConverter().fromJson(json['image'] as List),
     );
 
@@ -42,6 +45,7 @@ Map<String, dynamic> _$$ClassDataImplToJson(_$ClassDataImpl instance) =>
       'proficienciesWeapons': instance.proficienciesWeapons,
       'proficienciesArmor': instance.proficienciesArmor,
       'startEquipment': instance.startEquipment,
+      'classFeatures': instance.classFeatures,
       'image': const Uint8ListConverter().toJson(instance.image),
     };
 

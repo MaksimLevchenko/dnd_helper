@@ -9,8 +9,10 @@ part of 'armor_data.dart';
 Map<String, dynamic> _$ArmorDataToJson(ArmorData instance) => <String, dynamic>{
       'name': instance.name,
       'armorClass': instance.armorClass,
+      'grantsDexterityBonus': instance.grantsDexterityBonus,
+      'maxDexterityBonus': instance.maxDexterityBonus,
       'weight': instance.weight,
-      'price': instance.price,
+      'price': instance.price?.toJson(),
       'stelsDisadvantage': instance.stelsDisadvantage,
       'minStrength': instance.minStrength,
       'armorType': instance.armorType,
@@ -34,8 +36,12 @@ _$ArmorDataImpl _$$ArmorDataImplFromJson(Map<String, dynamic> json) =>
     _$ArmorDataImpl(
       name: json['name'] as String? ?? 'name',
       armorClass: (json['armorClass'] as num?)?.toInt(),
+      grantsDexterityBonus: json['grantsDexterityBonus'] as bool?,
+      maxDexterityBonus: (json['maxDexterityBonus'] as num?)?.toInt(),
       weight: (json['weight'] as num?)?.toInt(),
-      price: (json['price'] as num?)?.toInt(),
+      price: json['price'] == null
+          ? null
+          : CoinsData.fromJson(json['price'] as Map<String, dynamic>),
       stelsDisadvantage: json['stelsDisadvantage'] as bool?,
       minStrength: (json['minStrength'] as num?)?.toInt(),
       armorType: json['armorType'] as String?,
@@ -47,6 +53,8 @@ Map<String, dynamic> _$$ArmorDataImplToJson(_$ArmorDataImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'armorClass': instance.armorClass,
+      'grantsDexterityBonus': instance.grantsDexterityBonus,
+      'maxDexterityBonus': instance.maxDexterityBonus,
       'weight': instance.weight,
       'price': instance.price,
       'stelsDisadvantage': instance.stelsDisadvantage,

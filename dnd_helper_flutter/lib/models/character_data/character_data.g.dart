@@ -13,9 +13,9 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       characterRace: json['characterRace'] == null
           ? null
           : RaceData.fromJson(json['characterRace'] as Map<String, dynamic>),
-      characterData: json['characterData'] == null
+      characterClass: json['characterClass'] == null
           ? null
-          : ClassData.fromJson(json['characterData'] as Map<String, dynamic>),
+          : ClassData.fromJson(json['characterClass'] as Map<String, dynamic>),
       background: json['background'] == null
           ? null
           : BackgroundData.fromJson(json['background'] as Map<String, dynamic>),
@@ -29,25 +29,16 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       speed: (json['speed'] as num?)?.toInt(),
       armorClass: (json['armorClass'] as num?)?.toInt(),
       inspyration: json['inspyration'] as bool?,
-      conditions: (json['conditions'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+      conditions: $enumDecodeNullable(_$ConditionsEnumMap, json['conditions']),
       exhaustion: (json['exhaustion'] as num?)?.toInt(),
-      attributes: (json['attributes'] as Map<String, dynamic>?)?.map(
-        (k, e) =>
-            MapEntry($enumDecode(_$AttributesEnumMap, k), (e as num).toInt()),
-      ),
+      attributes: $enumDecodeNullable(_$AttributesEnumMap, json['attributes']),
       savingThrows: (json['savingThrows'] as List<dynamic>?)
-          ?.map((e) => e as String)
+          ?.map((e) => $enumDecode(_$AttributesEnumMap, e))
           .toList(),
-      skills:
-          (json['skills'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      skills: $enumDecodeNullable(_$SkillsEnumMap, json['skills']),
       proficiencyBonus: (json['proficiencyBonus'] as num?)?.toInt(),
       attacks: (json['attacks'] as List<dynamic>?)
           ?.map((e) => ArmsData.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      preparedSpells: (json['preparedSpells'] as List<dynamic>?)
-          ?.map((e) => e as String)
           .toList(),
       languages: (json['languages'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -56,7 +47,7 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
           (json['tools'] as List<dynamic>?)?.map((e) => e as String).toList(),
       weapons:
           (json['weapons'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      alignment: json['alignment'] as String?,
+      alignment: $enumDecodeNullable(_$AlignmentEnumMap, json['alignment']),
       biography: json['biography'] as String?,
       weight: json['weight'] as String?,
       height: json['height'] as String?,
@@ -70,9 +61,9 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       bonds: json['bonds'] as String?,
       flaws: json['flaws'] as String?,
       notes: json['notes'] as String?,
-      coins: (json['coins'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, (e as num).toInt()),
-      ),
+      coins: json['coins'] == null
+          ? null
+          : CoinsData.fromJson(json['coins'] as Map<String, dynamic>),
       equipment: (json['equipment'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
@@ -86,7 +77,7 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
       'id': instance.id,
       'characterName': instance.characterName,
       'characterRace': instance.characterRace,
-      'characterData': instance.characterData,
+      'characterClass': instance.characterClass,
       'background': instance.background,
       'level': instance.level,
       'experience': instance.experience,
@@ -98,19 +89,18 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
       'speed': instance.speed,
       'armorClass': instance.armorClass,
       'inspyration': instance.inspyration,
-      'conditions': instance.conditions,
+      'conditions': _$ConditionsEnumMap[instance.conditions],
       'exhaustion': instance.exhaustion,
-      'attributes': instance.attributes
-          ?.map((k, e) => MapEntry(_$AttributesEnumMap[k]!, e)),
-      'savingThrows': instance.savingThrows,
-      'skills': instance.skills,
+      'attributes': _$AttributesEnumMap[instance.attributes],
+      'savingThrows':
+          instance.savingThrows?.map((e) => _$AttributesEnumMap[e]!).toList(),
+      'skills': _$SkillsEnumMap[instance.skills],
       'proficiencyBonus': instance.proficiencyBonus,
       'attacks': instance.attacks,
-      'preparedSpells': instance.preparedSpells,
       'languages': instance.languages,
       'tools': instance.tools,
       'weapons': instance.weapons,
-      'alignment': instance.alignment,
+      'alignment': _$AlignmentEnumMap[instance.alignment],
       'biography': instance.biography,
       'weight': instance.weight,
       'height': instance.height,
@@ -140,6 +130,25 @@ const _$DiceEnumMap = {
   Dice.d100: 'd100',
 };
 
+const _$ConditionsEnumMap = {
+  Conditions.blinded: 'blinded',
+  Conditions.charmed: 'charmed',
+  Conditions.deafened: 'deafened',
+  Conditions.frightened: 'frightened',
+  Conditions.grappled: 'grappled',
+  Conditions.incapacitated: 'incapacitated',
+  Conditions.invisible: 'invisible',
+  Conditions.paralyzed: 'paralyzed',
+  Conditions.petrified: 'petrified',
+  Conditions.poisoned: 'poisoned',
+  Conditions.prone: 'prone',
+  Conditions.restrained: 'restrained',
+  Conditions.stunned: 'stunned',
+  Conditions.unconscious: 'unconscious',
+  Conditions.exhaustion: 'exhaustion',
+  Conditions.diseased: 'diseased',
+};
+
 const _$AttributesEnumMap = {
   Attributes.strength: 'strength',
   Attributes.dexterity: 'dexterity',
@@ -147,4 +156,38 @@ const _$AttributesEnumMap = {
   Attributes.intelligence: 'intelligence',
   Attributes.wisdom: 'wisdom',
   Attributes.charisma: 'charisma',
+};
+
+const _$SkillsEnumMap = {
+  Skills.acrobatics: 'acrobatics',
+  Skills.animalHandling: 'animal_handling',
+  Skills.arcana: 'arcana',
+  Skills.athletics: 'athletics',
+  Skills.deception: 'deception',
+  Skills.history: 'history',
+  Skills.insight: 'insight',
+  Skills.intimidation: 'intimidation',
+  Skills.investigation: 'investigation',
+  Skills.medicine: 'medicine',
+  Skills.nature: 'nature',
+  Skills.perception: 'perception',
+  Skills.performance: 'performance',
+  Skills.persuasion: 'persuasion',
+  Skills.religion: 'religion',
+  Skills.sleightOfHand: 'sleight_of_hand',
+  Skills.stealth: 'stealth',
+  Skills.survival: 'survival',
+};
+
+const _$AlignmentEnumMap = {
+  Alignment.lawfulGood: 'lawfulGood',
+  Alignment.neutralGood: 'neutralGood',
+  Alignment.chaoticGood: 'chaoticGood',
+  Alignment.lawfulNeutral: 'lawfulNeutral',
+  Alignment.trueNeutral: 'trueNeutral',
+  Alignment.chaoticNeutral: 'chaoticNeutral',
+  Alignment.lawfulEvil: 'lawfulEvil',
+  Alignment.neutralEvil: 'neutralEvil',
+  Alignment.chaoticEvil: 'chaoticEvil',
+  Alignment.unaligned: 'unaligned',
 };
