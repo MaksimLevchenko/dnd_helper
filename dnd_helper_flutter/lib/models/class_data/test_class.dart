@@ -1,10 +1,10 @@
+import 'dart:developer';
 import 'dart:typed_data';
-import 'package:dnd_helper_flutter/models/.class_data/class_data.dart';
+import 'package:dnd_helper_flutter/models/class_data/class_data.dart';
 import 'package:flutter/material.dart';
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
 
 import 'dart:io';
-import 'package:path_provider/path_provider.dart';
 
 Future<List<int>> readIntegersFromFile(String fileName) async {
   try {
@@ -15,13 +15,13 @@ Future<List<int>> readIntegersFromFile(String fileName) async {
         parts.map((part) => int.parse(part.trim())).toList();
     return numbers;
   } catch (e) {
-    print('Ошибка чтения файла: $e');
+    log('Ошибка чтения файла: $e');
     return [];
   }
 }
 
 class ClassDataPage extends StatelessWidget {
-  const ClassDataPage({Key? key}) : super(key: key);
+  const ClassDataPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +41,14 @@ class ClassDataPage extends StatelessWidget {
           future: readIntegersFromFile('uint_example.txt'),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             } else if (snapshot.hasError) {
-              return Icon(Icons.error);
+              return const Icon(Icons.error);
             } else if (snapshot.hasData) {
               List<int> readedImage = snapshot.data!;
               return _buildImage(Uint8List.fromList(readedImage));
             } else {
-              return Icon(Icons.error);
+              return const Icon(Icons.error);
             }
           },
         ),
@@ -101,7 +101,7 @@ class ClassDataPage extends StatelessWidget {
   // Виджет для отображения списка способностей
   Widget _buildAbilitiesList(List<String> abilities) {
     if (abilities.isEmpty) {
-      return Text('No abilities available');
+      return const Text('No abilities available');
     }
 
     return Column(
@@ -113,7 +113,7 @@ class ClassDataPage extends StatelessWidget {
   // Виджет для отображения списка saving throws
   Widget _buildSavingThrowsList(List<Attributes> savingThrows) {
     if (savingThrows.isEmpty) {
-      return Text('No saving throws available');
+      return const Text('No saving throws available');
     }
 
     return Column(

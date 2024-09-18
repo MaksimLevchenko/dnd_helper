@@ -35,6 +35,10 @@ _$ClassDataImpl _$$ClassDataImplFromJson(Map<String, dynamic> json) =>
         (k, e) => MapEntry(k, e as String),
       ),
       image: const Uint8ListConverter().fromJson(json['image'] as List),
+      abilities: (json['abilities'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      subClass: json['subClass'] as String?,
     );
 
 Map<String, dynamic> _$$ClassDataImplToJson(_$ClassDataImpl instance) =>
@@ -52,6 +56,8 @@ Map<String, dynamic> _$$ClassDataImplToJson(_$ClassDataImpl instance) =>
       'subClassFeatures': instance.subClassFeatures,
       'description': instance.description,
       'image': const Uint8ListConverter().toJson(instance.image),
+      'abilities': instance.abilities,
+      'subClass': instance.subClass,
     };
 
 const _$AttributesEnumMap = {

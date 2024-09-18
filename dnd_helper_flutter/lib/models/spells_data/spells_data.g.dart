@@ -31,8 +31,7 @@ _$SpellsDataImpl _$$SpellsDataImplFromJson(Map<String, dynamic> json) =>
       durationType:
           $enumDecodeNullable(_$DurationTypeEnumMap, json['durationType']),
       duration: (json['duration'] as num?)?.toInt(),
-      action_type:
-          $enumDecodeNullable(_$ActionTypeEnumMap, json['action_type']),
+      actionType: $enumDecodeNullable(_$ActionTypeEnumMap, json['actionType']),
       savingThrow:
           $enumDecodeNullable(_$AttributesEnumMap, json['savingThrow']),
       damage: json['damage'] as String?,
@@ -66,7 +65,7 @@ Map<String, dynamic> _$$SpellsDataImplToJson(_$SpellsDataImpl instance) =>
       'distance': instance.distance,
       'durationType': _$DurationTypeEnumMap[instance.durationType],
       'duration': instance.duration,
-      'action_type': _$ActionTypeEnumMap[instance.action_type],
+      'actionType': _$ActionTypeEnumMap[instance.actionType],
       'savingThrow': _$AttributesEnumMap[instance.savingThrow],
       'damage': instance.damage,
       'damageType': _$DamageTypesEnumMap[instance.damageType],

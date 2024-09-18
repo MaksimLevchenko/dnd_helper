@@ -66,12 +66,8 @@ mixin _$CharacterData {
   List<String>? get equipment => throw _privateConstructorUsedError;
   List<String>? get tresuares => throw _privateConstructorUsedError;
 
-  /// Serializes this CharacterData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of CharacterData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $CharacterDataCopyWith<CharacterData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -142,8 +138,6 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CharacterData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -362,8 +356,6 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
     ) as $Val);
   }
 
-  /// Create a copy of CharacterData
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $RaceDataCopyWith<$Res>? get characterRace {
@@ -376,8 +368,6 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
     });
   }
 
-  /// Create a copy of CharacterData
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ClassDataCopyWith<$Res>? get characterClass {
@@ -390,8 +380,6 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
     });
   }
 
-  /// Create a copy of CharacterData
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $BackgroundDataCopyWith<$Res>? get background {
@@ -404,8 +392,6 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
     });
   }
 
-  /// Create a copy of CharacterData
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CoinsDataCopyWith<$Res>? get coins {
@@ -489,8 +475,6 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
       _$CharacterDataImpl _value, $Res Function(_$CharacterDataImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CharacterData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -992,7 +976,7 @@ class _$CharacterDataImpl implements _CharacterData {
                 .equals(other._tresuares, _tresuares));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -1040,9 +1024,7 @@ class _$CharacterDataImpl implements _CharacterData {
         const DeepCollectionEquality().hash(_tresuares)
       ]);
 
-  /// Create a copy of CharacterData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CharacterDataImplCopyWith<_$CharacterDataImpl> get copyWith =>
@@ -1147,10 +1129,10 @@ abstract class _CharacterData implements CharacterData {
   @override
   int? get proficiencyBonus;
   @override
-  List<ArmsData>? get attacks; //List<String>? preparedSpells,
+  List<ArmsData>? get attacks;
+  @override //List<String>? preparedSpells,
 //List<String>? knownSpells,
 //List<String>? spellSlots,
-  @override
   List<String>? get languages;
   @override
   List<String>? get tools;
@@ -1190,11 +1172,8 @@ abstract class _CharacterData implements CharacterData {
   List<String>? get equipment;
   @override
   List<String>? get tresuares;
-
-  /// Create a copy of CharacterData
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$CharacterDataImplCopyWith<_$CharacterDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
 import 'dart:typed_data';
-import 'package:dnd_helper_flutter/converters/uint8list_converter.dart';
+import 'package:dnd_helper_flutter/domain/converters/uint8list_converter.dart';
 import 'package:dnd_helper_flutter/models/coins_data/coins_data.dart';
 import 'package:dnd_helper_flutter/models/enums/damage_types.dart';
 import 'package:dnd_helper_flutter/models/enums/dice.dart';
@@ -9,7 +9,6 @@ part 'arms_data.freezed.dart';
 part 'arms_data.g.dart';
 
 @freezed
-@JsonSerializable(explicitToJson: true)
 class ArmsData with _$ArmsData {
   const factory ArmsData({
     @Default('name') String name,

@@ -6,32 +6,6 @@ part of 'armor_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Map<String, dynamic> _$ArmorDataToJson(ArmorData instance) => <String, dynamic>{
-      'name': instance.name,
-      'armorClass': instance.armorClass,
-      'grantsDexterityBonus': instance.grantsDexterityBonus,
-      'maxDexterityBonus': instance.maxDexterityBonus,
-      'weight': instance.weight,
-      'price': instance.price?.toJson(),
-      'stelsDisadvantage': instance.stelsDisadvantage,
-      'minStrength': instance.minStrength,
-      'armorType': instance.armorType,
-      'image': _$JsonConverterToJson<List<dynamic>, Uint8List>(
-          instance.image, const Uint8ListConverter().toJson),
-    };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) =>
-    value == null ? null : toJson(value);
-
 _$ArmorDataImpl _$$ArmorDataImplFromJson(Map<String, dynamic> json) =>
     _$ArmorDataImpl(
       name: json['name'] as String? ?? 'name',
@@ -63,3 +37,15 @@ Map<String, dynamic> _$$ArmorDataImplToJson(_$ArmorDataImpl instance) =>
       'image': _$JsonConverterToJson<List<dynamic>, Uint8List>(
           instance.image, const Uint8ListConverter().toJson),
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

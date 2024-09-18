@@ -1,5 +1,5 @@
 import 'dart:typed_data';
-import 'package:dnd_helper_flutter/converters/uint8list_converter.dart';
+import 'package:dnd_helper_flutter/domain/converters/uint8list_converter.dart';
 import 'package:dnd_helper_flutter/models/armor_data/armor_data.dart';
 import 'package:dnd_helper_flutter/models/arms_data/arms_data.dart';
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
@@ -23,7 +23,9 @@ class ClassData with _$ClassData {
       Map<String, String>? classFeatures,
       Map<String, String>? subClassFeatures,
       Map<String, String>? description,
-      @Uint8ListConverter() required Uint8List image}) = _ClassData;
+      @Uint8ListConverter() required Uint8List image,
+      List<String>? abilities,
+      String? subClass}) = _ClassData;
 
   factory ClassData.fromJson(Map<String, dynamic> json) =>
       _$ClassDataFromJson(json);

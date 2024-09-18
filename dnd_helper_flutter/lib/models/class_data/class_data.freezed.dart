@@ -35,13 +35,11 @@ mixin _$ClassData {
   Map<String, String>? get description => throw _privateConstructorUsedError;
   @Uint8ListConverter()
   Uint8List get image => throw _privateConstructorUsedError;
+  List<String>? get abilities => throw _privateConstructorUsedError;
+  String? get subClass => throw _privateConstructorUsedError;
 
-  /// Serializes this ClassData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ClassData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ClassDataCopyWith<ClassData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -63,7 +61,9 @@ abstract class $ClassDataCopyWith<$Res> {
       Map<String, String>? classFeatures,
       Map<String, String>? subClassFeatures,
       Map<String, String>? description,
-      @Uint8ListConverter() Uint8List image});
+      @Uint8ListConverter() Uint8List image,
+      List<String>? abilities,
+      String? subClass});
 }
 
 /// @nodoc
@@ -76,8 +76,6 @@ class _$ClassDataCopyWithImpl<$Res, $Val extends ClassData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ClassData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -93,6 +91,8 @@ class _$ClassDataCopyWithImpl<$Res, $Val extends ClassData>
     Object? subClassFeatures = freezed,
     Object? description = freezed,
     Object? image = null,
+    Object? abilities = freezed,
+    Object? subClass = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -143,6 +143,14 @@ class _$ClassDataCopyWithImpl<$Res, $Val extends ClassData>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as Uint8List,
+      abilities: freezed == abilities
+          ? _value.abilities
+          : abilities // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      subClass: freezed == subClass
+          ? _value.subClass
+          : subClass // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -167,7 +175,9 @@ abstract class _$$ClassDataImplCopyWith<$Res>
       Map<String, String>? classFeatures,
       Map<String, String>? subClassFeatures,
       Map<String, String>? description,
-      @Uint8ListConverter() Uint8List image});
+      @Uint8ListConverter() Uint8List image,
+      List<String>? abilities,
+      String? subClass});
 }
 
 /// @nodoc
@@ -178,8 +188,6 @@ class __$$ClassDataImplCopyWithImpl<$Res>
       _$ClassDataImpl _value, $Res Function(_$ClassDataImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ClassData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -195,6 +203,8 @@ class __$$ClassDataImplCopyWithImpl<$Res>
     Object? subClassFeatures = freezed,
     Object? description = freezed,
     Object? image = null,
+    Object? abilities = freezed,
+    Object? subClass = freezed,
   }) {
     return _then(_$ClassDataImpl(
       id: freezed == id
@@ -245,6 +255,14 @@ class __$$ClassDataImplCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as Uint8List,
+      abilities: freezed == abilities
+          ? _value._abilities
+          : abilities // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      subClass: freezed == subClass
+          ? _value.subClass
+          : subClass // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -264,7 +282,9 @@ class _$ClassDataImpl implements _ClassData {
       final Map<String, String>? classFeatures,
       final Map<String, String>? subClassFeatures,
       final Map<String, String>? description,
-      @Uint8ListConverter() required this.image})
+      @Uint8ListConverter() required this.image,
+      final List<String>? abilities,
+      this.subClass})
       : _subClasses = subClasses,
         _savingThrows = savingThrows,
         _proficienciesWeapons = proficienciesWeapons,
@@ -272,7 +292,8 @@ class _$ClassDataImpl implements _ClassData {
         _startEquipment = startEquipment,
         _classFeatures = classFeatures,
         _subClassFeatures = subClassFeatures,
-        _description = description;
+        _description = description,
+        _abilities = abilities;
 
   factory _$ClassDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$ClassDataImplFromJson(json);
@@ -368,10 +389,22 @@ class _$ClassDataImpl implements _ClassData {
   @override
   @Uint8ListConverter()
   final Uint8List image;
+  final List<String>? _abilities;
+  @override
+  List<String>? get abilities {
+    final value = _abilities;
+    if (value == null) return null;
+    if (_abilities is EqualUnmodifiableListView) return _abilities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final String? subClass;
 
   @override
   String toString() {
-    return 'ClassData(id: $id, name: $name, subClasses: $subClasses, savingThrows: $savingThrows, hitDice: $hitDice, proficienciesWeapons: $proficienciesWeapons, proficienciesArmor: $proficienciesArmor, startEquipment: $startEquipment, classFeatures: $classFeatures, subClassFeatures: $subClassFeatures, description: $description, image: $image)';
+    return 'ClassData(id: $id, name: $name, subClasses: $subClasses, savingThrows: $savingThrows, hitDice: $hitDice, proficienciesWeapons: $proficienciesWeapons, proficienciesArmor: $proficienciesArmor, startEquipment: $startEquipment, classFeatures: $classFeatures, subClassFeatures: $subClassFeatures, description: $description, image: $image, abilities: $abilities, subClass: $subClass)';
   }
 
   @override
@@ -398,10 +431,14 @@ class _$ClassDataImpl implements _ClassData {
                 .equals(other._subClassFeatures, _subClassFeatures) &&
             const DeepCollectionEquality()
                 .equals(other._description, _description) &&
-            const DeepCollectionEquality().equals(other.image, image));
+            const DeepCollectionEquality().equals(other.image, image) &&
+            const DeepCollectionEquality()
+                .equals(other._abilities, _abilities) &&
+            (identical(other.subClass, subClass) ||
+                other.subClass == subClass));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -416,11 +453,11 @@ class _$ClassDataImpl implements _ClassData {
       const DeepCollectionEquality().hash(_classFeatures),
       const DeepCollectionEquality().hash(_subClassFeatures),
       const DeepCollectionEquality().hash(_description),
-      const DeepCollectionEquality().hash(image));
+      const DeepCollectionEquality().hash(image),
+      const DeepCollectionEquality().hash(_abilities),
+      subClass);
 
-  /// Create a copy of ClassData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ClassDataImplCopyWith<_$ClassDataImpl> get copyWith =>
@@ -447,7 +484,9 @@ abstract class _ClassData implements ClassData {
       final Map<String, String>? classFeatures,
       final Map<String, String>? subClassFeatures,
       final Map<String, String>? description,
-      @Uint8ListConverter() required final Uint8List image}) = _$ClassDataImpl;
+      @Uint8ListConverter() required final Uint8List image,
+      final List<String>? abilities,
+      final String? subClass}) = _$ClassDataImpl;
 
   factory _ClassData.fromJson(Map<String, dynamic> json) =
       _$ClassDataImpl.fromJson;
@@ -477,11 +516,12 @@ abstract class _ClassData implements ClassData {
   @override
   @Uint8ListConverter()
   Uint8List get image;
-
-  /// Create a copy of ClassData
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  List<String>? get abilities;
+  @override
+  String? get subClass;
+  @override
+  @JsonKey(ignore: true)
   _$$ClassDataImplCopyWith<_$ClassDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

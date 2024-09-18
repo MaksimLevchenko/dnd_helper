@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'dart:typed_data';
 
@@ -7,7 +8,7 @@ Future<Uint8List?> readImageFromFile(String filePath) async {
     final imageData = await file.readAsBytes();
     return imageData;
   } catch (e) {
-    print('Error reading file: $e');
+    log('Error reading file: $e');
     return null;
   }
 }

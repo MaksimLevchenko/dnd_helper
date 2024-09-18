@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 // import 'package:dnd_character_creator/models/enums/skills.dart';
-import 'package:dnd_helper_flutter/converters/uint8list_converter.dart';
+import 'package:dnd_helper_flutter/domain/converters/uint8list_converter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'race_data.freezed.dart';

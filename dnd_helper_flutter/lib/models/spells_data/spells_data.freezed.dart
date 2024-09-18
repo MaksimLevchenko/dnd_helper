@@ -38,7 +38,7 @@ mixin _$SpellsData {
   int? get distance => throw _privateConstructorUsedError;
   DurationType? get durationType => throw _privateConstructorUsedError;
   int? get duration => throw _privateConstructorUsedError;
-  ActionType? get action_type => throw _privateConstructorUsedError;
+  ActionType? get actionType => throw _privateConstructorUsedError;
   Attributes? get savingThrow => throw _privateConstructorUsedError;
   String? get damage => throw _privateConstructorUsedError;
   DamageTypes? get damageType => throw _privateConstructorUsedError;
@@ -47,12 +47,8 @@ mixin _$SpellsData {
   String? get subClasses => throw _privateConstructorUsedError;
   String? get source => throw _privateConstructorUsedError;
 
-  /// Serializes this SpellsData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of SpellsData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $SpellsDataCopyWith<SpellsData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -82,7 +78,7 @@ abstract class $SpellsDataCopyWith<$Res> {
       int? distance,
       DurationType? durationType,
       int? duration,
-      ActionType? action_type,
+      ActionType? actionType,
       Attributes? savingThrow,
       String? damage,
       DamageTypes? damageType,
@@ -104,8 +100,6 @@ class _$SpellsDataCopyWithImpl<$Res, $Val extends SpellsData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SpellsData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -127,7 +121,7 @@ class _$SpellsDataCopyWithImpl<$Res, $Val extends SpellsData>
     Object? distance = freezed,
     Object? durationType = freezed,
     Object? duration = freezed,
-    Object? action_type = freezed,
+    Object? actionType = freezed,
     Object? savingThrow = freezed,
     Object? damage = freezed,
     Object? damageType = freezed,
@@ -209,9 +203,9 @@ class _$SpellsDataCopyWithImpl<$Res, $Val extends SpellsData>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as int?,
-      action_type: freezed == action_type
-          ? _value.action_type
-          : action_type // ignore: cast_nullable_to_non_nullable
+      actionType: freezed == actionType
+          ? _value.actionType
+          : actionType // ignore: cast_nullable_to_non_nullable
               as ActionType?,
       savingThrow: freezed == savingThrow
           ? _value.savingThrow
@@ -244,8 +238,6 @@ class _$SpellsDataCopyWithImpl<$Res, $Val extends SpellsData>
     ) as $Val);
   }
 
-  /// Create a copy of SpellsData
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ClassDataCopyWith<$Res>? get classes {
@@ -286,7 +278,7 @@ abstract class _$$SpellsDataImplCopyWith<$Res>
       int? distance,
       DurationType? durationType,
       int? duration,
-      ActionType? action_type,
+      ActionType? actionType,
       Attributes? savingThrow,
       String? damage,
       DamageTypes? damageType,
@@ -307,8 +299,6 @@ class __$$SpellsDataImplCopyWithImpl<$Res>
       _$SpellsDataImpl _value, $Res Function(_$SpellsDataImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SpellsData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -330,7 +320,7 @@ class __$$SpellsDataImplCopyWithImpl<$Res>
     Object? distance = freezed,
     Object? durationType = freezed,
     Object? duration = freezed,
-    Object? action_type = freezed,
+    Object? actionType = freezed,
     Object? savingThrow = freezed,
     Object? damage = freezed,
     Object? damageType = freezed,
@@ -412,9 +402,9 @@ class __$$SpellsDataImplCopyWithImpl<$Res>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as int?,
-      action_type: freezed == action_type
-          ? _value.action_type
-          : action_type // ignore: cast_nullable_to_non_nullable
+      actionType: freezed == actionType
+          ? _value.actionType
+          : actionType // ignore: cast_nullable_to_non_nullable
               as ActionType?,
       savingThrow: freezed == savingThrow
           ? _value.savingThrow
@@ -470,7 +460,7 @@ class _$SpellsDataImpl implements _SpellsData {
       this.distance,
       this.durationType,
       this.duration,
-      this.action_type,
+      this.actionType,
       this.savingThrow,
       this.damage,
       this.damageType,
@@ -520,7 +510,7 @@ class _$SpellsDataImpl implements _SpellsData {
   @override
   final int? duration;
   @override
-  final ActionType? action_type;
+  final ActionType? actionType;
   @override
   final Attributes? savingThrow;
   @override
@@ -538,7 +528,7 @@ class _$SpellsDataImpl implements _SpellsData {
 
   @override
   String toString() {
-    return 'SpellsData(name: $name, level: $level, school: $school, isVerbal: $isVerbal, isSomatic: $isSomatic, isMaterial: $isMaterial, materialComponents: $materialComponents, castingTime: $castingTime, castingResource: $castingResource, castingResourceCost: $castingResourceCost, castingConditions: $castingConditions, targetAndAreaType: $targetAndAreaType, areaSizeUnits: $areaSizeUnits, area: $area, distanceType: $distanceType, distance: $distance, durationType: $durationType, duration: $duration, action_type: $action_type, savingThrow: $savingThrow, damage: $damage, damageType: $damageType, description: $description, classes: $classes, subClasses: $subClasses, source: $source)';
+    return 'SpellsData(name: $name, level: $level, school: $school, isVerbal: $isVerbal, isSomatic: $isSomatic, isMaterial: $isMaterial, materialComponents: $materialComponents, castingTime: $castingTime, castingResource: $castingResource, castingResourceCost: $castingResourceCost, castingConditions: $castingConditions, targetAndAreaType: $targetAndAreaType, areaSizeUnits: $areaSizeUnits, area: $area, distanceType: $distanceType, distance: $distance, durationType: $durationType, duration: $duration, actionType: $actionType, savingThrow: $savingThrow, damage: $damage, damageType: $damageType, description: $description, classes: $classes, subClasses: $subClasses, source: $source)';
   }
 
   @override
@@ -578,8 +568,8 @@ class _$SpellsDataImpl implements _SpellsData {
                 other.durationType == durationType) &&
             (identical(other.duration, duration) ||
                 other.duration == duration) &&
-            (identical(other.action_type, action_type) ||
-                other.action_type == action_type) &&
+            (identical(other.actionType, actionType) ||
+                other.actionType == actionType) &&
             (identical(other.savingThrow, savingThrow) ||
                 other.savingThrow == savingThrow) &&
             (identical(other.damage, damage) || other.damage == damage) &&
@@ -593,7 +583,7 @@ class _$SpellsDataImpl implements _SpellsData {
             (identical(other.source, source) || other.source == source));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -615,7 +605,7 @@ class _$SpellsDataImpl implements _SpellsData {
         distance,
         durationType,
         duration,
-        action_type,
+        actionType,
         savingThrow,
         damage,
         damageType,
@@ -625,9 +615,7 @@ class _$SpellsDataImpl implements _SpellsData {
         source
       ]);
 
-  /// Create a copy of SpellsData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SpellsDataImplCopyWith<_$SpellsDataImpl> get copyWith =>
@@ -661,7 +649,7 @@ abstract class _SpellsData implements SpellsData {
       final int? distance,
       final DurationType? durationType,
       final int? duration,
-      final ActionType? action_type,
+      final ActionType? actionType,
       final Attributes? savingThrow,
       final String? damage,
       final DamageTypes? damageType,
@@ -710,7 +698,7 @@ abstract class _SpellsData implements SpellsData {
   @override
   int? get duration;
   @override
-  ActionType? get action_type;
+  ActionType? get actionType;
   @override
   Attributes? get savingThrow;
   @override
@@ -725,11 +713,8 @@ abstract class _SpellsData implements SpellsData {
   String? get subClasses;
   @override
   String? get source;
-
-  /// Create a copy of SpellsData
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SpellsDataImplCopyWith<_$SpellsDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

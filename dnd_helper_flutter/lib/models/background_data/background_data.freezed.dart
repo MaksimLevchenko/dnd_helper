@@ -23,12 +23,8 @@ mixin _$BackgroundData {
   int? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
 
-  /// Serializes this BackgroundData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of BackgroundData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $BackgroundDataCopyWith<BackgroundData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,8 +48,6 @@ class _$BackgroundDataCopyWithImpl<$Res, $Val extends BackgroundData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of BackgroundData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,8 +86,6 @@ class __$$BackgroundDataImplCopyWithImpl<$Res>
       _$BackgroundDataImpl _value, $Res Function(_$BackgroundDataImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of BackgroundData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,13 +132,11 @@ class _$BackgroundDataImpl implements _BackgroundData {
             (identical(other.name, name) || other.name == name));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name);
 
-  /// Create a copy of BackgroundData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$BackgroundDataImplCopyWith<_$BackgroundDataImpl> get copyWith =>
@@ -172,11 +162,8 @@ abstract class _BackgroundData implements BackgroundData {
   int? get id;
   @override
   String? get name;
-
-  /// Create a copy of BackgroundData
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$BackgroundDataImplCopyWith<_$BackgroundDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
