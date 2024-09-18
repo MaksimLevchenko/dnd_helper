@@ -36,9 +36,9 @@ enum Conditions {
 }
 
 /// Converts to and from [Conditions] and [String]>.
-class DamageTypesConverter implements JsonConverter<Conditions?, String?> {
+class ConditionsConverter implements JsonConverter<Conditions?, String?> {
   /// Create a new instance of [Conditions].
-  const DamageTypesConverter();
+  const ConditionsConverter();
 
   @override
   Conditions? fromJson(String? json) {

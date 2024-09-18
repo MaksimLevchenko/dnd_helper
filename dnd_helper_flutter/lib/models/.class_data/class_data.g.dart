@@ -10,10 +10,7 @@ _$ClassDataImpl _$$ClassDataImplFromJson(Map<String, dynamic> json) =>
     _$ClassDataImpl(
       id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
-      abilities: (json['abilities'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      subClass: json['subClass'] as String?,
+      subClasses: json['subClasses'] as List<dynamic>?,
       savingThrows: (json['savingThrows'] as List<dynamic>?)
           ?.map((e) => $enumDecode(_$AttributesEnumMap, e))
           .toList(),
@@ -30,6 +27,13 @@ _$ClassDataImpl _$$ClassDataImplFromJson(Map<String, dynamic> json) =>
       classFeatures: (json['classFeatures'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
+      subClassFeatures:
+          (json['subClassFeatures'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
+      description: (json['description'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
       image: const Uint8ListConverter().fromJson(json['image'] as List),
     );
 
@@ -37,8 +41,7 @@ Map<String, dynamic> _$$ClassDataImplToJson(_$ClassDataImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'abilities': instance.abilities,
-      'subClass': instance.subClass,
+      'subClasses': instance.subClasses,
       'savingThrows':
           instance.savingThrows?.map((e) => _$AttributesEnumMap[e]!).toList(),
       'hitDice': _$DiceEnumMap[instance.hitDice],
@@ -46,6 +49,8 @@ Map<String, dynamic> _$$ClassDataImplToJson(_$ClassDataImpl instance) =>
       'proficienciesArmor': instance.proficienciesArmor,
       'startEquipment': instance.startEquipment,
       'classFeatures': instance.classFeatures,
+      'subClassFeatures': instance.subClassFeatures,
+      'description': instance.description,
       'image': const Uint8ListConverter().toJson(instance.image),
     };
 

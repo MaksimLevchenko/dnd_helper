@@ -14,14 +14,15 @@ class ClassData with _$ClassData {
   const factory ClassData(
       {int? id,
       String? name,
-      List<String>? abilities,
-      String? subClass,
+      List? subClasses,
       List<Attributes>? savingThrows,
       Dice? hitDice,
       List<ArmsData>? proficienciesWeapons,
       List<ArmorData>? proficienciesArmor,
       List<String>? startEquipment,
       Map<String, String>? classFeatures,
+      Map<String, String>? subClassFeatures,
+      Map<String, String>? description,
       @Uint8ListConverter() required Uint8List image}) = _ClassData;
 
   factory ClassData.fromJson(Map<String, dynamic> json) =>

@@ -22,8 +22,7 @@ ClassData _$ClassDataFromJson(Map<String, dynamic> json) {
 mixin _$ClassData {
   int? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  List<String>? get abilities => throw _privateConstructorUsedError;
-  String? get subClass => throw _privateConstructorUsedError;
+  List<dynamic>? get subClasses => throw _privateConstructorUsedError;
   List<Attributes>? get savingThrows => throw _privateConstructorUsedError;
   Dice? get hitDice => throw _privateConstructorUsedError;
   List<ArmsData>? get proficienciesWeapons =>
@@ -31,6 +30,9 @@ mixin _$ClassData {
   List<ArmorData>? get proficienciesArmor => throw _privateConstructorUsedError;
   List<String>? get startEquipment => throw _privateConstructorUsedError;
   Map<String, String>? get classFeatures => throw _privateConstructorUsedError;
+  Map<String, String>? get subClassFeatures =>
+      throw _privateConstructorUsedError;
+  Map<String, String>? get description => throw _privateConstructorUsedError;
   @Uint8ListConverter()
   Uint8List get image => throw _privateConstructorUsedError;
 
@@ -52,14 +54,15 @@ abstract class $ClassDataCopyWith<$Res> {
   $Res call(
       {int? id,
       String? name,
-      List<String>? abilities,
-      String? subClass,
+      List<dynamic>? subClasses,
       List<Attributes>? savingThrows,
       Dice? hitDice,
       List<ArmsData>? proficienciesWeapons,
       List<ArmorData>? proficienciesArmor,
       List<String>? startEquipment,
       Map<String, String>? classFeatures,
+      Map<String, String>? subClassFeatures,
+      Map<String, String>? description,
       @Uint8ListConverter() Uint8List image});
 }
 
@@ -80,14 +83,15 @@ class _$ClassDataCopyWithImpl<$Res, $Val extends ClassData>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? abilities = freezed,
-    Object? subClass = freezed,
+    Object? subClasses = freezed,
     Object? savingThrows = freezed,
     Object? hitDice = freezed,
     Object? proficienciesWeapons = freezed,
     Object? proficienciesArmor = freezed,
     Object? startEquipment = freezed,
     Object? classFeatures = freezed,
+    Object? subClassFeatures = freezed,
+    Object? description = freezed,
     Object? image = null,
   }) {
     return _then(_value.copyWith(
@@ -99,14 +103,10 @@ class _$ClassDataCopyWithImpl<$Res, $Val extends ClassData>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      abilities: freezed == abilities
-          ? _value.abilities
-          : abilities // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      subClass: freezed == subClass
-          ? _value.subClass
-          : subClass // ignore: cast_nullable_to_non_nullable
-              as String?,
+      subClasses: freezed == subClasses
+          ? _value.subClasses
+          : subClasses // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
       savingThrows: freezed == savingThrows
           ? _value.savingThrows
           : savingThrows // ignore: cast_nullable_to_non_nullable
@@ -131,6 +131,14 @@ class _$ClassDataCopyWithImpl<$Res, $Val extends ClassData>
           ? _value.classFeatures
           : classFeatures // ignore: cast_nullable_to_non_nullable
               as Map<String, String>?,
+      subClassFeatures: freezed == subClassFeatures
+          ? _value.subClassFeatures
+          : subClassFeatures // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -150,14 +158,15 @@ abstract class _$$ClassDataImplCopyWith<$Res>
   $Res call(
       {int? id,
       String? name,
-      List<String>? abilities,
-      String? subClass,
+      List<dynamic>? subClasses,
       List<Attributes>? savingThrows,
       Dice? hitDice,
       List<ArmsData>? proficienciesWeapons,
       List<ArmorData>? proficienciesArmor,
       List<String>? startEquipment,
       Map<String, String>? classFeatures,
+      Map<String, String>? subClassFeatures,
+      Map<String, String>? description,
       @Uint8ListConverter() Uint8List image});
 }
 
@@ -176,14 +185,15 @@ class __$$ClassDataImplCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? abilities = freezed,
-    Object? subClass = freezed,
+    Object? subClasses = freezed,
     Object? savingThrows = freezed,
     Object? hitDice = freezed,
     Object? proficienciesWeapons = freezed,
     Object? proficienciesArmor = freezed,
     Object? startEquipment = freezed,
     Object? classFeatures = freezed,
+    Object? subClassFeatures = freezed,
+    Object? description = freezed,
     Object? image = null,
   }) {
     return _then(_$ClassDataImpl(
@@ -195,14 +205,10 @@ class __$$ClassDataImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      abilities: freezed == abilities
-          ? _value._abilities
-          : abilities // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      subClass: freezed == subClass
-          ? _value.subClass
-          : subClass // ignore: cast_nullable_to_non_nullable
-              as String?,
+      subClasses: freezed == subClasses
+          ? _value._subClasses
+          : subClasses // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
       savingThrows: freezed == savingThrows
           ? _value._savingThrows
           : savingThrows // ignore: cast_nullable_to_non_nullable
@@ -227,6 +233,14 @@ class __$$ClassDataImplCopyWithImpl<$Res>
           ? _value._classFeatures
           : classFeatures // ignore: cast_nullable_to_non_nullable
               as Map<String, String>?,
+      subClassFeatures: freezed == subClassFeatures
+          ? _value._subClassFeatures
+          : subClassFeatures // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
+      description: freezed == description
+          ? _value._description
+          : description // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -241,21 +255,24 @@ class _$ClassDataImpl implements _ClassData {
   const _$ClassDataImpl(
       {this.id,
       this.name,
-      final List<String>? abilities,
-      this.subClass,
+      final List<dynamic>? subClasses,
       final List<Attributes>? savingThrows,
       this.hitDice,
       final List<ArmsData>? proficienciesWeapons,
       final List<ArmorData>? proficienciesArmor,
       final List<String>? startEquipment,
       final Map<String, String>? classFeatures,
+      final Map<String, String>? subClassFeatures,
+      final Map<String, String>? description,
       @Uint8ListConverter() required this.image})
-      : _abilities = abilities,
+      : _subClasses = subClasses,
         _savingThrows = savingThrows,
         _proficienciesWeapons = proficienciesWeapons,
         _proficienciesArmor = proficienciesArmor,
         _startEquipment = startEquipment,
-        _classFeatures = classFeatures;
+        _classFeatures = classFeatures,
+        _subClassFeatures = subClassFeatures,
+        _description = description;
 
   factory _$ClassDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$ClassDataImplFromJson(json);
@@ -264,18 +281,16 @@ class _$ClassDataImpl implements _ClassData {
   final int? id;
   @override
   final String? name;
-  final List<String>? _abilities;
+  final List<dynamic>? _subClasses;
   @override
-  List<String>? get abilities {
-    final value = _abilities;
+  List<dynamic>? get subClasses {
+    final value = _subClasses;
     if (value == null) return null;
-    if (_abilities is EqualUnmodifiableListView) return _abilities;
+    if (_subClasses is EqualUnmodifiableListView) return _subClasses;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  @override
-  final String? subClass;
   final List<Attributes>? _savingThrows;
   @override
   List<Attributes>? get savingThrows {
@@ -330,13 +345,33 @@ class _$ClassDataImpl implements _ClassData {
     return EqualUnmodifiableMapView(value);
   }
 
+  final Map<String, String>? _subClassFeatures;
+  @override
+  Map<String, String>? get subClassFeatures {
+    final value = _subClassFeatures;
+    if (value == null) return null;
+    if (_subClassFeatures is EqualUnmodifiableMapView) return _subClassFeatures;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final Map<String, String>? _description;
+  @override
+  Map<String, String>? get description {
+    final value = _description;
+    if (value == null) return null;
+    if (_description is EqualUnmodifiableMapView) return _description;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   @Uint8ListConverter()
   final Uint8List image;
 
   @override
   String toString() {
-    return 'ClassData(id: $id, name: $name, abilities: $abilities, subClass: $subClass, savingThrows: $savingThrows, hitDice: $hitDice, proficienciesWeapons: $proficienciesWeapons, proficienciesArmor: $proficienciesArmor, startEquipment: $startEquipment, classFeatures: $classFeatures, image: $image)';
+    return 'ClassData(id: $id, name: $name, subClasses: $subClasses, savingThrows: $savingThrows, hitDice: $hitDice, proficienciesWeapons: $proficienciesWeapons, proficienciesArmor: $proficienciesArmor, startEquipment: $startEquipment, classFeatures: $classFeatures, subClassFeatures: $subClassFeatures, description: $description, image: $image)';
   }
 
   @override
@@ -347,9 +382,7 @@ class _$ClassDataImpl implements _ClassData {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality()
-                .equals(other._abilities, _abilities) &&
-            (identical(other.subClass, subClass) ||
-                other.subClass == subClass) &&
+                .equals(other._subClasses, _subClasses) &&
             const DeepCollectionEquality()
                 .equals(other._savingThrows, _savingThrows) &&
             (identical(other.hitDice, hitDice) || other.hitDice == hitDice) &&
@@ -361,6 +394,10 @@ class _$ClassDataImpl implements _ClassData {
                 .equals(other._startEquipment, _startEquipment) &&
             const DeepCollectionEquality()
                 .equals(other._classFeatures, _classFeatures) &&
+            const DeepCollectionEquality()
+                .equals(other._subClassFeatures, _subClassFeatures) &&
+            const DeepCollectionEquality()
+                .equals(other._description, _description) &&
             const DeepCollectionEquality().equals(other.image, image));
   }
 
@@ -370,14 +407,15 @@ class _$ClassDataImpl implements _ClassData {
       runtimeType,
       id,
       name,
-      const DeepCollectionEquality().hash(_abilities),
-      subClass,
+      const DeepCollectionEquality().hash(_subClasses),
       const DeepCollectionEquality().hash(_savingThrows),
       hitDice,
       const DeepCollectionEquality().hash(_proficienciesWeapons),
       const DeepCollectionEquality().hash(_proficienciesArmor),
       const DeepCollectionEquality().hash(_startEquipment),
       const DeepCollectionEquality().hash(_classFeatures),
+      const DeepCollectionEquality().hash(_subClassFeatures),
+      const DeepCollectionEquality().hash(_description),
       const DeepCollectionEquality().hash(image));
 
   /// Create a copy of ClassData
@@ -400,14 +438,15 @@ abstract class _ClassData implements ClassData {
   const factory _ClassData(
       {final int? id,
       final String? name,
-      final List<String>? abilities,
-      final String? subClass,
+      final List<dynamic>? subClasses,
       final List<Attributes>? savingThrows,
       final Dice? hitDice,
       final List<ArmsData>? proficienciesWeapons,
       final List<ArmorData>? proficienciesArmor,
       final List<String>? startEquipment,
       final Map<String, String>? classFeatures,
+      final Map<String, String>? subClassFeatures,
+      final Map<String, String>? description,
       @Uint8ListConverter() required final Uint8List image}) = _$ClassDataImpl;
 
   factory _ClassData.fromJson(Map<String, dynamic> json) =
@@ -418,9 +457,7 @@ abstract class _ClassData implements ClassData {
   @override
   String? get name;
   @override
-  List<String>? get abilities;
-  @override
-  String? get subClass;
+  List<dynamic>? get subClasses;
   @override
   List<Attributes>? get savingThrows;
   @override
@@ -433,6 +470,10 @@ abstract class _ClassData implements ClassData {
   List<String>? get startEquipment;
   @override
   Map<String, String>? get classFeatures;
+  @override
+  Map<String, String>? get subClassFeatures;
+  @override
+  Map<String, String>? get description;
   @override
   @Uint8ListConverter()
   Uint8List get image;

@@ -1,7 +1,7 @@
 import 'package:dnd_helper_flutter/models/armor_data/armor_data.dart';
 import 'package:dnd_helper_flutter/models/coins_data/coins_data.dart';
 
-class ArmorDataRepository {
+class ArmorRepository {
   // Пример списка всех объектов ArmsData
   static final List<ArmorData> _allArmor = [
     const ArmorData(

@@ -24,9 +24,9 @@ enum Alignment {
 }
 
 /// Converts to and from [Alignment] and [String]>.
-class AttributesConverter implements JsonConverter<Alignment?, String?> {
+class AlignmentConverter implements JsonConverter<Alignment?, String?> {
   /// Create a new instance of [Alignment].
-  const AttributesConverter();
+  const AlignmentConverter();
 
   @override
   Alignment? fromJson(String? json) {
