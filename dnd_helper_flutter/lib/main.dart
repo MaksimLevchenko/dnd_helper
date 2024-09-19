@@ -23,7 +23,6 @@ void main() {
                 PointerDeviceKind.stylus,
                 PointerDeviceKind.unknown,
               },
-              // home: Scaffold(body: ClassDataPage()),
             ),
             routerDelegate: router.routerDelegate,
             routeInformationProvider: router.routeInformationProvider,

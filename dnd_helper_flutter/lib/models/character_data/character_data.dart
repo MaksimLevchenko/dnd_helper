@@ -2,12 +2,13 @@ import 'package:dnd_helper_flutter/models/class_data/class_data.dart';
 import 'package:dnd_helper_flutter/models/arms_data/arms_data.dart';
 import 'package:dnd_helper_flutter/models/background_data/background_data.dart';
 import 'package:dnd_helper_flutter/models/coins_data/coins_data.dart';
+import 'package:dnd_helper_flutter/models/enums/ideology.dart';
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
 import 'package:dnd_helper_flutter/models/enums/conditions.dart';
 import 'package:dnd_helper_flutter/models/enums/dice.dart';
-import 'package:dnd_helper_flutter/models/enums/alignment.dart';
 import 'package:dnd_helper_flutter/models/enums/skills.dart';
 import 'package:dnd_helper_flutter/models/race_data/race_data.dart';
+import 'package:dnd_helper_flutter/models/spells_data/spells_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'character_data.freezed.dart';
@@ -38,13 +39,13 @@ class CharacterData with _$CharacterData {
     Skills? skills,
     int? proficiencyBonus,
     List<ArmsData>? attacks,
-    //List<String>? preparedSpells,
-    //List<String>? knownSpells,
-    //List<String>? spellSlots,
+    List<SpellsData>? preparedSpells,
+    List<SpellsData>? knownSpells,
+    Map<int, int>? spellSlots,
     List<String>? languages,
     List<String>? tools,
     List<String>? weapons,
-    Alignment? alignment,
+    Ideology? ideology,
     String? biography,
     String? weight,
     String? height,

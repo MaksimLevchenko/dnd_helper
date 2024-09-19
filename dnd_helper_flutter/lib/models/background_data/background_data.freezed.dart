@@ -22,9 +22,17 @@ BackgroundData _$BackgroundDataFromJson(Map<String, dynamic> json) {
 mixin _$BackgroundData {
   int? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  String? get skillProficiencies => throw _privateConstructorUsedError;
+  String? get toolProficiencies => throw _privateConstructorUsedError;
+  String? get equipment => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
 
+  /// Serializes this BackgroundData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BackgroundData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BackgroundDataCopyWith<BackgroundData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -35,7 +43,13 @@ abstract class $BackgroundDataCopyWith<$Res> {
           BackgroundData value, $Res Function(BackgroundData) then) =
       _$BackgroundDataCopyWithImpl<$Res, BackgroundData>;
   @useResult
-  $Res call({int? id, String? name});
+  $Res call(
+      {int? id,
+      String? name,
+      String? skillProficiencies,
+      String? toolProficiencies,
+      String? equipment,
+      String? description});
 }
 
 /// @nodoc
@@ -48,11 +62,17 @@ class _$BackgroundDataCopyWithImpl<$Res, $Val extends BackgroundData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BackgroundData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? skillProficiencies = freezed,
+    Object? toolProficiencies = freezed,
+    Object? equipment = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -62,6 +82,22 @@ class _$BackgroundDataCopyWithImpl<$Res, $Val extends BackgroundData>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      skillProficiencies: freezed == skillProficiencies
+          ? _value.skillProficiencies
+          : skillProficiencies // ignore: cast_nullable_to_non_nullable
+              as String?,
+      toolProficiencies: freezed == toolProficiencies
+          ? _value.toolProficiencies
+          : toolProficiencies // ignore: cast_nullable_to_non_nullable
+              as String?,
+      equipment: freezed == equipment
+          ? _value.equipment
+          : equipment // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -75,7 +111,13 @@ abstract class _$$BackgroundDataImplCopyWith<$Res>
       __$$BackgroundDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String? name});
+  $Res call(
+      {int? id,
+      String? name,
+      String? skillProficiencies,
+      String? toolProficiencies,
+      String? equipment,
+      String? description});
 }
 
 /// @nodoc
@@ -86,11 +128,17 @@ class __$$BackgroundDataImplCopyWithImpl<$Res>
       _$BackgroundDataImpl _value, $Res Function(_$BackgroundDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BackgroundData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? skillProficiencies = freezed,
+    Object? toolProficiencies = freezed,
+    Object? equipment = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$BackgroundDataImpl(
       id: freezed == id
@@ -101,6 +149,22 @@ class __$$BackgroundDataImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      skillProficiencies: freezed == skillProficiencies
+          ? _value.skillProficiencies
+          : skillProficiencies // ignore: cast_nullable_to_non_nullable
+              as String?,
+      toolProficiencies: freezed == toolProficiencies
+          ? _value.toolProficiencies
+          : toolProficiencies // ignore: cast_nullable_to_non_nullable
+              as String?,
+      equipment: freezed == equipment
+          ? _value.equipment
+          : equipment // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -108,7 +172,13 @@ class __$$BackgroundDataImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$BackgroundDataImpl implements _BackgroundData {
-  const _$BackgroundDataImpl({this.id, this.name});
+  const _$BackgroundDataImpl(
+      {this.id,
+      this.name,
+      this.skillProficiencies,
+      this.toolProficiencies,
+      this.equipment,
+      this.description});
 
   factory _$BackgroundDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$BackgroundDataImplFromJson(json);
@@ -117,10 +187,18 @@ class _$BackgroundDataImpl implements _BackgroundData {
   final int? id;
   @override
   final String? name;
+  @override
+  final String? skillProficiencies;
+  @override
+  final String? toolProficiencies;
+  @override
+  final String? equipment;
+  @override
+  final String? description;
 
   @override
   String toString() {
-    return 'BackgroundData(id: $id, name: $name)';
+    return 'BackgroundData(id: $id, name: $name, skillProficiencies: $skillProficiencies, toolProficiencies: $toolProficiencies, equipment: $equipment, description: $description)';
   }
 
   @override
@@ -129,14 +207,25 @@ class _$BackgroundDataImpl implements _BackgroundData {
         (other.runtimeType == runtimeType &&
             other is _$BackgroundDataImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.skillProficiencies, skillProficiencies) ||
+                other.skillProficiencies == skillProficiencies) &&
+            (identical(other.toolProficiencies, toolProficiencies) ||
+                other.toolProficiencies == toolProficiencies) &&
+            (identical(other.equipment, equipment) ||
+                other.equipment == equipment) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode => Object.hash(runtimeType, id, name, skillProficiencies,
+      toolProficiencies, equipment, description);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BackgroundData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$BackgroundDataImplCopyWith<_$BackgroundDataImpl> get copyWith =>
@@ -152,8 +241,13 @@ class _$BackgroundDataImpl implements _BackgroundData {
 }
 
 abstract class _BackgroundData implements BackgroundData {
-  const factory _BackgroundData({final int? id, final String? name}) =
-      _$BackgroundDataImpl;
+  const factory _BackgroundData(
+      {final int? id,
+      final String? name,
+      final String? skillProficiencies,
+      final String? toolProficiencies,
+      final String? equipment,
+      final String? description}) = _$BackgroundDataImpl;
 
   factory _BackgroundData.fromJson(Map<String, dynamic> json) =
       _$BackgroundDataImpl.fromJson;
@@ -163,7 +257,18 @@ abstract class _BackgroundData implements BackgroundData {
   @override
   String? get name;
   @override
-  @JsonKey(ignore: true)
+  String? get skillProficiencies;
+  @override
+  String? get toolProficiencies;
+  @override
+  String? get equipment;
+  @override
+  String? get description;
+
+  /// Create a copy of BackgroundData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BackgroundDataImplCopyWith<_$BackgroundDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

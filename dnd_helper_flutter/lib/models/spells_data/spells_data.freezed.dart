@@ -47,8 +47,12 @@ mixin _$SpellsData {
   String? get subClasses => throw _privateConstructorUsedError;
   String? get source => throw _privateConstructorUsedError;
 
+  /// Serializes this SpellsData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SpellsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SpellsDataCopyWith<SpellsData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -100,6 +104,8 @@ class _$SpellsDataCopyWithImpl<$Res, $Val extends SpellsData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SpellsData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -238,6 +244,8 @@ class _$SpellsDataCopyWithImpl<$Res, $Val extends SpellsData>
     ) as $Val);
   }
 
+  /// Create a copy of SpellsData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ClassDataCopyWith<$Res>? get classes {
@@ -299,6 +307,8 @@ class __$$SpellsDataImplCopyWithImpl<$Res>
       _$SpellsDataImpl _value, $Res Function(_$SpellsDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SpellsData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -583,7 +593,7 @@ class _$SpellsDataImpl implements _SpellsData {
             (identical(other.source, source) || other.source == source));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -615,7 +625,9 @@ class _$SpellsDataImpl implements _SpellsData {
         source
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SpellsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SpellsDataImplCopyWith<_$SpellsDataImpl> get copyWith =>
@@ -713,8 +725,11 @@ abstract class _SpellsData implements SpellsData {
   String? get subClasses;
   @override
   String? get source;
+
+  /// Create a copy of SpellsData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SpellsDataImplCopyWith<_$SpellsDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

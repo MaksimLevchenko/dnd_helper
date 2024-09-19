@@ -4,7 +4,18 @@ import 'package:dnd_helper_flutter/models/enums/damage_types.dart';
 import 'package:dnd_helper_flutter/models/enums/dice.dart';
 
 class ArmsDataRepository {
-  // Пример списка всех объектов ArmsData
+  List<ArmsData> getAllSimpleWeapons() {
+    return _allArms.where((arm) => arm.isSimple == true).toList();
+  }
+
+  List<ArmsData> getAllMartialWeapons() {
+    return _allArms.where((arm) => arm.isSimple == false).toList();
+  }
+
+  List<ArmsData> getAllArms() {
+    return _allArms;
+  }
+
   static final List<ArmsData> _allArms = [
     const ArmsData(
         name: 'Club',
@@ -367,12 +378,4 @@ class ArmsDataRepository {
         armsFeatures: ["Special", "Thrown"],
         image: null),
   ];
-
-  List<ArmsData> getAllSimpleWeapons() {
-    return _allArms.where((arm) => arm.isSimple == true).toList();
-  }
-
-  List<ArmsData> getAllMartialWeapons() {
-    return _allArms.where((arm) => arm.isSimple == false).toList();
-  }
 }

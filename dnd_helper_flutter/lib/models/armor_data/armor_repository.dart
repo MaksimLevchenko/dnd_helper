@@ -130,4 +130,8 @@ class ArmorRepository {
   List<ArmorData> getAllHeavyArmor() {
     return _allArmor.where((armor) => armor.armorType == 'Heavy').toList();
   }
+
+  List<ArmorData> getAllArmor() {
+    return _allArmor;
+  }
 }

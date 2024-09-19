@@ -40,6 +40,15 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       attacks: (json['attacks'] as List<dynamic>?)
           ?.map((e) => ArmsData.fromJson(e as Map<String, dynamic>))
           .toList(),
+      preparedSpells: (json['preparedSpells'] as List<dynamic>?)
+          ?.map((e) => SpellsData.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      knownSpells: (json['knownSpells'] as List<dynamic>?)
+          ?.map((e) => SpellsData.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      spellSlots: (json['spellSlots'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(int.parse(k), (e as num).toInt()),
+      ),
       languages: (json['languages'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
@@ -47,7 +56,7 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
           (json['tools'] as List<dynamic>?)?.map((e) => e as String).toList(),
       weapons:
           (json['weapons'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      alignment: $enumDecodeNullable(_$AlignmentEnumMap, json['alignment']),
+      ideology: $enumDecodeNullable(_$IdeologyEnumMap, json['ideology']),
       biography: json['biography'] as String?,
       weight: json['weight'] as String?,
       height: json['height'] as String?,
@@ -97,10 +106,14 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
       'skills': _$SkillsEnumMap[instance.skills],
       'proficiencyBonus': instance.proficiencyBonus,
       'attacks': instance.attacks,
+      'preparedSpells': instance.preparedSpells,
+      'knownSpells': instance.knownSpells,
+      'spellSlots':
+          instance.spellSlots?.map((k, e) => MapEntry(k.toString(), e)),
       'languages': instance.languages,
       'tools': instance.tools,
       'weapons': instance.weapons,
-      'alignment': _$AlignmentEnumMap[instance.alignment],
+      'ideology': _$IdeologyEnumMap[instance.ideology],
       'biography': instance.biography,
       'weight': instance.weight,
       'height': instance.height,
@@ -179,15 +192,15 @@ const _$SkillsEnumMap = {
   Skills.survival: 'survival',
 };
 
-const _$AlignmentEnumMap = {
-  Alignment.lawfulGood: 'lawfulGood',
-  Alignment.neutralGood: 'neutralGood',
-  Alignment.chaoticGood: 'chaoticGood',
-  Alignment.lawfulNeutral: 'lawfulNeutral',
-  Alignment.trueNeutral: 'trueNeutral',
-  Alignment.chaoticNeutral: 'chaoticNeutral',
-  Alignment.lawfulEvil: 'lawfulEvil',
-  Alignment.neutralEvil: 'neutralEvil',
-  Alignment.chaoticEvil: 'chaoticEvil',
-  Alignment.unaligned: 'unaligned',
+const _$IdeologyEnumMap = {
+  Ideology.lawfulGood: 'lawfulGood',
+  Ideology.neutralGood: 'neutralGood',
+  Ideology.chaoticGood: 'chaoticGood',
+  Ideology.lawfulNeutral: 'lawfulNeutral',
+  Ideology.trueNeutral: 'trueNeutral',
+  Ideology.chaoticNeutral: 'chaoticNeutral',
+  Ideology.lawfulEvil: 'lawfulEvil',
+  Ideology.neutralEvil: 'neutralEvil',
+  Ideology.chaoticEvil: 'chaoticEvil',
+  Ideology.unaligned: 'unaligned',
 };

@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-enum Alignment {
+enum Ideology {
   @JsonValue('lawfulGood')
   lawfulGood,
   @JsonValue('neutralGood')
@@ -23,20 +23,20 @@ enum Alignment {
   unaligned,
 }
 
-/// Converts to and from [Alignment] and [String]>.
-class AlignmentConverter implements JsonConverter<Alignment?, String?> {
-  /// Create a new instance of [Alignment].
-  const AlignmentConverter();
+/// Converts to and from [Ideology] and [String]>.
+class IdeologyConverter implements JsonConverter<Ideology?, String?> {
+  /// Create a new instance of [Ideology].
+  const IdeologyConverter();
 
   @override
-  Alignment? fromJson(String? json) {
+  Ideology? fromJson(String? json) {
     if (json == null) return null;
-    return Alignment.values
+    return Ideology.values
         .firstWhere((e) => e.toString().split('.').last == json);
   }
 
   @override
-  String? toJson(Alignment? object) {
+  String? toJson(Ideology? object) {
     return object?.toString().split('.').last;
   }
 }

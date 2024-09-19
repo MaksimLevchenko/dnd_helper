@@ -32,8 +32,12 @@ mixin _$ArmorData {
   @Uint8ListConverter()
   Uint8List? get image => throw _privateConstructorUsedError;
 
+  /// Serializes this ArmorData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ArmorData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ArmorDataCopyWith<ArmorData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -68,6 +72,8 @@ class _$ArmorDataCopyWithImpl<$Res, $Val extends ArmorData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ArmorData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -126,6 +132,8 @@ class _$ArmorDataCopyWithImpl<$Res, $Val extends ArmorData>
     ) as $Val);
   }
 
+  /// Create a copy of ArmorData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CoinsDataCopyWith<$Res>? get price {
@@ -171,6 +179,8 @@ class __$$ArmorDataImplCopyWithImpl<$Res>
       _$ArmorDataImpl _value, $Res Function(_$ArmorDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ArmorData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -299,7 +309,7 @@ class _$ArmorDataImpl implements _ArmorData {
             const DeepCollectionEquality().equals(other.image, image));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -314,7 +324,9 @@ class _$ArmorDataImpl implements _ArmorData {
       armorType,
       const DeepCollectionEquality().hash(image));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ArmorData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ArmorDataImplCopyWith<_$ArmorDataImpl> get copyWith =>
@@ -365,8 +377,11 @@ abstract class _ArmorData implements ArmorData {
   @override
   @Uint8ListConverter()
   Uint8List? get image;
+
+  /// Create a copy of ArmorData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ArmorDataImplCopyWith<_$ArmorDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
