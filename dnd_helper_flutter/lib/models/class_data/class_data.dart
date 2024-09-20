@@ -12,17 +12,17 @@ part 'class_data.g.dart';
 @freezed
 class ClassData with _$ClassData {
   const factory ClassData({
-    int? id,
-    String? name,
-    List<String>? subClasses,
-    List<Attributes>? savingThrows,
-    Dice? hitDice,
-    List<ArmsData>? proficienciesWeapons,
-    List<ArmorData>? proficienciesArmor,
-    List<List<String>>? startEquipment,
-    Map<int, List<Map<String, String>>>? classFeatures,
-    Map<String, String>? description,
-    @Uint8ListConverter() Uint8List? image,
+    required int id,
+    required String name,
+    required List<String> subClasses,
+    required List<Attributes> savingThrows,
+    required Dice hitDice,
+    required List<ArmsData> proficienciesWeapons,
+    required List<ArmorData> proficienciesArmor,
+    required List<List<String>> startEquipment,
+    required Map<int, List<Map<String, String>>> classFeatures,
+    required Map<String, String> description,
+    @Uint8ListConverter() required Uint8List image,
   }) = _ClassData;
 
   factory ClassData.fromJson(Map<String, dynamic> json) =>

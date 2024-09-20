@@ -1,5 +1,10 @@
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet.dart';
 import 'package:dnd_helper_flutter/app/character_sheet_list/character_sheet_list.dart';
+import 'package:dnd_helper_flutter/app/creation/creation_attributes.dart';
+import 'package:dnd_helper_flutter/app/creation/creation_background.dart';
+import 'package:dnd_helper_flutter/app/creation/creation_class.dart';
+import 'package:dnd_helper_flutter/app/creation/creation_race.dart';
+import 'package:dnd_helper_flutter/app/creation/creation_summary.dart';
 import 'package:dnd_helper_flutter/app/error_page/error_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -12,6 +17,26 @@ GoRouter router(RouterRef ref) {
   final router = GoRouter(
     navigatorKey: GlobalKey<NavigatorState>(debugLabel: 'dndRouterKey'),
     routes: <GoRoute>[
+      GoRoute(
+        path: '/creation_class',
+        builder: (context, state) => const CreationClass(),
+      ),
+      GoRoute(
+        path: '/creation_race',
+        builder: (context, state) => const CreationRace(),
+      ),
+      GoRoute(
+        path: '/creation_background',
+        builder: (context, state) => const CreationBackground(),
+      ),
+      GoRoute(
+        path: '/creation_attributes',
+        builder: (context, state) => const CreationAttributes(),
+      ),
+      GoRoute(
+        path: '/creation_summary',
+        builder: (context, state) => const CreationSummary(),
+      ),
       GoRoute(
         path: '/characters',
         builder: (context, state) => const CharacterSheetList(),

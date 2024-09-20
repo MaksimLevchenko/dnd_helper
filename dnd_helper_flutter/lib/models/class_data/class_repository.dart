@@ -190,17 +190,51 @@ class SubclassRepository {
 
 class ClassRepository {
   ClassData getClassById({required int id}) {
-    try {
-      return _classes.firstWhere((element) => element.id == id);
-    } catch (e) {
-      return const ClassData();
-    }
+    return _classes.firstWhere(
+      (element) => element.id == id,
+      orElse: () => ClassData(
+        id: 0,
+        name: "Not found id: $id",
+        subClasses: [],
+        savingThrows: [],
+        hitDice: Dice.d4,
+        proficienciesWeapons: [],
+        proficienciesArmor: [],
+        startEquipment: [],
+        classFeatures: {},
+        description: {},
+        image: Uint8List(1234),
+      ),
+    );
+  }
+
+  ClassData getClassByName({required String name}) {
+    return _classes.firstWhere(
+      (element) => element.name == name,
+      orElse: () => ClassData(
+        id: 0,
+        name: "Not found name: $name",
+        subClasses: [],
+        savingThrows: [],
+        hitDice: Dice.d4,
+        proficienciesWeapons: [],
+        proficienciesArmor: [],
+        startEquipment: [],
+        classFeatures: {},
+        description: {},
+        image: Uint8List(1234),
+      ),
+    );
   }
 
   static final List<ClassData> _classes = [
     ClassData(
         id: 2,
         name: "barbarian",
+        description: {
+          "ПЕРВОБЫТНЫЕ ИНСТИНКТЫ":
+              "Жители посёлков и городов настолько гордятся своей цивилизованностью, отличающей их от животных, словно отрицание собственной природы подчёркивает их превосходство. Варвары же, напротив, считают цивилизованность проявлением слабости. Связь между их животными инстинктами, первобытной энергетикой и свирепой яростью очень сильна. Варвары чувствуют себя неуютно в окружении стен или в толпе, но раскрываются в родных диких просторах, в тундре, джунглях или степях, где их племена живут и охотятся. Лучше всего варвары проявляют себя посреди хаоса битвы. Они могут впасть в состояние берсерка, утратив контроль над собственной яростью, и получая взамен нечеловеческую силу и стойкость. Варвар может лишь несколько раз воспользоваться резервами собственного гнева, прежде чем ему потребуется отдых, но обычно этих нескольких раз хватает, чтобы справиться с любой угрозой, встреченной на пути."
+        },
         subClasses: [
           SubclassRepository().getSubclassName(id: 1),
           SubclassRepository().getSubclassName(id: 2),
@@ -353,6 +387,6 @@ class ClassRepository {
             }
           ],
         },
-        image: Uint8List(123456789101112)),
+        image: Uint8List(123)),
   ];
 }
