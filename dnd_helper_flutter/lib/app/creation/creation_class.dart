@@ -1,5 +1,8 @@
+import 'dart:convert';
+import 'package:dnd_helper_flutter/models/class_data/class_data.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter/services.dart'; // Для загрузки JSON
 
 class CreationClass extends StatefulWidget {
   const CreationClass({super.key});
@@ -9,42 +12,31 @@ class CreationClass extends StatefulWidget {
 }
 
 class CreationClassState extends State<CreationClass> {
-  final List<String> classes = [
-    "Варвар",
-    "Бард",
-    "Жрец",
-    "Друид",
-    "Воин",
-    "Монах",
-    "Паладин",
-    "Следопыт",
-    "Чародей",
-    "Колдун",
-    "Плут",
-    "Волшебник",
-  ];
-
-  final List<IconData> icons = [
-    Icons.favorite,
-    Icons.star,
-    Icons.thumb_up,
-    Icons.access_alarm,
-    Icons.ac_unit,
-    Icons.accessibility,
-    Icons.account_balance,
-    Icons.account_circle,
-    Icons.add_a_photo,
-    Icons.attach_money,
-    Icons.airplanemode_active,
-    Icons.all_inbox,
-  ];
-
-  String selectedClass = '';
+  List<ClassData> classes = [];
+  String selectedClassName = '';
+  ClassData? selectedClassData;
   int? hoveredIndex;
 
-  void _onSelectClassTap(String dndClass) {
+  @override
+  void initState() {
+    super.initState();
+    _loadClasses();
+  }
+
+  Future<void> _loadClasses() async {
+    // Загрузка JSON из файла
+    final String response = await rootBundle
+        .loadString('assets/jsons/classes.json'); // Путь к вашему JSON
+    final List<dynamic> data = json.decode(response);
     setState(() {
-      selectedClass = dndClass;
+      classes = data.map((json) => ClassData.fromJson(json)).toList();
+    });
+  }
+
+  void _onSelectClassTap(ClassData dndClass) {
+    setState(() {
+      selectedClassName = dndClass.name;
+      selectedClassData = dndClass;
     });
   }
 
@@ -59,137 +51,173 @@ class CreationClassState extends State<CreationClass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Align(
-          alignment: Alignment.center,
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 600),
-            child: Column(
-              children: [
-                LayoutBuilder(
-                  builder: (context, constraints) {
-                    double iconSize = constraints.maxWidth / 7;
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.center,
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 600),
+                      child: LayoutBuilder(
+                        builder: (context, constraints) {
+                          double iconSize = constraints.maxWidth / 7;
 
-                    int crossAxisCount = constraints.maxWidth >= 600 ? 4 : 3;
+                          int crossAxisCount =
+                              constraints.maxWidth >= 600 ? 4 : 3;
 
-                    return GridView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: crossAxisCount,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                      ),
-                      padding: const EdgeInsets.all(10),
-                      itemCount: classes.length,
-                      itemBuilder: (context, index) {
-                        final isSelected = selectedClass == classes[index];
-                        final isHovered = hoveredIndex == index;
+                          return GridView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: crossAxisCount,
+                            ),
+                            padding: const EdgeInsets.all(10),
+                            itemCount: classes.length,
+                            itemBuilder: (context, index) {
+                              final isSelected =
+                                  selectedClassName == classes[index].name;
+                              final isHovered = hoveredIndex == index;
 
-                        return MouseRegion(
-                          onEnter: (_) => setState(() {
-                            hoveredIndex = index;
-                          }),
-                          onExit: (_) => setState(() {
-                            hoveredIndex = null;
-                          }),
-                          child: GestureDetector(
-                            onTap: () => _onSelectClassTap(classes[index]),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: isSelected
-                                      ? const Color.fromARGB(255, 207, 186, 0)
-                                      : isHovered
-                                          ? Colors.white
-                                          : Colors.transparent,
-                                  width: 3,
+                              return MouseRegion(
+                                onEnter: (_) => setState(() {
+                                  hoveredIndex = index;
+                                }),
+                                onExit: (_) => setState(() {
+                                  hoveredIndex = null;
+                                }),
+                                child: GestureDetector(
+                                  onTap: () =>
+                                      _onSelectClassTap(classes[index]),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: iconSize * 1.3,
+                                        width: iconSize * 1.3,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: isSelected
+                                                ? const Color.fromARGB(
+                                                    255, 207, 186, 0)
+                                                : isHovered
+                                                    ? Colors.white
+                                                    : Colors.transparent,
+                                            width: 3,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                        ),
+                                        child: Stack(
+                                          alignment: Alignment.center,
+                                          children: [
+                                            Center(
+                                              child: Icon(
+                                                Icons.star,
+                                                size: iconSize,
+                                                color: Colors.grey[700],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Text(classes[index].name),
+                                    ],
+                                  ),
                                 ),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Center(
-                                    child: Icon(
-                                      icons[index],
-                                      size: iconSize,
-                                      color: Colors.grey[700],
-                                    ),
-                                  ),
-                                  Positioned(
-                                    bottom: 0,
-                                    child: Text(
-                                      classes[index],
-                                      style:
-                                          TextStyle(fontSize: iconSize * 0.25),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 600),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Container(
+                              height: selectedClassName.isEmpty ? 0 : 1,
+                              color: Colors.black,
                             ),
                           ),
-                        );
-                      },
-                    );
-                  },
-                ),
-                const SizedBox(height: 20),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Container(
-                          height: selectedClass.isEmpty ? 0 : 1,
-                          color: Colors.black,
                         ),
-                      ),
-                    ),
-                    Text(
-                      selectedClass.isEmpty ? '' : selectedClass,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 20),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Container(
-                          height: selectedClass.isEmpty ? 0 : 1,
-                          color: Colors.black,
+                        Text(
+                          selectedClassName.isEmpty ? '' : selectedClassName,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(fontSize: 20),
                         ),
-                      ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Container(
+                              height: selectedClassName.isEmpty ? 0 : 1,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  selectedClass.isEmpty ? '' : 'Информация о $selectedClassе',
-                  style: const TextStyle(fontSize: 20),
-                ),
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                        onPressed: _onBackButtonTap,
-                        child: const Text('Назад')),
-                    Visibility(
-                      visible: selectedClass.isNotEmpty,
-                      child: ElevatedButton(
-                        onPressed: _onNextButtonTap,
-                        child: const Text('Далее'),
-                      ),
+                  ),
+                  const SizedBox(height: 20),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 600),
+                    child: Column(
+                      children: [
+                        SelectableText(
+                          selectedClassName.isEmpty
+                              ? ''
+                              : 'Информация о $selectedClassName',
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                        if (selectedClassData != null)
+                          SelectableText(' ${selectedClassData!.description}'),
+                        const SizedBox(height: 20),
+                        if (selectedClassData != null)
+                          SelectableText(
+                              'Кость хитов: ${selectedClassData!.hitDice}'),
+                        if (selectedClassData != null)
+                          SelectableText(
+                              'Оружие: ${selectedClassData!.proficienciesWeapons}'),
+                        if (selectedClassData != null)
+                          SelectableText(
+                              'Броня: ${selectedClassData!.proficienciesArmor}'),
+                      ],
                     ),
-                  ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: Row(
+              mainAxisAlignment: selectedClassName.isEmpty
+                  ? MainAxisAlignment.center
+                  : MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: _onBackButtonTap,
+                  child: const Text('Назад'),
                 ),
+                if (selectedClassName.isNotEmpty)
+                  ElevatedButton(
+                    onPressed: _onNextButtonTap,
+                    child: const Text('Далее'),
+                  ),
               ],
             ),
           ),
-        ),
+          const SizedBox(height: 10),
+        ],
       ),
     );
   }

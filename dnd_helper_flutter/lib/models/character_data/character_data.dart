@@ -31,16 +31,17 @@ class CharacterData with _$CharacterData {
     int? initiative,
     int? speed,
     int? armorClass,
-    bool? inspyration,
+    bool? inspiration, // Исправлено название
     Conditions? conditions,
     int? exhaustion,
-    Attributes? attributes,
+    Map<Attributes, int>? attributes,
     List<Attributes>? savingThrows,
     Skills? skills,
     int? proficiencyBonus,
     List<ArmsData>? attacks,
     List<SpellsData>? preparedSpells,
     List<SpellsData>? knownSpells,
+    Attributes? spellcastingAttribute,
     Map<int, int>? spellSlots,
     List<String>? languages,
     List<String>? tools,
@@ -61,7 +62,7 @@ class CharacterData with _$CharacterData {
     String? notes,
     CoinsData? coins,
     List<String>? equipment,
-    List<String>? tresuares,
+    List<String>? treasures, // Исправлено название
   }) = _CharacterData;
 
   factory CharacterData.fromJson(Map<String, dynamic> json) =>

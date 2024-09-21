@@ -1,7 +1,3 @@
-import 'dart:typed_data';
-
-import 'package:dnd_helper_flutter/models/armor_data/armor_repository.dart';
-import 'package:dnd_helper_flutter/models/arms_data/arms_repository.dart';
 import 'package:dnd_helper_flutter/models/class_data/class_data.dart';
 import 'package:dnd_helper_flutter/models/class_data/subclass_data.dart';
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
@@ -202,8 +198,8 @@ class ClassRepository {
         proficienciesArmor: [],
         startEquipment: [],
         classFeatures: {},
-        description: {},
-        image: Uint8List(1234),
+        description: "",
+        imageLink: 'assets/images/placeholder.png',
       ),
     );
   }
@@ -221,8 +217,8 @@ class ClassRepository {
         proficienciesArmor: [],
         startEquipment: [],
         classFeatures: {},
-        description: {},
-        image: Uint8List(1234),
+        description: "",
+        imageLink: 'assets/images/placeholder.png',
       ),
     );
   }
@@ -231,10 +227,8 @@ class ClassRepository {
     ClassData(
         id: 2,
         name: "barbarian",
-        description: {
-          "ПЕРВОБЫТНЫЕ ИНСТИНКТЫ":
-              "Жители посёлков и городов настолько гордятся своей цивилизованностью, отличающей их от животных, словно отрицание собственной природы подчёркивает их превосходство. Варвары же, напротив, считают цивилизованность проявлением слабости. Связь между их животными инстинктами, первобытной энергетикой и свирепой яростью очень сильна. Варвары чувствуют себя неуютно в окружении стен или в толпе, но раскрываются в родных диких просторах, в тундре, джунглях или степях, где их племена живут и охотятся. Лучше всего варвары проявляют себя посреди хаоса битвы. Они могут впасть в состояние берсерка, утратив контроль над собственной яростью, и получая взамен нечеловеческую силу и стойкость. Варвар может лишь несколько раз воспользоваться резервами собственного гнева, прежде чем ему потребуется отдых, но обычно этих нескольких раз хватает, чтобы справиться с любой угрозой, встреченной на пути."
-        },
+        description:
+            "Сильные воины, известные своим гневом и способностью выживать в трудных условиях. Обладают высокой физической силой и могут входить в ярость, получая бонусы к атаке.",
         subClasses: [
           SubclassRepository().getSubclassName(id: 1),
           SubclassRepository().getSubclassName(id: 2),
@@ -244,9 +238,8 @@ class ClassRepository {
         ],
         savingThrows: [Attributes.strength, Attributes.constitution],
         hitDice: Dice.d12,
-        proficienciesWeapons: ArmsDataRepository().getAllArms(),
-        proficienciesArmor: ArmorRepository().getAllLightArmor() +
-            ArmorRepository().getAllMediumArmor(),
+        proficienciesWeapons: ['Simple weapons', 'Martial weapons'],
+        proficienciesArmor: ['Light armor', 'Medium armor', 'Shields'],
         startEquipment: [
           ["Greataxe", "Any martial melee weapon"],
           ["Two handaxes", "Any simple weapon"],
@@ -387,6 +380,6 @@ class ClassRepository {
             }
           ],
         },
-        image: Uint8List(123)),
+        imageLink: 'assets/images/barbarian.png'),
   ];
 }

@@ -28,10 +28,13 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       initiative: (json['initiative'] as num?)?.toInt(),
       speed: (json['speed'] as num?)?.toInt(),
       armorClass: (json['armorClass'] as num?)?.toInt(),
-      inspyration: json['inspyration'] as bool?,
+      inspiration: json['inspiration'] as bool?,
       conditions: $enumDecodeNullable(_$ConditionsEnumMap, json['conditions']),
       exhaustion: (json['exhaustion'] as num?)?.toInt(),
-      attributes: $enumDecodeNullable(_$AttributesEnumMap, json['attributes']),
+      attributes: (json['attributes'] as Map<String, dynamic>?)?.map(
+        (k, e) =>
+            MapEntry($enumDecode(_$AttributesEnumMap, k), (e as num).toInt()),
+      ),
       savingThrows: (json['savingThrows'] as List<dynamic>?)
           ?.map((e) => $enumDecode(_$AttributesEnumMap, e))
           .toList(),
@@ -46,6 +49,8 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       knownSpells: (json['knownSpells'] as List<dynamic>?)
           ?.map((e) => SpellsData.fromJson(e as Map<String, dynamic>))
           .toList(),
+      spellcastingAttribute: $enumDecodeNullable(
+          _$AttributesEnumMap, json['spellcastingAttribute']),
       spellSlots: (json['spellSlots'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(int.parse(k), (e as num).toInt()),
       ),
@@ -76,7 +81,7 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       equipment: (json['equipment'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      tresuares: (json['tresuares'] as List<dynamic>?)
+      treasures: (json['treasures'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
     );
@@ -97,10 +102,11 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
       'initiative': instance.initiative,
       'speed': instance.speed,
       'armorClass': instance.armorClass,
-      'inspyration': instance.inspyration,
+      'inspiration': instance.inspiration,
       'conditions': _$ConditionsEnumMap[instance.conditions],
       'exhaustion': instance.exhaustion,
-      'attributes': _$AttributesEnumMap[instance.attributes],
+      'attributes': instance.attributes
+          ?.map((k, e) => MapEntry(_$AttributesEnumMap[k]!, e)),
       'savingThrows':
           instance.savingThrows?.map((e) => _$AttributesEnumMap[e]!).toList(),
       'skills': _$SkillsEnumMap[instance.skills],
@@ -108,6 +114,8 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
       'attacks': instance.attacks,
       'preparedSpells': instance.preparedSpells,
       'knownSpells': instance.knownSpells,
+      'spellcastingAttribute':
+          _$AttributesEnumMap[instance.spellcastingAttribute],
       'spellSlots':
           instance.spellSlots?.map((k, e) => MapEntry(k.toString(), e)),
       'languages': instance.languages,
@@ -129,7 +137,7 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
       'notes': instance.notes,
       'coins': instance.coins,
       'equipment': instance.equipment,
-      'tresuares': instance.tresuares,
+      'treasures': instance.treasures,
     };
 
 const _$DiceEnumMap = {

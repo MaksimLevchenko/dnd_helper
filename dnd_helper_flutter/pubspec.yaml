@@ -32,5 +32,6 @@ dev_dependencies:
   
 flutter:
   uses-material-design: true
-  # assets:
-  # - assets/icons/class_icons/barbarian.png
+  assets:
+  - assets/icons/class_icons/barbarian.png
+  - assets/jsons/classes.json
