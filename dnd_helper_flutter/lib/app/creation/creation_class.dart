@@ -116,10 +116,12 @@ class CreationClassState extends State<CreationClass> {
                                           borderRadius:
                                               BorderRadius.circular(15),
                                         ),
-                                        child: Center(
-                                          child: Image.asset(
-                                            classes[index].imageLink,
-                                            fit: BoxFit.cover,
+                                        child: Expanded(
+                                          child: Center(
+                                            child: Image.asset(
+                                              classes[index].imageLink,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ),
