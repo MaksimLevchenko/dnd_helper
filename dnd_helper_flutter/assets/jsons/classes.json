@@ -151,7 +151,7 @@
                 }
             ]
         },
-        "imageLink": "assets/images/barbarian.png"
+        "imageLink": "assets/icons/class_icons/barbarian.png"
     },
     {
         "id": 3,
@@ -308,7 +308,7 @@
                 }
             ]
         },
-        "imageLink": "assets/images/bard.png"
+        "imageLink": "assets/icons/class_icons/bard.png"
     },
     {
         "id": 4,
@@ -467,7 +467,7 @@
                 }
             ]
         },
-        "imageLink": "assets/images/cleric.png"
+        "imageLink": "assets/icons/class_icons/cleric.png"
     },
     {
         "id": 5,
@@ -621,7 +621,7 @@
                 }
             ]
         },
-        "imageLink": "assets/images/druid.png"
+        "imageLink": "assets/icons/class_icons/druid.png"
     },
     {
         "id": 6,
@@ -768,7 +768,7 @@
                 }
             ]
         },
-        "imageLink": "assets/images/fighter.png"
+        "imageLink": "assets/icons/class_icons/fighter.png"
     },
     {
         "id": 7,
@@ -922,7 +922,7 @@
                 }
             ]
         },
-        "imageLink": "assets/images/monk.png"
+        "imageLink": "assets/icons/class_icons/monk.png"
     },
     {
         "id": 8,
@@ -1078,7 +1078,7 @@
                 }
             ]
         },
-        "imageLink": "assets/images/paladin.png"
+        "imageLink": "assets/icons/class_icons/paladin.png"
     },
     {
         "id": 9,
@@ -1236,7 +1236,7 @@
                 }
             ]
         },
-        "imageLink": "assets/images/ranger.png"
+        "imageLink": "assets/icons/class_icons/ranger.png"
     },
     {
         "id": 10,
@@ -1390,7 +1390,7 @@
                 }
             ]
         },
-        "imageLink": "assets/images/rogue.png"
+        "imageLink": "assets/icons/class_icons/rogue.png"
     },
 {
         "id": 11,
@@ -1535,7 +1535,7 @@
                 }
             ]
         },
-        "imageLink": "assets/images/sorcerer.png"
+        "imageLink": "assets/icons/class_icons/sorcerer.png"
     }
 ,
 {
@@ -1682,7 +1682,7 @@
             }
         ]
     },
-    "imageLink": "assets/images/warlock.png"
+    "imageLink": "assets/icons/class_icons/warlock.png"
 },
 {
     "id": 13,
@@ -1801,6 +1801,6 @@
             }
         ]
     },
-    "imageLink": "assets/images/wizard.png"
+    "imageLink": "assets/icons/class_icons/wizard.png"
 }
 ]

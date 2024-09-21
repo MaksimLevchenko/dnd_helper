@@ -24,13 +24,17 @@ class CreationClassState extends State<CreationClass> {
   }
 
   Future<void> _loadClasses() async {
-    // Загрузка JSON из файла
-    final String response = await rootBundle
-        .loadString('assets/jsons/classes.json'); // Путь к вашему JSON
-    final List<dynamic> data = json.decode(response);
-    setState(() {
-      classes = data.map((json) => ClassData.fromJson(json)).toList();
-    });
+    try {
+      final String response =
+          await rootBundle.loadString('assets/jsons/classes.json');
+      final List<dynamic> data = json.decode(response);
+      setState(() {
+        classes = data.map((json) => ClassData.fromJson(json)).toList();
+      });
+    } catch (e) {
+      // Обработка ошибки
+      print('Ошибка загрузки классов: $e');
+    }
   }
 
   void _onSelectClassTap(ClassData dndClass) {
@@ -57,13 +61,14 @@ class CreationClassState extends State<CreationClass> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  const SizedBox(height: 20),
                   Align(
                     alignment: Alignment.center,
                     child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 600),
+                      constraints: const BoxConstraints(maxWidth: 1000),
                       child: LayoutBuilder(
                         builder: (context, constraints) {
-                          double iconSize = constraints.maxWidth / 7;
+                          double iconSize = constraints.maxWidth / 5;
 
                           int crossAxisCount =
                               constraints.maxWidth >= 600 ? 4 : 3;
@@ -74,8 +79,9 @@ class CreationClassState extends State<CreationClass> {
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: crossAxisCount,
+                              mainAxisSpacing: 0,
+                              crossAxisSpacing: 0,
                             ),
-                            padding: const EdgeInsets.all(10),
                             itemCount: classes.length,
                             itemBuilder: (context, index) {
                               final isSelected =
@@ -95,8 +101,8 @@ class CreationClassState extends State<CreationClass> {
                                   child: Column(
                                     children: [
                                       Container(
-                                        height: iconSize * 1.3,
-                                        width: iconSize * 1.3,
+                                        height: iconSize,
+                                        width: iconSize,
                                         decoration: BoxDecoration(
                                           border: Border.all(
                                             color: isSelected
@@ -110,20 +116,18 @@ class CreationClassState extends State<CreationClass> {
                                           borderRadius:
                                               BorderRadius.circular(15),
                                         ),
-                                        child: Stack(
-                                          alignment: Alignment.center,
-                                          children: [
-                                            Center(
-                                              child: Icon(
-                                                Icons.star,
-                                                size: iconSize,
-                                                color: Colors.grey[700],
-                                              ),
-                                            ),
-                                          ],
+                                        child: Center(
+                                          child: Image.asset(
+                                            classes[index].imageLink,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
                                       ),
-                                      Text(classes[index].name),
+                                      Text(
+                                        classes[index].name,
+                                        style:
+                                            TextStyle(fontSize: iconSize / 10),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -135,7 +139,7 @@ class CreationClassState extends State<CreationClass> {
                     ),
                   ),
                   ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 600),
+                    constraints: const BoxConstraints(maxWidth: 1000),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -168,28 +172,39 @@ class CreationClassState extends State<CreationClass> {
                   ),
                   const SizedBox(height: 20),
                   ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 600),
-                    child: Column(
-                      children: [
-                        SelectableText(
-                          selectedClassName.isEmpty
-                              ? ''
-                              : 'Информация о $selectedClassName',
-                          style: const TextStyle(fontSize: 20),
-                        ),
-                        if (selectedClassData != null)
-                          SelectableText(' ${selectedClassData!.description}'),
-                        const SizedBox(height: 20),
-                        if (selectedClassData != null)
+                    constraints: const BoxConstraints(maxWidth: 1000),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        children: [
                           SelectableText(
-                              'Кость хитов: ${selectedClassData!.hitDice}'),
-                        if (selectedClassData != null)
-                          SelectableText(
-                              'Оружие: ${selectedClassData!.proficienciesWeapons}'),
-                        if (selectedClassData != null)
-                          SelectableText(
-                              'Броня: ${selectedClassData!.proficienciesArmor}'),
-                      ],
+                            selectedClassName.isEmpty
+                                ? ''
+                                : 'Информация о $selectedClassName',
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                          if (selectedClassData != null)
+                            SelectableText(
+                                ' ${selectedClassData!.description}'),
+                          const SizedBox(height: 20),
+                          if (selectedClassData != null)
+                            SelectableText(
+                                'Кость хитов: ${selectedClassData!.hitDice}'),
+                          const SizedBox(height: 10),
+                          if (selectedClassData != null)
+                            const SelectableText('Владение оружием и броней: '),
+                          if (selectedClassData != null &&
+                              selectedClassData!
+                                  .proficienciesWeapons.isNotEmpty)
+                            SelectableText(selectedClassData!
+                                .proficienciesWeapons
+                                .join(', ')),
+                          if (selectedClassData != null &&
+                              selectedClassData!.proficienciesArmor.isNotEmpty)
+                            SelectableText(
+                                ' ${selectedClassData!.proficienciesArmor.join(', ')}'),
+                        ],
+                      ),
                     ),
                   ),
                 ],

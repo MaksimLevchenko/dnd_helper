@@ -34,4 +34,15 @@ flutter:
   uses-material-design: true
   assets:
   - assets/icons/class_icons/barbarian.png
+  - assets/icons/class_icons/bard.png
+  - assets/icons/class_icons/cleric.png
+  - assets/icons/class_icons/druid.png
+  - assets/icons/class_icons/fighter.png
+  - assets/icons/class_icons/monk.png
+  - assets/icons/class_icons/paladin.png
+  - assets/icons/class_icons/ranger.png
+  - assets/icons/class_icons/rogue.png
+  - assets/icons/class_icons/sorcerer.png
+  - assets/icons/class_icons/warlock.png
+  - assets/icons/class_icons/wizard.png
   - assets/jsons/classes.json
