@@ -19,7 +19,6 @@ mixin _$CreationClassParameters {
   List<ClassData> get classes => throw _privateConstructorUsedError;
   String? get selectedClassName => throw _privateConstructorUsedError;
   ClassData? get selectedClassData => throw _privateConstructorUsedError;
-  int? get hoveredIndex => throw _privateConstructorUsedError;
 
   /// Create a copy of CreationClassParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -37,8 +36,7 @@ abstract class $CreationClassParametersCopyWith<$Res> {
   $Res call(
       {List<ClassData> classes,
       String? selectedClassName,
-      ClassData? selectedClassData,
-      int? hoveredIndex});
+      ClassData? selectedClassData});
 
   $ClassDataCopyWith<$Res>? get selectedClassData;
 }
@@ -62,7 +60,6 @@ class _$CreationClassParametersCopyWithImpl<$Res,
     Object? classes = null,
     Object? selectedClassName = freezed,
     Object? selectedClassData = freezed,
-    Object? hoveredIndex = freezed,
   }) {
     return _then(_value.copyWith(
       classes: null == classes
@@ -77,10 +74,6 @@ class _$CreationClassParametersCopyWithImpl<$Res,
           ? _value.selectedClassData
           : selectedClassData // ignore: cast_nullable_to_non_nullable
               as ClassData?,
-      hoveredIndex: freezed == hoveredIndex
-          ? _value.hoveredIndex
-          : hoveredIndex // ignore: cast_nullable_to_non_nullable
-              as int?,
     ) as $Val);
   }
 
@@ -111,8 +104,7 @@ abstract class _$$CreationClassParametersImplCopyWith<$Res>
   $Res call(
       {List<ClassData> classes,
       String? selectedClassName,
-      ClassData? selectedClassData,
-      int? hoveredIndex});
+      ClassData? selectedClassData});
 
   @override
   $ClassDataCopyWith<$Res>? get selectedClassData;
@@ -136,7 +128,6 @@ class __$$CreationClassParametersImplCopyWithImpl<$Res>
     Object? classes = null,
     Object? selectedClassName = freezed,
     Object? selectedClassData = freezed,
-    Object? hoveredIndex = freezed,
   }) {
     return _then(_$CreationClassParametersImpl(
       classes: null == classes
@@ -151,10 +142,6 @@ class __$$CreationClassParametersImplCopyWithImpl<$Res>
           ? _value.selectedClassData
           : selectedClassData // ignore: cast_nullable_to_non_nullable
               as ClassData?,
-      hoveredIndex: freezed == hoveredIndex
-          ? _value.hoveredIndex
-          : hoveredIndex // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -165,8 +152,7 @@ class _$CreationClassParametersImpl implements _CreationClassParameters {
   _$CreationClassParametersImpl(
       {required final List<ClassData> classes,
       this.selectedClassName,
-      this.selectedClassData,
-      this.hoveredIndex})
+      this.selectedClassData})
       : _classes = classes;
 
   final List<ClassData> _classes;
@@ -181,12 +167,10 @@ class _$CreationClassParametersImpl implements _CreationClassParameters {
   final String? selectedClassName;
   @override
   final ClassData? selectedClassData;
-  @override
-  final int? hoveredIndex;
 
   @override
   String toString() {
-    return 'CreationClassParameters(classes: $classes, selectedClassName: $selectedClassName, selectedClassData: $selectedClassData, hoveredIndex: $hoveredIndex)';
+    return 'CreationClassParameters(classes: $classes, selectedClassName: $selectedClassName, selectedClassData: $selectedClassData)';
   }
 
   @override
@@ -198,9 +182,7 @@ class _$CreationClassParametersImpl implements _CreationClassParameters {
             (identical(other.selectedClassName, selectedClassName) ||
                 other.selectedClassName == selectedClassName) &&
             (identical(other.selectedClassData, selectedClassData) ||
-                other.selectedClassData == selectedClassData) &&
-            (identical(other.hoveredIndex, hoveredIndex) ||
-                other.hoveredIndex == hoveredIndex));
+                other.selectedClassData == selectedClassData));
   }
 
   @override
@@ -208,8 +190,7 @@ class _$CreationClassParametersImpl implements _CreationClassParameters {
       runtimeType,
       const DeepCollectionEquality().hash(_classes),
       selectedClassName,
-      selectedClassData,
-      hoveredIndex);
+      selectedClassData);
 
   /// Create a copy of CreationClassParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -225,8 +206,7 @@ abstract class _CreationClassParameters implements CreationClassParameters {
   factory _CreationClassParameters(
       {required final List<ClassData> classes,
       final String? selectedClassName,
-      final ClassData? selectedClassData,
-      final int? hoveredIndex}) = _$CreationClassParametersImpl;
+      final ClassData? selectedClassData}) = _$CreationClassParametersImpl;
 
   @override
   List<ClassData> get classes;
@@ -234,8 +214,6 @@ abstract class _CreationClassParameters implements CreationClassParameters {
   String? get selectedClassName;
   @override
   ClassData? get selectedClassData;
-  @override
-  int? get hoveredIndex;
 
   /// Create a copy of CreationClassParameters
   /// with the given fields replaced by the non-null parameter values.

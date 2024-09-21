@@ -9,13 +9,17 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'creation_class_state.g.dart';
 part 'creation_class_state.freezed.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class CreationClassState extends _$CreationClassState {
   @override
   FutureOr<CreationClassParameters> build() async {
     final classes = await _loadClasses();
     if (classes == null) {
       return Future.error('Ошибка загрузки классов');
+    }
+    // TODO only for testing
+    if (state.hasValue) {
+      return state.value!;
     }
     return CreationClassParameters(classes: classes);
   }
