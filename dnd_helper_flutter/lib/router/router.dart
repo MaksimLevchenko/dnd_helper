@@ -6,6 +6,7 @@ import 'package:dnd_helper_flutter/app/creation/creation_class.dart';
 import 'package:dnd_helper_flutter/app/creation/creation_race.dart';
 import 'package:dnd_helper_flutter/app/creation/creation_summary.dart';
 import 'package:dnd_helper_flutter/app/error_page/error_page.dart';
+import 'package:dnd_helper_flutter/app/master/master_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -40,6 +41,10 @@ GoRouter router(RouterRef ref) {
       GoRoute(
         path: '/characters',
         builder: (context, state) => const CharacterSheetList(),
+      ),
+      GoRoute(
+        path: '/master_page',
+        builder: (context, state) => const MasterPage(),
       ),
       GoRoute(
         path: '/error',

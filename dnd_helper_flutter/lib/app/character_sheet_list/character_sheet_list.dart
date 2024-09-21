@@ -1,3 +1,4 @@
+import 'package:dnd_helper_flutter/app/master/to_master_page.dart';
 import 'package:dnd_helper_flutter/app/widgets/app_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -11,6 +12,7 @@ class CharacterSheetList extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
+            const ToMasterPage(),
             const Text("here will be a list of character sheets"),
             Padding(
               padding: const EdgeInsets.all(16.0),
