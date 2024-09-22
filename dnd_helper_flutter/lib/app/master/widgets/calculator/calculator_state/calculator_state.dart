@@ -4,19 +4,17 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'calculator_state.g.dart';
 part 'calculator_state.freezed.dart';
 
-@Riverpod(keepAlive: true)
+@riverpod
 class CalculatorState extends _$CalculatorState {
   @override
-  FutureOr<CalculatorParameters> build() async {
+  CalculatorParameters build() {
     return CalculatorParameters(calculatedValue: 0);
   }
 
   void updateCalculatedValue(int newValue) {
-    state = AsyncValue.data(
-      newValue > 0
-          ? state.value!.copyWith(calculatedValue: newValue)
-          : state.value!.copyWith(calculatedValue: 0),
-    );
+    state = newValue > 0
+        ? state.value!.copyWith(calculatedValue: newValue)
+        : state.value!.copyWith(calculatedValue: 0);
   }
 }
 

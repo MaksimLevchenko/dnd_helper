@@ -74,13 +74,6 @@ class Calculator extends ConsumerWidget {
     final asyncCalculatorState = ref.watch(calculatorStateProvider);
 
     int calculatedValue = 0;
-    if (asyncCalculatorState is AsyncData) {
-      calculatedValue = asyncCalculatorState.value!.calculatedValue;
-    } else if (asyncCalculatorState is AsyncLoading) {
-      calculatedValue = 0;
-    } else if (asyncCalculatorState is AsyncError) {
-      calculatedValue = -1;
-    }
 
     // InputFormatter для разрешения только цифр, + и -
     List<TextInputFormatter> inputFormatters = [
@@ -130,9 +123,7 @@ class Calculator extends ConsumerWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
+                const SizedBox(width: 10),
                 ConstrainedBox(
                   constraints: BoxConstraints(
                     maxWidth: widgetWidth,
@@ -144,9 +135,7 @@ class Calculator extends ConsumerWidget {
                     ),
                     shrinkWrap: true,
                     children: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '+', '-']
-                        .map(
-                          (e) => calculatorButton('$e', controller),
-                        )
+                        .map((e) => calculatorButton('$e', controller))
                         .toList(),
                   ),
                 ),

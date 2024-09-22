@@ -8,14 +8,13 @@ part 'auth_repository.g.dart';
 class AuthRepository extends _$AuthRepository {
   @override
   FutureOr<AuthState> build() {
+    //final responce = client.authEndpoint.login();
     return AuthState(isSuccess: true);
   }
 }
 
-@freezed
 class AuthState with _$AuthState {
-  factory AuthState({required bool isSuccess}) = _AuthState;
+  final bool isSuccess;
 
-  factory AuthState.fromJson(Map<String, dynamic> json) =>
-      _$AuthStateFromJson(json);
+  AuthState({required this.isSuccess});
 }
