@@ -38,7 +38,9 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       savingThrows: (json['savingThrows'] as List<dynamic>?)
           ?.map((e) => $enumDecode(_$AttributesEnumMap, e))
           .toList(),
-      skills: $enumDecodeNullable(_$SkillsEnumMap, json['skills']),
+      skills: (json['skills'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry($enumDecode(_$SkillsEnumMap, k), e as bool),
+      ),
       proficiencyBonus: (json['proficiencyBonus'] as num?)?.toInt(),
       attacks: (json['attacks'] as List<dynamic>?)
           ?.map((e) => ArmsData.fromJson(e as Map<String, dynamic>))
@@ -109,7 +111,8 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
           ?.map((k, e) => MapEntry(_$AttributesEnumMap[k]!, e)),
       'savingThrows':
           instance.savingThrows?.map((e) => _$AttributesEnumMap[e]!).toList(),
-      'skills': _$SkillsEnumMap[instance.skills],
+      'skills':
+          instance.skills?.map((k, e) => MapEntry(_$SkillsEnumMap[k]!, e)),
       'proficiencyBonus': instance.proficiencyBonus,
       'attacks': instance.attacks,
       'preparedSpells': instance.preparedSpells,

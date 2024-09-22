@@ -3,7 +3,7 @@ import 'package:dnd_helper_flutter/app/widgets/scrollable_number_field.dart';
 import 'package:flutter/material.dart';
 
 class Statblock extends StatefulWidget {
-  const Statblock({Key? key}) : super(key: key);
+  const Statblock({super.key});
 
   @override
   State<Statblock> createState() => StatblockState();
@@ -24,6 +24,12 @@ class StatblockState extends State<Statblock> {
   void dispose() {
     lvl.dispose();
     name.dispose();
+    hp.dispose();
+    ac.dispose();
+    notes.dispose();
+    passivePerception.dispose();
+    initiative.dispose();
+    count.dispose();
     super.dispose();
   }
 
@@ -138,23 +144,8 @@ class StatblockState extends State<Statblock> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 5, top: 10, bottom: 5),
-              child: ScrollableNumberField(
-                height: 50,
-                width: 70,
-                controller: hp,
-                textAlign: TextAlign.center,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'HP',
-                  alignLabelWithHint: true,
-                  floatingLabelAlignment: FloatingLabelAlignment.center,
-                ),
-              ),
-            ),
-            Padding(
               padding: const EdgeInsets.all(10.0),
-              child: AddebleScrollingField(
+              child: ScrollableNumberField(
                   controller: hp,
                   height: 50,
                   width: 70,

@@ -29,7 +29,7 @@ class ClassTile extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(
                   color: isSelected
-                      ? const Color.fromARGB(255, 207, 186, 0)
+                      ? Theme.of(context).colorScheme.primary
                       : Colors.transparent,
                   width: 3,
                 ),

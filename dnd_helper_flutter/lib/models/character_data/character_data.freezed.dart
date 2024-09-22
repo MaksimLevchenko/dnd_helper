@@ -40,7 +40,7 @@ mixin _$CharacterData {
   int? get exhaustion => throw _privateConstructorUsedError;
   Map<Attributes, int>? get attributes => throw _privateConstructorUsedError;
   List<Attributes>? get savingThrows => throw _privateConstructorUsedError;
-  Skills? get skills => throw _privateConstructorUsedError;
+  Map<Skills, bool>? get skills => throw _privateConstructorUsedError;
   int? get proficiencyBonus => throw _privateConstructorUsedError;
   List<ArmsData>? get attacks => throw _privateConstructorUsedError;
   List<SpellsData>? get preparedSpells => throw _privateConstructorUsedError;
@@ -104,7 +104,7 @@ abstract class $CharacterDataCopyWith<$Res> {
       int? exhaustion,
       Map<Attributes, int>? attributes,
       List<Attributes>? savingThrows,
-      Skills? skills,
+      Map<Skills, bool>? skills,
       int? proficiencyBonus,
       List<ArmsData>? attacks,
       List<SpellsData>? preparedSpells,
@@ -280,7 +280,7 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
       skills: freezed == skills
           ? _value.skills
           : skills // ignore: cast_nullable_to_non_nullable
-              as Skills?,
+              as Map<Skills, bool>?,
       proficiencyBonus: freezed == proficiencyBonus
           ? _value.proficiencyBonus
           : proficiencyBonus // ignore: cast_nullable_to_non_nullable
@@ -473,7 +473,7 @@ abstract class _$$CharacterDataImplCopyWith<$Res>
       int? exhaustion,
       Map<Attributes, int>? attributes,
       List<Attributes>? savingThrows,
-      Skills? skills,
+      Map<Skills, bool>? skills,
       int? proficiencyBonus,
       List<ArmsData>? attacks,
       List<SpellsData>? preparedSpells,
@@ -649,9 +649,9 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
           : savingThrows // ignore: cast_nullable_to_non_nullable
               as List<Attributes>?,
       skills: freezed == skills
-          ? _value.skills
+          ? _value._skills
           : skills // ignore: cast_nullable_to_non_nullable
-              as Skills?,
+              as Map<Skills, bool>?,
       proficiencyBonus: freezed == proficiencyBonus
           ? _value.proficiencyBonus
           : proficiencyBonus // ignore: cast_nullable_to_non_nullable
@@ -783,7 +783,7 @@ class _$CharacterDataImpl implements _CharacterData {
       this.exhaustion,
       final Map<Attributes, int>? attributes,
       final List<Attributes>? savingThrows,
-      this.skills,
+      final Map<Skills, bool>? skills,
       this.proficiencyBonus,
       final List<ArmsData>? attacks,
       final List<SpellsData>? preparedSpells,
@@ -812,6 +812,7 @@ class _$CharacterDataImpl implements _CharacterData {
       final List<String>? treasures})
       : _attributes = attributes,
         _savingThrows = savingThrows,
+        _skills = skills,
         _attacks = attacks,
         _preparedSpells = preparedSpells,
         _knownSpells = knownSpells,
@@ -880,8 +881,16 @@ class _$CharacterDataImpl implements _CharacterData {
     return EqualUnmodifiableListView(value);
   }
 
+  final Map<Skills, bool>? _skills;
   @override
-  final Skills? skills;
+  Map<Skills, bool>? get skills {
+    final value = _skills;
+    if (value == null) return null;
+    if (_skills is EqualUnmodifiableMapView) return _skills;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   final int? proficiencyBonus;
   final List<ArmsData>? _attacks;
@@ -1050,7 +1059,7 @@ class _$CharacterDataImpl implements _CharacterData {
                 .equals(other._attributes, _attributes) &&
             const DeepCollectionEquality()
                 .equals(other._savingThrows, _savingThrows) &&
-            (identical(other.skills, skills) || other.skills == skills) &&
+            const DeepCollectionEquality().equals(other._skills, _skills) &&
             (identical(other.proficiencyBonus, proficiencyBonus) ||
                 other.proficiencyBonus == proficiencyBonus) &&
             const DeepCollectionEquality().equals(other._attacks, _attacks) &&
@@ -1116,7 +1125,7 @@ class _$CharacterDataImpl implements _CharacterData {
         exhaustion,
         const DeepCollectionEquality().hash(_attributes),
         const DeepCollectionEquality().hash(_savingThrows),
-        skills,
+        const DeepCollectionEquality().hash(_skills),
         proficiencyBonus,
         const DeepCollectionEquality().hash(_attacks),
         const DeepCollectionEquality().hash(_preparedSpells),
@@ -1182,7 +1191,7 @@ abstract class _CharacterData implements CharacterData {
       final int? exhaustion,
       final Map<Attributes, int>? attributes,
       final List<Attributes>? savingThrows,
-      final Skills? skills,
+      final Map<Skills, bool>? skills,
       final int? proficiencyBonus,
       final List<ArmsData>? attacks,
       final List<SpellsData>? preparedSpells,
@@ -1252,7 +1261,7 @@ abstract class _CharacterData implements CharacterData {
   @override
   List<Attributes>? get savingThrows;
   @override
-  Skills? get skills;
+  Map<Skills, bool>? get skills;
   @override
   int? get proficiencyBonus;
   @override

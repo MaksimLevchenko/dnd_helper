@@ -14,7 +14,8 @@ void main() {
             debugShowCheckedModeBanner: false,
             title: 'D&D Helper',
             theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+              colorScheme: ColorScheme.fromSeed(
+                  seedColor: const Color.fromARGB(255, 238, 219, 160)),
             ),
             scrollBehavior: const MaterialScrollBehavior().copyWith(
               dragDevices: {
