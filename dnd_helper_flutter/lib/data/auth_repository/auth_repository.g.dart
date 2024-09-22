@@ -3,20 +3,6 @@
 part of 'auth_repository.dart';
 
 // **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-_$AuthStateImpl _$$AuthStateImplFromJson(Map<String, dynamic> json) =>
-    _$AuthStateImpl(
-      isSuccess: json['isSuccess'] as bool,
-    );
-
-Map<String, dynamic> _$$AuthStateImplToJson(_$AuthStateImpl instance) =>
-    <String, dynamic>{
-      'isSuccess': instance.isSuccess,
-    };
-
-// **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 

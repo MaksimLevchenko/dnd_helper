@@ -6,12 +6,12 @@ part of 'calculator_state.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$calculatorStateHash() => r'22e15f81b6824c0e07904dbefa20c75cc89d0510';
+String _$calculatorStateHash() => r'311ab312e0bdaa55773d3e0151f3fc44fe76e7e5';
 
 /// See also [CalculatorState].
 @ProviderFor(CalculatorState)
 final calculatorStateProvider =
-    AsyncNotifierProvider<CalculatorState, CalculatorParameters>.internal(
+    AutoDisposeNotifierProvider<CalculatorState, CalculatorParameters>.internal(
   CalculatorState.new,
   name: r'calculatorStateProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -21,6 +21,6 @@ final calculatorStateProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$CalculatorState = AsyncNotifier<CalculatorParameters>;
+typedef _$CalculatorState = AutoDisposeNotifier<CalculatorParameters>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
