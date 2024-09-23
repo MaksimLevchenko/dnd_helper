@@ -20,6 +20,9 @@ mixin _$CalculatorParameters {
   String? get temporalHits => throw _privateConstructorUsedError;
   String get maxHits => throw _privateConstructorUsedError;
   String get currentHits => throw _privateConstructorUsedError;
+  TextEditingController get controller => throw _privateConstructorUsedError;
+  List<String> get buttonText => throw _privateConstructorUsedError;
+  List<IconData> get icons => throw _privateConstructorUsedError;
 
   /// Create a copy of CalculatorParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -38,7 +41,10 @@ abstract class $CalculatorParametersCopyWith<$Res> {
       {int calculatedValue,
       String? temporalHits,
       String maxHits,
-      String currentHits});
+      String currentHits,
+      TextEditingController controller,
+      List<String> buttonText,
+      List<IconData> icons});
 }
 
 /// @nodoc
@@ -61,6 +67,9 @@ class _$CalculatorParametersCopyWithImpl<$Res,
     Object? temporalHits = freezed,
     Object? maxHits = null,
     Object? currentHits = null,
+    Object? controller = null,
+    Object? buttonText = null,
+    Object? icons = null,
   }) {
     return _then(_value.copyWith(
       calculatedValue: null == calculatedValue
@@ -79,6 +88,18 @@ class _$CalculatorParametersCopyWithImpl<$Res,
           ? _value.currentHits
           : currentHits // ignore: cast_nullable_to_non_nullable
               as String,
+      controller: null == controller
+          ? _value.controller
+          : controller // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      buttonText: null == buttonText
+          ? _value.buttonText
+          : buttonText // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      icons: null == icons
+          ? _value.icons
+          : icons // ignore: cast_nullable_to_non_nullable
+              as List<IconData>,
     ) as $Val);
   }
 }
@@ -95,7 +116,10 @@ abstract class _$$CalculatorParametersImplCopyWith<$Res>
       {int calculatedValue,
       String? temporalHits,
       String maxHits,
-      String currentHits});
+      String currentHits,
+      TextEditingController controller,
+      List<String> buttonText,
+      List<IconData> icons});
 }
 
 /// @nodoc
@@ -115,6 +139,9 @@ class __$$CalculatorParametersImplCopyWithImpl<$Res>
     Object? temporalHits = freezed,
     Object? maxHits = null,
     Object? currentHits = null,
+    Object? controller = null,
+    Object? buttonText = null,
+    Object? icons = null,
   }) {
     return _then(_$CalculatorParametersImpl(
       calculatedValue: null == calculatedValue
@@ -133,6 +160,18 @@ class __$$CalculatorParametersImplCopyWithImpl<$Res>
           ? _value.currentHits
           : currentHits // ignore: cast_nullable_to_non_nullable
               as String,
+      controller: null == controller
+          ? _value.controller
+          : controller // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      buttonText: null == buttonText
+          ? _value._buttonText
+          : buttonText // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      icons: null == icons
+          ? _value._icons
+          : icons // ignore: cast_nullable_to_non_nullable
+              as List<IconData>,
     ));
   }
 }
@@ -144,7 +183,36 @@ class _$CalculatorParametersImpl implements _CalculatorParameters {
       {required this.calculatedValue,
       this.temporalHits,
       this.maxHits = '10',
-      this.currentHits = '0'});
+      this.currentHits = '0',
+      required this.controller,
+      final List<String> buttonText = const [
+        '7',
+        '8',
+        '9',
+        '4',
+        '5',
+        '6',
+        '1',
+        '2',
+        '3',
+        '0',
+        '+',
+        '-'
+      ],
+      final List<IconData> icons = const [
+        Icons.add,
+        Icons.remove,
+        Icons.abc,
+        Icons.access_alarm,
+        Icons.access_time,
+        Icons.accessibility,
+        Icons.accessible,
+        Icons.account_balance,
+        Icons.account_balance_wallet,
+        Icons.account_box
+      ]})
+      : _buttonText = buttonText,
+        _icons = icons;
 
   @override
   final int calculatedValue;
@@ -156,10 +224,29 @@ class _$CalculatorParametersImpl implements _CalculatorParameters {
   @override
   @JsonKey()
   final String currentHits;
+  @override
+  final TextEditingController controller;
+  final List<String> _buttonText;
+  @override
+  @JsonKey()
+  List<String> get buttonText {
+    if (_buttonText is EqualUnmodifiableListView) return _buttonText;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_buttonText);
+  }
+
+  final List<IconData> _icons;
+  @override
+  @JsonKey()
+  List<IconData> get icons {
+    if (_icons is EqualUnmodifiableListView) return _icons;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_icons);
+  }
 
   @override
   String toString() {
-    return 'CalculatorParameters(calculatedValue: $calculatedValue, temporalHits: $temporalHits, maxHits: $maxHits, currentHits: $currentHits)';
+    return 'CalculatorParameters(calculatedValue: $calculatedValue, temporalHits: $temporalHits, maxHits: $maxHits, currentHits: $currentHits, controller: $controller, buttonText: $buttonText, icons: $icons)';
   }
 
   @override
@@ -173,12 +260,24 @@ class _$CalculatorParametersImpl implements _CalculatorParameters {
                 other.temporalHits == temporalHits) &&
             (identical(other.maxHits, maxHits) || other.maxHits == maxHits) &&
             (identical(other.currentHits, currentHits) ||
-                other.currentHits == currentHits));
+                other.currentHits == currentHits) &&
+            (identical(other.controller, controller) ||
+                other.controller == controller) &&
+            const DeepCollectionEquality()
+                .equals(other._buttonText, _buttonText) &&
+            const DeepCollectionEquality().equals(other._icons, _icons));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, calculatedValue, temporalHits, maxHits, currentHits);
+      runtimeType,
+      calculatedValue,
+      temporalHits,
+      maxHits,
+      currentHits,
+      controller,
+      const DeepCollectionEquality().hash(_buttonText),
+      const DeepCollectionEquality().hash(_icons));
 
   /// Create a copy of CalculatorParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -196,7 +295,10 @@ abstract class _CalculatorParameters implements CalculatorParameters {
       {required final int calculatedValue,
       final String? temporalHits,
       final String maxHits,
-      final String currentHits}) = _$CalculatorParametersImpl;
+      final String currentHits,
+      required final TextEditingController controller,
+      final List<String> buttonText,
+      final List<IconData> icons}) = _$CalculatorParametersImpl;
 
   @override
   int get calculatedValue;
@@ -206,6 +308,12 @@ abstract class _CalculatorParameters implements CalculatorParameters {
   String get maxHits;
   @override
   String get currentHits;
+  @override
+  TextEditingController get controller;
+  @override
+  List<String> get buttonText;
+  @override
+  List<IconData> get icons;
 
   /// Create a copy of CalculatorParameters
   /// with the given fields replaced by the non-null parameter values.

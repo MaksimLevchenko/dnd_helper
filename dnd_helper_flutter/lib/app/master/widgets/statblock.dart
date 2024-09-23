@@ -1,4 +1,3 @@
-import 'package:dnd_helper_flutter/app/widgets/addeble_scrolling_field.dart';
 import 'package:dnd_helper_flutter/app/widgets/scrollable_number_field.dart';
 import 'package:flutter/material.dart';
 

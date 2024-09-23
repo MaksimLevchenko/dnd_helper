@@ -6,7 +6,7 @@ part of 'calculator_state.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$calculatorStateHash() => r'311ab312e0bdaa55773d3e0151f3fc44fe76e7e5';
+String _$calculatorStateHash() => r'd973c28cd60046a627daddded88327d30cd1c371';
 
 /// See also [CalculatorState].
 @ProviderFor(CalculatorState)

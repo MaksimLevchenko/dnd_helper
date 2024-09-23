@@ -1,5 +1,4 @@
 import 'package:dnd_helper_flutter/app/master/widgets/calculator/calculator.dart';
-import 'package:dnd_helper_flutter/app/master/widgets/statblock.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,13 +26,13 @@ class MasterPageState extends State<MasterPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Statblock(),
-                      Statblock(),
-                    ],
-                  ),
-                ),
+                    // child: Column(
+                    //   children: [
+                    //     Statblock(),
+                    //     Statblock(),
+                    //   ],
+                    // ),
+                    ),
                 Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Calculator(),
