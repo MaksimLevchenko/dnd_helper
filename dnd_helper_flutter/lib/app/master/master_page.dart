@@ -23,16 +23,16 @@ class MasterPageState extends State<MasterPage> {
         children: [
           const Expanded(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SingleChildScrollView(
-                    // child: Column(
-                    //   children: [
-                    //     Statblock(),
-                    //     Statblock(),
-                    //   ],
-                    // ),
-                    ),
+                // SingleChildScrollView(
+                //     // child: Column(
+                //     //   children: [
+                //     //     Statblock(),
+                //     //     Statblock(),
+                //     //   ],
+                //     // ),
+                //     ),
                 Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Calculator(),

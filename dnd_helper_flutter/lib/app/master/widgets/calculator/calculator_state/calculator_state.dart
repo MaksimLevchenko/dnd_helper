@@ -21,10 +21,11 @@ class CalculatorState extends _$CalculatorState {
         break;
       case 'damage':
         value > state.temporalHits
-            ? value > state.currentHits
-                ? state = state.copyWith(currentHits: 0)
-                : state = state.copyWith(
+            ? value < state.currentHits + state.temporalHits
+                ? state = state.copyWith(
+                    temporalHits: 0,
                     currentHits: state.currentHits + state.temporalHits - value)
+                : state = state.copyWith(currentHits: 0)
             : state = state.copyWith(temporalHits: state.temporalHits - value);
         break;
       case 'temporal':
