@@ -10,7 +10,7 @@ class Calculator extends ConsumerWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(15),
       ),
       child: const Padding(
         padding: EdgeInsets.all(8.0),

@@ -16,10 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CalculatorParameters {
-  int get calculatedValue => throw _privateConstructorUsedError;
-  String? get temporalHits => throw _privateConstructorUsedError;
-  String get maxHits => throw _privateConstructorUsedError;
-  String get currentHits => throw _privateConstructorUsedError;
+  int get temporalHits => throw _privateConstructorUsedError;
+  int get maxHits => throw _privateConstructorUsedError;
+  int get currentHits => throw _privateConstructorUsedError;
   TextEditingController get controller => throw _privateConstructorUsedError;
   List<String> get buttonText => throw _privateConstructorUsedError;
   List<IconData> get icons => throw _privateConstructorUsedError;
@@ -38,10 +37,9 @@ abstract class $CalculatorParametersCopyWith<$Res> {
       _$CalculatorParametersCopyWithImpl<$Res, CalculatorParameters>;
   @useResult
   $Res call(
-      {int calculatedValue,
-      String? temporalHits,
-      String maxHits,
-      String currentHits,
+      {int temporalHits,
+      int maxHits,
+      int currentHits,
       TextEditingController controller,
       List<String> buttonText,
       List<IconData> icons});
@@ -63,8 +61,7 @@ class _$CalculatorParametersCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? calculatedValue = null,
-    Object? temporalHits = freezed,
+    Object? temporalHits = null,
     Object? maxHits = null,
     Object? currentHits = null,
     Object? controller = null,
@@ -72,22 +69,18 @@ class _$CalculatorParametersCopyWithImpl<$Res,
     Object? icons = null,
   }) {
     return _then(_value.copyWith(
-      calculatedValue: null == calculatedValue
-          ? _value.calculatedValue
-          : calculatedValue // ignore: cast_nullable_to_non_nullable
-              as int,
-      temporalHits: freezed == temporalHits
+      temporalHits: null == temporalHits
           ? _value.temporalHits
           : temporalHits // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int,
       maxHits: null == maxHits
           ? _value.maxHits
           : maxHits // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       currentHits: null == currentHits
           ? _value.currentHits
           : currentHits // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       controller: null == controller
           ? _value.controller
           : controller // ignore: cast_nullable_to_non_nullable
@@ -113,10 +106,9 @@ abstract class _$$CalculatorParametersImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int calculatedValue,
-      String? temporalHits,
-      String maxHits,
-      String currentHits,
+      {int temporalHits,
+      int maxHits,
+      int currentHits,
       TextEditingController controller,
       List<String> buttonText,
       List<IconData> icons});
@@ -135,8 +127,7 @@ class __$$CalculatorParametersImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? calculatedValue = null,
-    Object? temporalHits = freezed,
+    Object? temporalHits = null,
     Object? maxHits = null,
     Object? currentHits = null,
     Object? controller = null,
@@ -144,22 +135,18 @@ class __$$CalculatorParametersImplCopyWithImpl<$Res>
     Object? icons = null,
   }) {
     return _then(_$CalculatorParametersImpl(
-      calculatedValue: null == calculatedValue
-          ? _value.calculatedValue
-          : calculatedValue // ignore: cast_nullable_to_non_nullable
-              as int,
-      temporalHits: freezed == temporalHits
+      temporalHits: null == temporalHits
           ? _value.temporalHits
           : temporalHits // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int,
       maxHits: null == maxHits
           ? _value.maxHits
           : maxHits // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       currentHits: null == currentHits
           ? _value.currentHits
           : currentHits // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       controller: null == controller
           ? _value.controller
           : controller // ignore: cast_nullable_to_non_nullable
@@ -180,10 +167,9 @@ class __$$CalculatorParametersImplCopyWithImpl<$Res>
 
 class _$CalculatorParametersImpl implements _CalculatorParameters {
   _$CalculatorParametersImpl(
-      {required this.calculatedValue,
-      this.temporalHits,
-      this.maxHits = '10',
-      this.currentHits = '0',
+      {this.temporalHits = 0,
+      this.maxHits = 100,
+      this.currentHits = 0,
       required this.controller,
       final List<String> buttonText = const [
         '7',
@@ -215,15 +201,14 @@ class _$CalculatorParametersImpl implements _CalculatorParameters {
         _icons = icons;
 
   @override
-  final int calculatedValue;
-  @override
-  final String? temporalHits;
+  @JsonKey()
+  final int temporalHits;
   @override
   @JsonKey()
-  final String maxHits;
+  final int maxHits;
   @override
   @JsonKey()
-  final String currentHits;
+  final int currentHits;
   @override
   final TextEditingController controller;
   final List<String> _buttonText;
@@ -246,7 +231,7 @@ class _$CalculatorParametersImpl implements _CalculatorParameters {
 
   @override
   String toString() {
-    return 'CalculatorParameters(calculatedValue: $calculatedValue, temporalHits: $temporalHits, maxHits: $maxHits, currentHits: $currentHits, controller: $controller, buttonText: $buttonText, icons: $icons)';
+    return 'CalculatorParameters(temporalHits: $temporalHits, maxHits: $maxHits, currentHits: $currentHits, controller: $controller, buttonText: $buttonText, icons: $icons)';
   }
 
   @override
@@ -254,8 +239,6 @@ class _$CalculatorParametersImpl implements _CalculatorParameters {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CalculatorParametersImpl &&
-            (identical(other.calculatedValue, calculatedValue) ||
-                other.calculatedValue == calculatedValue) &&
             (identical(other.temporalHits, temporalHits) ||
                 other.temporalHits == temporalHits) &&
             (identical(other.maxHits, maxHits) || other.maxHits == maxHits) &&
@@ -271,7 +254,6 @@ class _$CalculatorParametersImpl implements _CalculatorParameters {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      calculatedValue,
       temporalHits,
       maxHits,
       currentHits,
@@ -292,22 +274,19 @@ class _$CalculatorParametersImpl implements _CalculatorParameters {
 
 abstract class _CalculatorParameters implements CalculatorParameters {
   factory _CalculatorParameters(
-      {required final int calculatedValue,
-      final String? temporalHits,
-      final String maxHits,
-      final String currentHits,
+      {final int temporalHits,
+      final int maxHits,
+      final int currentHits,
       required final TextEditingController controller,
       final List<String> buttonText,
       final List<IconData> icons}) = _$CalculatorParametersImpl;
 
   @override
-  int get calculatedValue;
+  int get temporalHits;
   @override
-  String? get temporalHits;
+  int get maxHits;
   @override
-  String get maxHits;
-  @override
-  String get currentHits;
+  int get currentHits;
   @override
   TextEditingController get controller;
   @override

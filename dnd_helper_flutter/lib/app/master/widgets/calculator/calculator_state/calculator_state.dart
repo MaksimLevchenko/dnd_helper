@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -10,14 +9,29 @@ part 'calculator_state.freezed.dart';
 class CalculatorState extends _$CalculatorState {
   @override
   CalculatorParameters build() {
-    return CalculatorParameters(
-        calculatedValue: 0, controller: TextEditingController());
+    return CalculatorParameters(controller: TextEditingController());
   }
 
-  void updateCalculatedValue(int newValue) {
-    state = state.copyWith(
-      calculatedValue: newValue > 0 ? newValue : 0,
-    );
+  void updateCalculatedValue(int value, String type) {
+    switch (type) {
+      case 'heal':
+        value > state.maxHits
+            ? state = state.copyWith(currentHits: state.maxHits)
+            : state = state.copyWith(currentHits: state.currentHits + value);
+        break;
+      case 'damage':
+        value > state.temporalHits
+            ? value > state.currentHits
+                ? state = state.copyWith(currentHits: 0)
+                : state = state.copyWith(
+                    currentHits: state.currentHits + state.temporalHits - value)
+            : state = state.copyWith(temporalHits: state.temporalHits - value);
+        break;
+      case 'temporal':
+        state = state.copyWith(temporalHits: state.temporalHits + value);
+        break;
+    }
+    state.controller.clear();
   }
 
   bool checkString(String input) {
@@ -29,7 +43,10 @@ class CalculatorState extends _$CalculatorState {
     switch (index) {
       case 0:
         checkString(controller.text) ? controller.text += 'd' : controller.text;
+        break;
       case 1:
+        // Add functionality for case 1 if needed
+        break;
     }
   }
 
@@ -70,7 +87,7 @@ class CalculatorState extends _$CalculatorState {
       }
 
       // Если символ не число или последний символ
-      if (!RegExp(r'[0-9]').hasMatch(char) || i == expression.length - 1) {
+      if (RegExp(r'[+-]').hasMatch(char) || i == expression.length - 1) {
         switch (operation) {
           case '+':
             result += currentNumber;
@@ -85,32 +102,16 @@ class CalculatorState extends _$CalculatorState {
         currentNumber = 0;
       }
     }
-
     return result;
   }
-
-  // InputFormatter для разрешения только цифр, + и -
-  //TODO: Перенести в отдельный файл
-  List<TextInputFormatter> inputFormatters = [
-    FilteringTextInputFormatter.allow(
-        RegExp(r'[0-9+-]')), // Разрешаем только цифры, + и -
-    TextInputFormatter.withFunction((oldValue, newValue) {
-      // Запрещаем начинать с + или -
-      if (newValue.text.startsWith('+') || newValue.text.startsWith('-')) {
-        return oldValue;
-      }
-      return newValue;
-    }),
-  ];
 }
 
 @freezed
 class CalculatorParameters with _$CalculatorParameters {
   factory CalculatorParameters({
-    required int calculatedValue,
-    String? temporalHits,
-    @Default('10') String maxHits,
-    @Default('0') String currentHits,
+    @Default(0) int temporalHits,
+    @Default(100) int maxHits,
+    @Default(0) int currentHits,
     required TextEditingController controller,
     @Default(['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '+', '-'])
     List<String> buttonText,
