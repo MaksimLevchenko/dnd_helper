@@ -14,14 +14,14 @@ class CalculatorGrid extends ConsumerWidget {
       children: [
         LayoutGrid(
           areas: """
-              solution solution solution .
-              field    field    field    backspace
-              7        8        9        .
-              4        5        6        .
-              1        2        3        .
-              0        +        -        .
+              .   solution solution solution .
+              .   field    field    field    backspace
+              .   7        8        9        .
+              .   4        5        6        .
+              .   1        2        3        .
+              .   0        +        -        .
               """,
-          columnSizes: [50.px, 50.px, 50.px, 50.px],
+          columnSizes: [50.px, 50.px, 50.px, 50.px, 50.px],
           rowSizes: [50.px, 50.px, 50.px, 50.px, 50.px, 50.px],
           children: [
             const CalcSolution().inGridArea('solution'),
@@ -48,6 +48,12 @@ class CalculatorGrid extends ConsumerWidget {
             Calculate.damage(),
           ],
         ),
+        const Row(
+          children: [
+            Calculate.increase(),
+            Calculate.decrease(),
+          ],
+        ),
       ],
     );
   }
@@ -66,12 +72,10 @@ Widget calculatorTextButton(String character, WidgetRef ref) {
   );
 }
 
-Widget calculatorIconButton(
-    int index, TextEditingController controller, WidgetRef ref) {
+Widget calculatorIconButton(int index, WidgetRef ref) {
   return IconButton(
-    onPressed: () => ref
-        .read(calculatorStateProvider.notifier)
-        .iconButtonCallback(index, controller),
+    onPressed: () =>
+        ref.read(calculatorStateProvider.notifier).iconButtonCallback(index),
     icon: Icon(ref.watch(calculatorStateProvider).icons[index]),
   );
 }
@@ -80,6 +84,7 @@ Widget calculatorIconButton(
 Widget calcField(TextEditingController controller, WidgetRef ref) {
   return TextField(
     controller: ref.watch(calculatorStateProvider).controller,
+    textAlign: TextAlign.right,
     decoration: const InputDecoration(
       border: OutlineInputBorder(),
     ),
@@ -94,6 +99,8 @@ class Calculate extends ConsumerWidget {
   const Calculate.heal({super.key}) : type = 'heal';
   const Calculate.damage({super.key}) : type = 'damage';
   const Calculate.temporal({super.key}) : type = 'temporal';
+  const Calculate.increase({super.key}) : type = 'increase';
+  const Calculate.decrease({super.key}) : type = 'decrease';
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final notifier = ref.watch(calculatorStateProvider.notifier);

@@ -186,16 +186,11 @@ class _$CalculatorParametersImpl implements _CalculatorParameters {
         '-'
       ],
       final List<IconData> icons = const [
-        Icons.add,
-        Icons.remove,
-        Icons.abc,
-        Icons.access_alarm,
-        Icons.access_time,
-        Icons.accessibility,
-        Icons.accessible,
-        Icons.account_balance,
-        Icons.account_balance_wallet,
-        Icons.account_box
+        Icons.four_k_outlined,
+        Icons.six_k_outlined,
+        Icons.eight_k_outlined,
+        Icons.ten_k_outlined,
+        Icons.twelve_mp_outlined
       ]})
       : _buttonText = buttonText,
         _icons = icons;

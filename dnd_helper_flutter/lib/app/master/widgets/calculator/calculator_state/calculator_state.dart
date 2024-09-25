@@ -5,6 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'calculator_state.g.dart';
 part 'calculator_state.freezed.dart';
 
+//TODO: покрасить текущие хиты
 @riverpod
 class CalculatorState extends _$CalculatorState {
   @override
@@ -31,6 +32,13 @@ class CalculatorState extends _$CalculatorState {
       case 'temporal':
         state = state.copyWith(temporalHits: state.temporalHits + value);
         break;
+      case 'increase':
+        state = state.copyWith(maxHits: state.maxHits + value);
+        break;
+      case 'decrease':
+        value > state.maxHits
+            ? state = state.copyWith(maxHits: 0)
+            : state = state.copyWith(maxHits: state.maxHits - value);
     }
     state.controller.clear();
   }
@@ -40,10 +48,12 @@ class CalculatorState extends _$CalculatorState {
     return regex.hasMatch(input);
   }
 
-  void iconButtonCallback(int index, TextEditingController controller) {
+  void iconButtonCallback(int index) {
     switch (index) {
       case 0:
-        checkString(controller.text) ? controller.text += 'd' : controller.text;
+        checkString(state.controller.text)
+            ? state.controller.text += 'd4'
+            : state.controller.text;
         break;
       case 1:
         // Add functionality for case 1 if needed
@@ -117,16 +127,11 @@ class CalculatorParameters with _$CalculatorParameters {
     @Default(['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '+', '-'])
     List<String> buttonText,
     @Default([
-      Icons.add,
-      Icons.remove,
-      Icons.abc,
-      Icons.access_alarm,
-      Icons.access_time,
-      Icons.accessibility,
-      Icons.accessible,
-      Icons.account_balance,
-      Icons.account_balance_wallet,
-      Icons.account_box,
+      Icons.four_k_outlined,
+      Icons.six_k_outlined,
+      Icons.eight_k_outlined,
+      Icons.ten_k_outlined,
+      Icons.twelve_mp_outlined,
     ])
     List<IconData> icons,
   }) = _CalculatorParameters;
