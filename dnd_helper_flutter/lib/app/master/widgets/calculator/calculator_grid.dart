@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dnd_helper_flutter/app/master/widgets/calculator/calculator_state/calculator_state.dart';
 import 'package:dnd_helper_flutter/formatters/formatters.dart';
 import 'package:flutter/material.dart';
@@ -61,11 +59,14 @@ class CalculatorGrid extends ConsumerWidget {
   }
 }
 
+//TODO сделать классом и вынести в отдельный файл или сделать методом
 Widget calculatorTextButton(String character, WidgetRef ref) {
   final controller = ref.watch(calculatorStateProvider).controller;
+  //TODO здесь и в остальных местах заменить Material Buttonы (кроме iconButton) на наши, которые лежат в ui_kit
   return TextButton(
     onPressed: () => ref
         .read(calculatorStateProvider.notifier)
+        //TODO нахуя тут контроллер, если он уже есть в стейте?
         .textButtonCallback(character, controller),
     child: Text(
       character,
@@ -74,15 +75,20 @@ Widget calculatorTextButton(String character, WidgetRef ref) {
   );
 }
 
+//TODO лучше тоже методом или классом. Эта вещь не используется, зачем она?
 Widget calculatorIconButton(int index, WidgetRef ref) {
   return IconButton(
     onPressed: () =>
         ref.read(calculatorStateProvider.notifier).iconButtonCallback(index),
+    //todo что такое index? Что за иконки? Что они делают? Не понятно. Лучше сделать отдельный класс с иконками и их путями, вызывать потом какой-нибудь AppIcons.plus
     icon: Icon(ref.watch(calculatorStateProvider).icons[index]),
   );
 }
 
+//TODO сделать классом и вынести в отдельный файл. Название не сокращать - calcualtorTextField
+//TODO ref тут не нужен
 Widget calcField(TextEditingController controller, WidgetRef ref) {
+  //TODO эту штуку уносим в форматтер. Это его обязанность, listener тут избыточен и нечитаем
   controller.addListener(
     () {
       final text = controller.text;
@@ -111,12 +117,15 @@ Widget calcField(TextEditingController controller, WidgetRef ref) {
   );
 }
 
+//TODO Функции вне классов - плохо. Сделай методом класса, где она юзается. Или в domain как надстройку над string засунь
 bool isOperator(String char) {
   const operators = ['+', '-', '*', '/'];
   return operators.contains(char);
 }
 
+//TODO вынести в отдельный файл
 class Calculate extends ConsumerWidget {
+  //TODO type - не стринг, type - enum
   final String type;
   const Calculate({super.key, required this.type});
 
@@ -128,6 +137,7 @@ class Calculate extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final notifier = ref.watch(calculatorStateProvider.notifier);
+    //TODO паддинг есть в контейнере
     return Padding(
       padding: const EdgeInsets.all(2.0),
       child: Container(
@@ -135,8 +145,10 @@ class Calculate extends ConsumerWidget {
           border: Border.all(color: Theme.of(context).colorScheme.primary),
           borderRadius: BorderRadius.circular(15),
         ),
+        //TODO зачем контейнер, в который вставляем TextButton, если можно задать стиль кнопке? поле Style в помощь
         child: TextButton(
           onPressed: () {
+            //TODO фуфуфу использовать ref.watch в onPressed. ref.read и только - иначе чревато багами
             final expression = notifier.evaluateExpression(
                 ref.watch(calculatorStateProvider).controller.text);
             notifier.updateCalculatedValue(expression, type);
@@ -157,11 +169,14 @@ class Calculate extends ConsumerWidget {
   }
 }
 
+//TODO вынести в отдельный файл
 class CalcSolution extends ConsumerWidget {
   const CalcSolution({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(calculatorStateProvider);
+    //Todo зачем тут row, если там один текст виджет, по сути?
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -170,11 +185,13 @@ class CalcSolution extends ConsumerWidget {
           style: TextStyle(
               fontSize: 20, color: Theme.of(context).colorScheme.primary),
         ),
+        //TODO объединить в один текст виджет. Не нравится длинная строка - сначала сделай переменную String, посчитай до return и уже тут юзай в тексте
         Text(
           '${state.maxHits.toString()} ',
           style: TextStyle(
               fontSize: 20, color: Theme.of(context).colorScheme.primary),
         ),
+        //TODO объединить в один текст виджет. Можно rich text, он поможет с цветами
         Visibility(
           visible: state.temporalHits > 0,
           child: Text(
@@ -188,6 +205,7 @@ class CalcSolution extends ConsumerWidget {
   }
 }
 
+//TODO сделать классом и вынести в отдельный файл
 Widget backspaceButton(WidgetRef ref) {
   final controller = ref.watch(calculatorStateProvider).controller;
   return Center(

@@ -133,6 +133,7 @@ class CalculatorParameters with _$CalculatorParameters {
       Icons.ten_k_outlined,
       Icons.twelve_mp_outlined,
     ])
+    //TODO кикаем иконки
     List<IconData> icons,
   }) = _CalculatorParameters;
 }

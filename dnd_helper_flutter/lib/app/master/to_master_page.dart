@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+//TODO почему это здесь, должно быть в character sheets list/widgets по сути
 class ToMasterPage extends StatelessWidget {
   const ToMasterPage({super.key});
 
