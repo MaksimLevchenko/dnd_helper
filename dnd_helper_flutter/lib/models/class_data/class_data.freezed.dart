@@ -32,6 +32,7 @@ mixin _$ClassData {
       throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get imageLink => throw _privateConstructorUsedError;
+  String get source => throw _privateConstructorUsedError;
 
   /// Serializes this ClassData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -59,7 +60,8 @@ abstract class $ClassDataCopyWith<$Res> {
       List<List<String>> startEquipment,
       Map<int, List<Map<String, String>>> classFeatures,
       String description,
-      String imageLink});
+      String imageLink,
+      String source});
 }
 
 /// @nodoc
@@ -88,6 +90,7 @@ class _$ClassDataCopyWithImpl<$Res, $Val extends ClassData>
     Object? classFeatures = null,
     Object? description = null,
     Object? imageLink = null,
+    Object? source = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -134,6 +137,10 @@ class _$ClassDataCopyWithImpl<$Res, $Val extends ClassData>
           ? _value.imageLink
           : imageLink // ignore: cast_nullable_to_non_nullable
               as String,
+      source: null == source
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -157,7 +164,8 @@ abstract class _$$ClassDataImplCopyWith<$Res>
       List<List<String>> startEquipment,
       Map<int, List<Map<String, String>>> classFeatures,
       String description,
-      String imageLink});
+      String imageLink,
+      String source});
 }
 
 /// @nodoc
@@ -184,6 +192,7 @@ class __$$ClassDataImplCopyWithImpl<$Res>
     Object? classFeatures = null,
     Object? description = null,
     Object? imageLink = null,
+    Object? source = null,
   }) {
     return _then(_$ClassDataImpl(
       id: null == id
@@ -230,6 +239,10 @@ class __$$ClassDataImplCopyWithImpl<$Res>
           ? _value.imageLink
           : imageLink // ignore: cast_nullable_to_non_nullable
               as String,
+      source: null == source
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -248,7 +261,8 @@ class _$ClassDataImpl implements _ClassData {
       required final List<List<String>> startEquipment,
       required final Map<int, List<Map<String, String>>> classFeatures,
       required this.description,
-      required this.imageLink})
+      required this.imageLink,
+      required this.source})
       : _subClasses = subClasses,
         _savingThrows = savingThrows,
         _proficienciesWeapons = proficienciesWeapons,
@@ -319,10 +333,12 @@ class _$ClassDataImpl implements _ClassData {
   final String description;
   @override
   final String imageLink;
+  @override
+  final String source;
 
   @override
   String toString() {
-    return 'ClassData(id: $id, name: $name, subClasses: $subClasses, savingThrows: $savingThrows, hitDice: $hitDice, proficienciesWeapons: $proficienciesWeapons, proficienciesArmor: $proficienciesArmor, startEquipment: $startEquipment, classFeatures: $classFeatures, description: $description, imageLink: $imageLink)';
+    return 'ClassData(id: $id, name: $name, subClasses: $subClasses, savingThrows: $savingThrows, hitDice: $hitDice, proficienciesWeapons: $proficienciesWeapons, proficienciesArmor: $proficienciesArmor, startEquipment: $startEquipment, classFeatures: $classFeatures, description: $description, imageLink: $imageLink, source: $source)';
   }
 
   @override
@@ -348,7 +364,8 @@ class _$ClassDataImpl implements _ClassData {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.imageLink, imageLink) ||
-                other.imageLink == imageLink));
+                other.imageLink == imageLink) &&
+            (identical(other.source, source) || other.source == source));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -365,7 +382,8 @@ class _$ClassDataImpl implements _ClassData {
       const DeepCollectionEquality().hash(_startEquipment),
       const DeepCollectionEquality().hash(_classFeatures),
       description,
-      imageLink);
+      imageLink,
+      source);
 
   /// Create a copy of ClassData
   /// with the given fields replaced by the non-null parameter values.
@@ -395,7 +413,8 @@ abstract class _ClassData implements ClassData {
       required final List<List<String>> startEquipment,
       required final Map<int, List<Map<String, String>>> classFeatures,
       required final String description,
-      required final String imageLink}) = _$ClassDataImpl;
+      required final String imageLink,
+      required final String source}) = _$ClassDataImpl;
 
   factory _ClassData.fromJson(Map<String, dynamic> json) =
       _$ClassDataImpl.fromJson;
@@ -422,6 +441,8 @@ abstract class _ClassData implements ClassData {
   String get description;
   @override
   String get imageLink;
+  @override
+  String get source;
 
   /// Create a copy of ClassData
   /// with the given fields replaced by the non-null parameter values.

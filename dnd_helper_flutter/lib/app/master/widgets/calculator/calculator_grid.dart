@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dnd_helper_flutter/app/master/widgets/calculator/calculator_state/calculator_state.dart';
 import 'package:dnd_helper_flutter/formatters/formatters.dart';
 import 'package:flutter/material.dart';
@@ -80,16 +82,38 @@ Widget calculatorIconButton(int index, WidgetRef ref) {
   );
 }
 
-// TODO: Добавить замену знака при вводе другого знака (сложно)
 Widget calcField(TextEditingController controller, WidgetRef ref) {
+  controller.addListener(
+    () {
+      final text = controller.text;
+
+      // Замена одного оператора на другой при вводе подряд
+      if (text.length > 1) {
+        if (isOperator(text[text.length - 1]) &&
+            isOperator(text[text.length - 2])) {
+          final newOperator = text[text.length - 1];
+          controller.value = controller.value.copyWith(
+            text: text.substring(0, text.length - 2) + newOperator,
+            selection: TextSelection.collapsed(offset: text.length - 1),
+          );
+        }
+      }
+    },
+  );
+
   return TextField(
-    controller: ref.watch(calculatorStateProvider).controller,
+    controller: controller,
     textAlign: TextAlign.right,
     decoration: const InputDecoration(
       border: OutlineInputBorder(),
     ),
     inputFormatters: Formatters().calcFormatter,
   );
+}
+
+bool isOperator(String char) {
+  const operators = ['+', '-', '*', '/'];
+  return operators.contains(char);
 }
 
 class Calculate extends ConsumerWidget {

@@ -189,18 +189,18 @@ class ClassRepository {
     return _classes.firstWhere(
       (element) => element.id == id,
       orElse: () => ClassData(
-        id: 0,
-        name: "Not found id: $id",
-        subClasses: [],
-        savingThrows: [],
-        hitDice: Dice.d4,
-        proficienciesWeapons: [],
-        proficienciesArmor: [],
-        startEquipment: [],
-        classFeatures: {},
-        description: "",
-        imageLink: 'assets/images/placeholder.png',
-      ),
+          id: 0,
+          name: "Not found id: $id",
+          subClasses: [],
+          savingThrows: [],
+          hitDice: Dice.d4,
+          proficienciesWeapons: [],
+          proficienciesArmor: [],
+          startEquipment: [],
+          classFeatures: {},
+          description: "",
+          imageLink: 'assets/images/placeholder.png',
+          source: "PHB"),
     );
   }
 
@@ -208,18 +208,18 @@ class ClassRepository {
     return _classes.firstWhere(
       (element) => element.name == name,
       orElse: () => ClassData(
-        id: 0,
-        name: "Not found name: $name",
-        subClasses: [],
-        savingThrows: [],
-        hitDice: Dice.d4,
-        proficienciesWeapons: [],
-        proficienciesArmor: [],
-        startEquipment: [],
-        classFeatures: {},
-        description: "",
-        imageLink: 'assets/images/placeholder.png',
-      ),
+          id: 0,
+          name: "Not found name: $name",
+          subClasses: [],
+          savingThrows: [],
+          hitDice: Dice.d4,
+          proficienciesWeapons: [],
+          proficienciesArmor: [],
+          startEquipment: [],
+          classFeatures: {},
+          description: "",
+          imageLink: 'assets/images/placeholder.png',
+          source: "PHB"),
     );
   }
 
@@ -380,6 +380,7 @@ class ClassRepository {
             }
           ],
         },
+        source: "PHB",
         imageLink: 'assets/images/barbarian.png'),
   ];
 }

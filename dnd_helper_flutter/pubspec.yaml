@@ -48,3 +48,4 @@ flutter:
   - assets/icons/class_icons/warlock.png
   - assets/icons/class_icons/wizard.png
   - assets/jsons/classes.json
+  - assets/jsons/races.json

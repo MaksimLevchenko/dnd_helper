@@ -19,6 +19,7 @@ class ClassData with _$ClassData {
     required Map<int, List<Map<String, String>>> classFeatures,
     required String description,
     required String imageLink,
+    required String source,
   }) = _ClassData;
 
   factory ClassData.fromJson(Map<String, dynamic> json) =>

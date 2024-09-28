@@ -151,7 +151,8 @@
                 }
             ]
         },
-        "imageLink": "assets/icons/class_icons/barbarian.png"
+        "imageLink": "assets/icons/class_icons/barbarian.png",
+        "source": "PHB"
     },
     {
         "id": 3,
@@ -308,7 +309,8 @@
                 }
             ]
         },
-        "imageLink": "assets/icons/class_icons/bard.png"
+        "imageLink": "assets/icons/class_icons/bard.png",
+        "source": "PHB"
     },
     {
         "id": 4,
@@ -467,7 +469,8 @@
                 }
             ]
         },
-        "imageLink": "assets/icons/class_icons/cleric.png"
+        "imageLink": "assets/icons/class_icons/cleric.png",
+        "source": "PHB"
     },
     {
         "id": 5,
@@ -621,7 +624,8 @@
                 }
             ]
         },
-        "imageLink": "assets/icons/class_icons/druid.png"
+        "imageLink": "assets/icons/class_icons/druid.png",
+        "source": "PHB"
     },
     {
         "id": 6,
@@ -768,7 +772,8 @@
                 }
             ]
         },
-        "imageLink": "assets/icons/class_icons/fighter.png"
+        "imageLink": "assets/icons/class_icons/fighter.png",
+        "source": "PHB"
     },
     {
         "id": 7,
@@ -922,7 +927,8 @@
                 }
             ]
         },
-        "imageLink": "assets/icons/class_icons/monk.png"
+        "imageLink": "assets/icons/class_icons/monk.png",
+        "source": "PHB"
     },
     {
         "id": 8,
@@ -1078,7 +1084,8 @@
                 }
             ]
         },
-        "imageLink": "assets/icons/class_icons/paladin.png"
+        "imageLink": "assets/icons/class_icons/paladin.png",
+        "source": "PHB"
     },
     {
         "id": 9,
@@ -1236,7 +1243,8 @@
                 }
             ]
         },
-        "imageLink": "assets/icons/class_icons/ranger.png"
+        "imageLink": "assets/icons/class_icons/ranger.png",
+        "source": "PHB"
     },
     {
         "id": 10,
@@ -1390,7 +1398,8 @@
                 }
             ]
         },
-        "imageLink": "assets/icons/class_icons/rogue.png"
+        "imageLink": "assets/icons/class_icons/rogue.png",
+        "source": "PHB"
     },
 {
         "id": 11,
@@ -1535,7 +1544,8 @@
                 }
             ]
         },
-        "imageLink": "assets/icons/class_icons/sorcerer.png"
+        "imageLink": "assets/icons/class_icons/sorcerer.png",
+        "source": "PHB"
     }
 ,
 {
@@ -1682,7 +1692,8 @@
             }
         ]
     },
-    "imageLink": "assets/icons/class_icons/warlock.png"
+    "imageLink": "assets/icons/class_icons/warlock.png",
+        "source": "PHB"
 },
 {
     "id": 13,
@@ -1801,6 +1812,7 @@
             }
         ]
     },
-    "imageLink": "assets/icons/class_icons/wizard.png"
+    "imageLink": "assets/icons/class_icons/wizard.png",
+        "source": "PHB"
 }
 ]
