@@ -15,30 +15,39 @@ class CalculatorState extends _$CalculatorState {
 
   void updateCalculatedValue(int value, String type) {
     switch (type) {
-      case 'heal':
+      case 'Types.heal':
         value > state.maxHits
             ? state = state.copyWith(currentHits: state.maxHits)
             : state = state.copyWith(currentHits: state.currentHits + value);
         break;
-      case 'damage':
+      case 'Types.damage':
         value > state.temporalHits
             ? value < state.currentHits + state.temporalHits
                 ? state = state.copyWith(
                     temporalHits: 0,
                     currentHits: state.currentHits + state.temporalHits - value)
-                : state = state.copyWith(currentHits: 0)
+                : state = state.copyWith(currentHits: 0, temporalHits: 0)
             : state = state.copyWith(temporalHits: state.temporalHits - value);
         break;
-      case 'temporal':
+      case 'Types.temporal':
         state = state.copyWith(temporalHits: state.temporalHits + value);
         break;
-      case 'increase':
+      case 'Types.increase':
         state = state.copyWith(maxHits: state.maxHits + value);
         break;
-      case 'decrease':
+      case 'Types.decrease':
         value > state.maxHits
-            ? state = state.copyWith(maxHits: 0)
-            : state = state.copyWith(maxHits: state.maxHits - value);
+            ? state = state.copyWith(
+                maxHits: 0,
+                currentHits: 0,
+              )
+            : value > state.maxHits - state.currentHits
+                ? state = state.copyWith(
+                    maxHits: state.maxHits - value,
+                    currentHits: state.maxHits - value)
+                : state = state.copyWith(
+                    maxHits: state.maxHits - value,
+                  );
     }
     state.controller.clear();
   }
@@ -48,20 +57,8 @@ class CalculatorState extends _$CalculatorState {
     return regex.hasMatch(input);
   }
 
-  void iconButtonCallback(int index) {
-    switch (index) {
-      case 0:
-        checkString(state.controller.text)
-            ? state.controller.text += 'd4'
-            : state.controller.text;
-        break;
-      case 1:
-        // Add functionality for case 1 if needed
-        break;
-    }
-  }
-
-  void textButtonCallback(String char, TextEditingController controller) {
+  void textButtonCallback(String char) {
+    final controller = state.controller;
     String currentText = controller.text;
     if (char == '+' || char == '-') {
       // Проверяем, пустое ли поле
