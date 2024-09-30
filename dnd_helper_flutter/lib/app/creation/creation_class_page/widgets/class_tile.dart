@@ -25,32 +25,35 @@ class ClassTile extends StatelessWidget {
         children: [
           Flexible(
             flex: 5,
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: isSelected
-                      ? const Color.fromARGB(255, 207, 186, 0)
-                      : Colors.transparent,
-                  width: 3,
+            child: FittedBox(
+              fit: BoxFit.contain,
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: isSelected
+                        ? Theme.of(context).colorScheme.secondary
+                        : Colors.transparent,
+                    width: 18,
+                  ),
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Center(
-                child: Image.asset(
-                  dndClass.imageLink,
-                  fit: BoxFit.contain,
-                  frameBuilder:
-                      (context, child, frame, wasSynchronouslyLoaded) {
-                    if (wasSynchronouslyLoaded) {
-                      return child;
-                    }
-                    return AnimatedOpacity(
-                      opacity: frame == null ? 0 : 1,
-                      duration: const Duration(seconds: 1),
-                      curve: Curves.easeOut,
-                      child: child,
-                    );
-                  },
+                child: Center(
+                  child: Image.asset(
+                    dndClass.imageLink,
+                    fit: BoxFit.contain,
+                    frameBuilder:
+                        (context, child, frame, wasSynchronouslyLoaded) {
+                      if (wasSynchronouslyLoaded) {
+                        return child;
+                      }
+                      return AnimatedOpacity(
+                        opacity: frame == null ? 0 : 1,
+                        duration: const Duration(seconds: 1),
+                        curve: Curves.easeOut,
+                        child: child,
+                      );
+                    },
+                  ),
                 ),
               ),
             ),

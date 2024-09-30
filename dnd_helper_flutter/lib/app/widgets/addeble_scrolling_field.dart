@@ -9,7 +9,7 @@ class AddebleScrollingField extends StatefulWidget {
   final TextAlign textAlign;
   final InputDecoration decoration;
 
-  AddebleScrollingField({
+  const AddebleScrollingField({
     super.key,
     required this.controller,
     required this.height,

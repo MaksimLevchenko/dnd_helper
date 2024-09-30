@@ -36,7 +36,7 @@ class CharacterData with _$CharacterData {
     int? exhaustion,
     Map<Attributes, int>? attributes,
     List<Attributes>? savingThrows,
-    Skills? skills,
+    Map<Skills, bool>? skills,
     int? proficiencyBonus,
     List<ArmsData>? attacks,
     List<SpellsData>? preparedSpells,

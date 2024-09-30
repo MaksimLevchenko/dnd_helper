@@ -35,6 +35,7 @@ _$ClassDataImpl _$$ClassDataImplFromJson(Map<String, dynamic> json) =>
       ),
       description: json['description'] as String,
       imageLink: json['imageLink'] as String,
+      source: json['source'] as String,
     );
 
 Map<String, dynamic> _$$ClassDataImplToJson(_$ClassDataImpl instance) =>
@@ -52,6 +53,7 @@ Map<String, dynamic> _$$ClassDataImplToJson(_$ClassDataImpl instance) =>
           instance.classFeatures.map((k, e) => MapEntry(k.toString(), e)),
       'description': instance.description,
       'imageLink': instance.imageLink,
+      'source': instance.source,
     };
 
 const _$AttributesEnumMap = {

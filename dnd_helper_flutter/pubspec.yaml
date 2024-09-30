@@ -18,6 +18,7 @@ dependencies:
   riverpod_annotation: ^2.3.3
   path:
   adaptive_breakpoints: ^0.1.7
+  flutter_layout_grid: ^2.0.7
 
 
 dev_dependencies:
@@ -47,3 +48,4 @@ flutter:
   - assets/icons/class_icons/warlock.png
   - assets/icons/class_icons/wizard.png
   - assets/jsons/classes.json
+  - assets/jsons/races.json

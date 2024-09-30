@@ -1,0 +1,171 @@
+[
+    {
+        "name": "Human",
+        "attributes": {
+            "strength": 1,
+            "dexterity": 1,
+            "constitution": 1,
+            "intelligence": 1,
+            "wisdom": 1,
+            "charisma": 1
+        },
+        "skills": [
+            "athletics",
+            "survival"
+        ],
+        "subRaces": [
+            "Variant Human"
+        ],
+        "raceFeatures": {
+            "Versatility": "You gain one extra skill proficiency.",
+            "Human Determination": "You can reroll a failed saving throw once per long rest."
+        },
+        "imageLink": "https://example.com/images/human.png",
+        "source": "Player's Handbook"
+    },
+    {
+        "name": "Elf",
+        "attributes": {
+            "strength": 0,
+            "dexterity": 2,
+            "constitution": 0,
+            "intelligence": 0,
+            "wisdom": 0,
+            "charisma": 0
+        },
+        "skills": [
+            "perception",
+            "stealth"
+        ],
+        "subRaces": [
+            "High Elf",
+            "Wood Elf",
+            "Dark Elf"
+        ],
+        "raceFeatures": {
+            "Darkvision": "You can see in dim light as if it were bright light.",
+            "Keen Senses": "You have proficiency in the Perception skill.",
+            "Fey Ancestry": "You have advantage on saving throws against being charmed."
+        },
+        "imageLink": "https://example.com/images/elf.png",
+        "source": "Player's Handbook"
+    },
+    {
+        "name": "Dwarf",
+        "attributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 2,
+            "intelligence": 0,
+            "wisdom": 1,
+            "charisma": 0
+        },
+        "skills": [
+            "history"
+        ],
+        "subRaces": [
+            "Mountain Dwarf",
+            "Hill Dwarf"
+        ],
+        "raceFeatures": {
+            "Darkvision": "You can see in dim light as if it were bright light.",
+            "Dwarven Resilience": "You have advantage on saving throws against poison."
+        },
+        "imageLink": "https://example.com/images/dwarf.png",
+        "source": "Player's Handbook"
+    },
+    {
+        "name": "Halfling",
+        "attributes": {
+            "strength": 0,
+            "dexterity": 2,
+            "constitution": 0,
+            "intelligence": 0,
+            "wisdom": 0,
+            "charisma": 1
+        },
+        "skills": [
+            "acrobatics"
+        ],
+        "subRaces": [
+            "Lightfoot Halfling",
+            "Stout Halfling"
+        ],
+        "raceFeatures": {
+            "Lucky": "When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.",
+            "Brave": "You have advantage on saving throws against being frightened."
+        },
+        "imageLink": "https://example.com/images/halfling.png",
+        "source": "Player's Handbook"
+    },
+    {
+        "name": "Dragonborn",
+        "attributes": {
+            "strength": 2,
+            "dexterity": 0,
+            "constitution": 0,
+            "intelligence": 0,
+            "wisdom": 0,
+            "charisma": 1
+        },
+        "skills": [
+            "intimidation"
+        ],
+        "subRaces": [
+            ""
+        ],
+        "raceFeatures": {
+            "Draconic Ancestry": "You have a breath weapon and resistance to a damage type.",
+            "Breath Weapon": "You can use your action to exhale destructive energy."
+        },
+        "imageLink": "https://example.com/images/dragonborn.png",
+        "source": "Player's Handbook"
+    },
+    {
+        "name": "Gnome",
+        "attributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "intelligence": 2,
+            "wisdom": 0,
+            "charisma": 0
+        },
+        "skills": [
+            "arcana"
+        ],
+        "subRaces": [
+            "Forest Gnome",
+            "Rock Gnome"
+        ],
+        "raceFeatures": {
+            "Darkvision": "You can see in dim light as if it were bright light.",
+            "Gnome Cunning": "You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic."
+        },
+        "imageLink": "https://example.com/images/gnome.png",
+        "source": "Player's Handbook"
+    },
+    {
+        "name": "Half-Elf",
+        "attributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "intelligence": 0,
+            "wisdom": 0,
+            "charisma": 2
+        },
+        "skills": [
+            "persuasion"
+        ],
+        "subRaces": [
+            ""
+        ],
+        "raceFeatures": {
+            "Darkvision": "You can see in dim light as if it were bright light.",
+            "Fey Ancestry": "You have advantage on saving throws against being charmed."
+        },
+        "imageLink": "https://example.com/images/half-elf.png",
+        "source": "Player's Handbook"
+    }
+]
