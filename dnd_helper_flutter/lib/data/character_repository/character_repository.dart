@@ -10,7 +10,7 @@ class CharacterRepository extends _$CharacterRepository {
     return null;
   }
 
-  FutureOr<CharacterData?> getCharacter(int id) {
+  FutureOr<CharacterData> getCharacter(int id) {
     return CharacterData(
       id: id,
       age: '12',
