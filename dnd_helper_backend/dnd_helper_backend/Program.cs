@@ -1,5 +1,12 @@
-var builder = WebApplication.CreateBuilder(args);
+using dnd_helper_backend.Models;
+using dnd_helper_backend.Repositories;
+using Microsoft.EntityFrameworkCore;
 
+
+
+var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
+Console.WriteLine(configuration.GetConnectionString(nameof(DndHelperDbContext)));
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -7,16 +14,23 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<DndHelperDbContext>(
+    options =>
+    {
+        options.UseNpgsql(configuration.GetConnectionString(nameof(DndHelperDbContext)));
+    });
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+
     app.UseSwagger();
     app.UseSwaggerUI();
-}
 
-app.UseHttpsRedirection();
+
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

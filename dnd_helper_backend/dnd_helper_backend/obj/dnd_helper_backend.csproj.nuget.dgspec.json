@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Дмитрий\\source\\repos\\dnd_helper_backend\\dnd_helper_backend\\dnd_helper_backend.csproj": {}
+    "C:\\Users\\Дмитрий\\source\\repos\\dnd_helper\\dnd_helper_backend\\dnd_helper_backend\\dnd_helper_backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Дмитрий\\source\\repos\\dnd_helper_backend\\dnd_helper_backend\\dnd_helper_backend.csproj": {
+    "C:\\Users\\Дмитрий\\source\\repos\\dnd_helper\\dnd_helper_backend\\dnd_helper_backend\\dnd_helper_backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Дмитрий\\source\\repos\\dnd_helper_backend\\dnd_helper_backend\\dnd_helper_backend.csproj",
+        "projectUniqueName": "C:\\Users\\Дмитрий\\source\\repos\\dnd_helper\\dnd_helper_backend\\dnd_helper_backend\\dnd_helper_backend.csproj",
         "projectName": "dnd_helper_backend",
-        "projectPath": "C:\\Users\\Дмитрий\\source\\repos\\dnd_helper_backend\\dnd_helper_backend\\dnd_helper_backend.csproj",
+        "projectPath": "C:\\Users\\Дмитрий\\source\\repos\\dnd_helper\\dnd_helper_backend\\dnd_helper_backend\\dnd_helper_backend.csproj",
         "packagesPath": "C:\\Users\\Дмитрий\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Дмитрий\\source\\repos\\dnd_helper_backend\\dnd_helper_backend\\obj\\",
+        "outputPath": "C:\\Users\\Дмитрий\\source\\repos\\dnd_helper\\dnd_helper_backend\\dnd_helper_backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Дмитрий\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,6 +46,20 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
