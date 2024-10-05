@@ -1,28 +1,37 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "dnd_helper_flutter",
+            "name": "front",
             "cwd": "dnd_helper_flutter",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "dnd_helper_flutter (profile mode)",
+            "name": "front (profile mode)",
             "cwd": "dnd_helper_flutter",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "dnd_helper_flutter (release mode)",
+            "name": "front (release mode)",
             "cwd": "dnd_helper_flutter",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
+        },
+        {
+            "name": "backend",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}\\dnd_helper_backend\\dnd_helper_backend\\dnd_helper_backend.csproj"
+        }
+    ]
+    ,"compounds": [
+        {
+            "name": "front & backend",
+            "configurations": ["front", "backend"]
         }
     ]
 }
