@@ -5,7 +5,7 @@
 .packages
 build/
 # If you're building an application, you may want to check-in your pubspec.lock
-pubspec.lock
+*/pubspec.lock
 
 # Directory created by dartdoc
 # If you don't generate documentation locally you can remove this line.
@@ -25,3 +25,14 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+dnd_helper_backend/dnd_helper_backend/obj/dnd_helper_backend.csproj.nuget.dgspec.json
+dnd_helper_backend/dnd_helper_backend/obj/dnd_helper_backend.csproj.nuget.g.props
+dnd_helper_backend/dnd_helper_backend/obj/dnd_helper_backend.csproj.nuget.g.targets
+dnd_helper_backend/dnd_helper_backend/obj/project.assets.json
+dnd_helper_backend/dnd_helper_backend/obj/project.nuget.cache
+dnd_helper_backend/dnd_helper_backend/obj/Debug/net8.0/dnd_helper_backend.AssemblyInfo.cs
+dnd_helper_backend/dnd_helper_backend/obj/Debug/net8.0/dnd_helper_backend.AssemblyInfoInputs.cache
+dnd_helper_backend/dnd_helper_backend/obj/Debug/net8.0/dnd_helper_backend.assets.cache
+dnd_helper_backend/dnd_helper_backend/obj/Debug/net8.0/dnd_helper_backend.csproj.AssemblyReference.cache
+dnd_helper_backend/dnd_helper_backend/obj/Debug/net8.0/dnd_helper_backend.GeneratedMSBuildEditorConfig.editorconfig
+dnd_helper_backend/dnd_helper_backend/obj/
