@@ -20,28 +20,25 @@ CharacterData _$CharacterDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CharacterData {
-  int? get id => throw _privateConstructorUsedError;
-  String? get characterName => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get characterName => throw _privateConstructorUsedError;
   RaceData? get characterRace => throw _privateConstructorUsedError;
   ClassData? get characterClass => throw _privateConstructorUsedError;
   BackgroundData? get background => throw _privateConstructorUsedError;
-  int? get level => throw _privateConstructorUsedError;
-  int? get experience => throw _privateConstructorUsedError;
-  Dice? get diceHit => throw _privateConstructorUsedError;
+  int get experience => throw _privateConstructorUsedError;
+  Dice get diceHit => throw _privateConstructorUsedError;
   int? get maxHitPoints => throw _privateConstructorUsedError;
   int? get currentHitPoints => throw _privateConstructorUsedError;
   int? get temporaryHitPoints => throw _privateConstructorUsedError;
   int? get initiative => throw _privateConstructorUsedError;
   int? get speed => throw _privateConstructorUsedError;
   int? get armorClass => throw _privateConstructorUsedError;
-  bool? get inspiration =>
-      throw _privateConstructorUsedError; // Исправлено название
+  bool? get inspiration => throw _privateConstructorUsedError;
   Conditions? get conditions => throw _privateConstructorUsedError;
   int? get exhaustion => throw _privateConstructorUsedError;
   Map<Attributes, int>? get attributes => throw _privateConstructorUsedError;
   List<Attributes>? get savingThrows => throw _privateConstructorUsedError;
   Map<Skills, bool>? get skills => throw _privateConstructorUsedError;
-  int? get proficiencyBonus => throw _privateConstructorUsedError;
   List<ArmsData>? get attacks => throw _privateConstructorUsedError;
   List<SpellsData>? get preparedSpells => throw _privateConstructorUsedError;
   List<SpellsData>? get knownSpells => throw _privateConstructorUsedError;
@@ -85,14 +82,13 @@ abstract class $CharacterDataCopyWith<$Res> {
       _$CharacterDataCopyWithImpl<$Res, CharacterData>;
   @useResult
   $Res call(
-      {int? id,
-      String? characterName,
+      {int id,
+      String characterName,
       RaceData? characterRace,
       ClassData? characterClass,
       BackgroundData? background,
-      int? level,
-      int? experience,
-      Dice? diceHit,
+      int experience,
+      Dice diceHit,
       int? maxHitPoints,
       int? currentHitPoints,
       int? temporaryHitPoints,
@@ -105,7 +101,6 @@ abstract class $CharacterDataCopyWith<$Res> {
       Map<Attributes, int>? attributes,
       List<Attributes>? savingThrows,
       Map<Skills, bool>? skills,
-      int? proficiencyBonus,
       List<ArmsData>? attacks,
       List<SpellsData>? preparedSpells,
       List<SpellsData>? knownSpells,
@@ -153,14 +148,13 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? characterName = freezed,
+    Object? id = null,
+    Object? characterName = null,
     Object? characterRace = freezed,
     Object? characterClass = freezed,
     Object? background = freezed,
-    Object? level = freezed,
-    Object? experience = freezed,
-    Object? diceHit = freezed,
+    Object? experience = null,
+    Object? diceHit = null,
     Object? maxHitPoints = freezed,
     Object? currentHitPoints = freezed,
     Object? temporaryHitPoints = freezed,
@@ -173,7 +167,6 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
     Object? attributes = freezed,
     Object? savingThrows = freezed,
     Object? skills = freezed,
-    Object? proficiencyBonus = freezed,
     Object? attacks = freezed,
     Object? preparedSpells = freezed,
     Object? knownSpells = freezed,
@@ -201,14 +194,14 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
     Object? treasures = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      characterName: freezed == characterName
+              as int,
+      characterName: null == characterName
           ? _value.characterName
           : characterName // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       characterRace: freezed == characterRace
           ? _value.characterRace
           : characterRace // ignore: cast_nullable_to_non_nullable
@@ -221,18 +214,14 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
           ? _value.background
           : background // ignore: cast_nullable_to_non_nullable
               as BackgroundData?,
-      level: freezed == level
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
-              as int?,
-      experience: freezed == experience
+      experience: null == experience
           ? _value.experience
           : experience // ignore: cast_nullable_to_non_nullable
-              as int?,
-      diceHit: freezed == diceHit
+              as int,
+      diceHit: null == diceHit
           ? _value.diceHit
           : diceHit // ignore: cast_nullable_to_non_nullable
-              as Dice?,
+              as Dice,
       maxHitPoints: freezed == maxHitPoints
           ? _value.maxHitPoints
           : maxHitPoints // ignore: cast_nullable_to_non_nullable
@@ -281,10 +270,6 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
           ? _value.skills
           : skills // ignore: cast_nullable_to_non_nullable
               as Map<Skills, bool>?,
-      proficiencyBonus: freezed == proficiencyBonus
-          ? _value.proficiencyBonus
-          : proficiencyBonus // ignore: cast_nullable_to_non_nullable
-              as int?,
       attacks: freezed == attacks
           ? _value.attacks
           : attacks // ignore: cast_nullable_to_non_nullable
@@ -454,14 +439,13 @@ abstract class _$$CharacterDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? id,
-      String? characterName,
+      {int id,
+      String characterName,
       RaceData? characterRace,
       ClassData? characterClass,
       BackgroundData? background,
-      int? level,
-      int? experience,
-      Dice? diceHit,
+      int experience,
+      Dice diceHit,
       int? maxHitPoints,
       int? currentHitPoints,
       int? temporaryHitPoints,
@@ -474,7 +458,6 @@ abstract class _$$CharacterDataImplCopyWith<$Res>
       Map<Attributes, int>? attributes,
       List<Attributes>? savingThrows,
       Map<Skills, bool>? skills,
-      int? proficiencyBonus,
       List<ArmsData>? attacks,
       List<SpellsData>? preparedSpells,
       List<SpellsData>? knownSpells,
@@ -524,14 +507,13 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? characterName = freezed,
+    Object? id = null,
+    Object? characterName = null,
     Object? characterRace = freezed,
     Object? characterClass = freezed,
     Object? background = freezed,
-    Object? level = freezed,
-    Object? experience = freezed,
-    Object? diceHit = freezed,
+    Object? experience = null,
+    Object? diceHit = null,
     Object? maxHitPoints = freezed,
     Object? currentHitPoints = freezed,
     Object? temporaryHitPoints = freezed,
@@ -544,7 +526,6 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
     Object? attributes = freezed,
     Object? savingThrows = freezed,
     Object? skills = freezed,
-    Object? proficiencyBonus = freezed,
     Object? attacks = freezed,
     Object? preparedSpells = freezed,
     Object? knownSpells = freezed,
@@ -572,14 +553,14 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
     Object? treasures = freezed,
   }) {
     return _then(_$CharacterDataImpl(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      characterName: freezed == characterName
+              as int,
+      characterName: null == characterName
           ? _value.characterName
           : characterName // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       characterRace: freezed == characterRace
           ? _value.characterRace
           : characterRace // ignore: cast_nullable_to_non_nullable
@@ -592,18 +573,14 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
           ? _value.background
           : background // ignore: cast_nullable_to_non_nullable
               as BackgroundData?,
-      level: freezed == level
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
-              as int?,
-      experience: freezed == experience
+      experience: null == experience
           ? _value.experience
           : experience // ignore: cast_nullable_to_non_nullable
-              as int?,
-      diceHit: freezed == diceHit
+              as int,
+      diceHit: null == diceHit
           ? _value.diceHit
           : diceHit // ignore: cast_nullable_to_non_nullable
-              as Dice?,
+              as Dice,
       maxHitPoints: freezed == maxHitPoints
           ? _value.maxHitPoints
           : maxHitPoints // ignore: cast_nullable_to_non_nullable
@@ -652,10 +629,6 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
           ? _value._skills
           : skills // ignore: cast_nullable_to_non_nullable
               as Map<Skills, bool>?,
-      proficiencyBonus: freezed == proficiencyBonus
-          ? _value.proficiencyBonus
-          : proficiencyBonus // ignore: cast_nullable_to_non_nullable
-              as int?,
       attacks: freezed == attacks
           ? _value._attacks
           : attacks // ignore: cast_nullable_to_non_nullable
@@ -762,16 +735,15 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CharacterDataImpl implements _CharacterData {
+class _$CharacterDataImpl extends _CharacterData {
   const _$CharacterDataImpl(
-      {this.id,
-      this.characterName,
-      this.characterRace,
-      this.characterClass,
-      this.background,
-      this.level,
-      this.experience,
-      this.diceHit,
+      {required this.id,
+      required this.characterName,
+      required this.characterRace,
+      required this.characterClass,
+      required this.background,
+      required this.experience,
+      required this.diceHit,
       this.maxHitPoints,
       this.currentHitPoints,
       this.temporaryHitPoints,
@@ -784,7 +756,6 @@ class _$CharacterDataImpl implements _CharacterData {
       final Map<Attributes, int>? attributes,
       final List<Attributes>? savingThrows,
       final Map<Skills, bool>? skills,
-      this.proficiencyBonus,
       final List<ArmsData>? attacks,
       final List<SpellsData>? preparedSpells,
       final List<SpellsData>? knownSpells,
@@ -821,15 +792,16 @@ class _$CharacterDataImpl implements _CharacterData {
         _tools = tools,
         _weapons = weapons,
         _equipment = equipment,
-        _treasures = treasures;
+        _treasures = treasures,
+        super._();
 
   factory _$CharacterDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$CharacterDataImplFromJson(json);
 
   @override
-  final int? id;
+  final int id;
   @override
-  final String? characterName;
+  final String characterName;
   @override
   final RaceData? characterRace;
   @override
@@ -837,11 +809,9 @@ class _$CharacterDataImpl implements _CharacterData {
   @override
   final BackgroundData? background;
   @override
-  final int? level;
+  final int experience;
   @override
-  final int? experience;
-  @override
-  final Dice? diceHit;
+  final Dice diceHit;
   @override
   final int? maxHitPoints;
   @override
@@ -856,7 +826,6 @@ class _$CharacterDataImpl implements _CharacterData {
   final int? armorClass;
   @override
   final bool? inspiration;
-// Исправлено название
   @override
   final Conditions? conditions;
   @override
@@ -891,8 +860,6 @@ class _$CharacterDataImpl implements _CharacterData {
     return EqualUnmodifiableMapView(value);
   }
 
-  @override
-  final int? proficiencyBonus;
   final List<ArmsData>? _attacks;
   @override
   List<ArmsData>? get attacks {
@@ -1017,7 +984,7 @@ class _$CharacterDataImpl implements _CharacterData {
 
   @override
   String toString() {
-    return 'CharacterData(id: $id, characterName: $characterName, characterRace: $characterRace, characterClass: $characterClass, background: $background, level: $level, experience: $experience, diceHit: $diceHit, maxHitPoints: $maxHitPoints, currentHitPoints: $currentHitPoints, temporaryHitPoints: $temporaryHitPoints, initiative: $initiative, speed: $speed, armorClass: $armorClass, inspiration: $inspiration, conditions: $conditions, exhaustion: $exhaustion, attributes: $attributes, savingThrows: $savingThrows, skills: $skills, proficiencyBonus: $proficiencyBonus, attacks: $attacks, preparedSpells: $preparedSpells, knownSpells: $knownSpells, spellcastingAttribute: $spellcastingAttribute, spellSlots: $spellSlots, languages: $languages, tools: $tools, weapons: $weapons, ideology: $ideology, biography: $biography, weight: $weight, height: $height, age: $age, hairColor: $hairColor, eyeColor: $eyeColor, skinColor: $skinColor, alliesAndOrganizations: $alliesAndOrganizations, purpose: $purpose, ideals: $ideals, bonds: $bonds, flaws: $flaws, notes: $notes, coins: $coins, equipment: $equipment, treasures: $treasures)';
+    return 'CharacterData(id: $id, characterName: $characterName, characterRace: $characterRace, characterClass: $characterClass, background: $background, experience: $experience, diceHit: $diceHit, maxHitPoints: $maxHitPoints, currentHitPoints: $currentHitPoints, temporaryHitPoints: $temporaryHitPoints, initiative: $initiative, speed: $speed, armorClass: $armorClass, inspiration: $inspiration, conditions: $conditions, exhaustion: $exhaustion, attributes: $attributes, savingThrows: $savingThrows, skills: $skills, attacks: $attacks, preparedSpells: $preparedSpells, knownSpells: $knownSpells, spellcastingAttribute: $spellcastingAttribute, spellSlots: $spellSlots, languages: $languages, tools: $tools, weapons: $weapons, ideology: $ideology, biography: $biography, weight: $weight, height: $height, age: $age, hairColor: $hairColor, eyeColor: $eyeColor, skinColor: $skinColor, alliesAndOrganizations: $alliesAndOrganizations, purpose: $purpose, ideals: $ideals, bonds: $bonds, flaws: $flaws, notes: $notes, coins: $coins, equipment: $equipment, treasures: $treasures)';
   }
 
   @override
@@ -1034,7 +1001,6 @@ class _$CharacterDataImpl implements _CharacterData {
                 other.characterClass == characterClass) &&
             (identical(other.background, background) ||
                 other.background == background) &&
-            (identical(other.level, level) || other.level == level) &&
             (identical(other.experience, experience) ||
                 other.experience == experience) &&
             (identical(other.diceHit, diceHit) || other.diceHit == diceHit) &&
@@ -1060,8 +1026,6 @@ class _$CharacterDataImpl implements _CharacterData {
             const DeepCollectionEquality()
                 .equals(other._savingThrows, _savingThrows) &&
             const DeepCollectionEquality().equals(other._skills, _skills) &&
-            (identical(other.proficiencyBonus, proficiencyBonus) ||
-                other.proficiencyBonus == proficiencyBonus) &&
             const DeepCollectionEquality().equals(other._attacks, _attacks) &&
             const DeepCollectionEquality()
                 .equals(other._preparedSpells, _preparedSpells) &&
@@ -1111,7 +1075,6 @@ class _$CharacterDataImpl implements _CharacterData {
         characterRace,
         characterClass,
         background,
-        level,
         experience,
         diceHit,
         maxHitPoints,
@@ -1126,7 +1089,6 @@ class _$CharacterDataImpl implements _CharacterData {
         const DeepCollectionEquality().hash(_attributes),
         const DeepCollectionEquality().hash(_savingThrows),
         const DeepCollectionEquality().hash(_skills),
-        proficiencyBonus,
         const DeepCollectionEquality().hash(_attacks),
         const DeepCollectionEquality().hash(_preparedSpells),
         const DeepCollectionEquality().hash(_knownSpells),
@@ -1170,16 +1132,15 @@ class _$CharacterDataImpl implements _CharacterData {
   }
 }
 
-abstract class _CharacterData implements CharacterData {
+abstract class _CharacterData extends CharacterData {
   const factory _CharacterData(
-      {final int? id,
-      final String? characterName,
-      final RaceData? characterRace,
-      final ClassData? characterClass,
-      final BackgroundData? background,
-      final int? level,
-      final int? experience,
-      final Dice? diceHit,
+      {required final int id,
+      required final String characterName,
+      required final RaceData? characterRace,
+      required final ClassData? characterClass,
+      required final BackgroundData? background,
+      required final int experience,
+      required final Dice diceHit,
       final int? maxHitPoints,
       final int? currentHitPoints,
       final int? temporaryHitPoints,
@@ -1192,7 +1153,6 @@ abstract class _CharacterData implements CharacterData {
       final Map<Attributes, int>? attributes,
       final List<Attributes>? savingThrows,
       final Map<Skills, bool>? skills,
-      final int? proficiencyBonus,
       final List<ArmsData>? attacks,
       final List<SpellsData>? preparedSpells,
       final List<SpellsData>? knownSpells,
@@ -1218,14 +1178,15 @@ abstract class _CharacterData implements CharacterData {
       final CoinsData? coins,
       final List<String>? equipment,
       final List<String>? treasures}) = _$CharacterDataImpl;
+  const _CharacterData._() : super._();
 
   factory _CharacterData.fromJson(Map<String, dynamic> json) =
       _$CharacterDataImpl.fromJson;
 
   @override
-  int? get id;
+  int get id;
   @override
-  String? get characterName;
+  String get characterName;
   @override
   RaceData? get characterRace;
   @override
@@ -1233,11 +1194,9 @@ abstract class _CharacterData implements CharacterData {
   @override
   BackgroundData? get background;
   @override
-  int? get level;
+  int get experience;
   @override
-  int? get experience;
-  @override
-  Dice? get diceHit;
+  Dice get diceHit;
   @override
   int? get maxHitPoints;
   @override
@@ -1251,7 +1210,7 @@ abstract class _CharacterData implements CharacterData {
   @override
   int? get armorClass;
   @override
-  bool? get inspiration; // Исправлено название
+  bool? get inspiration;
   @override
   Conditions? get conditions;
   @override
@@ -1262,8 +1221,6 @@ abstract class _CharacterData implements CharacterData {
   List<Attributes>? get savingThrows;
   @override
   Map<Skills, bool>? get skills;
-  @override
-  int? get proficiencyBonus;
   @override
   List<ArmsData>? get attacks;
   @override

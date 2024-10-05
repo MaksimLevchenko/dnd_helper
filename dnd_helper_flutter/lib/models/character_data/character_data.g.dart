@@ -8,8 +8,8 @@ part of 'character_data.dart';
 
 _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
     _$CharacterDataImpl(
-      id: (json['id'] as num?)?.toInt(),
-      characterName: json['characterName'] as String?,
+      id: (json['id'] as num).toInt(),
+      characterName: json['characterName'] as String,
       characterRace: json['characterRace'] == null
           ? null
           : RaceData.fromJson(json['characterRace'] as Map<String, dynamic>),
@@ -19,9 +19,8 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       background: json['background'] == null
           ? null
           : BackgroundData.fromJson(json['background'] as Map<String, dynamic>),
-      level: (json['level'] as num?)?.toInt(),
-      experience: (json['experience'] as num?)?.toInt(),
-      diceHit: $enumDecodeNullable(_$DiceEnumMap, json['diceHit']),
+      experience: (json['experience'] as num).toInt(),
+      diceHit: $enumDecode(_$DiceEnumMap, json['diceHit']),
       maxHitPoints: (json['maxHitPoints'] as num?)?.toInt(),
       currentHitPoints: (json['currentHitPoints'] as num?)?.toInt(),
       temporaryHitPoints: (json['temporaryHitPoints'] as num?)?.toInt(),
@@ -41,7 +40,6 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       skills: (json['skills'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry($enumDecode(_$SkillsEnumMap, k), e as bool),
       ),
-      proficiencyBonus: (json['proficiencyBonus'] as num?)?.toInt(),
       attacks: (json['attacks'] as List<dynamic>?)
           ?.map((e) => ArmsData.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -95,9 +93,8 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
       'characterRace': instance.characterRace,
       'characterClass': instance.characterClass,
       'background': instance.background,
-      'level': instance.level,
       'experience': instance.experience,
-      'diceHit': _$DiceEnumMap[instance.diceHit],
+      'diceHit': _$DiceEnumMap[instance.diceHit]!,
       'maxHitPoints': instance.maxHitPoints,
       'currentHitPoints': instance.currentHitPoints,
       'temporaryHitPoints': instance.temporaryHitPoints,
@@ -113,7 +110,6 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
           instance.savingThrows?.map((e) => _$AttributesEnumMap[e]!).toList(),
       'skills':
           instance.skills?.map((k, e) => MapEntry(_$SkillsEnumMap[k]!, e)),
-      'proficiencyBonus': instance.proficiencyBonus,
       'attacks': instance.attacks,
       'preparedSpells': instance.preparedSpells,
       'knownSpells': instance.knownSpells,

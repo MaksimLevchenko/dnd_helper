@@ -14,17 +14,11 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-CharacterSheetParameters _$CharacterSheetParametersFromJson(
-    Map<String, dynamic> json) {
-  return _CharacterSheetParameters.fromJson(json);
-}
-
 /// @nodoc
 mixin _$CharacterSheetParameters {
-  CharacterData? get characterData => throw _privateConstructorUsedError;
-
-  /// Serializes this CharacterSheetParameters to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  CharacterData get characterData => throw _privateConstructorUsedError;
+  int get tabBarIndex => throw _privateConstructorUsedError;
+  bool get isTabBarViewVisible => throw _privateConstructorUsedError;
 
   /// Create a copy of CharacterSheetParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -39,9 +33,10 @@ abstract class $CharacterSheetParametersCopyWith<$Res> {
           $Res Function(CharacterSheetParameters) then) =
       _$CharacterSheetParametersCopyWithImpl<$Res, CharacterSheetParameters>;
   @useResult
-  $Res call({CharacterData? characterData});
+  $Res call(
+      {CharacterData characterData, int tabBarIndex, bool isTabBarViewVisible});
 
-  $CharacterDataCopyWith<$Res>? get characterData;
+  $CharacterDataCopyWith<$Res> get characterData;
 }
 
 /// @nodoc
@@ -60,13 +55,23 @@ class _$CharacterSheetParametersCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? characterData = freezed,
+    Object? characterData = null,
+    Object? tabBarIndex = null,
+    Object? isTabBarViewVisible = null,
   }) {
     return _then(_value.copyWith(
-      characterData: freezed == characterData
+      characterData: null == characterData
           ? _value.characterData
           : characterData // ignore: cast_nullable_to_non_nullable
-              as CharacterData?,
+              as CharacterData,
+      tabBarIndex: null == tabBarIndex
+          ? _value.tabBarIndex
+          : tabBarIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      isTabBarViewVisible: null == isTabBarViewVisible
+          ? _value.isTabBarViewVisible
+          : isTabBarViewVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -74,12 +79,8 @@ class _$CharacterSheetParametersCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CharacterDataCopyWith<$Res>? get characterData {
-    if (_value.characterData == null) {
-      return null;
-    }
-
-    return $CharacterDataCopyWith<$Res>(_value.characterData!, (value) {
+  $CharacterDataCopyWith<$Res> get characterData {
+    return $CharacterDataCopyWith<$Res>(_value.characterData, (value) {
       return _then(_value.copyWith(characterData: value) as $Val);
     });
   }
@@ -94,10 +95,11 @@ abstract class _$$CharacterSheetParametersImplCopyWith<$Res>
       __$$CharacterSheetParametersImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CharacterData? characterData});
+  $Res call(
+      {CharacterData characterData, int tabBarIndex, bool isTabBarViewVisible});
 
   @override
-  $CharacterDataCopyWith<$Res>? get characterData;
+  $CharacterDataCopyWith<$Res> get characterData;
 }
 
 /// @nodoc
@@ -115,31 +117,47 @@ class __$$CharacterSheetParametersImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? characterData = freezed,
+    Object? characterData = null,
+    Object? tabBarIndex = null,
+    Object? isTabBarViewVisible = null,
   }) {
     return _then(_$CharacterSheetParametersImpl(
-      characterData: freezed == characterData
+      characterData: null == characterData
           ? _value.characterData
           : characterData // ignore: cast_nullable_to_non_nullable
-              as CharacterData?,
+              as CharacterData,
+      tabBarIndex: null == tabBarIndex
+          ? _value.tabBarIndex
+          : tabBarIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      isTabBarViewVisible: null == isTabBarViewVisible
+          ? _value.isTabBarViewVisible
+          : isTabBarViewVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
-  _$CharacterSheetParametersImpl({this.characterData});
 
-  factory _$CharacterSheetParametersImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CharacterSheetParametersImplFromJson(json);
+class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
+  _$CharacterSheetParametersImpl(
+      {required this.characterData,
+      this.tabBarIndex = 0,
+      this.isTabBarViewVisible = false});
 
   @override
-  final CharacterData? characterData;
+  final CharacterData characterData;
+  @override
+  @JsonKey()
+  final int tabBarIndex;
+  @override
+  @JsonKey()
+  final bool isTabBarViewVisible;
 
   @override
   String toString() {
-    return 'CharacterSheetParameters(characterData: $characterData)';
+    return 'CharacterSheetParameters(characterData: $characterData, tabBarIndex: $tabBarIndex, isTabBarViewVisible: $isTabBarViewVisible)';
   }
 
   @override
@@ -148,12 +166,16 @@ class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
         (other.runtimeType == runtimeType &&
             other is _$CharacterSheetParametersImpl &&
             (identical(other.characterData, characterData) ||
-                other.characterData == characterData));
+                other.characterData == characterData) &&
+            (identical(other.tabBarIndex, tabBarIndex) ||
+                other.tabBarIndex == tabBarIndex) &&
+            (identical(other.isTabBarViewVisible, isTabBarViewVisible) ||
+                other.isTabBarViewVisible == isTabBarViewVisible));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, characterData);
+  int get hashCode =>
+      Object.hash(runtimeType, characterData, tabBarIndex, isTabBarViewVisible);
 
   /// Create a copy of CharacterSheetParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -163,24 +185,20 @@ class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
   _$$CharacterSheetParametersImplCopyWith<_$CharacterSheetParametersImpl>
       get copyWith => __$$CharacterSheetParametersImplCopyWithImpl<
           _$CharacterSheetParametersImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CharacterSheetParametersImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _CharacterSheetParameters implements CharacterSheetParameters {
-  factory _CharacterSheetParameters({final CharacterData? characterData}) =
-      _$CharacterSheetParametersImpl;
-
-  factory _CharacterSheetParameters.fromJson(Map<String, dynamic> json) =
-      _$CharacterSheetParametersImpl.fromJson;
+  factory _CharacterSheetParameters(
+      {required final CharacterData characterData,
+      final int tabBarIndex,
+      final bool isTabBarViewVisible}) = _$CharacterSheetParametersImpl;
 
   @override
-  CharacterData? get characterData;
+  CharacterData get characterData;
+  @override
+  int get tabBarIndex;
+  @override
+  bool get isTabBarViewVisible;
 
   /// Create a copy of CharacterSheetParameters
   /// with the given fields replaced by the non-null parameter values.

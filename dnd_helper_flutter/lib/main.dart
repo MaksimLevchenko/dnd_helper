@@ -19,7 +19,7 @@ void main() {
             ),
             scrollBehavior: const MaterialScrollBehavior().copyWith(
               dragDevices: {
-                PointerDeviceKind.mouse,
+                //убрал mouse, для прокрутки колёсико есть
                 PointerDeviceKind.touch,
                 PointerDeviceKind.stylus,
                 PointerDeviceKind.unknown,

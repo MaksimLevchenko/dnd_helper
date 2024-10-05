@@ -1,4 +1,7 @@
 import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
+import 'package:dnd_helper_flutter/models/class_data/class_data.dart';
+import 'package:dnd_helper_flutter/models/enums/dice.dart';
+import 'package:dnd_helper_flutter/models/race_data/race_data.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'character_repository.g.dart';
@@ -10,17 +13,37 @@ class CharacterRepository extends _$CharacterRepository {
     return null;
   }
 
+  final ClassData classData = const ClassData(
+      id: 1,
+      name: 'class',
+      subClasses: [],
+      savingThrows: [],
+      hitDice: Dice.d10,
+      proficienciesWeapons: [],
+      proficienciesArmor: [],
+      startEquipment: [],
+      classFeatures: {},
+      description: '',
+      imageLink: '',
+      source: '');
+  final RaceData raceData = const RaceData(
+    name: 'race',
+    imageLink: '',
+  );
+
   FutureOr<CharacterData> getCharacter(int id) {
     return CharacterData(
       id: id,
       age: '12',
       alliesAndOrganizations: 'none allies',
       armorClass: 12,
+      background: null,
+      diceHit: Dice.d6,
       biography: 'none bio',
       bonds: 'none bonds',
       characterName: 'none name',
-      characterClass: null,
-      characterRace: null,
+      characterClass: classData,
+      characterRace: raceData,
       conditions: null,
       currentHitPoints: 12,
       exhaustion: 2,
@@ -33,9 +56,7 @@ class CharacterRepository extends _$CharacterRepository {
       inspiration: true,
       knownSpells: null,
       languages: null,
-      level: 12,
       maxHitPoints: 12,
-      proficiencyBonus: 12,
       preparedSpells: null,
       savingThrows: null,
       skills: null,

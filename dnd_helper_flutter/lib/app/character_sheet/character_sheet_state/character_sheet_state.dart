@@ -8,14 +8,36 @@ part 'character_sheet_state.g.dart';
 
 @Riverpod(keepAlive: true)
 class CharacterSheetState extends _$CharacterSheetState {
-  FutureOr<CharacterData> build() async {
-    final characterRepository = ref.watch(characterRepositoryProvider.notifier);
-    return await characterRepository.getCharacter(1);
+  @override
+  FutureOr<CharacterSheetParameters> build() async {
+    final characterRepository = ref.read(characterRepositoryProvider.notifier);
+    final characterData = await characterRepository.getCharacter(1);
+    return CharacterSheetParameters(characterData: characterData);
+  }
+
+  void onTabBarTap(int index) {
+    state.whenData(
+      (data) {
+        state = AsyncValue.data(
+            data.copyWith(tabBarIndex: index, isTabBarViewVisible: true));
+      },
+    );
+  }
+
+  void toggleTabBarView() {
+    state.whenData(
+      (data) {
+        state = AsyncValue.data(data.copyWith(isTabBarViewVisible: false));
+      },
+    );
   }
 }
 
 @freezed
 class CharacterSheetParameters with _$CharacterSheetParameters {
-  factory CharacterSheetParameters({CharacterData? characterData}) =
-      _CharacterSheetParameters;
+  factory CharacterSheetParameters({
+    required CharacterData characterData,
+    @Default(0) int tabBarIndex,
+    @Default(false) bool isTabBarViewVisible,
+  }) = _CharacterSheetParameters;
 }

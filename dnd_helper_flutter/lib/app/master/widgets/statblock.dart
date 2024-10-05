@@ -8,6 +8,8 @@ class Statblock extends StatefulWidget {
   State<Statblock> createState() => StatblockState();
 }
 
+//TODO: Перенести контроллеры в State
+//TODO: Спас на концентрацию
 class StatblockState extends State<Statblock> {
   // Переносим создание контроллера в State
   final TextEditingController lvl = TextEditingController();
