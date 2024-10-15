@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using dnd_helper_backend.Models;
+using dnd_helper_backend.DataAccess;
 
 #nullable disable
 
-namespace dnd_helper_backend.Migrations
+namespace dnd_helper_backend.DataAccess.Migrations
 {
     [DbContext(typeof(DndHelperDbContext))]
     partial class DndHelperDbContextModelSnapshot : ModelSnapshot
@@ -17,14 +17,14 @@ namespace dnd_helper_backend.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("ProductVersion", "8.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("dnd_helper_backend.Models.User", b =>
+            modelBuilder.Entity("dnd_helper_backend.DataAccess.Entities.UserEntity", b =>
                 {
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
@@ -32,15 +32,15 @@ namespace dnd_helper_backend.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("UserName")
+                    b.Property<string>("PassHash")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("passHash")
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
                 });
