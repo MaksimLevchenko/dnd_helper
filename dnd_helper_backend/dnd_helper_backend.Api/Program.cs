@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using dnd_helper_backend.DataAccess;
 using dnd_helper_backend.DataAccess.Repositories;
-
+using dnd_helper_backend.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -19,6 +19,7 @@ builder.Services.AddDbContext<DndHelperDbContext>(
     });
 
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<IUsersService, UsersService>();
 
 var app = builder.Build();
 

@@ -1,6 +1,7 @@
 ﻿using dnd_helper_backend.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using dnd_helper_backend.DataAccess.Repositories;
+using dnd_helper_backend.Application.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,30 +11,30 @@ namespace dnd_helper_backend.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUsersRepository _usersRepository;
+        private readonly IUsersService _usersService;
 
-        public UserController(IUsersRepository userRepository)
+        public UserController(IUsersService usersService)
         {
-            _usersRepository = userRepository;
+            _usersService = usersService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<User>>> Get()
+        public async Task<ActionResult<List<User>>> GetUsers()
         {
-            var test = _usersRepository.Get().Result;
-            return test;
+            var test = _usersService.GetAllUsers().Result;
+            return Ok(test);
         }
 
         [HttpPost]
-        public async Task<ActionResult<Guid>> Add([FromBody] User request)
+        public async Task<ActionResult<Guid>> AddUser([FromBody] User request)
         {
-            var newUserGuid = await _usersRepository.Create(new User(
+            var newUserGuid = await _usersService.Registration(new User(
                 Guid.NewGuid(),
                 request.Username,
                 request.Email,
-                request.PassHash));
+                _usersService.Hash(request.PassHash)));
 
-            return newUserGuid;
+            return Ok(newUserGuid);
         }
     }
 }

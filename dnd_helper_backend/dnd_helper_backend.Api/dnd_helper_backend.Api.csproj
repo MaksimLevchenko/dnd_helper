@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\dnd_helper_backend.Application\dnd_helper_backend.Application.csproj" />
     <ProjectReference Include="..\dnd_helper_backend.Core\dnd_helper_backend.Core.csproj" />
     <ProjectReference Include="..\dnd_helper_backend.DataAccess\dnd_helper_backend.DataAccess.csproj" />
   </ItemGroup>

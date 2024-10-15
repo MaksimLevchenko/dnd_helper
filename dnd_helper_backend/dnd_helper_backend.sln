@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dnd_helper_backend.Core", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dnd_helper_backend.Api", "dnd_helper_backend.Api\dnd_helper_backend.Api.csproj", "{95BFBA0E-7790-40E6-8C3B-C84C49841F95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dnd_helper_backend.Application", "dnd_helper_backend.Application\dnd_helper_backend.Application.csproj", "{B215DA20-74F4-493B-92AB-15859AAEF70A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{95BFBA0E-7790-40E6-8C3B-C84C49841F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95BFBA0E-7790-40E6-8C3B-C84C49841F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95BFBA0E-7790-40E6-8C3B-C84C49841F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B215DA20-74F4-493B-92AB-15859AAEF70A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B215DA20-74F4-493B-92AB-15859AAEF70A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B215DA20-74F4-493B-92AB-15859AAEF70A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B215DA20-74F4-493B-92AB-15859AAEF70A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

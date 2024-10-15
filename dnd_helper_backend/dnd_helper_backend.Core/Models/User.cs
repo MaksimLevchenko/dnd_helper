@@ -2,9 +2,9 @@
 {
     public class User
     {
-        public User(Guid userId, string userName, string email, string passHash)
+        public User(Guid id, string userName, string email, string passHash)
         {
-            Id = userId;
+            Id = id;
             Username = userName;
             Email = email;
             PassHash = passHash;
@@ -15,10 +15,10 @@
         public string Email { get; }
         public string PassHash { get; }
 
-        public static (User User, string Error) Create(Guid userId, string userName, string email, string passHash)
+        public static (User User, string Error) Create(Guid id, string userName, string email, string passHash)
         {
             string error = string.Empty;
-            var User = new User(userId, userName, email, passHash);
+            var User = new User(id, userName, email, passHash);
 
             return (User, error);
         }
