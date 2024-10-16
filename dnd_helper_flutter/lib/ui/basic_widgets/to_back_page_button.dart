@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+part of '../basic_widgets.dart';
 
 Widget toBackPageButton(BuildContext context) {
-  return ElevatedButton(
+  return Button(
     onPressed: () {
       context.pop();
     },

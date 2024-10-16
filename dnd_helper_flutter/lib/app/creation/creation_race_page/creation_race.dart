@@ -17,7 +17,7 @@ class CreationRace extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text('Произошла ошибка'),
-                ElevatedButton(
+                Button(
                   onPressed: () => ref.refresh(creationRaceStateProvider),
                   child: const Text('Повторить'),
                 ),

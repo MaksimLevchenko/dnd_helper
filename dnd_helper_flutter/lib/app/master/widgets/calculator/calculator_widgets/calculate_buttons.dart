@@ -43,19 +43,13 @@ class CalculateButtons extends ConsumerWidget {
     final notifier = ref.watch(calculatorStateProvider.notifier);
     return Padding(
       padding: const EdgeInsets.all(3.0),
-      child: Button(
-        onTap: () {
+      child: Button.outlined(
+        onPressed: () {
           final expression = notifier.evaluateExpression(
               ref.read(calculatorStateProvider).controller.text);
           notifier.updateCalculatedValue(expression, type.toString());
         },
-        style: TextButton.styleFrom(
-          side: BorderSide(color: Theme.of(context).colorScheme.primary),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-        ),
-        text: Text(
+        child: Text(
           getButtonText(type),
           style: TextStyle(
             color: type == Types.heal

@@ -1,4 +1,5 @@
 import 'package:dnd_helper_flutter/app/widgets/app_scaffold.dart';
+import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,7 +13,7 @@ class ErrorPage extends StatelessWidget {
       child: Column(
         children: [
           const Text("Ooops, page doesn't exist"),
-          ElevatedButton(
+          Button(
               onPressed: () {
                 context.go('/characters');
               },

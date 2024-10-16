@@ -10,9 +10,9 @@ class CalculatorTextButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Button(
-      onTap: () =>
+      onPressed: () =>
           ref.read(calculatorStateProvider.notifier).textButtonCallback(char),
-      text: Text(char, style: const TextStyle(fontSize: 20)),
+      child: Text(char, style: const TextStyle(fontSize: 20)),
     );
   }
 }

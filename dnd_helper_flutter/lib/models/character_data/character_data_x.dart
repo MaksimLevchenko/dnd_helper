@@ -8,14 +8,12 @@ extension CharacterDataX on CharacterData {
 
   int calculateSpellSaveDC() {
     return attributes != null && spellcastingAttribute != null
-        ? 8 +
-            calculateModifier(spellcastingAttribute!) +
-            (proficiencyBonus ?? 0)
+        ? 8 + calculateModifier(spellcastingAttribute!) + (proficiencyBonus)
         : 0;
   }
 
   int calculateProficiencyBonus() {
-    return level != null ? (level! ~/ 4) + 2 : 0;
+    return (level ~/ 4) + 2;
   }
 
   int calculateInitiative() {

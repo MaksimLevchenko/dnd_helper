@@ -1,35 +1,57 @@
-import 'package:flutter/material.dart';
+part of '../basic_widgets.dart';
 
 class Button extends StatelessWidget {
-  final Text text;
-  final VoidCallback onTap;
+  final String? text;
+  final Widget? child;
+  final VoidCallback onPressed;
   final bool outlined;
   final bool colored;
-  final ButtonStyle? style;
+
   const Button({
     super.key,
-    required this.text,
-    this.style,
-    required this.onTap,
+    this.text,
+    this.child,
+    required this.onPressed,
   })  : outlined = false,
-        colored = true;
+        colored = true,
+        assert(text != null || child != null);
 
   const Button.outlined({
     super.key,
-    required this.text,
-    this.style,
-    required this.onTap,
+    this.text,
+    this.child,
+    required this.onPressed,
   })  : outlined = true,
-        colored = false;
+        colored = false,
+        assert(text != null || child != null);
+
+  const Button.textButton({
+    super.key,
+    this.text,
+    this.child,
+    required this.onPressed,
+  })  : outlined = false,
+        colored = false,
+        assert(text != null || child != null);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: TextButton(
-        onPressed: onTap,
-        style: style,
-        child: text,
-      ),
-    );
+    final buttonChild = child ?? Text(text!);
+    if (outlined == false && colored == false) {
+      return TextButton(
+        onPressed: onPressed,
+        child: buttonChild,
+      );
+    } else if (outlined == true && colored == false) {
+      return OutlinedButton(
+        onPressed: onPressed,
+        child: buttonChild,
+      );
+    } else {
+      return ElevatedButton(
+        onPressed: onPressed,
+        child: buttonChild,
+      );
+    }
   }
 }

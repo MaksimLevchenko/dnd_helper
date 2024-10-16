@@ -1,3 +1,4 @@
+import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -26,9 +27,9 @@ class CreationSummaryState extends State<CreationSummary> {
             const SizedBox(
               height: 16,
             ),
-            ElevatedButton(
+            Button(
               onPressed: _onBackButtonTap,
-              child: const Text('Back'),
+              text: 'Back',
             ),
             const SizedBox(
               height: 16,
