@@ -17,7 +17,11 @@ class CreationAttributesState extends State<CreationAttributes> {
   }
 
   void _onBackButtonTap() {
-    context.pop();
+    if (context.canPop()) {
+      context.pop();
+    } else {
+      context.go('/creation_race');
+    }
   }
 
   @override
@@ -26,18 +30,20 @@ class CreationAttributesState extends State<CreationAttributes> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            GridView(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
-                children: const [
-                  Text('Strength'),
-                  Text('Dexterity'),
-                  Text('Constitution'),
-                  Text('Intelligence'),
-                  Text('Wisdom'),
-                  Text('Charisma'),
-                ]),
+            const Wrap(
+              runSpacing: 8,
+              spacing: 8,
+              children: [
+                Text('Strength'),
+                Text('Dexterity'),
+                Text('Constitution'),
+                Text('Intelligence'),
+                Text('Wisdom'),
+                Text('Charisma'),
+              ],
+            ),
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

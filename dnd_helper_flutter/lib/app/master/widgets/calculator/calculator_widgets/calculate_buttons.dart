@@ -11,18 +11,9 @@ enum Types {
   decrease,
 }
 
-class CalculateButtons extends ConsumerWidget {
-  final Types type;
-  const CalculateButtons({super.key, required this.type});
-
-  const CalculateButtons.heal({super.key}) : type = Types.heal;
-  const CalculateButtons.damage({super.key}) : type = Types.damage;
-  const CalculateButtons.temporal({super.key}) : type = Types.temporal;
-  const CalculateButtons.increase({super.key}) : type = Types.increase;
-  const CalculateButtons.decrease({super.key}) : type = Types.decrease;
-
-  String getButtonText(Types type) {
-    switch (type) {
+extension TypesTitles on Types {
+  String get title {
+    switch (this) {
       case Types.heal:
         return "Лечение";
       case Types.damage:
@@ -34,23 +25,37 @@ class CalculateButtons extends ConsumerWidget {
       case Types.decrease:
         return "Уменьшение";
       default:
-        return type.toString();
+        return toString();
     }
   }
+}
+
+class CalculateButtons extends ConsumerWidget {
+  final Types type;
+  const CalculateButtons({super.key, required this.type});
+
+  const CalculateButtons.heal({super.key}) : type = Types.heal;
+  const CalculateButtons.damage({super.key}) : type = Types.damage;
+  const CalculateButtons.temporal({super.key}) : type = Types.temporal;
+  const CalculateButtons.increase({super.key}) : type = Types.increase;
+  const CalculateButtons.decrease({super.key}) : type = Types.decrease;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notifier = ref.watch(calculatorStateProvider.notifier);
     return Padding(
       padding: const EdgeInsets.all(3.0),
-      child: Button.outlined(
+      child: Button(
         onPressed: () {
-          final expression = notifier.evaluateExpression(
-              ref.read(calculatorStateProvider).controller.text);
-          notifier.updateCalculatedValue(expression, type.toString());
+          final expression = ref
+              .read(calculatorStateProvider.notifier)
+              .evaluateExpression(
+                  ref.read(calculatorStateProvider).controller.text);
+          ref
+              .read(calculatorStateProvider.notifier)
+              .updateCalculatedValue(expression, type);
         },
         child: Text(
-          getButtonText(type),
+          type.title,
           style: TextStyle(
             color: type == Types.heal
                 ? Theme.of(context).colorScheme.tertiary
