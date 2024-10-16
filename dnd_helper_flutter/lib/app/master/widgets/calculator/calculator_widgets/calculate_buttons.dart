@@ -11,18 +11,9 @@ enum Types {
   decrease,
 }
 
-class CalculateButtons extends ConsumerWidget {
-  final Types type;
-  const CalculateButtons({super.key, required this.type});
-
-  const CalculateButtons.heal({super.key}) : type = Types.heal;
-  const CalculateButtons.damage({super.key}) : type = Types.damage;
-  const CalculateButtons.temporal({super.key}) : type = Types.temporal;
-  const CalculateButtons.increase({super.key}) : type = Types.increase;
-  const CalculateButtons.decrease({super.key}) : type = Types.decrease;
-
-  String getButtonText(Types type) {
-    switch (type) {
+extension TypesTitles on Types {
+  String get title {
+    switch (this) {
       case Types.heal:
         return "Лечение";
       case Types.damage:
@@ -34,9 +25,20 @@ class CalculateButtons extends ConsumerWidget {
       case Types.decrease:
         return "Уменьшение";
       default:
-        return type.toString();
+        return toString();
     }
   }
+}
+
+class CalculateButtons extends ConsumerWidget {
+  final Types type;
+  const CalculateButtons({super.key, required this.type});
+
+  const CalculateButtons.heal({super.key}) : type = Types.heal;
+  const CalculateButtons.damage({super.key}) : type = Types.damage;
+  const CalculateButtons.temporal({super.key}) : type = Types.temporal;
+  const CalculateButtons.increase({super.key}) : type = Types.increase;
+  const CalculateButtons.decrease({super.key}) : type = Types.decrease;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -59,7 +61,7 @@ class CalculateButtons extends ConsumerWidget {
           ),
         ),
         text: Text(
-          getButtonText(type),
+          type.title,
           style: TextStyle(
             color: type == Types.heal
                 ? Theme.of(context).colorScheme.tertiary
