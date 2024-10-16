@@ -40,14 +40,17 @@ class CalculateButtons extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notifier = ref.watch(calculatorStateProvider.notifier);
     return Padding(
       padding: const EdgeInsets.all(3.0),
       child: Button(
         onTap: () {
-          final expression = notifier.evaluateExpression(
-              ref.read(calculatorStateProvider).controller.text);
-          notifier.updateCalculatedValue(expression, type.toString());
+          final expression = ref
+              .read(calculatorStateProvider.notifier)
+              .evaluateExpression(
+                  ref.read(calculatorStateProvider).controller.text);
+          ref
+              .read(calculatorStateProvider.notifier)
+              .updateCalculatedValue(expression, type);
         },
         style: TextButton.styleFrom(
           side: BorderSide(color: Theme.of(context).colorScheme.primary),

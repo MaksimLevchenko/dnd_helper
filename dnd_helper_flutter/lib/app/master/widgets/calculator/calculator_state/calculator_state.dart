@@ -1,3 +1,4 @@
+import 'package:dnd_helper_flutter/app/master/widgets/calculator/calculator_widgets/calculate_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -13,14 +14,14 @@ class CalculatorState extends _$CalculatorState {
     return CalculatorParameters(controller: TextEditingController());
   }
 
-  void updateCalculatedValue(int value, String type) {
+  void updateCalculatedValue(int value, Types type) {
     switch (type) {
-      case 'Types.heal':
+      case Types.heal:
         value > state.maxHits
             ? state = state.copyWith(currentHits: state.maxHits)
             : state = state.copyWith(currentHits: state.currentHits + value);
         break;
-      case 'Types.damage':
+      case Types.damage:
         value > state.temporalHits
             ? value < state.currentHits + state.temporalHits
                 ? state = state.copyWith(
@@ -29,13 +30,13 @@ class CalculatorState extends _$CalculatorState {
                 : state = state.copyWith(currentHits: 0, temporalHits: 0)
             : state = state.copyWith(temporalHits: state.temporalHits - value);
         break;
-      case 'Types.temporal':
+      case Types.temporal:
         state = state.copyWith(temporalHits: state.temporalHits + value);
         break;
-      case 'Types.increase':
+      case Types.increase:
         state = state.copyWith(maxHits: state.maxHits + value);
         break;
-      case 'Types.decrease':
+      case Types.decrease:
         value > state.maxHits
             ? state = state.copyWith(
                 maxHits: 0,
