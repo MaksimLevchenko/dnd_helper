@@ -32,35 +32,44 @@ class CreationAttributesState extends State<CreationAttributes> {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Wrap(
-              runSpacing: 8,
-              spacing: 8,
-              children: [
-                Text('Strength'),
-                Text('Dexterity'),
-                Text('Constitution'),
-                Text('Intelligence'),
-                Text('Wisdom'),
-                Text('Charisma'),
-              ],
-            ),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Button(
-                    onPressed: _onBackButtonTap,
-                    child: const Text('Back'),
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Button(
-                    onPressed: _onNextButtonTap,
-                    child: const Text('Next'),
-                  ),
-                ],
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.of(context).size.height * 0.8,
+                minHeight: 10,
               ),
+              child: Center(
+                child: GridView(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisExtent: 150,
+                  ),
+                  shrinkWrap: true,
+                  children: const [
+                    Text('Strength'),
+                    Text('Dexterity'),
+                    Text('Constitution'),
+                    Text('Intelligence'),
+                    Text('Wisdom'),
+                    Text('Charisma'),
+                  ],
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Button(
+                  onPressed: _onBackButtonTap,
+                  child: const Text('Back'),
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                Button(
+                  onPressed: _onNextButtonTap,
+                  child: const Text('Next'),
+                ),
+              ],
             ),
           ],
         ),
