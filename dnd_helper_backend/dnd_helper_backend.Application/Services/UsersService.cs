@@ -1,15 +1,7 @@
 ﻿using dnd_helper_backend.Core.Models;
 using dnd_helper_backend.DataAccess.Repositories;
-using System.Security.Cryptography;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.Intrinsics.Arm;
-using System.Security.Cryptography.X509Certificates;
 using dnd_helper_backend.Infrastructure;
+using dnd_helper_backend.Infrastructure.Jwt;
 
 namespace dnd_helper_backend.Application.Services
 {
@@ -17,10 +9,14 @@ namespace dnd_helper_backend.Application.Services
     {
         private readonly IUsersRepository _usersRepository;
         private readonly IPasswordHasher _passwordHasher;
-        public UsersService(IUsersRepository usersRepository, IPasswordHasher passwordHasher)
+        private readonly IJwtProvider _jwtProvider;
+        public UsersService(IUsersRepository usersRepository,
+            IPasswordHasher passwordHasher,
+            IJwtProvider jwtProvider)
         {
             _usersRepository = usersRepository;
             _passwordHasher = passwordHasher;
+            _jwtProvider = jwtProvider;
         }
 
         public async Task<List<User>> GetAllUsers()
@@ -42,9 +38,20 @@ namespace dnd_helper_backend.Application.Services
             return await _usersRepository.Create(user);
         }
 
-        public async Task Login(string email, string pass)
-        { 
-            
+        public async Task<string> Login(string email, string pass)
+        {
+            User user = await _usersRepository.GetByEmail(email);
+
+            bool result = _passwordHasher.Verify(pass, user.PassHash);
+
+            if (!result) 
+            {
+                throw new Exception("Incorrect password");
+            }
+
+            var token = _jwtProvider.GenerateToken(user);
+
+            return token;
         }
     }
 }

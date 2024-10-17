@@ -11,5 +11,6 @@ namespace dnd_helper_backend.DataAccess.Repositories
     {
         Task<List<User>> Get();
         Task<Guid> Create(User user);
+        Task<User> GetByEmail(string email);
     }
 }

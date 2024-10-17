@@ -6,5 +6,6 @@ namespace dnd_helper_backend.Application.Services
     {
         Task<List<User>> GetAllUsers();
         Task<Guid> Register(string username, string email, string pass);
+        Task<string> Login(string email, string pass);
     }
 }

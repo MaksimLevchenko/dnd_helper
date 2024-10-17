@@ -39,5 +39,18 @@ namespace dnd_helper_backend.DataAccess.Repositories
             await _context.SaveChangesAsync();
             return userEntity.Id;
         }
+
+        public async Task<User> GetByEmail(string email)
+        {
+            var userEntity = await _context.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Email == email) ?? throw new Exception("User not found");
+
+
+            var user = User.Create(userEntity.Id, userEntity.Username, userEntity.Email, userEntity.PassHash).User;
+
+            return user;
+
+        }
     }
 }
