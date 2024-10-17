@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using dnd_helper_backend.DataAccess;
 using dnd_helper_backend.DataAccess.Repositories;
 using dnd_helper_backend.Application.Services;
+using dnd_helper_backend.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -20,6 +21,7 @@ builder.Services.AddDbContext<DndHelperDbContext>(
 
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<IUsersService, UsersService>();
+builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 
 var app = builder.Build();
 

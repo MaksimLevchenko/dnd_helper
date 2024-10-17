@@ -9,16 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Intrinsics.Arm;
 using System.Security.Cryptography.X509Certificates;
+using dnd_helper_backend.Infrastructure;
 
 namespace dnd_helper_backend.Application.Services
 {
     public class UsersService : IUsersService
     {
-        readonly IUsersRepository _usersRepository;
-        const string SALT = "t`cc^*Sd9T}'VNpi";
-        public UsersService(IUsersRepository usersRepository)
+        private readonly IUsersRepository _usersRepository;
+        private readonly IPasswordHasher _passwordHasher;
+        public UsersService(IUsersRepository usersRepository, IPasswordHasher passwordHasher)
         {
             _usersRepository = usersRepository;
+            _passwordHasher = passwordHasher;
         }
 
         public async Task<List<User>> GetAllUsers()
@@ -26,21 +28,23 @@ namespace dnd_helper_backend.Application.Services
             return await _usersRepository.Get();
         }
 
-        public async Task<Guid> Registration(User user)
+        public async Task<Guid> Register(string username, string email, string pass)
         {
+            string passHash = _passwordHasher.Generate(pass);
+
+            User user = User.Create(
+                Guid.NewGuid(),
+                username,
+                email,
+                passHash).User;
+
+
             return await _usersRepository.Create(user);
         }
 
-        public string Hash(string data)
-        {
-            byte[] hash = SHA256.HashData(Encoding.UTF8.GetBytes(data+SALT));
-            StringBuilder passHash = new StringBuilder();
-            foreach (byte b in hash) 
-            {
-                passHash.Append(b.ToString("X2"));
-            }
-
-            return passHash.ToString();
+        public async Task Login(string email, string pass)
+        { 
+            
         }
     }
 }

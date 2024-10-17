@@ -5,7 +5,6 @@ namespace dnd_helper_backend.Application.Services
     public interface IUsersService
     {
         Task<List<User>> GetAllUsers();
-        Task<Guid> Registration(User user);
-        string Hash(string data);
+        Task<Guid> Register(string username, string email, string pass);
     }
 }

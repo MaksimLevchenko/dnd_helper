@@ -2,10 +2,10 @@
 {
     public class User
     {
-        public User(Guid id, string userName, string email, string passHash)
+        public User(Guid id, string username, string email, string passHash)
         {
             Id = id;
-            Username = userName;
+            Username = username;
             Email = email;
             PassHash = passHash;
         }
