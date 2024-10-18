@@ -1,5 +1,13 @@
+import 'dart:developer';
+
+import 'package:dnd_helper_flutter/app/character_sheet/pages/abilities.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/inventory.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/personality.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/spells.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/fight.dart';
 import 'package:dnd_helper_flutter/data/character_repository/character_repository.dart';
 import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -19,7 +27,7 @@ class CharacterSheetState extends _$CharacterSheetState {
     state.whenData(
       (data) {
         state = AsyncValue.data(
-            data.copyWith(tabBarIndex: index, isTabBarViewVisible: true));
+            data.copyWith(selectedIndex: index, isTabBarViewVisible: true));
       },
     );
   }
@@ -31,13 +39,30 @@ class CharacterSheetState extends _$CharacterSheetState {
       },
     );
   }
+
+  Widget getPage(int index) {
+    switch (index) {
+      case 0:
+        return const Fight();
+      case 1:
+        return const Abilities();
+      case 2:
+        return const Inventory();
+      case 3:
+        return const Personality();
+      case 4:
+        return const Spells();
+      default:
+        return const Fight();
+    }
+  }
 }
 
 @freezed
 class CharacterSheetParameters with _$CharacterSheetParameters {
   factory CharacterSheetParameters({
     required CharacterData characterData,
-    @Default(0) int tabBarIndex,
     @Default(false) bool isTabBarViewVisible,
+    @Default(0) int selectedIndex,
   }) = _CharacterSheetParameters;
 }

@@ -48,7 +48,7 @@ class ClassTile extends StatelessWidget {
                       }
                       return AnimatedOpacity(
                         opacity: frame == null ? 0 : 1,
-                        duration: const Duration(seconds: 1),
+                        duration: const Duration(microseconds: 10),
                         curve: Curves.easeOut,
                         child: child,
                       );

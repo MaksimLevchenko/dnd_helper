@@ -19,6 +19,7 @@ mixin _$CharacterSheetParameters {
   CharacterData get characterData => throw _privateConstructorUsedError;
   int get tabBarIndex => throw _privateConstructorUsedError;
   bool get isTabBarViewVisible => throw _privateConstructorUsedError;
+  int get selectedIndex => throw _privateConstructorUsedError;
 
   /// Create a copy of CharacterSheetParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -34,7 +35,10 @@ abstract class $CharacterSheetParametersCopyWith<$Res> {
       _$CharacterSheetParametersCopyWithImpl<$Res, CharacterSheetParameters>;
   @useResult
   $Res call(
-      {CharacterData characterData, int tabBarIndex, bool isTabBarViewVisible});
+      {CharacterData characterData,
+      int tabBarIndex,
+      bool isTabBarViewVisible,
+      int selectedIndex});
 
   $CharacterDataCopyWith<$Res> get characterData;
 }
@@ -58,6 +62,7 @@ class _$CharacterSheetParametersCopyWithImpl<$Res,
     Object? characterData = null,
     Object? tabBarIndex = null,
     Object? isTabBarViewVisible = null,
+    Object? selectedIndex = null,
   }) {
     return _then(_value.copyWith(
       characterData: null == characterData
@@ -72,6 +77,10 @@ class _$CharacterSheetParametersCopyWithImpl<$Res,
           ? _value.isTabBarViewVisible
           : isTabBarViewVisible // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectedIndex: null == selectedIndex
+          ? _value.selectedIndex
+          : selectedIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -96,7 +105,10 @@ abstract class _$$CharacterSheetParametersImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {CharacterData characterData, int tabBarIndex, bool isTabBarViewVisible});
+      {CharacterData characterData,
+      int tabBarIndex,
+      bool isTabBarViewVisible,
+      int selectedIndex});
 
   @override
   $CharacterDataCopyWith<$Res> get characterData;
@@ -120,6 +132,7 @@ class __$$CharacterSheetParametersImplCopyWithImpl<$Res>
     Object? characterData = null,
     Object? tabBarIndex = null,
     Object? isTabBarViewVisible = null,
+    Object? selectedIndex = null,
   }) {
     return _then(_$CharacterSheetParametersImpl(
       characterData: null == characterData
@@ -134,6 +147,10 @@ class __$$CharacterSheetParametersImplCopyWithImpl<$Res>
           ? _value.isTabBarViewVisible
           : isTabBarViewVisible // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectedIndex: null == selectedIndex
+          ? _value.selectedIndex
+          : selectedIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -144,7 +161,8 @@ class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
   _$CharacterSheetParametersImpl(
       {required this.characterData,
       this.tabBarIndex = 0,
-      this.isTabBarViewVisible = false});
+      this.isTabBarViewVisible = false,
+      this.selectedIndex = 0});
 
   @override
   final CharacterData characterData;
@@ -154,10 +172,13 @@ class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
   @override
   @JsonKey()
   final bool isTabBarViewVisible;
+  @override
+  @JsonKey()
+  final int selectedIndex;
 
   @override
   String toString() {
-    return 'CharacterSheetParameters(characterData: $characterData, tabBarIndex: $tabBarIndex, isTabBarViewVisible: $isTabBarViewVisible)';
+    return 'CharacterSheetParameters(characterData: $characterData, tabBarIndex: $tabBarIndex, isTabBarViewVisible: $isTabBarViewVisible, selectedIndex: $selectedIndex)';
   }
 
   @override
@@ -170,12 +191,14 @@ class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
             (identical(other.tabBarIndex, tabBarIndex) ||
                 other.tabBarIndex == tabBarIndex) &&
             (identical(other.isTabBarViewVisible, isTabBarViewVisible) ||
-                other.isTabBarViewVisible == isTabBarViewVisible));
+                other.isTabBarViewVisible == isTabBarViewVisible) &&
+            (identical(other.selectedIndex, selectedIndex) ||
+                other.selectedIndex == selectedIndex));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, characterData, tabBarIndex, isTabBarViewVisible);
+  int get hashCode => Object.hash(runtimeType, characterData, tabBarIndex,
+      isTabBarViewVisible, selectedIndex);
 
   /// Create a copy of CharacterSheetParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -191,7 +214,8 @@ abstract class _CharacterSheetParameters implements CharacterSheetParameters {
   factory _CharacterSheetParameters(
       {required final CharacterData characterData,
       final int tabBarIndex,
-      final bool isTabBarViewVisible}) = _$CharacterSheetParametersImpl;
+      final bool isTabBarViewVisible,
+      final int selectedIndex}) = _$CharacterSheetParametersImpl;
 
   @override
   CharacterData get characterData;
@@ -199,6 +223,8 @@ abstract class _CharacterSheetParameters implements CharacterSheetParameters {
   int get tabBarIndex;
   @override
   bool get isTabBarViewVisible;
+  @override
+  int get selectedIndex;
 
   /// Create a copy of CharacterSheetParameters
   /// with the given fields replaced by the non-null parameter values.
