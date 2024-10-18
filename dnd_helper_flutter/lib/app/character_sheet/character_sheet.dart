@@ -1,7 +1,12 @@
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/abilities.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/fight.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/inventory.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/personality.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/spells.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/widgets/sheet_header.dart';
+import 'package:dnd_helper_flutter/domain/build_context_extension.dart';
 import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/widgets/sheet_tab_bar/sheet_tab_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,7 +21,7 @@ class CharacterSheet extends ConsumerWidget {
       data: (characterState) {
         return LayoutBuilder(
           builder: (context, constraints) {
-            if (constraints.maxWidth < 600) {
+            if (context.isMobile) {
               return OrientationBuilder(
                 builder: (context, constrains) {
                   return Scaffold(
@@ -38,9 +43,8 @@ class CharacterSheet extends ConsumerWidget {
                       currentIndex: characterState.selectedIndex,
                       items: const <BottomNavigationBarItem>[
                         BottomNavigationBarItem(
-                          icon: Icon(Icons.access_alarm_outlined),
-                          label: 'бой',
-                        ),
+                            icon: Icon(Icons.access_alarm_outlined),
+                            label: 'бой'),
                         BottomNavigationBarItem(
                             icon: Icon(Icons.access_alarm_outlined),
                             label: 'способности'),
@@ -59,35 +63,49 @@ class CharacterSheet extends ConsumerWidget {
                 },
               );
             } else {
-              return Scaffold(
-                appBar: AppBar(
-                  title:
-                      SheetHeader(characterData: characterState.characterData),
-                  centerTitle: true,
-                ),
-                body: Column(
-                  children: [
-                    SheetTabBar(
-                      selectedIndex: characterState.selectedIndex,
-                      onTapBarTap: (index) {
+              return DefaultTabController(
+                length: 5,
+                initialIndex: characterState.selectedIndex,
+                child: Scaffold(
+                  appBar: AppBar(
+                    title: SheetHeader(
+                        characterData: characterState.characterData),
+                    bottom: TabBar(
+                      onTap: (index) {
                         ref
                             .read(characterSheetStateProvider.notifier)
                             .onTabBarTap(index);
                       },
+                      tabAlignment: TabAlignment.center,
+                      tabs: const [
+                        Tab(
+                          text: 'Бой',
+                        ),
+                        Tab(
+                          text: 'Умения',
+                        ),
+                        Tab(
+                          text: 'Инвентарь',
+                        ),
+                        Tab(
+                          text: 'Личность',
+                        ),
+                        Tab(
+                          text: 'Заклинания',
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: IndexedStack(
-                        index: characterState.selectedIndex,
-                        children: const [
-                          Text('Содержимое Вкладки 1'),
-                          Text('Содержимое Вкладки 2'),
-                          Text('Содержимое Вкладки 3'),
-                          Text('Содержимое Вкладки 4'),
-                          Text('Содержимое Вкладки 5'),
-                        ],
-                      ),
-                    ),
-                  ],
+                    centerTitle: true,
+                  ),
+                  body: const TabBarView(
+                    children: <Widget>[
+                      Fight(),
+                      Abilities(),
+                      Inventory(),
+                      Personality(),
+                      Spells(),
+                    ],
+                  ),
                 ),
               );
             }
