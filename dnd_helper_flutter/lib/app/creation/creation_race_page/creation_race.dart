@@ -31,7 +31,7 @@ class CreationRace extends ConsumerWidget {
             const SingleChildScrollView(
                 scrollDirection: Axis.horizontal, child: Text('CreationRace')),
             Row(children: [
-              toBackPageButton(context),
+              const ToBackPageButton(),
               toNextPageButton(context, '/creation_attributes'),
             ]),
           ],

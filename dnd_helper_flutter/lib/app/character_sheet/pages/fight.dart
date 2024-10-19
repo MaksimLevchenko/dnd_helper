@@ -7,7 +7,13 @@ class Fight extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      color: Colors.amber,
+      color: Theme.of(context).colorScheme.error,
+      child: Center(
+        child: Text(
+          'Fight',
+          style: TextStyle(color: Theme.of(context).colorScheme.onError),
+        ),
+      ),
     );
   }
 }

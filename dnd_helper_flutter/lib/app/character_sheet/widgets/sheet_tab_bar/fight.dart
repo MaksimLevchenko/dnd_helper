@@ -55,7 +55,7 @@ class IconTextButton extends ConsumerWidget {
     return Column(
       children: [
         Stack(
-          alignment: Alignment(0, 0),
+          alignment: const Alignment(0, 0),
           children: [
             IconButton(iconSize: 70, onPressed: onTap, icon: icon),
             Text(value.toString())

@@ -7,7 +7,13 @@ class Inventory extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      color: Colors.green,
+      color: Theme.of(context).colorScheme.tertiary,
+      child: Center(
+        child: Text(
+          'Inventory',
+          style: TextStyle(color: Theme.of(context).colorScheme.onTertiary),
+        ),
+      ),
     );
   }
 }

@@ -4,7 +4,6 @@ import 'package:dnd_helper_flutter/app/character_sheet/pages/fight.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/pages/inventory.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/pages/personality.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/pages/spells.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/widgets/attributes_tab_bar_view.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/widgets/sheet_header.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/widgets/widgets_state/widgets_state.dart';
 import 'package:dnd_helper_flutter/domain/build_context_extension.dart';
@@ -34,7 +33,8 @@ class CharacterSheet extends ConsumerWidget {
                       title: SheetHeader(
                           characterData: characterState.characterData),
                       centerTitle: true,
-                      toolbarHeight: 300,
+                      toolbarHeight:
+                          widgetsState.isTabBarViewVisible ? 200 : 100,
                       bottom: context.isMobile
                           ? null
                           : TabBar(

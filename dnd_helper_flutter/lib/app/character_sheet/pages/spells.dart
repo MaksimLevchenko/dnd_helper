@@ -7,7 +7,13 @@ class Spells extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      color: Colors.purple,
+      color: Theme.of(context).colorScheme.primary,
+      child: Center(
+        child: Text(
+          'Spells',
+          style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+        ),
+      ),
     );
   }
 }

@@ -17,9 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CharacterSheetParameters {
   CharacterData get characterData => throw _privateConstructorUsedError;
-  int get tabBarIndex => throw _privateConstructorUsedError;
-  bool get isTabBarViewVisible => throw _privateConstructorUsedError;
-  int get selectedIndex => throw _privateConstructorUsedError;
 
   /// Create a copy of CharacterSheetParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -34,11 +31,7 @@ abstract class $CharacterSheetParametersCopyWith<$Res> {
           $Res Function(CharacterSheetParameters) then) =
       _$CharacterSheetParametersCopyWithImpl<$Res, CharacterSheetParameters>;
   @useResult
-  $Res call(
-      {CharacterData characterData,
-      int tabBarIndex,
-      bool isTabBarViewVisible,
-      int selectedIndex});
+  $Res call({CharacterData characterData});
 
   $CharacterDataCopyWith<$Res> get characterData;
 }
@@ -60,27 +53,12 @@ class _$CharacterSheetParametersCopyWithImpl<$Res,
   @override
   $Res call({
     Object? characterData = null,
-    Object? tabBarIndex = null,
-    Object? isTabBarViewVisible = null,
-    Object? selectedIndex = null,
   }) {
     return _then(_value.copyWith(
       characterData: null == characterData
           ? _value.characterData
           : characterData // ignore: cast_nullable_to_non_nullable
               as CharacterData,
-      tabBarIndex: null == tabBarIndex
-          ? _value.tabBarIndex
-          : tabBarIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      isTabBarViewVisible: null == isTabBarViewVisible
-          ? _value.isTabBarViewVisible
-          : isTabBarViewVisible // ignore: cast_nullable_to_non_nullable
-              as bool,
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
     ) as $Val);
   }
 
@@ -104,11 +82,7 @@ abstract class _$$CharacterSheetParametersImplCopyWith<$Res>
       __$$CharacterSheetParametersImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {CharacterData characterData,
-      int tabBarIndex,
-      bool isTabBarViewVisible,
-      int selectedIndex});
+  $Res call({CharacterData characterData});
 
   @override
   $CharacterDataCopyWith<$Res> get characterData;
@@ -130,27 +104,12 @@ class __$$CharacterSheetParametersImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? characterData = null,
-    Object? tabBarIndex = null,
-    Object? isTabBarViewVisible = null,
-    Object? selectedIndex = null,
   }) {
     return _then(_$CharacterSheetParametersImpl(
       characterData: null == characterData
           ? _value.characterData
           : characterData // ignore: cast_nullable_to_non_nullable
               as CharacterData,
-      tabBarIndex: null == tabBarIndex
-          ? _value.tabBarIndex
-          : tabBarIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      isTabBarViewVisible: null == isTabBarViewVisible
-          ? _value.isTabBarViewVisible
-          : isTabBarViewVisible // ignore: cast_nullable_to_non_nullable
-              as bool,
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -158,27 +117,14 @@ class __$$CharacterSheetParametersImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
-  _$CharacterSheetParametersImpl(
-      {required this.characterData,
-      this.tabBarIndex = 0,
-      this.isTabBarViewVisible = false,
-      this.selectedIndex = 0});
+  _$CharacterSheetParametersImpl({required this.characterData});
 
   @override
   final CharacterData characterData;
-  @override
-  @JsonKey()
-  final int tabBarIndex;
-  @override
-  @JsonKey()
-  final bool isTabBarViewVisible;
-  @override
-  @JsonKey()
-  final int selectedIndex;
 
   @override
   String toString() {
-    return 'CharacterSheetParameters(characterData: $characterData, tabBarIndex: $tabBarIndex, isTabBarViewVisible: $isTabBarViewVisible, selectedIndex: $selectedIndex)';
+    return 'CharacterSheetParameters(characterData: $characterData)';
   }
 
   @override
@@ -187,18 +133,11 @@ class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
         (other.runtimeType == runtimeType &&
             other is _$CharacterSheetParametersImpl &&
             (identical(other.characterData, characterData) ||
-                other.characterData == characterData) &&
-            (identical(other.tabBarIndex, tabBarIndex) ||
-                other.tabBarIndex == tabBarIndex) &&
-            (identical(other.isTabBarViewVisible, isTabBarViewVisible) ||
-                other.isTabBarViewVisible == isTabBarViewVisible) &&
-            (identical(other.selectedIndex, selectedIndex) ||
-                other.selectedIndex == selectedIndex));
+                other.characterData == characterData));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, characterData, tabBarIndex,
-      isTabBarViewVisible, selectedIndex);
+  int get hashCode => Object.hash(runtimeType, characterData);
 
   /// Create a copy of CharacterSheetParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -212,19 +151,11 @@ class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
 
 abstract class _CharacterSheetParameters implements CharacterSheetParameters {
   factory _CharacterSheetParameters(
-      {required final CharacterData characterData,
-      final int tabBarIndex,
-      final bool isTabBarViewVisible,
-      final int selectedIndex}) = _$CharacterSheetParametersImpl;
+          {required final CharacterData characterData}) =
+      _$CharacterSheetParametersImpl;
 
   @override
   CharacterData get characterData;
-  @override
-  int get tabBarIndex;
-  @override
-  bool get isTabBarViewVisible;
-  @override
-  int get selectedIndex;
 
   /// Create a copy of CharacterSheetParameters
   /// with the given fields replaced by the non-null parameter values.

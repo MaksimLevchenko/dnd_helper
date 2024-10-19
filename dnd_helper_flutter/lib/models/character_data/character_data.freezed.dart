@@ -33,7 +33,7 @@ mixin _$CharacterData {
   int? get initiative => throw _privateConstructorUsedError;
   int? get speed => throw _privateConstructorUsedError;
   int? get armorClass => throw _privateConstructorUsedError;
-  bool? get inspiration => throw _privateConstructorUsedError;
+  bool get inspiration => throw _privateConstructorUsedError;
   Conditions? get conditions => throw _privateConstructorUsedError;
   int? get exhaustion => throw _privateConstructorUsedError;
   Map<Attributes, int>? get attributes => throw _privateConstructorUsedError;
@@ -95,7 +95,7 @@ abstract class $CharacterDataCopyWith<$Res> {
       int? initiative,
       int? speed,
       int? armorClass,
-      bool? inspiration,
+      bool inspiration,
       Conditions? conditions,
       int? exhaustion,
       Map<Attributes, int>? attributes,
@@ -161,7 +161,7 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
     Object? initiative = freezed,
     Object? speed = freezed,
     Object? armorClass = freezed,
-    Object? inspiration = freezed,
+    Object? inspiration = null,
     Object? conditions = freezed,
     Object? exhaustion = freezed,
     Object? attributes = freezed,
@@ -246,10 +246,10 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
           ? _value.armorClass
           : armorClass // ignore: cast_nullable_to_non_nullable
               as int?,
-      inspiration: freezed == inspiration
+      inspiration: null == inspiration
           ? _value.inspiration
           : inspiration // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       conditions: freezed == conditions
           ? _value.conditions
           : conditions // ignore: cast_nullable_to_non_nullable
@@ -452,7 +452,7 @@ abstract class _$$CharacterDataImplCopyWith<$Res>
       int? initiative,
       int? speed,
       int? armorClass,
-      bool? inspiration,
+      bool inspiration,
       Conditions? conditions,
       int? exhaustion,
       Map<Attributes, int>? attributes,
@@ -520,7 +520,7 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
     Object? initiative = freezed,
     Object? speed = freezed,
     Object? armorClass = freezed,
-    Object? inspiration = freezed,
+    Object? inspiration = null,
     Object? conditions = freezed,
     Object? exhaustion = freezed,
     Object? attributes = freezed,
@@ -605,10 +605,10 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
           ? _value.armorClass
           : armorClass // ignore: cast_nullable_to_non_nullable
               as int?,
-      inspiration: freezed == inspiration
+      inspiration: null == inspiration
           ? _value.inspiration
           : inspiration // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       conditions: freezed == conditions
           ? _value.conditions
           : conditions // ignore: cast_nullable_to_non_nullable
@@ -750,7 +750,7 @@ class _$CharacterDataImpl extends _CharacterData {
       this.initiative,
       this.speed,
       this.armorClass,
-      this.inspiration,
+      this.inspiration = false,
       this.conditions,
       this.exhaustion,
       final Map<Attributes, int>? attributes,
@@ -825,7 +825,8 @@ class _$CharacterDataImpl extends _CharacterData {
   @override
   final int? armorClass;
   @override
-  final bool? inspiration;
+  @JsonKey()
+  final bool inspiration;
   @override
   final Conditions? conditions;
   @override
@@ -1147,7 +1148,7 @@ abstract class _CharacterData extends CharacterData {
       final int? initiative,
       final int? speed,
       final int? armorClass,
-      final bool? inspiration,
+      final bool inspiration,
       final Conditions? conditions,
       final int? exhaustion,
       final Map<Attributes, int>? attributes,
@@ -1210,7 +1211,7 @@ abstract class _CharacterData extends CharacterData {
   @override
   int? get armorClass;
   @override
-  bool? get inspiration;
+  bool get inspiration;
   @override
   Conditions? get conditions;
   @override

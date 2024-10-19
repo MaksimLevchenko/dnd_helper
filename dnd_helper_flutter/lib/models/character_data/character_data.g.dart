@@ -27,7 +27,7 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       initiative: (json['initiative'] as num?)?.toInt(),
       speed: (json['speed'] as num?)?.toInt(),
       armorClass: (json['armorClass'] as num?)?.toInt(),
-      inspiration: json['inspiration'] as bool?,
+      inspiration: json['inspiration'] as bool? ?? false,
       conditions: $enumDecodeNullable(_$ConditionsEnumMap, json['conditions']),
       exhaustion: (json['exhaustion'] as num?)?.toInt(),
       attributes: (json['attributes'] as Map<String, dynamic>?)?.map(

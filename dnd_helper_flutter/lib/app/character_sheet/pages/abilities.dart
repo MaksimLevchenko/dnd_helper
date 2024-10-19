@@ -7,7 +7,13 @@ class Abilities extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      color: Colors.red,
+      color: Theme.of(context).colorScheme.secondary,
+      child: Center(
+        child: Text(
+          'Abilities',
+          style: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+        ),
+      ),
     );
   }
 }

@@ -7,7 +7,13 @@ class Personality extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      color: Colors.blue,
+      color: Theme.of(context).colorScheme.surface,
+      child: Center(
+        child: Text(
+          'Personality',
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+        ),
+      ),
     );
   }
 }

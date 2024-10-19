@@ -30,7 +30,7 @@ class CharacterData with _$CharacterData {
     int? initiative,
     int? speed,
     int? armorClass,
-    bool? inspiration,
+    @Default(false) bool inspiration,
     Conditions? conditions,
     int? exhaustion,
     Map<Attributes, int>? attributes,
