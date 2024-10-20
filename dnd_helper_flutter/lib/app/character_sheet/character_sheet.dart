@@ -1,7 +1,7 @@
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/pages/abilities.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/pages/fight.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/pages/inventory.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/fight/fight.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/inventory/inventory.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/pages/personality.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/pages/spells.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/widgets/sheet_header.dart';
@@ -67,16 +67,14 @@ class CharacterSheet extends ConsumerWidget {
                         ? ref
                             .read(widgetsStateProvider.notifier)
                             .getPage(widgetsState.selectedPage)
-                        : const Expanded(
-                            child: TabBarView(
-                              children: <Widget>[
-                                Fight(),
-                                Abilities(),
-                                Inventory(),
-                                Personality(),
-                                Spells(),
-                              ],
-                            ),
+                        : const TabBarView(
+                            children: <Widget>[
+                              Fight(),
+                              Abilities(),
+                              Inventory(),
+                              Personality(),
+                              Spells(),
+                            ],
                           ),
                     bottomNavigationBar: context.isMobile
                         ? BottomNavigationBar(

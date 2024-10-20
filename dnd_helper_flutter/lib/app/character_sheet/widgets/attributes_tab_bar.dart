@@ -1,3 +1,4 @@
+import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/widgets/attributes_tab.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/widgets/widgets_state/widgets_state.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,6 @@ class AttributesTabBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(widgetsStateProvider);
     return Column(
       children: [
         TabBar(
@@ -20,43 +20,25 @@ class AttributesTabBar extends ConsumerWidget {
             color: Colors.transparent,
           ),
           dividerHeight: 2,
-          dividerColor: Theme.of(context).colorScheme.secondary,
-          tabs: <Widget>[
+          dividerColor: Theme.of(context).colorScheme.primary,
+          tabs: const <Widget>[
             AttributesTab(
-              selectedTabIndex: state.selectedAttribute,
-              value: 20,
               index: 0,
-              label: 'STR',
             ),
             AttributesTab(
-              selectedTabIndex: state.selectedAttribute,
-              value: 20,
               index: 1,
-              label: 'DEX',
             ),
             AttributesTab(
-              selectedTabIndex: state.selectedAttribute,
-              value: 20,
               index: 2,
-              label: 'CON',
             ),
             AttributesTab(
-              selectedTabIndex: state.selectedAttribute,
-              value: 20,
               index: 3,
-              label: 'INT',
             ),
             AttributesTab(
-              selectedTabIndex: state.selectedAttribute,
-              value: 20,
               index: 4,
-              label: 'WIS',
             ),
             AttributesTab(
-              selectedTabIndex: state.selectedAttribute,
-              value: 20,
               index: 5,
-              label: 'CHA',
             ),
           ],
         ),

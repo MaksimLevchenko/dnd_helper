@@ -15,6 +15,25 @@ enum Attributes {
   charisma,
 }
 
+extension AttributesExtension on Attributes {
+  String get value {
+    switch (this) {
+      case Attributes.strength:
+        return 'strength';
+      case Attributes.dexterity:
+        return 'dexterity';
+      case Attributes.constitution:
+        return 'constitution';
+      case Attributes.intelligence:
+        return 'intelligence';
+      case Attributes.wisdom:
+        return 'wisdom';
+      case Attributes.charisma:
+        return 'charisma';
+    }
+  }
+}
+
 /// Converts to and from [Attributes] and [String]>.
 class AttributesConverter implements JsonConverter<Attributes?, String?> {
   /// Create a new instance of [Attributes].

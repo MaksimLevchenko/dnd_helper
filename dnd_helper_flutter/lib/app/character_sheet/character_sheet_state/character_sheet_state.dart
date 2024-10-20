@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dnd_helper_flutter/data/character_repository/character_repository.dart';
 import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
+import 'package:dnd_helper_flutter/models/enums/attributes.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -22,9 +23,18 @@ class CharacterSheetState extends _$CharacterSheetState {
       final updatedCharacterData = parameters.characterData.copyWith(
         inspiration: !parameters.characterData.inspiration,
       );
-      log('from toggleInspiration');
       return CharacterSheetParameters(characterData: updatedCharacterData);
     });
+  }
+
+  Map<Attributes, int> getAttributes() {
+    return state.when(
+      data: (CharacterSheetParameters data) {
+        return data.characterData.attributes;
+      },
+      loading: () => {},
+      error: (error, stack) => {},
+    );
   }
 }
 

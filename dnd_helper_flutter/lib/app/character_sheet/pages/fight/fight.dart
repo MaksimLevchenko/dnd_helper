@@ -6,12 +6,13 @@ class Fight extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
-      color: Theme.of(context).colorScheme.error,
-      child: Center(
+      color: colorScheme.error,
+      child: const Center(
         child: Text(
-          'Fight',
-          style: TextStyle(color: Theme.of(context).colorScheme.onError),
+          'fight',
+          style: TextStyle(color: Colors.white),
         ),
       ),
     );

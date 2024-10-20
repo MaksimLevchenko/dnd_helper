@@ -31,9 +31,17 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       conditions: $enumDecodeNullable(_$ConditionsEnumMap, json['conditions']),
       exhaustion: (json['exhaustion'] as num?)?.toInt(),
       attributes: (json['attributes'] as Map<String, dynamic>?)?.map(
-        (k, e) =>
-            MapEntry($enumDecode(_$AttributesEnumMap, k), (e as num).toInt()),
-      ),
+            (k, e) => MapEntry(
+                $enumDecode(_$AttributesEnumMap, k), (e as num).toInt()),
+          ) ??
+          const {
+            Attributes.strength: 10,
+            Attributes.dexterity: 10,
+            Attributes.constitution: 12,
+            Attributes.intelligence: 10,
+            Attributes.wisdom: 10,
+            Attributes.charisma: 10
+          },
       savingThrows: (json['savingThrows'] as List<dynamic>?)
           ?.map((e) => $enumDecode(_$AttributesEnumMap, e))
           .toList(),
@@ -105,7 +113,7 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
       'conditions': _$ConditionsEnumMap[instance.conditions],
       'exhaustion': instance.exhaustion,
       'attributes': instance.attributes
-          ?.map((k, e) => MapEntry(_$AttributesEnumMap[k]!, e)),
+          .map((k, e) => MapEntry(_$AttributesEnumMap[k]!, e)),
       'savingThrows':
           instance.savingThrows?.map((e) => _$AttributesEnumMap[e]!).toList(),
       'skills':

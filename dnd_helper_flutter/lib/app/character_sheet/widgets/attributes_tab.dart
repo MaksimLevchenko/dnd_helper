@@ -1,36 +1,44 @@
+import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/widgets/widgets_state/widgets_state.dart';
+import 'package:dnd_helper_flutter/models/enums/attributes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AttributesTab extends ConsumerWidget {
-  const AttributesTab(
-      {required this.label,
-      required this.index,
-      required this.value,
-      super.key,
-      required this.selectedTabIndex});
+  const AttributesTab({
+    required this.index,
+    super.key,
+  });
   final int index;
-  final int value;
-  final int selectedTabIndex;
-  final String label;
+  static const List<String> labels = [
+    'STR',
+    'DEX',
+    'CON',
+    'INT',
+    'WIS',
+    'CHA',
+  ];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(widgetsStateProvider);
-
+    final character = ref.watch(characterSheetStateProvider.notifier);
+    final isFocused =
+        index == state.selectedAttribute && state.isTabBarViewVisible;
+    final Map<Attributes, int> attributesMap = character.getAttributes();
+    final attributes = Attributes.values.toList();
     return Tab(
       child: Container(
-        width:
-            index == selectedTabIndex && state.isTabBarViewVisible ? 45 : null,
-        decoration: index == selectedTabIndex && state.isTabBarViewVisible
+        width: isFocused ? 45 : null,
+        decoration: isFocused
             ? BoxDecoration(
                 border: Border(
                   top: BorderSide(
-                      color: Theme.of(context).colorScheme.secondary, width: 2),
+                      color: Theme.of(context).colorScheme.primary, width: 2),
                   left: BorderSide(
-                      color: Theme.of(context).colorScheme.secondary, width: 2),
+                      color: Theme.of(context).colorScheme.primary, width: 2),
                   right: BorderSide(
-                      color: Theme.of(context).colorScheme.secondary, width: 2),
+                      color: Theme.of(context).colorScheme.primary, width: 2),
                 ),
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(6),
@@ -39,7 +47,23 @@ class AttributesTab extends ConsumerWidget {
               )
             : null,
         child: Column(
-          children: [Text(label), Text(value.toString())],
+          children: [
+            Text(
+              labels[index],
+              style: TextStyle(
+                  color: isFocused
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.onSurface),
+            ),
+            Text(
+              attributesMap[attributes[index]].toString(),
+              style: TextStyle(
+                color: isFocused
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.onSurface,
+              ),
+            )
+          ],
         ),
       ),
     );

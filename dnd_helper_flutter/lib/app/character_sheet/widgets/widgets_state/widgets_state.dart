@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:dnd_helper_flutter/app/character_sheet/pages/abilities.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/pages/fight.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/pages/inventory.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/fight/fight.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/inventory/inventory.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/pages/personality.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/pages/spells.dart';
 import 'package:flutter/material.dart';

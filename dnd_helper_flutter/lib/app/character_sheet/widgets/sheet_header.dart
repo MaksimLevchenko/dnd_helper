@@ -37,8 +37,6 @@ class SheetHeader extends ConsumerWidget {
               ),
               Image.asset(
                 'assets/icons/rest.png',
-                width: 50,
-                height: 50,
               ),
               Column(
                 children: [

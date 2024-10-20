@@ -36,7 +36,7 @@ mixin _$CharacterData {
   bool get inspiration => throw _privateConstructorUsedError;
   Conditions? get conditions => throw _privateConstructorUsedError;
   int? get exhaustion => throw _privateConstructorUsedError;
-  Map<Attributes, int>? get attributes => throw _privateConstructorUsedError;
+  Map<Attributes, int> get attributes => throw _privateConstructorUsedError;
   List<Attributes>? get savingThrows => throw _privateConstructorUsedError;
   Map<Skills, bool>? get skills => throw _privateConstructorUsedError;
   List<ArmsData>? get attacks => throw _privateConstructorUsedError;
@@ -98,7 +98,7 @@ abstract class $CharacterDataCopyWith<$Res> {
       bool inspiration,
       Conditions? conditions,
       int? exhaustion,
-      Map<Attributes, int>? attributes,
+      Map<Attributes, int> attributes,
       List<Attributes>? savingThrows,
       Map<Skills, bool>? skills,
       List<ArmsData>? attacks,
@@ -164,7 +164,7 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
     Object? inspiration = null,
     Object? conditions = freezed,
     Object? exhaustion = freezed,
-    Object? attributes = freezed,
+    Object? attributes = null,
     Object? savingThrows = freezed,
     Object? skills = freezed,
     Object? attacks = freezed,
@@ -258,10 +258,10 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
           ? _value.exhaustion
           : exhaustion // ignore: cast_nullable_to_non_nullable
               as int?,
-      attributes: freezed == attributes
+      attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
-              as Map<Attributes, int>?,
+              as Map<Attributes, int>,
       savingThrows: freezed == savingThrows
           ? _value.savingThrows
           : savingThrows // ignore: cast_nullable_to_non_nullable
@@ -455,7 +455,7 @@ abstract class _$$CharacterDataImplCopyWith<$Res>
       bool inspiration,
       Conditions? conditions,
       int? exhaustion,
-      Map<Attributes, int>? attributes,
+      Map<Attributes, int> attributes,
       List<Attributes>? savingThrows,
       Map<Skills, bool>? skills,
       List<ArmsData>? attacks,
@@ -523,7 +523,7 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
     Object? inspiration = null,
     Object? conditions = freezed,
     Object? exhaustion = freezed,
-    Object? attributes = freezed,
+    Object? attributes = null,
     Object? savingThrows = freezed,
     Object? skills = freezed,
     Object? attacks = freezed,
@@ -617,10 +617,10 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
           ? _value.exhaustion
           : exhaustion // ignore: cast_nullable_to_non_nullable
               as int?,
-      attributes: freezed == attributes
+      attributes: null == attributes
           ? _value._attributes
           : attributes // ignore: cast_nullable_to_non_nullable
-              as Map<Attributes, int>?,
+              as Map<Attributes, int>,
       savingThrows: freezed == savingThrows
           ? _value._savingThrows
           : savingThrows // ignore: cast_nullable_to_non_nullable
@@ -753,7 +753,14 @@ class _$CharacterDataImpl extends _CharacterData {
       this.inspiration = false,
       this.conditions,
       this.exhaustion,
-      final Map<Attributes, int>? attributes,
+      final Map<Attributes, int> attributes = const {
+        Attributes.strength: 10,
+        Attributes.dexterity: 10,
+        Attributes.constitution: 12,
+        Attributes.intelligence: 10,
+        Attributes.wisdom: 10,
+        Attributes.charisma: 10
+      },
       final List<Attributes>? savingThrows,
       final Map<Skills, bool>? skills,
       final List<ArmsData>? attacks,
@@ -831,14 +838,13 @@ class _$CharacterDataImpl extends _CharacterData {
   final Conditions? conditions;
   @override
   final int? exhaustion;
-  final Map<Attributes, int>? _attributes;
+  final Map<Attributes, int> _attributes;
   @override
-  Map<Attributes, int>? get attributes {
-    final value = _attributes;
-    if (value == null) return null;
+  @JsonKey()
+  Map<Attributes, int> get attributes {
     if (_attributes is EqualUnmodifiableMapView) return _attributes;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
+    return EqualUnmodifiableMapView(_attributes);
   }
 
   final List<Attributes>? _savingThrows;
@@ -1151,7 +1157,7 @@ abstract class _CharacterData extends CharacterData {
       final bool inspiration,
       final Conditions? conditions,
       final int? exhaustion,
-      final Map<Attributes, int>? attributes,
+      final Map<Attributes, int> attributes,
       final List<Attributes>? savingThrows,
       final Map<Skills, bool>? skills,
       final List<ArmsData>? attacks,
@@ -1217,7 +1223,7 @@ abstract class _CharacterData extends CharacterData {
   @override
   int? get exhaustion;
   @override
-  Map<Attributes, int>? get attributes;
+  Map<Attributes, int> get attributes;
   @override
   List<Attributes>? get savingThrows;
   @override

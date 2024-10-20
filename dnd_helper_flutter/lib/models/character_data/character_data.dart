@@ -33,7 +33,15 @@ class CharacterData with _$CharacterData {
     @Default(false) bool inspiration,
     Conditions? conditions,
     int? exhaustion,
-    Map<Attributes, int>? attributes,
+    @Default({
+      Attributes.strength: 10,
+      Attributes.dexterity: 10,
+      Attributes.constitution: 12,
+      Attributes.intelligence: 10,
+      Attributes.wisdom: 10,
+      Attributes.charisma: 10
+    })
+    Map<Attributes, int> attributes,
     List<Attributes>? savingThrows,
     Map<Skills, bool>? skills,
     List<ArmsData>? attacks,
