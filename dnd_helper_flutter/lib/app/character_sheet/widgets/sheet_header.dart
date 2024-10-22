@@ -1,6 +1,6 @@
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/widgets/attributes_tab_bar.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/widgets/attributes_tab_bar_view.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/widgets/attributes_tab_bar_vew/attributes_tab_bar.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/widgets/attributes_tab_bar_vew/attributes_tab_bar_view.dart';
 import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,7 +24,7 @@ class SheetHeader extends ConsumerWidget {
         children: [
           const SizedBox(height: 12),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
                 onPressed: () {
@@ -67,13 +67,13 @@ class SheetHeader extends ConsumerWidget {
                         ? const Image(
                             image: AssetImage(
                                 'assets/icons/star_in_checkbox_96.png'),
-                            width: 48,
-                            height: 48,
+                            width: 32,
+                            height: 32,
                           )
                         : const Image(
                             image: AssetImage('assets/icons/checkbox_96.png'),
-                            width: 48,
-                            height: 48,
+                            width: 32,
+                            height: 32,
                           ),
                   );
                 },
@@ -93,6 +93,9 @@ class SheetHeader extends ConsumerWidget {
             height: 8,
           ),
           const AttributesTabBar(),
+          const SizedBox(
+            height: 4,
+          ),
           const AttributesTabBarView()
         ],
       ),

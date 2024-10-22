@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dnd_helper_flutter/app/character_sheet/pages/abilities.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/pages/fight/fight.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/pages/inventory/inventory.dart';
@@ -34,14 +32,6 @@ class WidgetsState extends _$WidgetsState {
             isTabBarViewVisible: !state.isTabBarViewVisible)
         : state =
             state.copyWith(selectedAttribute: index, isTabBarViewVisible: true);
-    log(
-      state.selectedAttribute.toString(),
-    );
-    log(index.toString());
-
-    log(
-      state.isTabBarViewVisible.toString(),
-    );
   }
 
   Widget getPage(int index) {
@@ -65,8 +55,9 @@ class WidgetsState extends _$WidgetsState {
 @freezed
 class WidgetsStateParameters with _$WidgetsStateParameters {
   const factory WidgetsStateParameters({
-    @Default(false) bool isTabBarViewVisible,
+    @Default(true) bool isTabBarViewVisible,
     @Default(0) int selectedPage,
     @Default(0) int selectedAttribute,
+    @Default(350) double tabBarHeight,
   }) = _WidgetsStateParameters;
 }

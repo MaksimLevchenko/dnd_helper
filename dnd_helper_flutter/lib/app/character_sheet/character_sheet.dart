@@ -1,9 +1,5 @@
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/pages/abilities.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/pages/fight/fight.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/pages/inventory/inventory.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/pages/personality.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/pages/spells.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/widgets/desktop/sheet_tab_bar_view.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/widgets/sheet_header.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/widgets/widgets_state/widgets_state.dart';
 import 'package:dnd_helper_flutter/domain/build_context_extension.dart';
@@ -11,9 +7,12 @@ import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CharacterSheet extends ConsumerWidget {
+class CharacterSheet extends ConsumerWidget implements PreferredSizeWidget {
   final int sheetId;
   const CharacterSheet({super.key, required this.sheetId});
+
+  @override
+  get preferredSize => const Size.fromHeight(100);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -29,53 +28,39 @@ class CharacterSheet extends ConsumerWidget {
                   length: 5,
                   initialIndex: 0,
                   child: Scaffold(
-                    appBar: AppBar(
-                      title: SheetHeader(
-                          characterData: characterState.characterData),
-                      centerTitle: true,
-                      toolbarHeight:
-                          widgetsState.isTabBarViewVisible ? 200 : 100,
-                      bottom: context.isMobile
-                          ? null
-                          : TabBar(
-                              onTap: (index) {
-                                ref
-                                    .read(widgetsStateProvider.notifier)
-                                    .onTabBarTap(index);
-                              },
-                              tabAlignment: TabAlignment.center,
-                              tabs: const <Tab>[
-                                Tab(
-                                  text: 'Бой',
-                                ),
-                                Tab(
-                                  text: 'Умения',
-                                ),
-                                Tab(
-                                  text: 'Инвентарь',
-                                ),
-                                Tab(
-                                  text: 'Личность',
-                                ),
-                                Tab(
-                                  text: 'Заклинания',
-                                ),
-                              ],
+                    body: Align(
+                      alignment: Alignment.topCenter,
+                      child: Container(
+                        width: context.isMobile
+                            ? constraints.maxWidth
+                            : constraints.maxWidth * 0.5,
+                        height: MediaQuery.of(context).size.height,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.surface,
+                          border: Border.symmetric(
+                            horizontal: BorderSide.none,
+                            vertical: BorderSide(
+                              color: Theme.of(context).colorScheme.primary,
                             ),
-                    ),
-                    body: context.isMobile
-                        ? ref
-                            .read(widgetsStateProvider.notifier)
-                            .getPage(widgetsState.selectedPage)
-                        : const TabBarView(
-                            children: <Widget>[
-                              Fight(),
-                              Abilities(),
-                              Inventory(),
-                              Personality(),
-                              Spells(),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              SheetHeader(
+                                  characterData: characterState.characterData),
+                              context.isMobile
+                                  ? ref
+                                      .read(widgetsStateProvider.notifier)
+                                      .getPage(widgetsState.selectedPage)
+                                  : const SheetTabBarView(),
                             ],
                           ),
+                        ),
+                      ),
+                    ),
                     bottomNavigationBar: context.isMobile
                         ? BottomNavigationBar(
                             useLegacyColorScheme: false,

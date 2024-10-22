@@ -1,6 +1,8 @@
 import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:dnd_helper_flutter/models/class_data/class_data.dart';
+import 'package:dnd_helper_flutter/models/enums/attributes.dart';
 import 'package:dnd_helper_flutter/models/enums/dice.dart';
+import 'package:dnd_helper_flutter/models/enums/skills.dart';
 import 'package:dnd_helper_flutter/models/race_data/race_data.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -52,14 +54,14 @@ class CharacterRepository extends _$CharacterRepository {
       hairColor: 'none hair',
       height: 'none height',
       ideology: null,
-      initiative: 12,
       inspiration: true,
       knownSpells: null,
       languages: null,
       maxHitPoints: 12,
       preparedSpells: null,
-      savingThrows: null,
-      skills: null,
+      savingThrows: [Attributes.constitution, Attributes.strength],
+      skillsProficiency: [Skills.acrobatics, Skills.animalHandling],
+      skillsExpertise: [Skills.acrobatics, Skills.arcana],
       skinColor: 'none skin',
       spellcastingAttribute: null,
       spellSlots: null,

@@ -27,7 +27,6 @@ class CharacterData with _$CharacterData {
     int? maxHitPoints,
     int? currentHitPoints,
     int? temporaryHitPoints,
-    int? initiative,
     int? speed,
     int? armorClass,
     @Default(false) bool inspiration,
@@ -36,14 +35,15 @@ class CharacterData with _$CharacterData {
     @Default({
       Attributes.strength: 10,
       Attributes.dexterity: 10,
-      Attributes.constitution: 12,
+      Attributes.constitution: 10,
       Attributes.intelligence: 10,
       Attributes.wisdom: 10,
       Attributes.charisma: 10
     })
     Map<Attributes, int> attributes,
-    List<Attributes>? savingThrows,
-    Map<Skills, bool>? skills,
+    required List<Attributes?> savingThrows,
+    required List<Skills?> skillsProficiency,
+    required List<Skills?> skillsExpertise,
     List<ArmsData>? attacks,
     List<SpellsData>? preparedSpells,
     List<SpellsData>? knownSpells,
@@ -103,6 +103,66 @@ class CharacterData with _$CharacterData {
     if (level >= 5) return 3;
     return 2;
   }
+
+  int getModifier(Attributes attribute) {
+    return (attributes[attribute]! - 10) ~/ 2;
+  }
+
+  int get initiative {
+    return getModifier(Attributes.dexterity);
+  }
+
+  int get spellSaveDC {
+    return spellcastingAttribute != null
+        ? 8 + getModifier(spellcastingAttribute!) + proficiencyBonus
+        : 0;
+  }
+
+  List<Skills> getSkillsByAttribute(Attributes attribute) {
+    switch (attribute) {
+      case Attributes.strength:
+        return [
+          Skills.athletics,
+        ];
+      case Attributes.dexterity:
+        return [
+          Skills.acrobatics,
+          Skills.sleightOfHand,
+          Skills.stealth,
+        ];
+      case Attributes.constitution:
+        return [];
+      case Attributes.intelligence:
+        return [
+          Skills.arcana,
+          Skills.history,
+          Skills.investigation,
+          Skills.nature,
+          Skills.religion,
+        ];
+      case Attributes.wisdom:
+        return [
+          Skills.animalHandling,
+          Skills.insight,
+          Skills.medicine,
+          Skills.perception,
+          Skills.survival,
+        ];
+      case Attributes.charisma:
+        return [
+          Skills.deception,
+          Skills.intimidation,
+          Skills.performance,
+          Skills.persuasion,
+        ];
+    }
+  }
+
+  // String getSkillAsStringRu(Skills skill) {
+  //   switch (skill) {
+  //     case Skills.acrobatics:
+  //     return 'АККРОБАТИКА';
+  // }
 
   factory CharacterData.fromJson(Map<String, dynamic> json) =>
       _$CharacterDataFromJson(json);

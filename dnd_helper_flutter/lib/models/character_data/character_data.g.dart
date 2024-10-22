@@ -24,7 +24,6 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       maxHitPoints: (json['maxHitPoints'] as num?)?.toInt(),
       currentHitPoints: (json['currentHitPoints'] as num?)?.toInt(),
       temporaryHitPoints: (json['temporaryHitPoints'] as num?)?.toInt(),
-      initiative: (json['initiative'] as num?)?.toInt(),
       speed: (json['speed'] as num?)?.toInt(),
       armorClass: (json['armorClass'] as num?)?.toInt(),
       inspiration: json['inspiration'] as bool? ?? false,
@@ -42,12 +41,15 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
             Attributes.wisdom: 10,
             Attributes.charisma: 10
           },
-      savingThrows: (json['savingThrows'] as List<dynamic>?)
-          ?.map((e) => $enumDecode(_$AttributesEnumMap, e))
+      savingThrows: (json['savingThrows'] as List<dynamic>)
+          .map((e) => $enumDecodeNullable(_$AttributesEnumMap, e))
           .toList(),
-      skills: (json['skills'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry($enumDecode(_$SkillsEnumMap, k), e as bool),
-      ),
+      skillsProficiency: (json['skillsProficiency'] as List<dynamic>)
+          .map((e) => $enumDecodeNullable(_$SkillsEnumMap, e))
+          .toList(),
+      skillsExpertise: (json['skillsExpertise'] as List<dynamic>)
+          .map((e) => $enumDecodeNullable(_$SkillsEnumMap, e))
+          .toList(),
       attacks: (json['attacks'] as List<dynamic>?)
           ?.map((e) => ArmsData.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -106,7 +108,6 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
       'maxHitPoints': instance.maxHitPoints,
       'currentHitPoints': instance.currentHitPoints,
       'temporaryHitPoints': instance.temporaryHitPoints,
-      'initiative': instance.initiative,
       'speed': instance.speed,
       'armorClass': instance.armorClass,
       'inspiration': instance.inspiration,
@@ -115,9 +116,11 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
       'attributes': instance.attributes
           .map((k, e) => MapEntry(_$AttributesEnumMap[k]!, e)),
       'savingThrows':
-          instance.savingThrows?.map((e) => _$AttributesEnumMap[e]!).toList(),
-      'skills':
-          instance.skills?.map((k, e) => MapEntry(_$SkillsEnumMap[k]!, e)),
+          instance.savingThrows.map((e) => _$AttributesEnumMap[e]).toList(),
+      'skillsProficiency':
+          instance.skillsProficiency.map((e) => _$SkillsEnumMap[e]).toList(),
+      'skillsExpertise':
+          instance.skillsExpertise.map((e) => _$SkillsEnumMap[e]).toList(),
       'attacks': instance.attacks,
       'preparedSpells': instance.preparedSpells,
       'knownSpells': instance.knownSpells,

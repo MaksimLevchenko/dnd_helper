@@ -7,7 +7,7 @@ part of 'character_repository.dart';
 // **************************************************************************
 
 String _$characterRepositoryHash() =>
-    r'a1dfe6f9d6aef1b134d21746a63e88d145d0e273';
+    r'4bfb83b3736adaf1e2008c238ede15a0f81b9ad9';
 
 /// See also [CharacterRepository].
 @ProviderFor(CharacterRepository)

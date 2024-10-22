@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dnd_helper_flutter/data/character_repository/character_repository.dart';
 import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
