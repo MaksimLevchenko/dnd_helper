@@ -34,7 +34,7 @@ class AttributesTabBarViewItem extends ConsumerWidget {
                   fontSize: 16, color: Theme.of(context).colorScheme.onSurface),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 for (var skill in listSkills)
                   ItemSkill(attribute: attribute, skill: skill),
