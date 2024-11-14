@@ -21,7 +21,7 @@ class SheetTabBarView extends ConsumerWidget {
                 text: 'Бой',
               ),
               Tab(
-                text: 'Умения',
+                text: 'Способности',
               ),
               Tab(
                 text: 'Инвентарь',

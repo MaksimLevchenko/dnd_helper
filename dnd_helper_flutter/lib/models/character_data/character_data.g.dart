@@ -36,7 +36,7 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
           const {
             Attributes.strength: 10,
             Attributes.dexterity: 10,
-            Attributes.constitution: 12,
+            Attributes.constitution: 10,
             Attributes.intelligence: 10,
             Attributes.wisdom: 10,
             Attributes.charisma: 10

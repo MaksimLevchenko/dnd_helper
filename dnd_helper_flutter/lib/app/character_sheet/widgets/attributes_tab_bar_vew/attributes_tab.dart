@@ -49,7 +49,8 @@ class AttributesTab extends ConsumerWidget {
         children: [
           Text(
             labels[index],
-            style: TextStyle(color: isFocused ? primary : onSurface),
+            style:
+                TextStyle(color: isFocused ? primary : onSurface, fontSize: 12),
           ),
           Text(
             attributesMap[attributes[index]].toString(),

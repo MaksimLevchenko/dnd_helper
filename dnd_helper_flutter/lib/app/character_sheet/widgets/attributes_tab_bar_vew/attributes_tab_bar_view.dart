@@ -12,7 +12,7 @@ class AttributesTabBarView extends ConsumerWidget {
     final widgetsState = ref.watch(widgetsStateProvider);
 
     return Container(
-      height: widgetsState.isTabBarViewVisible ? 125 : 0,
+      height: widgetsState.isTabBarViewVisible ? 160 : 0,
       color: Theme.of(context).colorScheme.surface,
       child: const TabBarView(
         children: [

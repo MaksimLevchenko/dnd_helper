@@ -1,4 +1,4 @@
-import 'package:dnd_helper_flutter/app/master/widgets/calculator/calculator_state/calculator_state.dart';
+import 'package:dnd_helper_flutter/ui/calculator/calculator_state/calculator_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

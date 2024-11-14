@@ -1,8 +1,8 @@
-import 'package:dnd_helper_flutter/app/master/widgets/calculator/calculator_state/calculator_state.dart';
-import 'package:dnd_helper_flutter/app/master/widgets/calculator/calculator_widgets/calculate_buttons.dart';
-import 'package:dnd_helper_flutter/app/master/widgets/calculator/calculator_widgets/calculator_solution.dart';
-import 'package:dnd_helper_flutter/app/master/widgets/calculator/calculator_widgets/calculator_text_button.dart';
-import 'package:dnd_helper_flutter/app/master/widgets/calculator/calculator_widgets/calculator_text_field.dart';
+import 'package:dnd_helper_flutter/ui/calculator/calculator_state/calculator_state.dart';
+import 'package:dnd_helper_flutter/ui/calculator/calculator_widgets/calculate_buttons.dart';
+import 'package:dnd_helper_flutter/ui/calculator/calculator_widgets/calculator_solution.dart';
+import 'package:dnd_helper_flutter/ui/calculator/calculator_widgets/calculator_text_button.dart';
+import 'package:dnd_helper_flutter/ui/calculator/calculator_widgets/calculator_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,7 +17,6 @@ class CalculatorGrid extends ConsumerWidget {
       children: [
         LayoutGrid(
           areas: """
-                 solution solution solution
                  field    field    field
                  7        8        9
                  4        5        6
@@ -25,9 +24,8 @@ class CalculatorGrid extends ConsumerWidget {
                  0        +        -
               """,
           columnSizes: [75.px, 75.px, 75.px],
-          rowSizes: [50.px, 50.px, 50.px, 50.px, 50.px, 50.px],
+          rowSizes: [50.px, 50.px, 50.px, 50.px, 50.px],
           children: [
-            const CalculatorSolution().inGridArea('solution'),
             CalculatorTextField(
               controller: state.controller,
             ).inGridArea('field'),
@@ -43,19 +41,6 @@ class CalculatorGrid extends ConsumerWidget {
             const CalculatorTextButton(char: '0').inGridArea('0'),
             const CalculatorTextButton(char: '+').inGridArea('+'),
             const CalculatorTextButton(char: '-').inGridArea('-'),
-          ],
-        ),
-        const Row(
-          children: [
-            CalculateButtons.temporal(),
-            CalculateButtons.heal(),
-            CalculateButtons.damage(),
-          ],
-        ),
-        const Row(
-          children: [
-            CalculateButtons.increase(),
-            CalculateButtons.decrease(),
           ],
         ),
       ],

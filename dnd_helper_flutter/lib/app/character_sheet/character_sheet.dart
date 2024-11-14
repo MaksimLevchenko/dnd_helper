@@ -7,12 +7,9 @@ import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CharacterSheet extends ConsumerWidget implements PreferredSizeWidget {
+class CharacterSheet extends ConsumerWidget {
   final int sheetId;
   const CharacterSheet({super.key, required this.sheetId});
-
-  @override
-  get preferredSize => const Size.fromHeight(100);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -33,19 +30,23 @@ class CharacterSheet extends ConsumerWidget implements PreferredSizeWidget {
                       child: Container(
                         width: context.isMobile
                             ? constraints.maxWidth
-                            : constraints.maxWidth * 0.5,
+                            : constraints.maxWidth * 0.6,
                         height: MediaQuery.of(context).size.height,
                         decoration: BoxDecoration(
                           color: Theme.of(context).colorScheme.surface,
-                          border: Border.symmetric(
-                            horizontal: BorderSide.none,
-                            vertical: BorderSide(
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
+                          border: context.isMobile
+                              ? null
+                              : Border.symmetric(
+                                  horizontal: BorderSide.none,
+                                  vertical: BorderSide(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                  ),
+                                ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: context.isMobile ? 0 : 8.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [

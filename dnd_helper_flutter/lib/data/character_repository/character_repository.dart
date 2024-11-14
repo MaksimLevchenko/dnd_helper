@@ -15,6 +15,7 @@ class CharacterRepository extends _$CharacterRepository {
     return null;
   }
 
+  // ignore: avoid_public_notifier_properties
   final ClassData classData = const ClassData(
       id: 1,
       name: 'class',
@@ -28,6 +29,7 @@ class CharacterRepository extends _$CharacterRepository {
       description: '',
       imageLink: '',
       source: '');
+  // ignore: avoid_public_notifier_properties
   final RaceData raceData = const RaceData(
     name: 'race',
     imageLink: '',

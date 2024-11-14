@@ -19,7 +19,7 @@ mixin _$WidgetsStateParameters {
   bool get isTabBarViewVisible => throw _privateConstructorUsedError;
   int get selectedPage => throw _privateConstructorUsedError;
   int get selectedAttribute => throw _privateConstructorUsedError;
-  double get tabBarHeight => throw _privateConstructorUsedError;
+  bool get editMode => throw _privateConstructorUsedError;
 
   /// Create a copy of WidgetsStateParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -38,7 +38,7 @@ abstract class $WidgetsStateParametersCopyWith<$Res> {
       {bool isTabBarViewVisible,
       int selectedPage,
       int selectedAttribute,
-      double tabBarHeight});
+      bool editMode});
 }
 
 /// @nodoc
@@ -60,7 +60,7 @@ class _$WidgetsStateParametersCopyWithImpl<$Res,
     Object? isTabBarViewVisible = null,
     Object? selectedPage = null,
     Object? selectedAttribute = null,
-    Object? tabBarHeight = null,
+    Object? editMode = null,
   }) {
     return _then(_value.copyWith(
       isTabBarViewVisible: null == isTabBarViewVisible
@@ -75,10 +75,10 @@ class _$WidgetsStateParametersCopyWithImpl<$Res,
           ? _value.selectedAttribute
           : selectedAttribute // ignore: cast_nullable_to_non_nullable
               as int,
-      tabBarHeight: null == tabBarHeight
-          ? _value.tabBarHeight
-          : tabBarHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+      editMode: null == editMode
+          ? _value.editMode
+          : editMode // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -96,7 +96,7 @@ abstract class _$$WidgetsStateParametersImplCopyWith<$Res>
       {bool isTabBarViewVisible,
       int selectedPage,
       int selectedAttribute,
-      double tabBarHeight});
+      bool editMode});
 }
 
 /// @nodoc
@@ -117,7 +117,7 @@ class __$$WidgetsStateParametersImplCopyWithImpl<$Res>
     Object? isTabBarViewVisible = null,
     Object? selectedPage = null,
     Object? selectedAttribute = null,
-    Object? tabBarHeight = null,
+    Object? editMode = null,
   }) {
     return _then(_$WidgetsStateParametersImpl(
       isTabBarViewVisible: null == isTabBarViewVisible
@@ -132,10 +132,10 @@ class __$$WidgetsStateParametersImplCopyWithImpl<$Res>
           ? _value.selectedAttribute
           : selectedAttribute // ignore: cast_nullable_to_non_nullable
               as int,
-      tabBarHeight: null == tabBarHeight
-          ? _value.tabBarHeight
-          : tabBarHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+      editMode: null == editMode
+          ? _value.editMode
+          : editMode // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -145,9 +145,9 @@ class __$$WidgetsStateParametersImplCopyWithImpl<$Res>
 class _$WidgetsStateParametersImpl implements _WidgetsStateParameters {
   const _$WidgetsStateParametersImpl(
       {this.isTabBarViewVisible = true,
-      this.selectedPage = 0,
+      this.selectedPage = 1,
       this.selectedAttribute = 0,
-      this.tabBarHeight = 350});
+      this.editMode = false});
 
   @override
   @JsonKey()
@@ -160,11 +160,11 @@ class _$WidgetsStateParametersImpl implements _WidgetsStateParameters {
   final int selectedAttribute;
   @override
   @JsonKey()
-  final double tabBarHeight;
+  final bool editMode;
 
   @override
   String toString() {
-    return 'WidgetsStateParameters(isTabBarViewVisible: $isTabBarViewVisible, selectedPage: $selectedPage, selectedAttribute: $selectedAttribute, tabBarHeight: $tabBarHeight)';
+    return 'WidgetsStateParameters(isTabBarViewVisible: $isTabBarViewVisible, selectedPage: $selectedPage, selectedAttribute: $selectedAttribute, editMode: $editMode)';
   }
 
   @override
@@ -178,13 +178,13 @@ class _$WidgetsStateParametersImpl implements _WidgetsStateParameters {
                 other.selectedPage == selectedPage) &&
             (identical(other.selectedAttribute, selectedAttribute) ||
                 other.selectedAttribute == selectedAttribute) &&
-            (identical(other.tabBarHeight, tabBarHeight) ||
-                other.tabBarHeight == tabBarHeight));
+            (identical(other.editMode, editMode) ||
+                other.editMode == editMode));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, isTabBarViewVisible,
-      selectedPage, selectedAttribute, tabBarHeight);
+      selectedPage, selectedAttribute, editMode);
 
   /// Create a copy of WidgetsStateParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -201,7 +201,7 @@ abstract class _WidgetsStateParameters implements WidgetsStateParameters {
       {final bool isTabBarViewVisible,
       final int selectedPage,
       final int selectedAttribute,
-      final double tabBarHeight}) = _$WidgetsStateParametersImpl;
+      final bool editMode}) = _$WidgetsStateParametersImpl;
 
   @override
   bool get isTabBarViewVisible;
@@ -210,7 +210,7 @@ abstract class _WidgetsStateParameters implements WidgetsStateParameters {
   @override
   int get selectedAttribute;
   @override
-  double get tabBarHeight;
+  bool get editMode;
 
   /// Create a copy of WidgetsStateParameters
   /// with the given fields replaced by the non-null parameter values.

@@ -1,4 +1,4 @@
-import 'package:dnd_helper_flutter/app/master/widgets/calculator/calculator_widgets/calculate_buttons.dart';
+import 'package:dnd_helper_flutter/ui/calculator/calculator_widgets/calculate_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
