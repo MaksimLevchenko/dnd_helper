@@ -8,8 +8,8 @@ part of 'character_data.dart';
 
 _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
     _$CharacterDataImpl(
-      id: (json['id'] as num?)?.toInt(),
-      characterName: json['characterName'] as String?,
+      id: (json['id'] as num).toInt(),
+      characterName: json['characterName'] as String,
       characterRace: json['characterRace'] == null
           ? null
           : RaceData.fromJson(json['characterRace'] as Map<String, dynamic>),
@@ -19,27 +19,37 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       background: json['background'] == null
           ? null
           : BackgroundData.fromJson(json['background'] as Map<String, dynamic>),
-      level: (json['level'] as num?)?.toInt(),
-      experience: (json['experience'] as num?)?.toInt(),
-      diceHit: $enumDecodeNullable(_$DiceEnumMap, json['diceHit']),
+      experience: (json['experience'] as num).toInt(),
+      diceHit: $enumDecode(_$DiceEnumMap, json['diceHit']),
       maxHitPoints: (json['maxHitPoints'] as num?)?.toInt(),
       currentHitPoints: (json['currentHitPoints'] as num?)?.toInt(),
       temporaryHitPoints: (json['temporaryHitPoints'] as num?)?.toInt(),
-      initiative: (json['initiative'] as num?)?.toInt(),
       speed: (json['speed'] as num?)?.toInt(),
       armorClass: (json['armorClass'] as num?)?.toInt(),
-      inspiration: json['inspiration'] as bool?,
+      inspiration: json['inspiration'] as bool? ?? false,
       conditions: $enumDecodeNullable(_$ConditionsEnumMap, json['conditions']),
       exhaustion: (json['exhaustion'] as num?)?.toInt(),
       attributes: (json['attributes'] as Map<String, dynamic>?)?.map(
-        (k, e) =>
-            MapEntry($enumDecode(_$AttributesEnumMap, k), (e as num).toInt()),
-      ),
-      savingThrows: (json['savingThrows'] as List<dynamic>?)
-          ?.map((e) => $enumDecode(_$AttributesEnumMap, e))
+            (k, e) => MapEntry(
+                $enumDecode(_$AttributesEnumMap, k), (e as num).toInt()),
+          ) ??
+          const {
+            Attributes.strength: 10,
+            Attributes.dexterity: 10,
+            Attributes.constitution: 10,
+            Attributes.intelligence: 10,
+            Attributes.wisdom: 10,
+            Attributes.charisma: 10
+          },
+      savingThrows: (json['savingThrows'] as List<dynamic>)
+          .map((e) => $enumDecodeNullable(_$AttributesEnumMap, e))
           .toList(),
-      skills: $enumDecodeNullable(_$SkillsEnumMap, json['skills']),
-      proficiencyBonus: (json['proficiencyBonus'] as num?)?.toInt(),
+      skillsProficiency: (json['skillsProficiency'] as List<dynamic>)
+          .map((e) => $enumDecodeNullable(_$SkillsEnumMap, e))
+          .toList(),
+      skillsExpertise: (json['skillsExpertise'] as List<dynamic>)
+          .map((e) => $enumDecodeNullable(_$SkillsEnumMap, e))
+          .toList(),
       attacks: (json['attacks'] as List<dynamic>?)
           ?.map((e) => ArmsData.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -93,24 +103,24 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
       'characterRace': instance.characterRace,
       'characterClass': instance.characterClass,
       'background': instance.background,
-      'level': instance.level,
       'experience': instance.experience,
-      'diceHit': _$DiceEnumMap[instance.diceHit],
+      'diceHit': _$DiceEnumMap[instance.diceHit]!,
       'maxHitPoints': instance.maxHitPoints,
       'currentHitPoints': instance.currentHitPoints,
       'temporaryHitPoints': instance.temporaryHitPoints,
-      'initiative': instance.initiative,
       'speed': instance.speed,
       'armorClass': instance.armorClass,
       'inspiration': instance.inspiration,
       'conditions': _$ConditionsEnumMap[instance.conditions],
       'exhaustion': instance.exhaustion,
       'attributes': instance.attributes
-          ?.map((k, e) => MapEntry(_$AttributesEnumMap[k]!, e)),
+          .map((k, e) => MapEntry(_$AttributesEnumMap[k]!, e)),
       'savingThrows':
-          instance.savingThrows?.map((e) => _$AttributesEnumMap[e]!).toList(),
-      'skills': _$SkillsEnumMap[instance.skills],
-      'proficiencyBonus': instance.proficiencyBonus,
+          instance.savingThrows.map((e) => _$AttributesEnumMap[e]).toList(),
+      'skillsProficiency':
+          instance.skillsProficiency.map((e) => _$SkillsEnumMap[e]).toList(),
+      'skillsExpertise':
+          instance.skillsExpertise.map((e) => _$SkillsEnumMap[e]).toList(),
       'attacks': instance.attacks,
       'preparedSpells': instance.preparedSpells,
       'knownSpells': instance.knownSpells,

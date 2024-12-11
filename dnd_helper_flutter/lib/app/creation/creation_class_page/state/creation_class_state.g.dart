@@ -7,7 +7,7 @@ part of 'creation_class_state.dart';
 // **************************************************************************
 
 String _$creationClassStateHash() =>
-    r'4eb6274515769e2786017bbcd6a3d06d399a1415';
+    r'f15140689fa4924b8b206a06d439aef07abb848d';
 
 /// See also [CreationClassState].
 @ProviderFor(CreationClassState)

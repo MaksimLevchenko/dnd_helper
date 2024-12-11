@@ -22,7 +22,7 @@ BackgroundData _$BackgroundDataFromJson(Map<String, dynamic> json) {
 mixin _$BackgroundData {
   int? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  String? get skillProficiencies => throw _privateConstructorUsedError;
+  List<Skills>? get skillProficiencies => throw _privateConstructorUsedError;
   String? get toolProficiencies => throw _privateConstructorUsedError;
   String? get equipment => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $BackgroundDataCopyWith<$Res> {
   $Res call(
       {int? id,
       String? name,
-      String? skillProficiencies,
+      List<Skills>? skillProficiencies,
       String? toolProficiencies,
       String? equipment,
       String? description});
@@ -86,7 +86,7 @@ class _$BackgroundDataCopyWithImpl<$Res, $Val extends BackgroundData>
       skillProficiencies: freezed == skillProficiencies
           ? _value.skillProficiencies
           : skillProficiencies // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as List<Skills>?,
       toolProficiencies: freezed == toolProficiencies
           ? _value.toolProficiencies
           : toolProficiencies // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ abstract class _$$BackgroundDataImplCopyWith<$Res>
   $Res call(
       {int? id,
       String? name,
-      String? skillProficiencies,
+      List<Skills>? skillProficiencies,
       String? toolProficiencies,
       String? equipment,
       String? description});
@@ -150,9 +150,9 @@ class __$$BackgroundDataImplCopyWithImpl<$Res>
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
       skillProficiencies: freezed == skillProficiencies
-          ? _value.skillProficiencies
+          ? _value._skillProficiencies
           : skillProficiencies // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as List<Skills>?,
       toolProficiencies: freezed == toolProficiencies
           ? _value.toolProficiencies
           : toolProficiencies // ignore: cast_nullable_to_non_nullable
@@ -175,10 +175,11 @@ class _$BackgroundDataImpl implements _BackgroundData {
   const _$BackgroundDataImpl(
       {this.id,
       this.name,
-      this.skillProficiencies,
+      final List<Skills>? skillProficiencies,
       this.toolProficiencies,
       this.equipment,
-      this.description});
+      this.description})
+      : _skillProficiencies = skillProficiencies;
 
   factory _$BackgroundDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$BackgroundDataImplFromJson(json);
@@ -187,8 +188,17 @@ class _$BackgroundDataImpl implements _BackgroundData {
   final int? id;
   @override
   final String? name;
+  final List<Skills>? _skillProficiencies;
   @override
-  final String? skillProficiencies;
+  List<Skills>? get skillProficiencies {
+    final value = _skillProficiencies;
+    if (value == null) return null;
+    if (_skillProficiencies is EqualUnmodifiableListView)
+      return _skillProficiencies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? toolProficiencies;
   @override
@@ -208,8 +218,8 @@ class _$BackgroundDataImpl implements _BackgroundData {
             other is _$BackgroundDataImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.skillProficiencies, skillProficiencies) ||
-                other.skillProficiencies == skillProficiencies) &&
+            const DeepCollectionEquality()
+                .equals(other._skillProficiencies, _skillProficiencies) &&
             (identical(other.toolProficiencies, toolProficiencies) ||
                 other.toolProficiencies == toolProficiencies) &&
             (identical(other.equipment, equipment) ||
@@ -220,8 +230,14 @@ class _$BackgroundDataImpl implements _BackgroundData {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, skillProficiencies,
-      toolProficiencies, equipment, description);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      const DeepCollectionEquality().hash(_skillProficiencies),
+      toolProficiencies,
+      equipment,
+      description);
 
   /// Create a copy of BackgroundData
   /// with the given fields replaced by the non-null parameter values.
@@ -244,7 +260,7 @@ abstract class _BackgroundData implements BackgroundData {
   const factory _BackgroundData(
       {final int? id,
       final String? name,
-      final String? skillProficiencies,
+      final List<Skills>? skillProficiencies,
       final String? toolProficiencies,
       final String? equipment,
       final String? description}) = _$BackgroundDataImpl;
@@ -257,7 +273,7 @@ abstract class _BackgroundData implements BackgroundData {
   @override
   String? get name;
   @override
-  String? get skillProficiencies;
+  List<Skills>? get skillProficiencies;
   @override
   String? get toolProficiencies;
   @override

@@ -1,5 +1,6 @@
 import 'package:dnd_helper_flutter/app/creation/creation_class_page/state/creation_class_state.dart';
 import 'package:dnd_helper_flutter/app/creation/creation_class_page/widgets/class_tile.dart';
+import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -27,7 +28,7 @@ class CreationClass extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text('Произошла ошибка'),
-                ElevatedButton(
+                Button(
                   onPressed: () => ref.refresh(creationClassStateProvider),
                   child: const Text('Повторить'),
                 ),
@@ -167,12 +168,12 @@ class CreationClass extends ConsumerWidget {
                     ? MainAxisAlignment.center
                     : MainAxisAlignment.spaceEvenly,
                 children: [
-                  ElevatedButton(
+                  Button(
                     onPressed: () => _onBackButtonTap(context),
                     child: const Text('Назад'),
                   ),
                   if (state.selectedClassName != null)
-                    ElevatedButton(
+                    Button(
                       onPressed: () => _onNextButtonTap(context),
                       child: const Text('Далее'),
                     ),

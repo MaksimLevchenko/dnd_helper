@@ -31,11 +31,11 @@ class ClassTile extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: isSelected
-                        ? const Color.fromARGB(255, 207, 186, 0)
+                        ? Theme.of(context).colorScheme.secondary
                         : Colors.transparent,
-                    width: 3,
+                    width: 18,
                   ),
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(30),
                 ),
                 child: Center(
                   child: Image.asset(
@@ -48,7 +48,7 @@ class ClassTile extends StatelessWidget {
                       }
                       return AnimatedOpacity(
                         opacity: frame == null ? 0 : 1,
-                        duration: const Duration(seconds: 1),
+                        duration: const Duration(microseconds: 10),
                         curve: Curves.easeOut,
                         child: child,
                       );

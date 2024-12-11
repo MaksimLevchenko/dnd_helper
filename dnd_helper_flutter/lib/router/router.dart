@@ -1,11 +1,12 @@
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet.dart';
-import 'package:dnd_helper_flutter/app/character_sheet_list/character_sheet_list.dart';
-import 'package:dnd_helper_flutter/app/creation/creation_attributes.dart';
+import 'package:dnd_helper_flutter/app/character_sheets_list/character_sheet_list.dart';
+import 'package:dnd_helper_flutter/app/creation/creation_attributes/creation_attributes.dart';
 import 'package:dnd_helper_flutter/app/creation/creation_background.dart';
 import 'package:dnd_helper_flutter/app/creation/creation_class_page/creation_class.dart';
-import 'package:dnd_helper_flutter/app/creation/creation_race.dart';
+import 'package:dnd_helper_flutter/app/creation/creation_race_page/creation_race.dart';
 import 'package:dnd_helper_flutter/app/creation/creation_summary.dart';
 import 'package:dnd_helper_flutter/app/error_page/error_page.dart';
+import 'package:dnd_helper_flutter/app/master/master_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -40,6 +41,10 @@ GoRouter router(RouterRef ref) {
       GoRoute(
         path: '/characters',
         builder: (context, state) => const CharacterSheetList(),
+      ),
+      GoRoute(
+        path: '/master_page',
+        builder: (context, state) => const MasterPage(),
       ),
       GoRoute(
         path: '/error',

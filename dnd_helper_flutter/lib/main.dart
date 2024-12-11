@@ -3,8 +3,11 @@ import 'dart:ui';
 import 'package:dnd_helper_flutter/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
+  GoRouter.optionURLReflectsImperativeAPIs = true;
+
   runApp(
     ProviderScope(
       child: Consumer(
@@ -14,11 +17,12 @@ void main() {
             debugShowCheckedModeBanner: false,
             title: 'D&D Helper',
             theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+              colorScheme: ColorScheme.fromSeed(
+                  seedColor: const Color.fromARGB(255, 238, 219, 160)),
             ),
             scrollBehavior: const MaterialScrollBehavior().copyWith(
               dragDevices: {
-                PointerDeviceKind.mouse,
+                //убрал mouse, для прокрутки колёсико есть
                 PointerDeviceKind.touch,
                 PointerDeviceKind.stylus,
                 PointerDeviceKind.unknown,

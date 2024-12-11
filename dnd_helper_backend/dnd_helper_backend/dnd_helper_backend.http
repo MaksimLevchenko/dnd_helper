@@ -1,6 +1,0 @@
-@dnd_helper_backend_HostAddress = http://localhost:5289
-
-GET {{dnd_helper_backend_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
