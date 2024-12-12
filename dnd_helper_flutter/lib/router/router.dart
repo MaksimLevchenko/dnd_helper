@@ -9,12 +9,13 @@ import 'package:dnd_helper_flutter/app/error_page/error_page.dart';
 import 'package:dnd_helper_flutter/app/master/master_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'router.g.dart';
 
 @Riverpod(keepAlive: true)
-GoRouter router(RouterRef ref) {
+GoRouter router(Ref ref) {
   final router = GoRouter(
     navigatorKey: GlobalKey<NavigatorState>(debugLabel: 'dndRouterKey'),
     routes: <GoRoute>[
@@ -69,7 +70,6 @@ GoRouter router(RouterRef ref) {
         },
       ),
     ],
-    // refreshListenable: ,
     // TODO add auth
     errorBuilder: (context, state) {
       return const ErrorPage();

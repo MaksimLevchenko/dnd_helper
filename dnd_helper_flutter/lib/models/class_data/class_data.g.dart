@@ -8,7 +8,7 @@ part of 'class_data.dart';
 
 _$ClassDataImpl _$$ClassDataImplFromJson(Map<String, dynamic> json) =>
     _$ClassDataImpl(
-      id: (json['id'] as num).toInt(),
+      id: json['id'] as String,
       name: json['name'] as String,
       subClasses: (json['subClasses'] as List<dynamic>)
           .map((e) => e as String)

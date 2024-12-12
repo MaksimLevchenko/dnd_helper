@@ -20,7 +20,7 @@ ClassData _$ClassDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ClassData {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   List<String> get subClasses => throw _privateConstructorUsedError;
   List<Attributes> get savingThrows => throw _privateConstructorUsedError;
@@ -50,7 +50,7 @@ abstract class $ClassDataCopyWith<$Res> {
       _$ClassDataCopyWithImpl<$Res, ClassData>;
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String name,
       List<String> subClasses,
       List<Attributes> savingThrows,
@@ -96,7 +96,7 @@ class _$ClassDataCopyWithImpl<$Res, $Val extends ClassData>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -154,7 +154,7 @@ abstract class _$$ClassDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String name,
       List<String> subClasses,
       List<Attributes> savingThrows,
@@ -198,7 +198,7 @@ class __$$ClassDataImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -274,7 +274,7 @@ class _$ClassDataImpl implements _ClassData {
       _$$ClassDataImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   final String name;
   final List<String> _subClasses;
@@ -403,7 +403,7 @@ class _$ClassDataImpl implements _ClassData {
 
 abstract class _ClassData implements ClassData {
   const factory _ClassData(
-      {required final int id,
+      {required final String id,
       required final String name,
       required final List<String> subClasses,
       required final List<Attributes> savingThrows,
@@ -420,7 +420,7 @@ abstract class _ClassData implements ClassData {
       _$ClassDataImpl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
   String get name;
   @override

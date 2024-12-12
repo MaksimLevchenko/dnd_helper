@@ -8,7 +8,7 @@ part 'class_data.g.dart';
 @freezed
 class ClassData with _$ClassData {
   const factory ClassData({
-    required int id,
+    required String id,
     required String name,
     required List<String> subClasses,
     required List<Attributes> savingThrows,

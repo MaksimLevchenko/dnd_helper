@@ -197,6 +197,7 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+
               as int?,
       characterName: freezed == characterName
           ? _value.characterName

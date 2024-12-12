@@ -1,12 +1,18 @@
 import 'dart:ui';
 
 import 'package:dnd_helper_flutter/router/router.dart';
+import 'package:encrypt_shared_preferences/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-void main() {
+const serverUrl = '146.66.198.47:5005';
+
+void main() async {
   GoRouter.optionURLReflectsImperativeAPIs = true;
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await EncryptedSharedPreferences.initialize('1234567890qwerty');
 
   runApp(
     ProviderScope(

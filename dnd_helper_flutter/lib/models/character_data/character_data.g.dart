@@ -10,6 +10,7 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
     _$CharacterDataImpl(
       id: (json['id'] as num?)?.toInt(),
       characterName: json['characterName'] as String?,
+
       characterRace: json['characterRace'] == null
           ? null
           : RaceData.fromJson(json['characterRace'] as Map<String, dynamic>),
