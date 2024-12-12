@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using dnd_helper_backend.DataAccess;
@@ -11,9 +12,11 @@ using dnd_helper_backend.DataAccess;
 namespace dnd_helper_backend.DataAccess.Migrations
 {
     [DbContext(typeof(DndHelperDbContext))]
-    partial class DndHelperDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241212005240_ArmorEntity")]
+    partial class ArmorEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,67 +25,42 @@ namespace dnd_helper_backend.DataAccess.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("dnd_helper_backend.Core.Models.Race", b =>
-                {
-                    b.Property<Guid>("RaceId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Attributes")
-                        .IsRequired()
-                        .HasColumnType("jsonb");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("RaceFeatures")
-                        .IsRequired()
-                        .HasColumnType("jsonb");
-
-                    b.Property<string[]>("Skills")
-                        .IsRequired()
-                        .HasColumnType("text[]");
-
-                    b.Property<string[]>("SubRaces")
-                        .IsRequired()
-                        .HasColumnType("text[]");
-
-                    b.HasKey("RaceId");
-
-                    b.ToTable("Races");
-                });
-
             modelBuilder.Entity("dnd_helper_backend.DataAccess.Entities.ArmorEntity", b =>
                 {
                     b.Property<Guid>("ArmorId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<int>("ArmorClass")
+                    b.Property<int?>("ArmorClass")
+                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.Property<string>("ArmorType")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("GrantsDexerityBonus")
+                    b.Property<bool?>("GrantsDexerityBonus")
+                        .IsRequired()
                         .HasColumnType("boolean");
 
-                    b.Property<int>("MaxDexterityBonus")
+                    b.Property<int?>("MaxDexterityBonus")
+                        .IsRequired()
                         .HasColumnType("integer");
 
-                    b.Property<int>("MinStrength")
+                    b.Property<int?>("MinStrength")
+                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("StelsDisadvantage")
+                    b.Property<bool?>("StelsDisadvantage")
+                        .IsRequired()
                         .HasColumnType("boolean");
 
-                    b.Property<int>("Weight")
+                    b.Property<int?>("Weight")
+                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.HasKey("ArmorId");
@@ -120,21 +98,6 @@ namespace dnd_helper_backend.DataAccess.Migrations
                             b1.Property<Guid>("ArmorEntityArmorId")
                                 .HasColumnType("uuid");
 
-                            b1.Property<int>("Copper")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Electrum")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Golden")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Platinum")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Silver")
-                                .HasColumnType("integer");
-
                             b1.HasKey("ArmorEntityArmorId");
 
                             b1.ToTable("Armors");
@@ -145,8 +108,7 @@ namespace dnd_helper_backend.DataAccess.Migrations
                                 .HasForeignKey("ArmorEntityArmorId");
                         });
 
-                    b.Navigation("Price")
-                        .IsRequired();
+                    b.Navigation("Price");
                 });
 #pragma warning restore 612, 618
         }
