@@ -17,25 +17,26 @@ class CharacterRepository extends _$CharacterRepository {
 
   // ignore: avoid_public_notifier_properties
   final ClassData classData = const ClassData(
-      id: 1,
-      name: 'class',
-      subClasses: [],
-      savingThrows: [],
-      hitDice: Dice.d10,
-      proficienciesWeapons: [],
-      proficienciesArmor: [],
-      startEquipment: [],
-      classFeatures: {},
-      description: '',
-      imageLink: '',
-      source: '');
+    id: '1',
+    name: 'class',
+    subClasses: [],
+    savingThrows: [],
+    hitDice: Dice.d10,
+    proficienciesWeapons: [],
+    proficienciesArmor: [],
+    startEquipment: [],
+    classFeatures: {},
+    description: '',
+    imageLink: '',
+    source: '',
+  );
   // ignore: avoid_public_notifier_properties
   final RaceData raceData = const RaceData(
     name: 'race',
     imageLink: '',
   );
 
-  FutureOr<CharacterData> getCharacter(int id) {
+  FutureOr<CharacterData> getCharacter(String id) {
     return CharacterData(
       id: id,
       age: '12',
@@ -71,7 +72,7 @@ class CharacterRepository extends _$CharacterRepository {
   }
 
   FutureOr<CharacterData> saveCharacter(CharacterData character) {
-    return character.copyWith(id: 1);
+    return character.copyWith(id: '1');
   }
 
   FutureOr<bool> deleteCharacter(int id) {

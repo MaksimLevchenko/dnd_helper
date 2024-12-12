@@ -7,7 +7,7 @@ part of 'character_sheet_state.dart';
 // **************************************************************************
 
 String _$characterSheetStateHash() =>
-    r'ce1321eb3d53fb6ad4a6f1af5f06a73f9830a01a';
+    r'6cb3cfe6d21463e1fa233a0c0afc544201996efb';
 
 /// See also [CharacterSheetState].
 @ProviderFor(CharacterSheetState)

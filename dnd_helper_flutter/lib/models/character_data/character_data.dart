@@ -17,7 +17,7 @@ part 'character_data.g.dart';
 @freezed
 class CharacterData with _$CharacterData {
   const factory CharacterData({
-    required int id,
+    required String id,
     required String characterName,
     required RaceData? characterRace,
     required ClassData? characterClass,
