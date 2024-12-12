@@ -30,11 +30,13 @@ namespace dnd_helper_backend.Controllers
 
         [Route("Register")]
         [HttpPost]
-        public async Task<ActionResult<Guid>> Register([FromBody] RegisterUserRequest request)
+        public async Task<ActionResult<string>> Register([FromBody] RegisterUserRequest request)
         {
             var userGuid = await _usersService.Register(request.username, request.email, request.pass);
 
-            return Ok(userGuid);
+            var token = await _usersService.Login(request.email, request.pass);
+
+            return Ok(token);
         }
 
         [Route("Login")]

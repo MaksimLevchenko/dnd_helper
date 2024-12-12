@@ -53,6 +53,8 @@ builder.Services.AddDbContext<DndHelperDbContext>(
 
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<IArmorRepository, ArmorRepository>();
+builder.Services.AddScoped<IArmsRepository, ArmsRepository>();
+builder.Services.AddScoped<IBackgroundsRepository, BackgroundsRepository>();
 builder.Services.AddScoped<IRacesRepository, RacesRepository>();
 builder.Services.AddScoped<IUsersService, UsersService>();
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();

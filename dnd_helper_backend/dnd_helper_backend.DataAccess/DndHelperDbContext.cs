@@ -12,6 +12,8 @@ namespace dnd_helper_backend.DataAccess
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<ArmorEntity> Armors { get; set; }
         public DbSet<Race> Races { get; set; }
+        public DbSet<Arms> Arms { get; set; }
+        public DbSet<Background> Backgrounds { get; set; }
         public DndHelperDbContext(DbContextOptions<DndHelperDbContext> options)
         : base(options)
         {
@@ -21,6 +23,8 @@ namespace dnd_helper_backend.DataAccess
         {
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new ArmorConfiguration());
+            modelBuilder.ApplyConfiguration(new ArmsConfiguration());
+            modelBuilder.ApplyConfiguration(new BackgroundConfiguration());
             modelBuilder.ApplyConfiguration(new RaceConfiguration());
             base.OnModelCreating(modelBuilder);
         }

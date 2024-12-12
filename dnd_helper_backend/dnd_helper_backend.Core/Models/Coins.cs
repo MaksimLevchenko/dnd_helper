@@ -8,6 +8,7 @@ namespace dnd_helper_backend.Core.Models
 {
     public class Coins
     {
+        public Coins() { }
         public Coins(int platinum, int electrum, int golden, int silver, int copper)
         {
             Platinum = platinum;
