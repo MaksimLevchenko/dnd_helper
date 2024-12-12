@@ -20,7 +20,7 @@ RaceData _$RaceDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RaceData {
-  String? get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   Map<Attributes, int>? get attributes => throw _privateConstructorUsedError;
   List<Skills>? get skills => throw _privateConstructorUsedError;
   List<String>? get subRaces => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $RaceDataCopyWith<$Res> {
       _$RaceDataCopyWithImpl<$Res, RaceData>;
   @useResult
   $Res call(
-      {String? name,
+      {String name,
       Map<Attributes, int>? attributes,
       List<Skills>? skills,
       List<String>? subRaces,
@@ -68,7 +68,7 @@ class _$RaceDataCopyWithImpl<$Res, $Val extends RaceData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
     Object? attributes = freezed,
     Object? skills = freezed,
     Object? subRaces = freezed,
@@ -77,10 +77,10 @@ class _$RaceDataCopyWithImpl<$Res, $Val extends RaceData>
     Object? source = freezed,
   }) {
     return _then(_value.copyWith(
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       attributes: freezed == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -118,7 +118,7 @@ abstract class _$$RaceDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? name,
+      {String name,
       Map<Attributes, int>? attributes,
       List<Skills>? skills,
       List<String>? subRaces,
@@ -140,7 +140,7 @@ class __$$RaceDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
     Object? attributes = freezed,
     Object? skills = freezed,
     Object? subRaces = freezed,
@@ -149,10 +149,10 @@ class __$$RaceDataImplCopyWithImpl<$Res>
     Object? source = freezed,
   }) {
     return _then(_$RaceDataImpl(
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       attributes: freezed == attributes
           ? _value._attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -185,7 +185,7 @@ class __$$RaceDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RaceDataImpl implements _RaceData {
   const _$RaceDataImpl(
-      {this.name,
+      {required this.name,
       final Map<Attributes, int>? attributes,
       final List<Skills>? skills,
       final List<String>? subRaces,
@@ -201,7 +201,7 @@ class _$RaceDataImpl implements _RaceData {
       _$$RaceDataImplFromJson(json);
 
   @override
-  final String? name;
+  final String name;
   final Map<Attributes, int>? _attributes;
   @override
   Map<Attributes, int>? get attributes {
@@ -299,7 +299,7 @@ class _$RaceDataImpl implements _RaceData {
 
 abstract class _RaceData implements RaceData {
   const factory _RaceData(
-      {final String? name,
+      {required final String name,
       final Map<Attributes, int>? attributes,
       final List<Skills>? skills,
       final List<String>? subRaces,
@@ -311,7 +311,7 @@ abstract class _RaceData implements RaceData {
       _$RaceDataImpl.fromJson;
 
   @override
-  String? get name;
+  String get name;
   @override
   Map<Attributes, int>? get attributes;
   @override

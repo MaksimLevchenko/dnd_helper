@@ -17,13 +17,13 @@ part 'character_data.g.dart';
 @freezed
 class CharacterData with _$CharacterData {
   const factory CharacterData({
-    required int id,
-    required String characterName,
-    required RaceData? characterRace,
-    required ClassData? characterClass,
-    required BackgroundData? background,
-    required int experience,
-    required Dice diceHit,
+    int? id,
+    String? characterName,
+    RaceData? characterRace,
+    ClassData? characterClass,
+    BackgroundData? background,
+    @Default(0) int experience,
+    Dice? diceHit,
     int? maxHitPoints,
     int? currentHitPoints,
     int? temporaryHitPoints,
@@ -41,9 +41,9 @@ class CharacterData with _$CharacterData {
       Attributes.charisma: 10
     })
     Map<Attributes, int> attributes,
-    required List<Attributes?> savingThrows,
-    required List<Skills?> skillsProficiency,
-    required List<Skills?> skillsExpertise,
+    List<Attributes?>? savingThrows,
+    List<Skills?>? skillsProficiency,
+    List<Skills?>? skillsExpertise,
     List<ArmsData>? attacks,
     List<SpellsData>? preparedSpells,
     List<SpellsData>? knownSpells,

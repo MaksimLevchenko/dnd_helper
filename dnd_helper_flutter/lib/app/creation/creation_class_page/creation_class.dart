@@ -1,19 +1,19 @@
+import 'dart:developer';
+
 import 'package:dnd_helper_flutter/app/creation/creation_class_page/state/creation_class_state.dart';
 import 'package:dnd_helper_flutter/app/creation/creation_class_page/widgets/class_tile.dart';
+import 'package:dnd_helper_flutter/app/creation/creation_state/creation_state.dart';
 import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 class CreationClass extends ConsumerWidget {
   const CreationClass({super.key});
 
-  void _onNextButtonTap(BuildContext context) {
-    context.push('/creation_race');
-  }
-
-  void _onBackButtonTap(BuildContext context) {
-    context.pop();
+  void _onNextButtonTap(BuildContext context, WidgetRef ref) {
+    ref.read(creationStateProvider);
   }
 
   @override
@@ -168,13 +168,17 @@ class CreationClass extends ConsumerWidget {
                     ? MainAxisAlignment.center
                     : MainAxisAlignment.spaceEvenly,
                 children: [
-                  Button(
-                    onPressed: () => _onBackButtonTap(context),
-                    child: const Text('Назад'),
-                  ),
+                  const ToBackPageButton(),
+                  const Gap(10),
                   if (state.selectedClassName != null)
                     Button(
-                      onPressed: () => _onNextButtonTap(context),
+                      onPressed: () {
+                        ref
+                            .read(creationStateProvider.notifier)
+                            .setClass(state.selectedClassData!);
+                        log(state.selectedClassData.toString());
+                        context.push('/creation_race');
+                      },
                       child: const Text('Далее'),
                     ),
                 ],

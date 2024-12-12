@@ -20,13 +20,13 @@ CharacterData _$CharacterDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CharacterData {
-  int get id => throw _privateConstructorUsedError;
-  String get characterName => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  String? get characterName => throw _privateConstructorUsedError;
   RaceData? get characterRace => throw _privateConstructorUsedError;
   ClassData? get characterClass => throw _privateConstructorUsedError;
   BackgroundData? get background => throw _privateConstructorUsedError;
   int get experience => throw _privateConstructorUsedError;
-  Dice get diceHit => throw _privateConstructorUsedError;
+  Dice? get diceHit => throw _privateConstructorUsedError;
   int? get maxHitPoints => throw _privateConstructorUsedError;
   int? get currentHitPoints => throw _privateConstructorUsedError;
   int? get temporaryHitPoints => throw _privateConstructorUsedError;
@@ -36,9 +36,9 @@ mixin _$CharacterData {
   Conditions? get conditions => throw _privateConstructorUsedError;
   int? get exhaustion => throw _privateConstructorUsedError;
   Map<Attributes, int> get attributes => throw _privateConstructorUsedError;
-  List<Attributes?> get savingThrows => throw _privateConstructorUsedError;
-  List<Skills?> get skillsProficiency => throw _privateConstructorUsedError;
-  List<Skills?> get skillsExpertise => throw _privateConstructorUsedError;
+  List<Attributes?>? get savingThrows => throw _privateConstructorUsedError;
+  List<Skills?>? get skillsProficiency => throw _privateConstructorUsedError;
+  List<Skills?>? get skillsExpertise => throw _privateConstructorUsedError;
   List<ArmsData>? get attacks => throw _privateConstructorUsedError;
   List<SpellsData>? get preparedSpells => throw _privateConstructorUsedError;
   List<SpellsData>? get knownSpells => throw _privateConstructorUsedError;
@@ -82,13 +82,13 @@ abstract class $CharacterDataCopyWith<$Res> {
       _$CharacterDataCopyWithImpl<$Res, CharacterData>;
   @useResult
   $Res call(
-      {int id,
-      String characterName,
+      {int? id,
+      String? characterName,
       RaceData? characterRace,
       ClassData? characterClass,
       BackgroundData? background,
       int experience,
-      Dice diceHit,
+      Dice? diceHit,
       int? maxHitPoints,
       int? currentHitPoints,
       int? temporaryHitPoints,
@@ -98,9 +98,9 @@ abstract class $CharacterDataCopyWith<$Res> {
       Conditions? conditions,
       int? exhaustion,
       Map<Attributes, int> attributes,
-      List<Attributes?> savingThrows,
-      List<Skills?> skillsProficiency,
-      List<Skills?> skillsExpertise,
+      List<Attributes?>? savingThrows,
+      List<Skills?>? skillsProficiency,
+      List<Skills?>? skillsExpertise,
       List<ArmsData>? attacks,
       List<SpellsData>? preparedSpells,
       List<SpellsData>? knownSpells,
@@ -148,13 +148,13 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? characterName = null,
+    Object? id = freezed,
+    Object? characterName = freezed,
     Object? characterRace = freezed,
     Object? characterClass = freezed,
     Object? background = freezed,
     Object? experience = null,
-    Object? diceHit = null,
+    Object? diceHit = freezed,
     Object? maxHitPoints = freezed,
     Object? currentHitPoints = freezed,
     Object? temporaryHitPoints = freezed,
@@ -164,9 +164,9 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
     Object? conditions = freezed,
     Object? exhaustion = freezed,
     Object? attributes = null,
-    Object? savingThrows = null,
-    Object? skillsProficiency = null,
-    Object? skillsExpertise = null,
+    Object? savingThrows = freezed,
+    Object? skillsProficiency = freezed,
+    Object? skillsExpertise = freezed,
     Object? attacks = freezed,
     Object? preparedSpells = freezed,
     Object? knownSpells = freezed,
@@ -194,14 +194,14 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
     Object? treasures = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      characterName: null == characterName
+              as int?,
+      characterName: freezed == characterName
           ? _value.characterName
           : characterName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       characterRace: freezed == characterRace
           ? _value.characterRace
           : characterRace // ignore: cast_nullable_to_non_nullable
@@ -218,10 +218,10 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
           ? _value.experience
           : experience // ignore: cast_nullable_to_non_nullable
               as int,
-      diceHit: null == diceHit
+      diceHit: freezed == diceHit
           ? _value.diceHit
           : diceHit // ignore: cast_nullable_to_non_nullable
-              as Dice,
+              as Dice?,
       maxHitPoints: freezed == maxHitPoints
           ? _value.maxHitPoints
           : maxHitPoints // ignore: cast_nullable_to_non_nullable
@@ -258,18 +258,18 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
               as Map<Attributes, int>,
-      savingThrows: null == savingThrows
+      savingThrows: freezed == savingThrows
           ? _value.savingThrows
           : savingThrows // ignore: cast_nullable_to_non_nullable
-              as List<Attributes?>,
-      skillsProficiency: null == skillsProficiency
+              as List<Attributes?>?,
+      skillsProficiency: freezed == skillsProficiency
           ? _value.skillsProficiency
           : skillsProficiency // ignore: cast_nullable_to_non_nullable
-              as List<Skills?>,
-      skillsExpertise: null == skillsExpertise
+              as List<Skills?>?,
+      skillsExpertise: freezed == skillsExpertise
           ? _value.skillsExpertise
           : skillsExpertise // ignore: cast_nullable_to_non_nullable
-              as List<Skills?>,
+              as List<Skills?>?,
       attacks: freezed == attacks
           ? _value.attacks
           : attacks // ignore: cast_nullable_to_non_nullable
@@ -439,13 +439,13 @@ abstract class _$$CharacterDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
-      String characterName,
+      {int? id,
+      String? characterName,
       RaceData? characterRace,
       ClassData? characterClass,
       BackgroundData? background,
       int experience,
-      Dice diceHit,
+      Dice? diceHit,
       int? maxHitPoints,
       int? currentHitPoints,
       int? temporaryHitPoints,
@@ -455,9 +455,9 @@ abstract class _$$CharacterDataImplCopyWith<$Res>
       Conditions? conditions,
       int? exhaustion,
       Map<Attributes, int> attributes,
-      List<Attributes?> savingThrows,
-      List<Skills?> skillsProficiency,
-      List<Skills?> skillsExpertise,
+      List<Attributes?>? savingThrows,
+      List<Skills?>? skillsProficiency,
+      List<Skills?>? skillsExpertise,
       List<ArmsData>? attacks,
       List<SpellsData>? preparedSpells,
       List<SpellsData>? knownSpells,
@@ -507,13 +507,13 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? characterName = null,
+    Object? id = freezed,
+    Object? characterName = freezed,
     Object? characterRace = freezed,
     Object? characterClass = freezed,
     Object? background = freezed,
     Object? experience = null,
-    Object? diceHit = null,
+    Object? diceHit = freezed,
     Object? maxHitPoints = freezed,
     Object? currentHitPoints = freezed,
     Object? temporaryHitPoints = freezed,
@@ -523,9 +523,9 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
     Object? conditions = freezed,
     Object? exhaustion = freezed,
     Object? attributes = null,
-    Object? savingThrows = null,
-    Object? skillsProficiency = null,
-    Object? skillsExpertise = null,
+    Object? savingThrows = freezed,
+    Object? skillsProficiency = freezed,
+    Object? skillsExpertise = freezed,
     Object? attacks = freezed,
     Object? preparedSpells = freezed,
     Object? knownSpells = freezed,
@@ -553,14 +553,14 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
     Object? treasures = freezed,
   }) {
     return _then(_$CharacterDataImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      characterName: null == characterName
+              as int?,
+      characterName: freezed == characterName
           ? _value.characterName
           : characterName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       characterRace: freezed == characterRace
           ? _value.characterRace
           : characterRace // ignore: cast_nullable_to_non_nullable
@@ -577,10 +577,10 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
           ? _value.experience
           : experience // ignore: cast_nullable_to_non_nullable
               as int,
-      diceHit: null == diceHit
+      diceHit: freezed == diceHit
           ? _value.diceHit
           : diceHit // ignore: cast_nullable_to_non_nullable
-              as Dice,
+              as Dice?,
       maxHitPoints: freezed == maxHitPoints
           ? _value.maxHitPoints
           : maxHitPoints // ignore: cast_nullable_to_non_nullable
@@ -617,18 +617,18 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
           ? _value._attributes
           : attributes // ignore: cast_nullable_to_non_nullable
               as Map<Attributes, int>,
-      savingThrows: null == savingThrows
+      savingThrows: freezed == savingThrows
           ? _value._savingThrows
           : savingThrows // ignore: cast_nullable_to_non_nullable
-              as List<Attributes?>,
-      skillsProficiency: null == skillsProficiency
+              as List<Attributes?>?,
+      skillsProficiency: freezed == skillsProficiency
           ? _value._skillsProficiency
           : skillsProficiency // ignore: cast_nullable_to_non_nullable
-              as List<Skills?>,
-      skillsExpertise: null == skillsExpertise
+              as List<Skills?>?,
+      skillsExpertise: freezed == skillsExpertise
           ? _value._skillsExpertise
           : skillsExpertise // ignore: cast_nullable_to_non_nullable
-              as List<Skills?>,
+              as List<Skills?>?,
       attacks: freezed == attacks
           ? _value._attacks
           : attacks // ignore: cast_nullable_to_non_nullable
@@ -737,13 +737,13 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CharacterDataImpl extends _CharacterData {
   const _$CharacterDataImpl(
-      {required this.id,
-      required this.characterName,
-      required this.characterRace,
-      required this.characterClass,
-      required this.background,
-      required this.experience,
-      required this.diceHit,
+      {this.id,
+      this.characterName,
+      this.characterRace,
+      this.characterClass,
+      this.background,
+      this.experience = 0,
+      this.diceHit,
       this.maxHitPoints,
       this.currentHitPoints,
       this.temporaryHitPoints,
@@ -760,9 +760,9 @@ class _$CharacterDataImpl extends _CharacterData {
         Attributes.wisdom: 10,
         Attributes.charisma: 10
       },
-      required final List<Attributes?> savingThrows,
-      required final List<Skills?> skillsProficiency,
-      required final List<Skills?> skillsExpertise,
+      final List<Attributes?>? savingThrows,
+      final List<Skills?>? skillsProficiency,
+      final List<Skills?>? skillsExpertise,
       final List<ArmsData>? attacks,
       final List<SpellsData>? preparedSpells,
       final List<SpellsData>? knownSpells,
@@ -807,9 +807,9 @@ class _$CharacterDataImpl extends _CharacterData {
       _$$CharacterDataImplFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
-  final String characterName;
+  final String? characterName;
   @override
   final RaceData? characterRace;
   @override
@@ -817,9 +817,10 @@ class _$CharacterDataImpl extends _CharacterData {
   @override
   final BackgroundData? background;
   @override
+  @JsonKey()
   final int experience;
   @override
-  final Dice diceHit;
+  final Dice? diceHit;
   @override
   final int? maxHitPoints;
   @override
@@ -846,29 +847,35 @@ class _$CharacterDataImpl extends _CharacterData {
     return EqualUnmodifiableMapView(_attributes);
   }
 
-  final List<Attributes?> _savingThrows;
+  final List<Attributes?>? _savingThrows;
   @override
-  List<Attributes?> get savingThrows {
+  List<Attributes?>? get savingThrows {
+    final value = _savingThrows;
+    if (value == null) return null;
     if (_savingThrows is EqualUnmodifiableListView) return _savingThrows;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_savingThrows);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<Skills?> _skillsProficiency;
+  final List<Skills?>? _skillsProficiency;
   @override
-  List<Skills?> get skillsProficiency {
+  List<Skills?>? get skillsProficiency {
+    final value = _skillsProficiency;
+    if (value == null) return null;
     if (_skillsProficiency is EqualUnmodifiableListView)
       return _skillsProficiency;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_skillsProficiency);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<Skills?> _skillsExpertise;
+  final List<Skills?>? _skillsExpertise;
   @override
-  List<Skills?> get skillsExpertise {
+  List<Skills?>? get skillsExpertise {
+    final value = _skillsExpertise;
+    if (value == null) return null;
     if (_skillsExpertise is EqualUnmodifiableListView) return _skillsExpertise;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_skillsExpertise);
+    return EqualUnmodifiableListView(value);
   }
 
   final List<ArmsData>? _attacks;
@@ -1146,13 +1153,13 @@ class _$CharacterDataImpl extends _CharacterData {
 
 abstract class _CharacterData extends CharacterData {
   const factory _CharacterData(
-      {required final int id,
-      required final String characterName,
-      required final RaceData? characterRace,
-      required final ClassData? characterClass,
-      required final BackgroundData? background,
-      required final int experience,
-      required final Dice diceHit,
+      {final int? id,
+      final String? characterName,
+      final RaceData? characterRace,
+      final ClassData? characterClass,
+      final BackgroundData? background,
+      final int experience,
+      final Dice? diceHit,
       final int? maxHitPoints,
       final int? currentHitPoints,
       final int? temporaryHitPoints,
@@ -1162,9 +1169,9 @@ abstract class _CharacterData extends CharacterData {
       final Conditions? conditions,
       final int? exhaustion,
       final Map<Attributes, int> attributes,
-      required final List<Attributes?> savingThrows,
-      required final List<Skills?> skillsProficiency,
-      required final List<Skills?> skillsExpertise,
+      final List<Attributes?>? savingThrows,
+      final List<Skills?>? skillsProficiency,
+      final List<Skills?>? skillsExpertise,
       final List<ArmsData>? attacks,
       final List<SpellsData>? preparedSpells,
       final List<SpellsData>? knownSpells,
@@ -1196,9 +1203,9 @@ abstract class _CharacterData extends CharacterData {
       _$CharacterDataImpl.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
-  String get characterName;
+  String? get characterName;
   @override
   RaceData? get characterRace;
   @override
@@ -1208,7 +1215,7 @@ abstract class _CharacterData extends CharacterData {
   @override
   int get experience;
   @override
-  Dice get diceHit;
+  Dice? get diceHit;
   @override
   int? get maxHitPoints;
   @override
@@ -1228,11 +1235,11 @@ abstract class _CharacterData extends CharacterData {
   @override
   Map<Attributes, int> get attributes;
   @override
-  List<Attributes?> get savingThrows;
+  List<Attributes?>? get savingThrows;
   @override
-  List<Skills?> get skillsProficiency;
+  List<Skills?>? get skillsProficiency;
   @override
-  List<Skills?> get skillsExpertise;
+  List<Skills?>? get skillsExpertise;
   @override
   List<ArmsData>? get attacks;
   @override

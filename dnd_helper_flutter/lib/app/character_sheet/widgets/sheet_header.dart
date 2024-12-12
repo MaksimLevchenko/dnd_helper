@@ -43,7 +43,7 @@ class SheetHeader extends ConsumerWidget {
                     Column(
                       children: [
                         Text(
-                          data.characterData.characterName,
+                          data.characterData.characterName!,
                           style: TextStyle(
                             fontSize: 16,
                             color: Theme.of(context).colorScheme.onTertiary,

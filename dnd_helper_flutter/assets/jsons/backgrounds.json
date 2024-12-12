@@ -1,0 +1,67 @@
+[
+    {
+      "id": 1,
+      "name": "Sailor",
+      "skillProficiencies": ["athletics", "perception"],
+      "toolProficiencies": "Navigator's tools, Vehicles (water)",
+      "equipment": "A belaying pin (club), 50 feet of silk rope, a lucky charm, a set of common clothes, and a belt pouch containing 10 gp",
+      "description": "You sailed on a ship for years, learning the trade and the ways of the sea."
+    },
+    {
+      "id": 2,
+      "name": "Acolyte",
+      "skillProficiencies": ["insight", "religion"],
+      "toolProficiencies": "None",
+      "equipment": "A holy symbol, a prayer book or prayer wheel, 5 sticks of incense, vestments, a set of common clothes, and a pouch containing 15 gp",
+      "description": "You have spent your life in the service of a temple to a specific god or pantheon of gods."
+    },
+    {
+      "id": 3,
+      "name": "Soldier",
+      "skillProficiencies": ["athletics", "intimidation"],
+      "toolProficiencies": "One type of gaming set, Vehicles (land)",
+      "equipment": "An insignia of rank, a trophy taken from a fallen enemy, a set of bone dice or deck of cards, a set of common clothes, and a belt pouch containing 10 gp",
+      "description": "You have fought in battles and learned the ways of war firsthand."
+    },
+    {
+      "id": 4,
+      "name": "Urchin",
+      "skillProficiencies": ["sleight_of_hand", "stealth"],
+      "toolProficiencies": "Disguise kit, Thieves' tools",
+      "equipment": "A small knife, a map of the city you grew up in, a pet mouse, a token to remember your parents by, a set of common clothes, and a pouch containing 10 gp",
+      "description": "You grew up on the streets, learning to fend for yourself."
+    },
+    {
+      "id": 5,
+      "name": "Noble",
+      "skillProficiencies": ["history", "persuasion"],
+      "toolProficiencies": "One type of gaming set",
+      "equipment": "A set of fine clothes, a signet ring, a scroll of pedigree, and a purse containing 25 gp",
+      "description": "You were born and raised in a family of high social standing."
+    },
+    {
+      "id": 6,
+      "name": "Outlander",
+      "skillProficiencies": ["athletics", "survival"],
+      "toolProficiencies": "One type of musical instrument",
+      "equipment": "A staff, a hunting trap, a trophy from an animal you killed, a set of traveler’s clothes, and a belt pouch containing 10 gp",
+      "description": "You grew up in the wilds, away from civilization."
+    },
+    {
+      "id": 7,
+      "name": "Criminal",
+      "skillProficiencies": ["deception", "stealth"],
+      "toolProficiencies": "One type of gaming set, Thieves' tools",
+      "equipment": "A crowbar, a set of dark common clothes including a hood, and a belt pouch containing 15 gp",
+      "description": "You have a history of breaking the law, whether for personal gain or survival."
+    },
+    {
+      "id": 8,
+      "name": "Hermit",
+      "skillProficiencies": ["medicine", "religion"],
+      "toolProficiencies": "Herbalism kit",
+      "equipment": "A scroll case stuffed full of notes, a winter blanket, a set of common clothes, a herbalism kit, and 5 gp",
+      "description": "You spent a long period in seclusion, pondering life's mysteries."
+    }
+  ]
+  
