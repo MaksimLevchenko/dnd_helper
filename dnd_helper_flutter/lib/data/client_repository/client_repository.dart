@@ -9,6 +9,7 @@ FutureOr<Response> sendPostRequest(
   Ref ref, {
   required String path,
   Map<String, Object>? parameters,
+  String? authKey,
 }) async {
   final parametersString = parameters?.entries
       .map((entry) => '"${entry.key}": "${entry.value}"')
@@ -26,7 +27,7 @@ FutureOr<Response> sendPostRequest(
       'Connection': 'keep-alive',
       'Accept': '*/*',
       'Content-Type': 'application/json',
-      'auth': ref.read(authRepositoryProvider).value?.authKey ?? '',
+      'auth': authKey ?? '',
     },
   );
 
@@ -37,6 +38,7 @@ FutureOr<Response> sendPostRequest(
 FutureOr<Response> sendGetRequest(
   Ref ref, {
   required String path,
+  String? authKey,
 }) async {
   final response = await get(
     Uri.http(serverUrl, path),
@@ -46,7 +48,7 @@ FutureOr<Response> sendGetRequest(
       'Connection': 'keep-alive',
       'Accept': '*/*',
       'Content-Type': 'application/json',
-      'auth': ref.read(authRepositoryProvider).value?.authKey ?? '',
+      'auth': authKey ?? '',
     },
   );
 
