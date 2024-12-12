@@ -19,7 +19,7 @@ class CharacterSheetState extends _$CharacterSheetState {
     return CharacterSheetParameters(characterData: characterData);
   }
 
-  toggleInspiration() {
+  void toggleInspiration() {
     state = state.whenData((parameters) {
       final updatedCharacterData = parameters.characterData.copyWith(
         inspiration: !parameters.characterData.inspiration,
@@ -28,7 +28,7 @@ class CharacterSheetState extends _$CharacterSheetState {
     });
   }
 
-  updateExperience(int newExperience, WidgetRef ref) {
+  void updateExperience(int newExperience, WidgetRef ref) {
     state = state.whenData((parameters) {
       final updatedCharacterData = parameters.characterData.copyWith(
         experience: parameters.characterData.experience + newExperience,

@@ -15,21 +15,6 @@ class Level extends ConsumerWidget {
     final pageSize = context.isMobile
         ? MediaQuery.of(context).size
         : MediaQuery.of(context).size * 0.6;
-    final text = ref.watch(characterSheetStateProvider).when(
-          data: (data) => Text(
-            'УРОВЕНЬ: ${data.characterData.level.toString()} ',
-            style: TextStyle(
-                color: secondary, fontSize: 10, fontWeight: FontWeight.bold),
-          ),
-          loading: () => const CircularProgressIndicator(),
-          error: (err, stack) => Text(
-            'Error: $err ',
-            style: TextStyle(
-              color: secondary,
-              fontSize: 10,
-            ),
-          ),
-        );
     return GestureDetector(
       onTap: () => showModalBottomSheet(
         context: context,
@@ -39,7 +24,6 @@ class Level extends ConsumerWidget {
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
-                text,
                 const CalculatorGrid(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -72,7 +56,7 @@ class Level extends ConsumerWidget {
             height: 14,
             width: pageSize.width * 0.2,
             decoration: BoxDecoration(
-              color: onSecondary,
+              color: secondary,
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(8),
                 bottomLeft: Radius.circular(8),
@@ -82,7 +66,7 @@ class Level extends ConsumerWidget {
                   data: (data) => Text(
                     'УРОВЕНЬ: ${data.characterData.level.toString()} ',
                     style: TextStyle(
-                        color: secondary,
+                        color: onSecondary,
                         fontSize: 10,
                         fontWeight: FontWeight.bold),
                   ),
@@ -90,7 +74,7 @@ class Level extends ConsumerWidget {
                   error: (err, stack) => Text(
                     'Error: $err ',
                     style: TextStyle(
-                      color: secondary,
+                      color: onSecondary,
                       fontSize: 10,
                     ),
                   ),
@@ -100,10 +84,10 @@ class Level extends ConsumerWidget {
           Container(
             height: 14,
             width: context.isMobile
-                ? pageSize.width * 0.74
-                : pageSize.width * 0.65,
+                ? pageSize.width * 0.70
+                : pageSize.width * 0.74,
             decoration: BoxDecoration(
-              color: onSecondary,
+              color: secondary,
               borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(8),
                 bottomRight: Radius.circular(8),
@@ -115,7 +99,7 @@ class Level extends ConsumerWidget {
                         ? ' ${data.characterData.experience.toString()} / ${data.characterData.nextLevelExperience().toString()} '
                         : ' ${data.characterData.experience.toString()} ',
                     style: TextStyle(
-                        color: secondary,
+                        color: onSecondary,
                         fontSize: 10,
                         fontWeight: FontWeight.bold),
                   ),

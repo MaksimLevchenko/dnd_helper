@@ -1,28 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'character_sheet_state.dart';
+part of 'calculator_state.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$characterSheetStateHash() =>
+String _$calculatorStateHash() => r'cb687a074274dfd6a52858345250074db200546e';
 
-    r'6cb3cfe6d21463e1fa233a0c0afc544201996efb';
-
-/// See also [CharacterSheetState].
-@ProviderFor(CharacterSheetState)
-final characterSheetStateProvider = AsyncNotifierProvider<CharacterSheetState,
-    CharacterSheetParameters>.internal(
-  CharacterSheetState.new,
-  name: r'characterSheetStateProvider',
+/// See also [CalculatorState].
+@ProviderFor(CalculatorState)
+final calculatorStateProvider =
+    AutoDisposeNotifierProvider<CalculatorState, CalculatorParameters>.internal(
+  CalculatorState.new,
+  name: r'calculatorStateProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$characterSheetStateHash,
+      : _$calculatorStateHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$CharacterSheetState = AsyncNotifier<CharacterSheetParameters>;
+typedef _$CalculatorState = AutoDisposeNotifier<CalculatorParameters>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
