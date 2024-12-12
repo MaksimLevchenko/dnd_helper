@@ -8,7 +8,7 @@ part 'race_data.g.dart';
 @freezed
 class RaceData with _$RaceData {
   const factory RaceData({
-    String? name,
+    required String name,
     Map<Attributes, int>? attributes,
     List<Skills>? skills,
     List<String>? subRaces,

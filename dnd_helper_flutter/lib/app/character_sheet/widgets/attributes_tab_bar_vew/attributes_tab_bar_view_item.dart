@@ -16,7 +16,7 @@ class AttributesTabBarViewItem extends ConsumerWidget {
       data: (data) {
         final proficiencyBonus = data.characterData.proficiencyBonus;
         final savingThrows = data.characterData.savingThrows;
-        final isAttributeInSavingThrows = savingThrows.contains(attribute);
+        final isAttributeInSavingThrows = savingThrows?.contains(attribute);
         final modifier = data.characterData.getModifier(attribute);
         final listSkills =
             data.characterData.getSkillsByAttribute(attribute).toList();
@@ -47,7 +47,7 @@ class AttributesTabBarViewItem extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Item.simple(
-                    value: isAttributeInSavingThrows
+                    value: isAttributeInSavingThrows!
                         ? '+${(modifier + proficiencyBonus).toString()}'
                         : modifier.toString(),
                     label: 'СПАСБРОСОК'),
@@ -62,9 +62,9 @@ class AttributesTabBarViewItem extends ConsumerWidget {
               children: [
                 for (var skill in listSkills)
                   Item.flexible(
-                    value: data.characterData.skillsExpertise.contains(skill)
+                    value: data.characterData.skillsExpertise!.contains(skill)
                         ? '+${modifier + proficiencyBonus * 2}'
-                        : data.characterData.skillsProficiency.contains(skill)
+                        : data.characterData.skillsProficiency!.contains(skill)
                             ? '+${modifier + proficiencyBonus}'
                             : '+$modifier',
                     label: ref

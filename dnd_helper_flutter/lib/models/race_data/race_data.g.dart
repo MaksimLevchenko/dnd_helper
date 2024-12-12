@@ -8,7 +8,7 @@ part of 'race_data.dart';
 
 _$RaceDataImpl _$$RaceDataImplFromJson(Map<String, dynamic> json) =>
     _$RaceDataImpl(
-      name: json['name'] as String?,
+      name: json['name'] as String,
       attributes: (json['attributes'] as Map<String, dynamic>?)?.map(
         (k, e) =>
             MapEntry($enumDecode(_$AttributesEnumMap, k), (e as num).toInt()),

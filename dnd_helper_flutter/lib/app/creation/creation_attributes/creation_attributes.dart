@@ -1,76 +1,81 @@
+import 'dart:developer';
+
+import 'package:dnd_helper_flutter/app/creation/creation_attributes/state/attributes_state.dart';
+import 'package:dnd_helper_flutter/app/creation/creation_attributes/widgets/default_selection.dart';
+import 'package:dnd_helper_flutter/app/creation/creation_attributes/widgets/selection_type.dart';
+import 'package:dnd_helper_flutter/app/creation/creation_state/creation_state.dart';
+import 'package:dnd_helper_flutter/models/enums/attributes.dart';
 import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
-class CreationAttributes extends StatefulWidget {
+class CreationAttributes extends ConsumerWidget {
   const CreationAttributes({super.key});
-
   @override
-  State<CreationAttributes> createState() => CreationAttributesState();
-}
-
-class CreationAttributesState extends State<CreationAttributes> {
-  String selectedRace = '';
-
-  void _onNextButtonTap() {
-    context.push('/creation_background');
-  }
-
-  void _onBackButtonTap() {
-    if (context.canPop()) {
-      context.pop();
-    } else {
-      context.go('/creation_race');
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = (ref.watch(attributesStateProvider));
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            ConstrainedBox(
-              constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height * 0.8,
-                minHeight: 10,
-              ),
-              child: Center(
-                child: GridView(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    mainAxisExtent: 150,
-                  ),
-                  shrinkWrap: true,
-                  children: const [
-                    Text('Strength'),
-                    Text('Dexterity'),
-                    Text('Constitution'),
-                    Text('Intelligence'),
-                    Text('Wisdom'),
-                    Text('Charisma'),
+            const Gap(32),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SelectionType(type: SelectType.defaultType),
+                SelectionType(type: SelectType.random),
+                SelectionType(type: SelectType.purchase),
+                SelectionType(type: SelectType.byHand),
+              ],
+            ),
+            const Gap(8),
+            const Divider(),
+            const Gap(8),
+            Text(state.selectionType.toShortString()),
+            if (state.selectionType == SelectType.defaultType)
+              Expanded(
+                child: DefaultSelection(
+                  statNames: const [
+                    Attributes.strength,
+                    Attributes.dexterity,
+                    Attributes.constitution,
+                    Attributes.intelligence,
+                    Attributes.wisdom,
+                    Attributes.charisma,
                   ],
+                  statValues: const [15, 14, 13, 12, 10, 8],
+                  onAssignedStatsChanged: (assignedStats) {
+                    (ref
+                        .read(attributesStateProvider.notifier)
+                        .changeAttributes(assignedStats));
+                  },
                 ),
               ),
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Button(
-                  onPressed: _onBackButtonTap,
-                  child: const Text('Back'),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Button(
-                  onPressed: _onNextButtonTap,
-                  child: const Text('Next'),
+                const ToBackPageButton(),
+                const Gap(10),
+                Visibility(
+                  visible: !state.attributes.containsValue(0),
+                  child: Button(
+                    onPressed: () {
+                      ref
+                          .read(creationStateProvider.notifier)
+                          .setAttributes(state.attributes);
+                      log(state.attributes.toString());
+                      context.push('/creation_background');
+                    },
+                    child: const Text('Next'),
+                  ),
                 ),
               ],
             ),
+            const Gap(16),
           ],
         ),
       ),
