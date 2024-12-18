@@ -8,9 +8,8 @@ part of 'character_data.dart';
 
 _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
     _$CharacterDataImpl(
-      id: (json['id'] as num?)?.toInt(),
+      id: json['id'] as String?,
       characterName: json['characterName'] as String?,
-
       characterRace: json['characterRace'] == null
           ? null
           : RaceData.fromJson(json['characterRace'] as Map<String, dynamic>),

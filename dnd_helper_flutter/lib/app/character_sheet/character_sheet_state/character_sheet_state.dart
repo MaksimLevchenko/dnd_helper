@@ -1,4 +1,5 @@
 import 'package:dnd_helper_flutter/data/character_repository/character_repository.dart';
+import 'package:dnd_helper_flutter/data/character_repository/get_character.dart';
 import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
 import 'package:dnd_helper_flutter/models/enums/skills.dart';
@@ -13,9 +14,9 @@ part 'character_sheet_state.g.dart';
 @Riverpod(keepAlive: true)
 class CharacterSheetState extends _$CharacterSheetState {
   @override
-  FutureOr<CharacterSheetParameters> build() async {
-    final characterRepository = ref.read(characterRepositoryProvider.notifier);
-    final characterData = await characterRepository.getCharacter('1');
+  FutureOr<CharacterSheetParameters> build(String characterId) async {
+    final characterData = await getCharacterProvider(ref, id: characterId);
+    if (characterData == null) return Future.error('Character not found');
     return CharacterSheetParameters(characterData: characterData);
   }
 

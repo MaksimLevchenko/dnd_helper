@@ -6,12 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AttributesTabBarViewItem extends ConsumerWidget {
-  const AttributesTabBarViewItem({required this.attribute, super.key});
+  const AttributesTabBarViewItem(
+      {required this.attribute, required this.characterId, super.key});
   final Attributes attribute;
+  final String characterId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(characterSheetStateProvider);
+    final state = ref.watch(characterSheetStateProvider(characterId));
     return state.when(
       data: (data) {
         final proficiencyBonus = data.characterData.proficiencyBonus;
@@ -20,7 +22,7 @@ class AttributesTabBarViewItem extends ConsumerWidget {
         final modifier = data.characterData.getModifier(attribute);
         final listSkills =
             data.characterData.getSkillsByAttribute(attribute).toList();
-        final widgetsState = ref.watch(widgetsStateProvider);
+        // final widgetsState = ref.watch(widgetsStateProvider(characterId));
         return Column(
           children: [
             Row(
@@ -28,7 +30,7 @@ class AttributesTabBarViewItem extends ConsumerWidget {
               children: [
                 SelectableText(
                   ref
-                      .read(characterSheetStateProvider.notifier)
+                      .read(characterSheetStateProvider(characterId).notifier)
                       .getAttribyteAsStringRu(attribute),
                   style: const TextStyle(fontSize: 18),
                 ),
@@ -68,14 +70,16 @@ class AttributesTabBarViewItem extends ConsumerWidget {
                             ? '+${modifier + proficiencyBonus}'
                             : '+$modifier',
                     label: ref
-                        .read(characterSheetStateProvider.notifier)
+                        .read(characterSheetStateProvider(characterId).notifier)
                         .getSkillAsStringRu(skill),
                   )
               ],
             ),
             IconButton(
               onPressed: () {
-                ref.read(widgetsStateProvider.notifier).collapseTapBar();
+                ref
+                    .read(widgetsStateProvider(characterId).notifier)
+                    .collapseTapBar();
               },
               icon: const Icon(Icons.keyboard_arrow_up_rounded),
             ),

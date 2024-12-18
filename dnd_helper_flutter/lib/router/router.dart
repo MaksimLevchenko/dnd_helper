@@ -65,8 +65,8 @@ GoRouter router(Ref ref) {
         },
         builder: (context, state) {
           final parameters = state.pathParameters;
-          final int id = int.tryParse(parameters['id']!)!;
-          return CharacterSheet(sheetId: id);
+          final String id = parameters['id']!;
+          return CharacterSheet(characterId: id);
         },
       ),
     ],

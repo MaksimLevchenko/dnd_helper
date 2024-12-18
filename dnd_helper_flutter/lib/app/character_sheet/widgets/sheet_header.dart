@@ -16,7 +16,7 @@ class SheetHeader extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.read(characterSheetStateProvider);
+    final state = ref.read(characterSheetStateProvider(characterData.id ?? ''));
 
     return DefaultTabController(
       length: 6,
@@ -92,11 +92,13 @@ class SheetHeader extends ConsumerWidget {
           const SizedBox(
             height: 8,
           ),
-          const AttributesTabBar(),
+          AttributesTabBar(
+            characterId: characterData.id ?? '',
+          ),
           const SizedBox(
             height: 4,
           ),
-          const AttributesTabBarView()
+          AttributesTabBarView(characterId: characterData.id ?? ''),
         ],
       ),
     );

@@ -20,7 +20,7 @@ CharacterData _$CharacterDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CharacterData {
-  int? get id => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   String? get characterName => throw _privateConstructorUsedError;
   RaceData? get characterRace => throw _privateConstructorUsedError;
   ClassData? get characterClass => throw _privateConstructorUsedError;
@@ -82,7 +82,7 @@ abstract class $CharacterDataCopyWith<$Res> {
       _$CharacterDataCopyWithImpl<$Res, CharacterData>;
   @useResult
   $Res call(
-      {int? id,
+      {String? id,
       String? characterName,
       RaceData? characterRace,
       ClassData? characterClass,
@@ -197,8 +197,7 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-
-              as int?,
+              as String?,
       characterName: freezed == characterName
           ? _value.characterName
           : characterName // ignore: cast_nullable_to_non_nullable
@@ -440,7 +439,7 @@ abstract class _$$CharacterDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? id,
+      {String? id,
       String? characterName,
       RaceData? characterRace,
       ClassData? characterClass,
@@ -557,7 +556,7 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       characterName: freezed == characterName
           ? _value.characterName
           : characterName // ignore: cast_nullable_to_non_nullable
@@ -808,7 +807,7 @@ class _$CharacterDataImpl extends _CharacterData {
       _$$CharacterDataImplFromJson(json);
 
   @override
-  final int? id;
+  final String? id;
   @override
   final String? characterName;
   @override
@@ -1154,7 +1153,7 @@ class _$CharacterDataImpl extends _CharacterData {
 
 abstract class _CharacterData extends CharacterData {
   const factory _CharacterData(
-      {final int? id,
+      {final String? id,
       final String? characterName,
       final RaceData? characterRace,
       final ClassData? characterClass,
@@ -1204,7 +1203,7 @@ abstract class _CharacterData extends CharacterData {
       _$CharacterDataImpl.fromJson;
 
   @override
-  int? get id;
+  String? get id;
   @override
   String? get characterName;
   @override

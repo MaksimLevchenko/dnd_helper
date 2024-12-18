@@ -7,12 +7,12 @@ part of 'character_repository.dart';
 // **************************************************************************
 
 String _$characterRepositoryHash() =>
-    r'94bc02586fb88071537ec8cce1658e3976dc33ca';
+    r'4e23dc00738ee32667eeeeec2bfed2e6b863a5f7';
 
 /// See also [CharacterRepository].
 @ProviderFor(CharacterRepository)
 final characterRepositoryProvider =
-    AsyncNotifierProvider<CharacterRepository, List<CharacterData>?>.internal(
+    AsyncNotifierProvider<CharacterRepository, List<CharacterData>>.internal(
   CharacterRepository.new,
   name: r'characterRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,6 +22,6 @@ final characterRepositoryProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$CharacterRepository = AsyncNotifier<List<CharacterData>?>;
+typedef _$CharacterRepository = AsyncNotifier<List<CharacterData>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

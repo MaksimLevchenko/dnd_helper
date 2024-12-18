@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SheetTabBarView extends ConsumerWidget {
-  const SheetTabBarView({super.key});
+  const SheetTabBarView({super.key, required this.characterId});
+  final String characterId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notifier = ref.read(widgetsStateProvider.notifier);
+    final notifier = ref.read(widgetsStateProvider(characterId).notifier);
     return DefaultTabController(
       length: 5,
       child: Column(
@@ -34,7 +35,8 @@ class SheetTabBarView extends ConsumerWidget {
               ),
             ],
           ),
-          notifier.getPage(ref.watch(widgetsStateProvider).selectedPage)
+          notifier.getPage(
+              ref.watch(widgetsStateProvider(characterId)).selectedPage)
         ],
       ),
     );
