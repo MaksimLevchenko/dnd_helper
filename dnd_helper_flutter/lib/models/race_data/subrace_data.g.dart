@@ -8,16 +8,14 @@ part of 'subrace_data.dart';
 
 _$SubraceDataImpl _$$SubraceDataImplFromJson(Map<String, dynamic> json) =>
     _$SubraceDataImpl(
-      name: json['name'] as String?,
-      subraceFeatures: (json['subraceFeatures'] as List<dynamic>?)
-          ?.map((e) => Map<String, String>.from(e as Map))
-          .toList(),
-      attributes: (json['attributes'] as List<dynamic>?)
-          ?.map((e) => (e as Map<String, dynamic>).map(
-                (k, e) => MapEntry(
-                    $enumDecode(_$AttributesEnumMap, k), (e as num).toInt()),
-              ))
-          .toList(),
+      name: json['name'] as String,
+      subraceFeatures: (json['subraceFeatures'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
+      attributes: (json['attributes'] as Map<String, dynamic>?)?.map(
+        (k, e) =>
+            MapEntry($enumDecode(_$AttributesEnumMap, k), (e as num).toInt()),
+      ),
     );
 
 Map<String, dynamic> _$$SubraceDataImplToJson(_$SubraceDataImpl instance) =>
@@ -25,8 +23,7 @@ Map<String, dynamic> _$$SubraceDataImplToJson(_$SubraceDataImpl instance) =>
       'name': instance.name,
       'subraceFeatures': instance.subraceFeatures,
       'attributes': instance.attributes
-          ?.map((e) => e.map((k, e) => MapEntry(_$AttributesEnumMap[k]!, e)))
-          .toList(),
+          ?.map((k, e) => MapEntry(_$AttributesEnumMap[k]!, e)),
     };
 
 const _$AttributesEnumMap = {

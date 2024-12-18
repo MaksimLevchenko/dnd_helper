@@ -9,27 +9,48 @@ class CreationSummary extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final fields = ref.read(creationStateProvider).toJson();
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text("Summary"),
-            const Gap(16),
-            Row(
+        child: Expanded(
+          child: SingleChildScrollView(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const ToBackPageButton(),
-                const Gap(16),
-                Button(
-                  onPressed: () {
-                    ref.read(creationStateProvider.notifier).saveCharacter(ref);
+                const Text("Summary"),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: fields.length,
+                  itemBuilder: (context, index) {
+                    final key = fields.keys.elementAt(index);
+                    final value = fields[key];
+                    return ListTile(
+                      title: Text(key), // Отображение имени поля
+                      subtitle: Text(
+                          value?.toString() ?? 'null'), // Отображение значения
+                    );
                   },
-                  child: const Text('Save'),
                 ),
+                const Gap(16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const ToBackPageButton(),
+                    const Gap(16),
+                    Button(
+                      onPressed: () {
+                        ref
+                            .read(creationStateProvider.notifier)
+                            .saveCharacter(ref);
+                      },
+                      child: const Text('Save'),
+                    ),
+                    const Gap(16),
+                  ],
+                )
               ],
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );

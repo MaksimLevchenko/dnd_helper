@@ -13,9 +13,15 @@ _$CharacterDataImpl _$$CharacterDataImplFromJson(Map<String, dynamic> json) =>
       characterRace: json['characterRace'] == null
           ? null
           : RaceData.fromJson(json['characterRace'] as Map<String, dynamic>),
+      subrace: json['subrace'] == null
+          ? null
+          : SubraceData.fromJson(json['subrace'] as Map<String, dynamic>),
       characterClass: json['characterClass'] == null
           ? null
           : ClassData.fromJson(json['characterClass'] as Map<String, dynamic>),
+      subclass: json['subclass'] == null
+          ? null
+          : SubclassData.fromJson(json['subclass'] as Map<String, dynamic>),
       background: json['background'] == null
           ? null
           : BackgroundData.fromJson(json['background'] as Map<String, dynamic>),
@@ -101,7 +107,9 @@ Map<String, dynamic> _$$CharacterDataImplToJson(_$CharacterDataImpl instance) =>
       'id': instance.id,
       'characterName': instance.characterName,
       'characterRace': instance.characterRace,
+      'subrace': instance.subrace,
       'characterClass': instance.characterClass,
+      'subclass': instance.subclass,
       'background': instance.background,
       'experience': instance.experience,
       'diceHit': _$DiceEnumMap[instance.diceHit],

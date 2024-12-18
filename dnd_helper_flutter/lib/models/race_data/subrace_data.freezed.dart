@@ -20,11 +20,10 @@ SubraceData _$SubraceDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SubraceData {
-  String? get name => throw _privateConstructorUsedError;
-  List<Map<String, String>>? get subraceFeatures =>
+  String get name => throw _privateConstructorUsedError;
+  Map<String, String>? get subraceFeatures =>
       throw _privateConstructorUsedError;
-  List<Map<Attributes, int>>? get attributes =>
-      throw _privateConstructorUsedError;
+  Map<Attributes, int>? get attributes => throw _privateConstructorUsedError;
 
   /// Serializes this SubraceData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,9 +42,9 @@ abstract class $SubraceDataCopyWith<$Res> {
       _$SubraceDataCopyWithImpl<$Res, SubraceData>;
   @useResult
   $Res call(
-      {String? name,
-      List<Map<String, String>>? subraceFeatures,
-      List<Map<Attributes, int>>? attributes});
+      {String name,
+      Map<String, String>? subraceFeatures,
+      Map<Attributes, int>? attributes});
 }
 
 /// @nodoc
@@ -63,23 +62,23 @@ class _$SubraceDataCopyWithImpl<$Res, $Val extends SubraceData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
     Object? subraceFeatures = freezed,
     Object? attributes = freezed,
   }) {
     return _then(_value.copyWith(
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       subraceFeatures: freezed == subraceFeatures
           ? _value.subraceFeatures
           : subraceFeatures // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, String>>?,
+              as Map<String, String>?,
       attributes: freezed == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
-              as List<Map<Attributes, int>>?,
+              as Map<Attributes, int>?,
     ) as $Val);
   }
 }
@@ -93,9 +92,9 @@ abstract class _$$SubraceDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? name,
-      List<Map<String, String>>? subraceFeatures,
-      List<Map<Attributes, int>>? attributes});
+      {String name,
+      Map<String, String>? subraceFeatures,
+      Map<Attributes, int>? attributes});
 }
 
 /// @nodoc
@@ -111,23 +110,23 @@ class __$$SubraceDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
     Object? subraceFeatures = freezed,
     Object? attributes = freezed,
   }) {
     return _then(_$SubraceDataImpl(
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       subraceFeatures: freezed == subraceFeatures
           ? _value._subraceFeatures
           : subraceFeatures // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, String>>?,
+              as Map<String, String>?,
       attributes: freezed == attributes
           ? _value._attributes
           : attributes // ignore: cast_nullable_to_non_nullable
-              as List<Map<Attributes, int>>?,
+              as Map<Attributes, int>?,
     ));
   }
 }
@@ -136,9 +135,9 @@ class __$$SubraceDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SubraceDataImpl implements _SubraceData {
   const _$SubraceDataImpl(
-      {this.name,
-      final List<Map<String, String>>? subraceFeatures,
-      final List<Map<Attributes, int>>? attributes})
+      {required this.name,
+      final Map<String, String>? subraceFeatures,
+      final Map<Attributes, int>? attributes})
       : _subraceFeatures = subraceFeatures,
         _attributes = attributes;
 
@@ -146,25 +145,25 @@ class _$SubraceDataImpl implements _SubraceData {
       _$$SubraceDataImplFromJson(json);
 
   @override
-  final String? name;
-  final List<Map<String, String>>? _subraceFeatures;
+  final String name;
+  final Map<String, String>? _subraceFeatures;
   @override
-  List<Map<String, String>>? get subraceFeatures {
+  Map<String, String>? get subraceFeatures {
     final value = _subraceFeatures;
     if (value == null) return null;
-    if (_subraceFeatures is EqualUnmodifiableListView) return _subraceFeatures;
+    if (_subraceFeatures is EqualUnmodifiableMapView) return _subraceFeatures;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final List<Map<Attributes, int>>? _attributes;
+  final Map<Attributes, int>? _attributes;
   @override
-  List<Map<Attributes, int>>? get attributes {
+  Map<Attributes, int>? get attributes {
     final value = _attributes;
     if (value == null) return null;
-    if (_attributes is EqualUnmodifiableListView) return _attributes;
+    if (_attributes is EqualUnmodifiableMapView) return _attributes;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -210,19 +209,19 @@ class _$SubraceDataImpl implements _SubraceData {
 
 abstract class _SubraceData implements SubraceData {
   const factory _SubraceData(
-      {final String? name,
-      final List<Map<String, String>>? subraceFeatures,
-      final List<Map<Attributes, int>>? attributes}) = _$SubraceDataImpl;
+      {required final String name,
+      final Map<String, String>? subraceFeatures,
+      final Map<Attributes, int>? attributes}) = _$SubraceDataImpl;
 
   factory _SubraceData.fromJson(Map<String, dynamic> json) =
       _$SubraceDataImpl.fromJson;
 
   @override
-  String? get name;
+  String get name;
   @override
-  List<Map<String, String>>? get subraceFeatures;
+  Map<String, String>? get subraceFeatures;
   @override
-  List<Map<Attributes, int>>? get attributes;
+  Map<Attributes, int>? get attributes;
 
   /// Create a copy of SubraceData
   /// with the given fields replaced by the non-null parameter values.

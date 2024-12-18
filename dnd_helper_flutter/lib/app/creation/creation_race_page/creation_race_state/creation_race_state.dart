@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dnd_helper_flutter/models/race_data/race_data.dart';
+import 'package:dnd_helper_flutter/models/race_data/subrace_data.dart';
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -25,10 +26,21 @@ class CreationRaceState extends _$CreationRaceState {
   }
 
   void onSelectRaceTap(RaceData raceData) {
+    state = AsyncData(state.value!.selectedRaceData == raceData
+        ? state.value!.copyWith()
+        : state.value!.copyWith(
+            selectedRaceName: raceData.name,
+            selectedRaceData: raceData,
+            selectedSubraceData: null,
+            selectedSubraceName: null,
+          ));
+  }
+
+  void onSelectSubraceTap(SubraceData subraceData) {
     state = AsyncData(
       state.value!.copyWith(
-        selectedRaceName: raceData.name,
-        selectedRaceData: raceData,
+        selectedSubraceName: subraceData.name,
+        selectedSubraceData: subraceData,
       ),
     );
   }
@@ -54,5 +66,7 @@ class CreationRaceParameters with _$CreationRaceParameters {
     required List<RaceData> races,
     String? selectedRaceName,
     RaceData? selectedRaceData,
+    String? selectedSubraceName,
+    SubraceData? selectedSubraceData,
   }) = _CreationRaceParameters;
 }

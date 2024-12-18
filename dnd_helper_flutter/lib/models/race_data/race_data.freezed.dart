@@ -23,7 +23,9 @@ mixin _$RaceData {
   String get name => throw _privateConstructorUsedError;
   Map<Attributes, int>? get attributes => throw _privateConstructorUsedError;
   List<Skills>? get skills => throw _privateConstructorUsedError;
-  List<String>? get subRaces => throw _privateConstructorUsedError;
+  List<AttacksData>? get attacks => throw _privateConstructorUsedError;
+  int? get speed => throw _privateConstructorUsedError;
+  List<SubraceData>? get subRaces => throw _privateConstructorUsedError;
   Map<String, String>? get raceFeatures => throw _privateConstructorUsedError;
   String get imageLink => throw _privateConstructorUsedError;
   String? get source => throw _privateConstructorUsedError;
@@ -47,7 +49,9 @@ abstract class $RaceDataCopyWith<$Res> {
       {String name,
       Map<Attributes, int>? attributes,
       List<Skills>? skills,
-      List<String>? subRaces,
+      List<AttacksData>? attacks,
+      int? speed,
+      List<SubraceData>? subRaces,
       Map<String, String>? raceFeatures,
       String imageLink,
       String? source});
@@ -71,6 +75,8 @@ class _$RaceDataCopyWithImpl<$Res, $Val extends RaceData>
     Object? name = null,
     Object? attributes = freezed,
     Object? skills = freezed,
+    Object? attacks = freezed,
+    Object? speed = freezed,
     Object? subRaces = freezed,
     Object? raceFeatures = freezed,
     Object? imageLink = null,
@@ -89,10 +95,18 @@ class _$RaceDataCopyWithImpl<$Res, $Val extends RaceData>
           ? _value.skills
           : skills // ignore: cast_nullable_to_non_nullable
               as List<Skills>?,
+      attacks: freezed == attacks
+          ? _value.attacks
+          : attacks // ignore: cast_nullable_to_non_nullable
+              as List<AttacksData>?,
+      speed: freezed == speed
+          ? _value.speed
+          : speed // ignore: cast_nullable_to_non_nullable
+              as int?,
       subRaces: freezed == subRaces
           ? _value.subRaces
           : subRaces // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<SubraceData>?,
       raceFeatures: freezed == raceFeatures
           ? _value.raceFeatures
           : raceFeatures // ignore: cast_nullable_to_non_nullable
@@ -121,7 +135,9 @@ abstract class _$$RaceDataImplCopyWith<$Res>
       {String name,
       Map<Attributes, int>? attributes,
       List<Skills>? skills,
-      List<String>? subRaces,
+      List<AttacksData>? attacks,
+      int? speed,
+      List<SubraceData>? subRaces,
       Map<String, String>? raceFeatures,
       String imageLink,
       String? source});
@@ -143,6 +159,8 @@ class __$$RaceDataImplCopyWithImpl<$Res>
     Object? name = null,
     Object? attributes = freezed,
     Object? skills = freezed,
+    Object? attacks = freezed,
+    Object? speed = freezed,
     Object? subRaces = freezed,
     Object? raceFeatures = freezed,
     Object? imageLink = null,
@@ -161,10 +179,18 @@ class __$$RaceDataImplCopyWithImpl<$Res>
           ? _value._skills
           : skills // ignore: cast_nullable_to_non_nullable
               as List<Skills>?,
+      attacks: freezed == attacks
+          ? _value._attacks
+          : attacks // ignore: cast_nullable_to_non_nullable
+              as List<AttacksData>?,
+      speed: freezed == speed
+          ? _value.speed
+          : speed // ignore: cast_nullable_to_non_nullable
+              as int?,
       subRaces: freezed == subRaces
           ? _value._subRaces
           : subRaces // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<SubraceData>?,
       raceFeatures: freezed == raceFeatures
           ? _value._raceFeatures
           : raceFeatures // ignore: cast_nullable_to_non_nullable
@@ -188,12 +214,15 @@ class _$RaceDataImpl implements _RaceData {
       {required this.name,
       final Map<Attributes, int>? attributes,
       final List<Skills>? skills,
-      final List<String>? subRaces,
+      final List<AttacksData>? attacks,
+      this.speed,
+      final List<SubraceData>? subRaces,
       final Map<String, String>? raceFeatures,
       required this.imageLink,
       this.source})
       : _attributes = attributes,
         _skills = skills,
+        _attacks = attacks,
         _subRaces = subRaces,
         _raceFeatures = raceFeatures;
 
@@ -222,9 +251,21 @@ class _$RaceDataImpl implements _RaceData {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<String>? _subRaces;
+  final List<AttacksData>? _attacks;
   @override
-  List<String>? get subRaces {
+  List<AttacksData>? get attacks {
+    final value = _attacks;
+    if (value == null) return null;
+    if (_attacks is EqualUnmodifiableListView) return _attacks;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final int? speed;
+  final List<SubraceData>? _subRaces;
+  @override
+  List<SubraceData>? get subRaces {
     final value = _subRaces;
     if (value == null) return null;
     if (_subRaces is EqualUnmodifiableListView) return _subRaces;
@@ -249,7 +290,7 @@ class _$RaceDataImpl implements _RaceData {
 
   @override
   String toString() {
-    return 'RaceData(name: $name, attributes: $attributes, skills: $skills, subRaces: $subRaces, raceFeatures: $raceFeatures, imageLink: $imageLink, source: $source)';
+    return 'RaceData(name: $name, attributes: $attributes, skills: $skills, attacks: $attacks, speed: $speed, subRaces: $subRaces, raceFeatures: $raceFeatures, imageLink: $imageLink, source: $source)';
   }
 
   @override
@@ -261,6 +302,8 @@ class _$RaceDataImpl implements _RaceData {
             const DeepCollectionEquality()
                 .equals(other._attributes, _attributes) &&
             const DeepCollectionEquality().equals(other._skills, _skills) &&
+            const DeepCollectionEquality().equals(other._attacks, _attacks) &&
+            (identical(other.speed, speed) || other.speed == speed) &&
             const DeepCollectionEquality().equals(other._subRaces, _subRaces) &&
             const DeepCollectionEquality()
                 .equals(other._raceFeatures, _raceFeatures) &&
@@ -276,6 +319,8 @@ class _$RaceDataImpl implements _RaceData {
       name,
       const DeepCollectionEquality().hash(_attributes),
       const DeepCollectionEquality().hash(_skills),
+      const DeepCollectionEquality().hash(_attacks),
+      speed,
       const DeepCollectionEquality().hash(_subRaces),
       const DeepCollectionEquality().hash(_raceFeatures),
       imageLink,
@@ -302,7 +347,9 @@ abstract class _RaceData implements RaceData {
       {required final String name,
       final Map<Attributes, int>? attributes,
       final List<Skills>? skills,
-      final List<String>? subRaces,
+      final List<AttacksData>? attacks,
+      final int? speed,
+      final List<SubraceData>? subRaces,
       final Map<String, String>? raceFeatures,
       required final String imageLink,
       final String? source}) = _$RaceDataImpl;
@@ -317,7 +364,11 @@ abstract class _RaceData implements RaceData {
   @override
   List<Skills>? get skills;
   @override
-  List<String>? get subRaces;
+  List<AttacksData>? get attacks;
+  @override
+  int? get speed;
+  @override
+  List<SubraceData>? get subRaces;
   @override
   Map<String, String>? get raceFeatures;
   @override
