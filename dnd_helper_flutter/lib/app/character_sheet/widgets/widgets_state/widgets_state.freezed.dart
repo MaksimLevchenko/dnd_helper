@@ -20,6 +20,7 @@ mixin _$WidgetsStateParameters {
   int get selectedPage => throw _privateConstructorUsedError;
   int get selectedAttribute => throw _privateConstructorUsedError;
   bool get editMode => throw _privateConstructorUsedError;
+  String get characterId => throw _privateConstructorUsedError;
 
   /// Create a copy of WidgetsStateParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -38,7 +39,8 @@ abstract class $WidgetsStateParametersCopyWith<$Res> {
       {bool isTabBarViewVisible,
       int selectedPage,
       int selectedAttribute,
-      bool editMode});
+      bool editMode,
+      String characterId});
 }
 
 /// @nodoc
@@ -61,6 +63,7 @@ class _$WidgetsStateParametersCopyWithImpl<$Res,
     Object? selectedPage = null,
     Object? selectedAttribute = null,
     Object? editMode = null,
+    Object? characterId = null,
   }) {
     return _then(_value.copyWith(
       isTabBarViewVisible: null == isTabBarViewVisible
@@ -79,6 +82,10 @@ class _$WidgetsStateParametersCopyWithImpl<$Res,
           ? _value.editMode
           : editMode // ignore: cast_nullable_to_non_nullable
               as bool,
+      characterId: null == characterId
+          ? _value.characterId
+          : characterId // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -96,7 +103,8 @@ abstract class _$$WidgetsStateParametersImplCopyWith<$Res>
       {bool isTabBarViewVisible,
       int selectedPage,
       int selectedAttribute,
-      bool editMode});
+      bool editMode,
+      String characterId});
 }
 
 /// @nodoc
@@ -118,6 +126,7 @@ class __$$WidgetsStateParametersImplCopyWithImpl<$Res>
     Object? selectedPage = null,
     Object? selectedAttribute = null,
     Object? editMode = null,
+    Object? characterId = null,
   }) {
     return _then(_$WidgetsStateParametersImpl(
       isTabBarViewVisible: null == isTabBarViewVisible
@@ -136,6 +145,10 @@ class __$$WidgetsStateParametersImplCopyWithImpl<$Res>
           ? _value.editMode
           : editMode // ignore: cast_nullable_to_non_nullable
               as bool,
+      characterId: null == characterId
+          ? _value.characterId
+          : characterId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -147,7 +160,8 @@ class _$WidgetsStateParametersImpl implements _WidgetsStateParameters {
       {this.isTabBarViewVisible = true,
       this.selectedPage = 1,
       this.selectedAttribute = 0,
-      this.editMode = false});
+      this.editMode = false,
+      required this.characterId});
 
   @override
   @JsonKey()
@@ -161,10 +175,12 @@ class _$WidgetsStateParametersImpl implements _WidgetsStateParameters {
   @override
   @JsonKey()
   final bool editMode;
+  @override
+  final String characterId;
 
   @override
   String toString() {
-    return 'WidgetsStateParameters(isTabBarViewVisible: $isTabBarViewVisible, selectedPage: $selectedPage, selectedAttribute: $selectedAttribute, editMode: $editMode)';
+    return 'WidgetsStateParameters(isTabBarViewVisible: $isTabBarViewVisible, selectedPage: $selectedPage, selectedAttribute: $selectedAttribute, editMode: $editMode, characterId: $characterId)';
   }
 
   @override
@@ -179,12 +195,14 @@ class _$WidgetsStateParametersImpl implements _WidgetsStateParameters {
             (identical(other.selectedAttribute, selectedAttribute) ||
                 other.selectedAttribute == selectedAttribute) &&
             (identical(other.editMode, editMode) ||
-                other.editMode == editMode));
+                other.editMode == editMode) &&
+            (identical(other.characterId, characterId) ||
+                other.characterId == characterId));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, isTabBarViewVisible,
-      selectedPage, selectedAttribute, editMode);
+      selectedPage, selectedAttribute, editMode, characterId);
 
   /// Create a copy of WidgetsStateParameters
   /// with the given fields replaced by the non-null parameter values.
@@ -201,7 +219,8 @@ abstract class _WidgetsStateParameters implements WidgetsStateParameters {
       {final bool isTabBarViewVisible,
       final int selectedPage,
       final int selectedAttribute,
-      final bool editMode}) = _$WidgetsStateParametersImpl;
+      final bool editMode,
+      required final String characterId}) = _$WidgetsStateParametersImpl;
 
   @override
   bool get isTabBarViewVisible;
@@ -211,6 +230,8 @@ abstract class _WidgetsStateParameters implements WidgetsStateParameters {
   int get selectedAttribute;
   @override
   bool get editMode;
+  @override
+  String get characterId;
 
   /// Create a copy of WidgetsStateParameters
   /// with the given fields replaced by the non-null parameter values.

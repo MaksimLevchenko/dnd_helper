@@ -14,8 +14,8 @@ part 'widgets_state.g.dart';
 @riverpod
 class WidgetsState extends _$WidgetsState {
   @override
-  WidgetsStateParameters build() {
-    return const WidgetsStateParameters();
+  WidgetsStateParameters build(String characterId) {
+    return WidgetsStateParameters(characterId: characterId);
   }
 
   void onTabBarTap(int index) {
@@ -40,7 +40,9 @@ class WidgetsState extends _$WidgetsState {
       case 0:
         return const Fight();
       case 1:
-        return const Abilities();
+        return Abilities(
+          characterId: state.characterId,
+        );
       case 2:
         return const Inventory();
       case 3:
@@ -64,5 +66,6 @@ class WidgetsStateParameters with _$WidgetsStateParameters {
     @Default(1) int selectedPage,
     @Default(0) int selectedAttribute,
     @Default(false) bool editMode,
+    required String characterId,
   }) = _WidgetsStateParameters;
 }

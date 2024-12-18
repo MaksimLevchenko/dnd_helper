@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AttributesTabBar extends ConsumerWidget {
-  const AttributesTabBar({super.key});
+  const AttributesTabBar({super.key, required this.characterId});
+  final String characterId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -12,20 +13,22 @@ class AttributesTabBar extends ConsumerWidget {
       children: [
         TabBar(
           onTap: (index) {
-            ref.read(widgetsStateProvider.notifier).setSelectedAttribute(index);
+            ref
+                .read(widgetsStateProvider(characterId).notifier)
+                .setSelectedAttribute(index);
           },
           indicator: const BoxDecoration(
             color: Colors.transparent,
           ),
           dividerHeight: 2,
           dividerColor: Theme.of(context).colorScheme.primary,
-          tabs: const <Widget>[
-            AttributesTab(index: 0),
-            AttributesTab(index: 1),
-            AttributesTab(index: 2),
-            AttributesTab(index: 3),
-            AttributesTab(index: 4),
-            AttributesTab(index: 5),
+          tabs: <Widget>[
+            AttributesTab(characterId: characterId, index: 0),
+            AttributesTab(characterId: characterId, index: 1),
+            AttributesTab(characterId: characterId, index: 2),
+            AttributesTab(characterId: characterId, index: 3),
+            AttributesTab(characterId: characterId, index: 4),
+            AttributesTab(characterId: characterId, index: 5),
           ],
         ),
       ],

@@ -8,13 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CharacterSheet extends ConsumerWidget {
-  final int sheetId;
-  const CharacterSheet({super.key, required this.sheetId});
+  final String characterId;
+  const CharacterSheet({super.key, required this.characterId});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final characterState = ref.watch(characterSheetStateProvider);
-    final widgetsState = ref.watch(widgetsStateProvider);
+    final characterState = ref.watch(characterSheetStateProvider(characterId));
+    final widgetsState = ref.watch(widgetsStateProvider(characterId));
     return characterState.when(
       data: (characterState) {
         return LayoutBuilder(
@@ -54,9 +54,12 @@ class CharacterSheet extends ConsumerWidget {
                                   characterData: characterState.characterData),
                               context.isMobile
                                   ? ref
-                                      .read(widgetsStateProvider.notifier)
+                                      .read(widgetsStateProvider(characterId)
+                                          .notifier)
                                       .getPage(widgetsState.selectedPage)
-                                  : const SheetTabBarView(),
+                                  : SheetTabBarView(
+                                      characterId: (characterId),
+                                    ),
                             ],
                           ),
                         ),
@@ -67,7 +70,8 @@ class CharacterSheet extends ConsumerWidget {
                             useLegacyColorScheme: false,
                             onTap: (index) {
                               ref
-                                  .read(widgetsStateProvider.notifier)
+                                  .read(widgetsStateProvider(characterId)
+                                      .notifier)
                                   .onTabBarTap(index);
                             },
                             currentIndex: widgetsState.selectedPage,
@@ -104,7 +108,8 @@ class CharacterSheet extends ConsumerWidget {
           children: [
             const Text('Произошла ошибка'),
             Button(
-              onPressed: () => ref.refresh(characterSheetStateProvider),
+              onPressed: () =>
+                  ref.refresh(characterSheetStateProvider(characterId)),
               text: 'Повторить',
             ),
           ],
