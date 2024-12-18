@@ -14,7 +14,17 @@
             "survival"
         ],
         "subRaces": [
-            "Variant Human"
+            {
+                "name": "Subrace Name",
+                "subraceFeatures": {
+                    "featureKey1": "featureValue1",
+                    "featureKey2": "featureValue2"
+                },
+                "attributes": {
+                    "strength": 10,
+                    "dexterity": 12
+                }
+            }
         ],
         "raceFeatures": {
             "Versatility": "You gain one extra skill proficiency.",
@@ -38,9 +48,26 @@
             "stealth"
         ],
         "subRaces": [
-            "High Elf",
-            "Wood Elf",
-            "Dark Elf"
+            {
+                "name": "Высший эльф",
+                "subraceFeatures": {
+                    "Магическое обучение": "Вы изучаете одно заклинание школы магии, выбираемое из списка заклинаний волшебника. Интеллект является вашей базовой характеристикой для этого заклинания.",
+                    "Дополнительное владение оружием": "Вы получаете владение длинным мечом, коротким мечом, длинным луком и коротким луком."
+                },
+                "attributes": {
+                    "intelligence": 1
+                }
+            },
+            {
+                "name": "Лесной эльф",
+                "subraceFeatures": {
+                    "Маскировка": "Вы можете прятаться даже за слабыми укрытиями, такими как густая листва, тяжелый дождь, снег или густой туман.",
+                    "Скорость": "Ваша базовая скорость ходьбы увеличивается до 35 футов."
+                },
+                "attributes": {
+                    "wisdom": 1
+                }
+            }
         ],
         "raceFeatures": {
             "Darkvision": "You can see in dim light as if it were bright light.",
@@ -64,8 +91,28 @@
             "history"
         ],
         "subRaces": [
-            "Mountain Dwarf",
-            "Hill Dwarf"
+            {
+                "name": "Горный Дварф",
+                "subraceFeatures": {
+                    "Дварфская стойкость": "Сопротивление ядам.",
+                    "Боевая тренировка": "Владение топорами, боевыми молотами, легкими и ручными молотами.",
+                    "Инструменты ремесленника": "Владение набором инструментов на выбор."
+                },
+                "attributes": {
+                    "strength": 2
+                }
+            },
+            {
+                "name": "Холмовой Дварф",
+                "subraceFeatures": {
+                    "Дварфская стойкость": "Сопротивление ядам.",
+                    "Мудрость холмов": "Вы получаете бонус +1 к Мудрости.",
+                    "Здоровье Дварфа": "Ваши очки здоровья увеличиваются на 1 на каждом уровне."
+                },
+                "attributes": {
+                    "wisdom": 1
+                }
+            }
         ],
         "raceFeatures": {
             "Darkvision": "You can see in dim light as if it were bright light.",
@@ -88,8 +135,25 @@
             "acrobatics"
         ],
         "subRaces": [
-            "Lightfoot Halfling",
-            "Stout Halfling"
+            {
+                "name": "Коренастый полурослик",
+                "subraceFeatures": {
+                    "Устойчивость коренастых.": "Вы совершаете с преимуществом спасброски от яда, и вы получаете сопротивление урону ядом."
+                },
+                "attributes": {
+                    "constitution": 1
+                }
+            },
+            {
+                "name": "Полурослик (стремительный)",
+                "subraceFeatures": {
+                    "Быстрая реакция": "Вы можете перемещаться через укрытия быстрее, чем обычно.",
+                    "Повышенная скорость": "Ваша базовая скорость ходьбы увеличивается на 5 футов."
+                },
+                "attributes": {
+                    "constitution": 1
+                }
+            }
         ],
         "raceFeatures": {
             "Lucky": "When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.",
@@ -112,7 +176,17 @@
             "intimidation"
         ],
         "subRaces": [
-            ""
+            {
+                "name": "Subrace Name",
+                "subraceFeatures": {
+                    "featureKey1": "featureValue1",
+                    "featureKey2": "featureValue2"
+                },
+                "attributes": {
+                    "strength": 10,
+                    "dexterity": 12
+                }
+            }
         ],
         "raceFeatures": {
             "Draconic Ancestry": "You have a breath weapon and resistance to a damage type.",
@@ -135,8 +209,26 @@
             "arcana"
         ],
         "subRaces": [
-            "Forest Gnome",
-            "Rock Gnome"
+            {
+                "name": "Скальный гном",
+                "subraceFeatures": {
+                    "Знание камня": "Вы добавляете удвоенный бонус мастерства к проверкам Интеллекта (История), связанным с происхождением каменных сооружений.",
+                    "Механическая смекалка": "Вы создаёте маленькие механизмы, которые работают благодаря вашему мастерству."
+                },
+                "attributes": {
+                    "constitution": 1
+                }
+            },
+            {
+                "name": "Лесной гном",
+                "subraceFeatures": {
+                    "Природная магия": "Вы знаете заклинание 'Шепот друида'. Интеллект является вашей базовой характеристикой для этого заклинания.",
+                    "Общение с животными": "Через звуки и жесты вы можете общаться с маленькими или менее крупными зверями."
+                },
+                "attributes": {
+                    "dexterity": 1
+                }
+            }
         ],
         "raceFeatures": {
             "Darkvision": "You can see in dim light as if it were bright light.",
@@ -159,7 +251,17 @@
             "persuasion"
         ],
         "subRaces": [
-            ""
+            {
+                "name": "Subrace Name",
+                "subraceFeatures": {
+                    "featureKey1": "featureValue1",
+                    "featureKey2": "featureValue2"
+                },
+                "attributes": {
+                    "strength": 10,
+                    "dexterity": 12
+                }
+            }
         ],
         "raceFeatures": {
             "Darkvision": "You can see in dim light as if it were bright light.",

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -37,6 +39,7 @@ class AttributesState extends _$AttributesState {
 
   void changeAttributes(Map<Attributes, int> attributes) {
     state = state.copyWith(attributes: attributes);
+    log(state.attributes.toString());
   }
 
   void changeType(SelectType type) {

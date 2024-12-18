@@ -15,8 +15,14 @@ class CharacterSheetState extends _$CharacterSheetState {
   @override
   FutureOr<CharacterSheetParameters> build() async {
     final characterRepository = ref.read(characterRepositoryProvider.notifier);
-    final characterData = await characterRepository.getCharacter('1');
+    final characterData = await characterRepository.getCharacter(1);
     return CharacterSheetParameters(characterData: characterData);
+  }
+
+  getCharacter(int id) async {
+    final char =
+        ref.read(characterRepositoryProvider.notifier).getCharacter(id);
+    state = AsyncData(state.value!.copyWith(characterData: await char));
   }
 
   void toggleInspiration() {

@@ -39,7 +39,7 @@ class CreationBackground extends ConsumerWidget {
                     const Gap(10),
                     Button(
                       onPressed: () {
-                        context.push('/creation_summary');
+                        context.push('/creation_personal');
                       },
                       text: 'Next',
                     ),

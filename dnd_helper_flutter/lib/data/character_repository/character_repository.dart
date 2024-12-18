@@ -36,7 +36,7 @@ class CharacterRepository extends _$CharacterRepository {
     imageLink: '',
   );
 
-  FutureOr<CharacterData> getCharacter(String id) {
+  FutureOr<CharacterData> getCharacter(int id) {
     return CharacterData(
       id: id,
       age: '12',
@@ -72,7 +72,7 @@ class CharacterRepository extends _$CharacterRepository {
   }
 
   FutureOr<CharacterData> saveCharacter(CharacterData character) {
-    return character.copyWith(id: '1');
+    return character.copyWith(id: 1);
   }
 
   FutureOr<bool> deleteCharacter(int id) {

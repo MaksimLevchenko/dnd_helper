@@ -1,6 +1,7 @@
 import 'package:dnd_helper_flutter/models/class_data/class_data.dart';
 import 'package:dnd_helper_flutter/models/arms_data/arms_data.dart';
 import 'package:dnd_helper_flutter/models/background_data/background_data.dart';
+import 'package:dnd_helper_flutter/models/class_data/subclass_data.dart';
 import 'package:dnd_helper_flutter/models/coins_data/coins_data.dart';
 import 'package:dnd_helper_flutter/models/enums/ideology.dart';
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
@@ -8,6 +9,7 @@ import 'package:dnd_helper_flutter/models/enums/conditions.dart';
 import 'package:dnd_helper_flutter/models/enums/dice.dart';
 import 'package:dnd_helper_flutter/models/enums/skills.dart';
 import 'package:dnd_helper_flutter/models/race_data/race_data.dart';
+import 'package:dnd_helper_flutter/models/race_data/subrace_data.dart';
 import 'package:dnd_helper_flutter/models/spells_data/spells_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -20,7 +22,9 @@ class CharacterData with _$CharacterData {
     int? id,
     String? characterName,
     RaceData? characterRace,
+    SubraceData? subrace,
     ClassData? characterClass,
+    SubclassData? subclass,
     BackgroundData? background,
     @Default(0) int experience,
     Dice? diceHit,

@@ -6,7 +6,7 @@ part of 'creation_state.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$creationStateHash() => r'66d8cecaca201e390ec78dd59cfd55fd19613801';
+String _$creationStateHash() => r'a401adec7035706bf41b47bac29e4a603935ede5';
 
 /// See also [CreationState].
 @ProviderFor(CreationState)

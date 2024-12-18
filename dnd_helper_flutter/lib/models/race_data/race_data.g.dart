@@ -16,8 +16,12 @@ _$RaceDataImpl _$$RaceDataImplFromJson(Map<String, dynamic> json) =>
       skills: (json['skills'] as List<dynamic>?)
           ?.map((e) => $enumDecode(_$SkillsEnumMap, e))
           .toList(),
+      attacks: (json['attacks'] as List<dynamic>?)
+          ?.map((e) => AttacksData.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      speed: (json['speed'] as num?)?.toInt(),
       subRaces: (json['subRaces'] as List<dynamic>?)
-          ?.map((e) => e as String)
+          ?.map((e) => SubraceData.fromJson(e as Map<String, dynamic>))
           .toList(),
       raceFeatures: (json['raceFeatures'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
@@ -32,6 +36,8 @@ Map<String, dynamic> _$$RaceDataImplToJson(_$RaceDataImpl instance) =>
       'attributes': instance.attributes
           ?.map((k, e) => MapEntry(_$AttributesEnumMap[k]!, e)),
       'skills': instance.skills?.map((e) => _$SkillsEnumMap[e]!).toList(),
+      'attacks': instance.attacks,
+      'speed': instance.speed,
       'subRaces': instance.subRaces,
       'raceFeatures': instance.raceFeatures,
       'imageLink': instance.imageLink,

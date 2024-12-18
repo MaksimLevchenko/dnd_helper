@@ -7,9 +7,9 @@ part 'subrace_data.g.dart';
 @freezed
 class SubraceData with _$SubraceData {
   const factory SubraceData({
-    String? name,
-    List<Map<String, String>>? subraceFeatures,
-    List<Map<Attributes, int>>? attributes,
+    required String name,
+    Map<String, String>? subraceFeatures,
+    Map<Attributes, int>? attributes,
   }) = _SubraceData;
 
   factory SubraceData.fromJson(Map<String, dynamic> json) =>

@@ -23,7 +23,9 @@ mixin _$CharacterData {
   int? get id => throw _privateConstructorUsedError;
   String? get characterName => throw _privateConstructorUsedError;
   RaceData? get characterRace => throw _privateConstructorUsedError;
+  SubraceData? get subrace => throw _privateConstructorUsedError;
   ClassData? get characterClass => throw _privateConstructorUsedError;
+  SubclassData? get subclass => throw _privateConstructorUsedError;
   BackgroundData? get background => throw _privateConstructorUsedError;
   int get experience => throw _privateConstructorUsedError;
   Dice? get diceHit => throw _privateConstructorUsedError;
@@ -85,7 +87,9 @@ abstract class $CharacterDataCopyWith<$Res> {
       {int? id,
       String? characterName,
       RaceData? characterRace,
+      SubraceData? subrace,
       ClassData? characterClass,
+      SubclassData? subclass,
       BackgroundData? background,
       int experience,
       Dice? diceHit,
@@ -128,7 +132,9 @@ abstract class $CharacterDataCopyWith<$Res> {
       List<String>? treasures});
 
   $RaceDataCopyWith<$Res>? get characterRace;
+  $SubraceDataCopyWith<$Res>? get subrace;
   $ClassDataCopyWith<$Res>? get characterClass;
+  $SubclassDataCopyWith<$Res>? get subclass;
   $BackgroundDataCopyWith<$Res>? get background;
   $CoinsDataCopyWith<$Res>? get coins;
 }
@@ -151,7 +157,9 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
     Object? id = freezed,
     Object? characterName = freezed,
     Object? characterRace = freezed,
+    Object? subrace = freezed,
     Object? characterClass = freezed,
+    Object? subclass = freezed,
     Object? background = freezed,
     Object? experience = null,
     Object? diceHit = freezed,
@@ -197,7 +205,6 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-
               as int?,
       characterName: freezed == characterName
           ? _value.characterName
@@ -207,10 +214,18 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
           ? _value.characterRace
           : characterRace // ignore: cast_nullable_to_non_nullable
               as RaceData?,
+      subrace: freezed == subrace
+          ? _value.subrace
+          : subrace // ignore: cast_nullable_to_non_nullable
+              as SubraceData?,
       characterClass: freezed == characterClass
           ? _value.characterClass
           : characterClass // ignore: cast_nullable_to_non_nullable
               as ClassData?,
+      subclass: freezed == subclass
+          ? _value.subclass
+          : subclass // ignore: cast_nullable_to_non_nullable
+              as SubclassData?,
       background: freezed == background
           ? _value.background
           : background // ignore: cast_nullable_to_non_nullable
@@ -392,6 +407,20 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $SubraceDataCopyWith<$Res>? get subrace {
+    if (_value.subrace == null) {
+      return null;
+    }
+
+    return $SubraceDataCopyWith<$Res>(_value.subrace!, (value) {
+      return _then(_value.copyWith(subrace: value) as $Val);
+    });
+  }
+
+  /// Create a copy of CharacterData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $ClassDataCopyWith<$Res>? get characterClass {
     if (_value.characterClass == null) {
       return null;
@@ -399,6 +428,20 @@ class _$CharacterDataCopyWithImpl<$Res, $Val extends CharacterData>
 
     return $ClassDataCopyWith<$Res>(_value.characterClass!, (value) {
       return _then(_value.copyWith(characterClass: value) as $Val);
+    });
+  }
+
+  /// Create a copy of CharacterData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SubclassDataCopyWith<$Res>? get subclass {
+    if (_value.subclass == null) {
+      return null;
+    }
+
+    return $SubclassDataCopyWith<$Res>(_value.subclass!, (value) {
+      return _then(_value.copyWith(subclass: value) as $Val);
     });
   }
 
@@ -443,7 +486,9 @@ abstract class _$$CharacterDataImplCopyWith<$Res>
       {int? id,
       String? characterName,
       RaceData? characterRace,
+      SubraceData? subrace,
       ClassData? characterClass,
+      SubclassData? subclass,
       BackgroundData? background,
       int experience,
       Dice? diceHit,
@@ -488,7 +533,11 @@ abstract class _$$CharacterDataImplCopyWith<$Res>
   @override
   $RaceDataCopyWith<$Res>? get characterRace;
   @override
+  $SubraceDataCopyWith<$Res>? get subrace;
+  @override
   $ClassDataCopyWith<$Res>? get characterClass;
+  @override
+  $SubclassDataCopyWith<$Res>? get subclass;
   @override
   $BackgroundDataCopyWith<$Res>? get background;
   @override
@@ -511,7 +560,9 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
     Object? id = freezed,
     Object? characterName = freezed,
     Object? characterRace = freezed,
+    Object? subrace = freezed,
     Object? characterClass = freezed,
+    Object? subclass = freezed,
     Object? background = freezed,
     Object? experience = null,
     Object? diceHit = freezed,
@@ -566,10 +617,18 @@ class __$$CharacterDataImplCopyWithImpl<$Res>
           ? _value.characterRace
           : characterRace // ignore: cast_nullable_to_non_nullable
               as RaceData?,
+      subrace: freezed == subrace
+          ? _value.subrace
+          : subrace // ignore: cast_nullable_to_non_nullable
+              as SubraceData?,
       characterClass: freezed == characterClass
           ? _value.characterClass
           : characterClass // ignore: cast_nullable_to_non_nullable
               as ClassData?,
+      subclass: freezed == subclass
+          ? _value.subclass
+          : subclass // ignore: cast_nullable_to_non_nullable
+              as SubclassData?,
       background: freezed == background
           ? _value.background
           : background // ignore: cast_nullable_to_non_nullable
@@ -741,7 +800,9 @@ class _$CharacterDataImpl extends _CharacterData {
       {this.id,
       this.characterName,
       this.characterRace,
+      this.subrace,
       this.characterClass,
+      this.subclass,
       this.background,
       this.experience = 0,
       this.diceHit,
@@ -814,7 +875,11 @@ class _$CharacterDataImpl extends _CharacterData {
   @override
   final RaceData? characterRace;
   @override
+  final SubraceData? subrace;
+  @override
   final ClassData? characterClass;
+  @override
+  final SubclassData? subclass;
   @override
   final BackgroundData? background;
   @override
@@ -1003,7 +1068,7 @@ class _$CharacterDataImpl extends _CharacterData {
 
   @override
   String toString() {
-    return 'CharacterData(id: $id, characterName: $characterName, characterRace: $characterRace, characterClass: $characterClass, background: $background, experience: $experience, diceHit: $diceHit, maxHitPoints: $maxHitPoints, currentHitPoints: $currentHitPoints, temporaryHitPoints: $temporaryHitPoints, speed: $speed, armorClass: $armorClass, inspiration: $inspiration, conditions: $conditions, exhaustion: $exhaustion, attributes: $attributes, savingThrows: $savingThrows, skillsProficiency: $skillsProficiency, skillsExpertise: $skillsExpertise, attacks: $attacks, preparedSpells: $preparedSpells, knownSpells: $knownSpells, spellcastingAttribute: $spellcastingAttribute, spellSlots: $spellSlots, languages: $languages, tools: $tools, weapons: $weapons, ideology: $ideology, biography: $biography, weight: $weight, height: $height, age: $age, hairColor: $hairColor, eyeColor: $eyeColor, skinColor: $skinColor, alliesAndOrganizations: $alliesAndOrganizations, purpose: $purpose, ideals: $ideals, bonds: $bonds, flaws: $flaws, notes: $notes, coins: $coins, equipment: $equipment, treasures: $treasures)';
+    return 'CharacterData(id: $id, characterName: $characterName, characterRace: $characterRace, subrace: $subrace, characterClass: $characterClass, subclass: $subclass, background: $background, experience: $experience, diceHit: $diceHit, maxHitPoints: $maxHitPoints, currentHitPoints: $currentHitPoints, temporaryHitPoints: $temporaryHitPoints, speed: $speed, armorClass: $armorClass, inspiration: $inspiration, conditions: $conditions, exhaustion: $exhaustion, attributes: $attributes, savingThrows: $savingThrows, skillsProficiency: $skillsProficiency, skillsExpertise: $skillsExpertise, attacks: $attacks, preparedSpells: $preparedSpells, knownSpells: $knownSpells, spellcastingAttribute: $spellcastingAttribute, spellSlots: $spellSlots, languages: $languages, tools: $tools, weapons: $weapons, ideology: $ideology, biography: $biography, weight: $weight, height: $height, age: $age, hairColor: $hairColor, eyeColor: $eyeColor, skinColor: $skinColor, alliesAndOrganizations: $alliesAndOrganizations, purpose: $purpose, ideals: $ideals, bonds: $bonds, flaws: $flaws, notes: $notes, coins: $coins, equipment: $equipment, treasures: $treasures)';
   }
 
   @override
@@ -1016,8 +1081,11 @@ class _$CharacterDataImpl extends _CharacterData {
                 other.characterName == characterName) &&
             (identical(other.characterRace, characterRace) ||
                 other.characterRace == characterRace) &&
+            (identical(other.subrace, subrace) || other.subrace == subrace) &&
             (identical(other.characterClass, characterClass) ||
                 other.characterClass == characterClass) &&
+            (identical(other.subclass, subclass) ||
+                other.subclass == subclass) &&
             (identical(other.background, background) ||
                 other.background == background) &&
             (identical(other.experience, experience) ||
@@ -1093,7 +1161,9 @@ class _$CharacterDataImpl extends _CharacterData {
         id,
         characterName,
         characterRace,
+        subrace,
         characterClass,
+        subclass,
         background,
         experience,
         diceHit,
@@ -1157,7 +1227,9 @@ abstract class _CharacterData extends CharacterData {
       {final int? id,
       final String? characterName,
       final RaceData? characterRace,
+      final SubraceData? subrace,
       final ClassData? characterClass,
+      final SubclassData? subclass,
       final BackgroundData? background,
       final int experience,
       final Dice? diceHit,
@@ -1210,7 +1282,11 @@ abstract class _CharacterData extends CharacterData {
   @override
   RaceData? get characterRace;
   @override
+  SubraceData? get subrace;
+  @override
   ClassData? get characterClass;
+  @override
+  SubclassData? get subclass;
   @override
   BackgroundData? get background;
   @override
