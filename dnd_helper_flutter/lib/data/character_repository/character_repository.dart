@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:dnd_helper_flutter/models/class_data/class_data.dart';
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
@@ -20,7 +22,7 @@ class CharacterRepository extends _$CharacterRepository {
     final characterWithId = character.copyWith(id: '${DateTime.now()}');
     state = AsyncData([
       characterWithId,
-      ...state.value!.where((element) => element.id != character.id),
+      ...state.value?.where((element) => element.id != character.id) ?? [],
     ]);
     return characterWithId;
   }

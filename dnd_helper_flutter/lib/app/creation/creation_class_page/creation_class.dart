@@ -137,7 +137,6 @@ class CreationClass extends ConsumerWidget {
                             ref
                                 .read(creationStateProvider.notifier)
                                 .setClass(state.selectedClassData!);
-                            log(state.selectedClassData.toString());
                             context.push('/creation_race');
                           },
                           child: const Text('Далее'),

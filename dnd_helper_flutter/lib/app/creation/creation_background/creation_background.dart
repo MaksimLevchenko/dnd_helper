@@ -1,6 +1,7 @@
 import 'package:dnd_helper_flutter/app/creation/creation_background/state/background_tile.dart';
 import 'package:dnd_helper_flutter/app/creation/creation_background/state/creation_background_state.dart';
 import 'package:dnd_helper_flutter/app/creation/creation_race_page/race_tile.dart';
+import 'package:dnd_helper_flutter/app/creation/creation_state/creation_state.dart';
 import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,7 +16,7 @@ class CreationBackground extends ConsumerWidget {
     final state = ref.watch(creationBackgroundStateProvider);
     return Scaffold(
       body: state.when(
-        data: (data) {
+        data: (state) {
           return Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -23,14 +24,14 @@ class CreationBackground extends ConsumerWidget {
                 const Gap(16),
                 Expanded(
                   child: ListView.builder(
-                      itemCount: data.backgrounds.length,
+                      itemCount: state.backgrounds.length,
                       itemBuilder: (context, index) {
-                        final background = data.backgrounds[index];
+                        final background = state.backgrounds[index];
                         return BackgroundTile(background: background);
                       }),
                 ),
-                if (data.selectedBackground != null)
-                  Text(data.selectedBackgroundName!),
+                if (state.selectedBackground != null)
+                  Text(state.selectedBackgroundName!),
                 const Gap(16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -40,6 +41,9 @@ class CreationBackground extends ConsumerWidget {
                     Button(
                       onPressed: () {
                         context.push('/creation_personal');
+                        ref
+                            .read(creationStateProvider.notifier)
+                            .setBackground(state.selectedBackground!);
                       },
                       text: 'Next',
                     ),
@@ -56,7 +60,7 @@ class CreationBackground extends ConsumerWidget {
           );
         },
         loading: () {
-          const Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         },

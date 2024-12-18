@@ -20,7 +20,7 @@ class CreationBackgroundState extends _$CreationBackgroundState {
     return CreationBackgroundStateModel(backgrounds: backgrounds);
   }
 
-  void onSelectRaceTap(BackgroundData backgroundData) {
+  void onSelectBackgroundTap(BackgroundData backgroundData) {
     state = AsyncData(
       state.value!.copyWith(
         selectedBackgroundName: backgroundData.name,

@@ -39,7 +39,6 @@ class AttributesState extends _$AttributesState {
 
   void changeAttributes(Map<Attributes, int> attributes) {
     state = state.copyWith(attributes: attributes);
-    log(state.attributes.toString());
   }
 
   void changeType(SelectType type) {

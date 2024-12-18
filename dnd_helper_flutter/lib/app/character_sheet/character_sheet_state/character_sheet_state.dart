@@ -21,12 +21,6 @@ class CharacterSheetState extends _$CharacterSheetState {
     return CharacterSheetParameters(characterData: characterData);
   }
 
-  getCharacter(int id) async {
-    final char =
-        ref.read(characterRepositoryProvider.notifier).getCharacter(id);
-    state = AsyncData(state.value!.copyWith(characterData: await char));
-  }
-
   void toggleInspiration() {
     state = state.whenData((parameters) {
       final updatedCharacterData = parameters.characterData.copyWith(

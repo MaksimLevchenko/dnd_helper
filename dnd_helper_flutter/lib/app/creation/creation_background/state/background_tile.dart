@@ -15,7 +15,7 @@ class BackgroundTile extends ConsumerWidget {
       child: GestureDetector(
         onTap: () => ref
             .read(creationBackgroundStateProvider.notifier)
-            .onSelectRaceTap(background),
+            .onSelectBackgroundTap(background),
         child: Container(
             width: MediaQuery.of(context).size.width * 0.8,
             padding: const EdgeInsets.all(8),

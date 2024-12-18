@@ -77,7 +77,6 @@ class CreationAttributes extends ConsumerWidget {
                         ref
                             .read(creationStateProvider.notifier)
                             .setAttributes(state.attributes);
-                        log(state.attributes.toString());
                         context.push('/creation_background');
                       },
                       child: const Text('Next'),
