@@ -14,42 +14,41 @@ class CreationSummary extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final fields = ref.read(creationStateProvider).toJson();
     return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text("Summary"),
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: fields.length,
-                itemBuilder: (context, index) {
-                  final key = fields.keys.elementAt(index);
-                  final value = fields[key];
-                  return ListTile(
-                    title: Text(key), // Отображение имени поля
-                    subtitle: Text(
-                        value?.toString() ?? 'null'), // Отображение значения
-                  );
-                },
-              ),
-              const Gap(16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const ToBackPageButton(),
-                  const Gap(16),
-                  Button(
-                    onPressed: () {
-                      ref.read(creationStateProvider.notifier).saveCharacter();
-                    },
-                    child: const Text('Save'),
-                  ),
-                  const Gap(16),
-                ],
-              )
-            ],
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text("Summary"),
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: fields.length,
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                final key = fields.keys.elementAt(index);
+                final value = fields[key];
+                return ListTile(
+                  title: Text(key), // Отображение имени поля
+                  subtitle:
+                      Text(value?.toString() ?? 'null'), // Отображение значения
+                );
+              },
+            ),
+            const Gap(16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const ToBackPageButton(),
+                const Gap(16),
+                Button(
+                  onPressed: () {
+                    ref.read(creationStateProvider.notifier).saveCharacter();
+                  },
+                  child: const Text('Save'),
+                ),
+                const Gap(16),
+              ],
+            )
+          ],
         ),
       ),
     );

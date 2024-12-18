@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:dnd_helper_flutter/app/creation/creation_state/creation_state.dart';
 import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,13 +12,16 @@ class CreationPersonal extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final  nameController = TextEditingController();
+    final nameController = TextEditingController();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            MultilineTextField(controller: nameController, labelText: 'Имя'),
+            MultilineTextField(
+              controller: nameController,
+              labelText: 'Имя',
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -23,6 +29,10 @@ class CreationPersonal extends ConsumerWidget {
                 const Gap(10),
                 Button(
                   onPressed: () {
+                    log(nameController.text);
+                    ref.read(creationStateProvider.notifier).setName(
+                          nameController.text,
+                        );
                     context.push('/creation_summary');
                   },
                   text: 'Next',

@@ -60,14 +60,15 @@ GoRouter router(Ref ref) {
       ),
       GoRoute(
         path: '/character/:id',
-        redirect: (context, state) {
-          final parameters = state.pathParameters;
-          final int? id = int.tryParse(parameters['id']!);
-          if (id == null) {
-            return '/error';
-          }
-          return null;
-        },
+        name: 'characterSheet',
+        // redirect: (context, state) {
+        //   final parameters = state.pathParameters;
+        //   final int? id = int.tryParse(parameters['id']!);
+        //   if (id == null) {
+        //     return '/error';
+        //   }
+        //   return null;
+        // },
         builder: (context, state) {
           final parameters = state.pathParameters;
           final String id = parameters['id']!;

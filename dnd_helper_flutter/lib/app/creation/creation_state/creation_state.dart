@@ -40,6 +40,10 @@ class CreationState extends _$CreationState {
     state = state.copyWith(background: background);
   }
 
+  void setName(String name) {
+    state = state.copyWith(characterName: name);
+  }
+
   void saveCharacter() {
     ref.read(characterRepositoryProvider.notifier).saveCharacter(state);
   }

@@ -11,14 +11,6 @@ class MultilineTextField extends StatefulWidget {
 }
 
 class MultilineTextFieldState extends State<MultilineTextField> {
-  late TextEditingController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = widget.controller ?? TextEditingController();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,7 +20,7 @@ class MultilineTextFieldState extends State<MultilineTextField> {
           maxHeight: MediaQuery.of(context).size.height * 0.5,
         ),
         child: TextField(
-          controller: _controller,
+          controller: widget.controller,
           keyboardType: TextInputType.multiline,
           maxLines: 10,
           minLines: 1,
@@ -39,13 +31,5 @@ class MultilineTextFieldState extends State<MultilineTextField> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    if (widget.controller == null) {
-      _controller.dispose();
-    }
-    super.dispose();
   }
 }
