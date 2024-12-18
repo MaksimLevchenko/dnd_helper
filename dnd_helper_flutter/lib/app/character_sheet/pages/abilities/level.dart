@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class Level extends ConsumerWidget {
-  const Level({super.key});
+  const Level({super.key, required this.characterId});
+  final String characterId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -36,7 +37,8 @@ class Level extends ConsumerWidget {
                             .read(calculatorStateProvider.notifier)
                             .evaluateExpression(controller.text);
                         ref
-                            .read(characterSheetStateProvider.notifier)
+                            .read(characterSheetStateProvider(characterId)
+                                .notifier)
                             .updateExperience(exp, ref);
                       },
                       child: const Text('experience'),
@@ -62,7 +64,7 @@ class Level extends ConsumerWidget {
                 bottomLeft: Radius.circular(8),
               ),
             ),
-            child: ref.watch(characterSheetStateProvider).when(
+            child: ref.watch(characterSheetStateProvider(characterId)).when(
                   data: (data) => Text(
                     'УРОВЕНЬ: ${data.characterData.level.toString()} ',
                     style: TextStyle(
@@ -93,7 +95,7 @@ class Level extends ConsumerWidget {
                 bottomRight: Radius.circular(8),
               ),
             ),
-            child: ref.watch(characterSheetStateProvider).when(
+            child: ref.watch(characterSheetStateProvider(characterId)).when(
                   data: (data) => Text(
                     data.characterData.nextLevelExperience() != 0
                         ? ' ${data.characterData.experience.toString()} / ${data.characterData.nextLevelExperience().toString()} '

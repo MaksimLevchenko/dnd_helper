@@ -20,14 +20,13 @@ class AuthRepository extends _$AuthRepository {
       return AuthState(isSuccess: false);
     }
 
-    final response = await sendPostRequest(
-      ref,
+    final response = await ref.read(sendPostRequestProvider(
       path: 'api/User/Login',
       parameters: {
         'email': email,
         'pass': password,
       },
-    );
+    ).future);
 
     log('response.statusCode: ${response.statusCode}');
 
@@ -49,14 +48,13 @@ class AuthRepository extends _$AuthRepository {
     //   },
     // );
 
-    final response = await sendPostRequest(
-      ref,
+    final response = await ref.read(sendPostRequestProvider(
       path: 'api/User/Login',
       parameters: {
         'email': email,
         'pass': password,
       },
-    );
+    ).future);
 
     if (response.statusCode == 200) {
       await _storage.setString('email', email);
@@ -77,14 +75,13 @@ class AuthRepository extends _$AuthRepository {
     //     'pass': password,
     //   },
     // );
-    final response = await sendPostRequest(
-      ref,
+    final response = await ref.read(sendPostRequestProvider(
       path: 'api/User/Register',
       parameters: {
         'email': email,
         'pass': password,
       },
-    );
+    ).future);
     log('response: ${response.body}');
     log('response.statusCode: ${response.statusCode}');
 

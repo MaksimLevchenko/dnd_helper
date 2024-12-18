@@ -75,6 +75,12 @@ class $AssetsIconsGen {
 class $AssetsJsonsGen {
   const $AssetsJsonsGen();
 
+  /// File path: assets/jsons/arms.json
+  String get arms => 'assets/jsons/arms.json';
+
+  /// File path: assets/jsons/backgrounds.json
+  String get backgrounds => 'assets/jsons/backgrounds.json';
+
   /// File path: assets/jsons/classes.json
   String get classes => 'assets/jsons/classes.json';
 
@@ -82,7 +88,7 @@ class $AssetsJsonsGen {
   String get races => 'assets/jsons/races.json';
 
   /// List of all assets
-  List<String> get values => [classes, races];
+  List<String> get values => [arms, backgrounds, classes, races];
 }
 
 class $AssetsIcons2xGen {

@@ -5,19 +5,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class Abilities extends ConsumerWidget {
-  const Abilities({super.key});
+  const Abilities({super.key, required this.characterId});
+  final String characterId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       alignment: Alignment.topCenter,
-      height: ref.watch(widgetsStateProvider).isTabBarViewVisible
+      height: ref.watch(widgetsStateProvider(characterId)).isTabBarViewVisible
           ? MediaQuery.of(context).size.height - 321
           : MediaQuery.of(context).size.height - 159,
-      child: const Padding(
-        padding: EdgeInsets.all(12),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
         child: Column(
-          children: [Level(), AbilitiesTextField()],
+          children: [
+            Level(
+              characterId: (characterId),
+            ),
+            const AbilitiesTextField()
+          ],
         ),
       ),
     );

@@ -11,6 +11,7 @@ part 'character_repository.g.dart';
 @Riverpod(keepAlive: true)
 class CharacterRepository extends _$CharacterRepository {
   @override
+<<<<<<< HEAD
   FutureOr<List<CharacterData>?> build() {
     return null;
   }
@@ -73,9 +74,26 @@ class CharacterRepository extends _$CharacterRepository {
 
   FutureOr<CharacterData> saveCharacter(CharacterData character) {
     return character.copyWith(id: 1);
+=======
+  FutureOr<List<CharacterData>> build() async {
+    // TODO get characters from server
+    return [];
   }
 
-  FutureOr<bool> deleteCharacter(int id) {
+  FutureOr<CharacterData> saveCharacter(CharacterData character) {
+    final characterWithId = character.copyWith(id: '${DateTime.now()}');
+    state = AsyncData([
+      characterWithId,
+      ...state.value!.where((element) => element.id != character.id),
+    ]);
+    return characterWithId;
+>>>>>>> 1a4a6299e9c76b787fa45e032625e60823e25c2e
+  }
+
+  FutureOr<bool> deleteCharacter(String id) {
+    state = AsyncData(
+      state.value!.where((element) => element.id != id).toList(),
+    );
     return true;
   }
 }

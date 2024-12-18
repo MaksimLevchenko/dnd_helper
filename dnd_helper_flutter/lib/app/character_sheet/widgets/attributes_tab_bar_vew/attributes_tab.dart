@@ -8,8 +8,10 @@ class AttributesTab extends ConsumerWidget {
   const AttributesTab({
     required this.index,
     super.key,
+    required this.characterId,
   });
   final int index;
+  final String characterId;
   static const List<String> labels = [
     'STR',
     'DEX',
@@ -21,8 +23,9 @@ class AttributesTab extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(widgetsStateProvider);
-    final character = ref.read(characterSheetStateProvider.notifier);
+    final state = ref.watch(widgetsStateProvider(characterId));
+    final character =
+        ref.read(characterSheetStateProvider(characterId).notifier);
     final isFocused =
         index == state.selectedAttribute && state.isTabBarViewVisible;
     final Map<Attributes, int> attributesMap = character.getAttributes();
