@@ -15,7 +15,8 @@ part 'character_sheet_state.g.dart';
 class CharacterSheetState extends _$CharacterSheetState {
   @override
   FutureOr<CharacterSheetParameters> build(String characterId) async {
-    final characterData = await getCharacterProvider(ref, id: characterId);
+    final characterData =
+        await ref.watch(getCharacterProvider(id: characterId).future);
     if (characterData == null) return Future.error('Character not found');
     return CharacterSheetParameters(characterData: characterData);
   }

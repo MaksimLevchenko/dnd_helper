@@ -3,10 +3,11 @@ import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-@riverpod
-FutureOr<CharacterData?> getCharacterProvider(Ref ref,
-    {required String id}) async {
-  final character = ref
+part 'get_character.g.dart';
+
+@Riverpod(keepAlive: true)
+FutureOr<CharacterData?> getCharacter(Ref ref, {required String id}) async {
+  return ref
       .watch(characterRepositoryProvider)
       .value
       ?.where((element) => element.id == id)
@@ -14,5 +15,4 @@ FutureOr<CharacterData?> getCharacterProvider(Ref ref,
   // TODO get character from server
   // if (character == null) return null;
   // update repository
-  return character;
 }

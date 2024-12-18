@@ -20,7 +20,7 @@ class CharacterRepository extends _$CharacterRepository {
     final characterWithId = character.copyWith(id: '${DateTime.now()}');
     state = AsyncData([
       characterWithId,
-      ...state.value!,
+      ...state.value!.where((element) => element.id != character.id),
     ]);
     return characterWithId;
   }
