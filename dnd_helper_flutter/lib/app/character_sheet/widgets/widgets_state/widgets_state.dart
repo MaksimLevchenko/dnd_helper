@@ -40,13 +40,11 @@ class WidgetsState extends _$WidgetsState {
       case 0:
         return const Fight();
       case 1:
-        return Abilities(
-          characterId: state.characterId,
-        );
+        return Abilities(characterId: state.characterId);
       case 2:
         return const Inventory();
       case 3:
-        return const Personality();
+        return Personality(characterId: state.characterId);
       case 4:
         return const Spells();
       default:
@@ -63,7 +61,7 @@ class WidgetsState extends _$WidgetsState {
 class WidgetsStateParameters with _$WidgetsStateParameters {
   const factory WidgetsStateParameters({
     @Default(true) bool isTabBarViewVisible,
-    @Default(1) int selectedPage,
+    @Default(0) int selectedPage,
     @Default(0) int selectedAttribute,
     @Default(false) bool editMode,
     required String characterId,

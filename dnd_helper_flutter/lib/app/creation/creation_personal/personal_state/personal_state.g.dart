@@ -1,27 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'character_repository.dart';
+part of 'personal_state.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$characterRepositoryHash() =>
-    r'd8ec23ce0549a02472d3f4ba3af3a9a51da4ae0d';
+String _$personalStateHash() => r'6b2800279777c283e46be5405d6c039f0e4e56fc';
 
-/// See also [CharacterRepository].
-@ProviderFor(CharacterRepository)
-final characterRepositoryProvider =
-    AsyncNotifierProvider<CharacterRepository, List<CharacterData>>.internal(
-  CharacterRepository.new,
-  name: r'characterRepositoryProvider',
+/// See also [PersonalState].
+@ProviderFor(PersonalState)
+final personalStateProvider =
+    AutoDisposeNotifierProvider<PersonalState, PersonalStateModel>.internal(
+  PersonalState.new,
+  name: r'personalStateProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$characterRepositoryHash,
+      : _$personalStateHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$CharacterRepository = AsyncNotifier<List<CharacterData>>;
+typedef _$PersonalState = AutoDisposeNotifier<PersonalStateModel>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

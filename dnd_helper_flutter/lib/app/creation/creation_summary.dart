@@ -1,11 +1,10 @@
-import 'dart:developer';
-
 import 'package:dnd_helper_flutter/app/creation/creation_state/creation_state.dart';
-import 'package:dnd_helper_flutter/data/character_repository/character_repository.dart';
+import 'package:dnd_helper_flutter/main.dart';
 import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class CreationSummary extends ConsumerWidget {
   const CreationSummary({super.key});
@@ -40,8 +39,16 @@ class CreationSummary extends ConsumerWidget {
                 const ToBackPageButton(),
                 const Gap(16),
                 Button(
-                  onPressed: () {
-                    ref.read(creationStateProvider.notifier).saveCharacter();
+                  onPressed: () async {
+                    final notifier = ref.read(creationStateProvider.notifier);
+                    final newCharacter = await notifier.saveCharacter();
+
+                    if (context.mounted) {
+                      GoRouter.of(context).goNamed(
+                        'characterSheet',
+                        pathParameters: {'id': newCharacter.id!},
+                      );
+                    }
                   },
                   child: const Text('Save'),
                 ),

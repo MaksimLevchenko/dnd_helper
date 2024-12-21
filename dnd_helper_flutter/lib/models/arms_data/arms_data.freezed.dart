@@ -373,3 +373,203 @@ abstract class _ArmsData implements ArmsData {
   _$$ArmsDataImplCopyWith<_$ArmsDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+mixin _$StartArms {
+  ArmsData? get specificArms =>
+      throw _privateConstructorUsedError; // Конкретное оружие
+  bool get isOption =>
+      throw _privateConstructorUsedError; // Указывает, что это выбор
+  List<ArmsData>? get options => throw _privateConstructorUsedError;
+
+  /// Create a copy of StartArms
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $StartArmsCopyWith<StartArms> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $StartArmsCopyWith<$Res> {
+  factory $StartArmsCopyWith(StartArms value, $Res Function(StartArms) then) =
+      _$StartArmsCopyWithImpl<$Res, StartArms>;
+  @useResult
+  $Res call({ArmsData? specificArms, bool isOption, List<ArmsData>? options});
+
+  $ArmsDataCopyWith<$Res>? get specificArms;
+}
+
+/// @nodoc
+class _$StartArmsCopyWithImpl<$Res, $Val extends StartArms>
+    implements $StartArmsCopyWith<$Res> {
+  _$StartArmsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of StartArms
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? specificArms = freezed,
+    Object? isOption = null,
+    Object? options = freezed,
+  }) {
+    return _then(_value.copyWith(
+      specificArms: freezed == specificArms
+          ? _value.specificArms
+          : specificArms // ignore: cast_nullable_to_non_nullable
+              as ArmsData?,
+      isOption: null == isOption
+          ? _value.isOption
+          : isOption // ignore: cast_nullable_to_non_nullable
+              as bool,
+      options: freezed == options
+          ? _value.options
+          : options // ignore: cast_nullable_to_non_nullable
+              as List<ArmsData>?,
+    ) as $Val);
+  }
+
+  /// Create a copy of StartArms
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ArmsDataCopyWith<$Res>? get specificArms {
+    if (_value.specificArms == null) {
+      return null;
+    }
+
+    return $ArmsDataCopyWith<$Res>(_value.specificArms!, (value) {
+      return _then(_value.copyWith(specificArms: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$StartArmsImplCopyWith<$Res>
+    implements $StartArmsCopyWith<$Res> {
+  factory _$$StartArmsImplCopyWith(
+          _$StartArmsImpl value, $Res Function(_$StartArmsImpl) then) =
+      __$$StartArmsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ArmsData? specificArms, bool isOption, List<ArmsData>? options});
+
+  @override
+  $ArmsDataCopyWith<$Res>? get specificArms;
+}
+
+/// @nodoc
+class __$$StartArmsImplCopyWithImpl<$Res>
+    extends _$StartArmsCopyWithImpl<$Res, _$StartArmsImpl>
+    implements _$$StartArmsImplCopyWith<$Res> {
+  __$$StartArmsImplCopyWithImpl(
+      _$StartArmsImpl _value, $Res Function(_$StartArmsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of StartArms
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? specificArms = freezed,
+    Object? isOption = null,
+    Object? options = freezed,
+  }) {
+    return _then(_$StartArmsImpl(
+      specificArms: freezed == specificArms
+          ? _value.specificArms
+          : specificArms // ignore: cast_nullable_to_non_nullable
+              as ArmsData?,
+      isOption: null == isOption
+          ? _value.isOption
+          : isOption // ignore: cast_nullable_to_non_nullable
+              as bool,
+      options: freezed == options
+          ? _value._options
+          : options // ignore: cast_nullable_to_non_nullable
+              as List<ArmsData>?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$StartArmsImpl implements _StartArms {
+  _$StartArmsImpl(
+      {this.specificArms,
+      required this.isOption,
+      final List<ArmsData>? options})
+      : _options = options;
+
+  @override
+  final ArmsData? specificArms;
+// Конкретное оружие
+  @override
+  final bool isOption;
+// Указывает, что это выбор
+  final List<ArmsData>? _options;
+// Указывает, что это выбор
+  @override
+  List<ArmsData>? get options {
+    final value = _options;
+    if (value == null) return null;
+    if (_options is EqualUnmodifiableListView) return _options;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'StartArms(specificArms: $specificArms, isOption: $isOption, options: $options)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StartArmsImpl &&
+            (identical(other.specificArms, specificArms) ||
+                other.specificArms == specificArms) &&
+            (identical(other.isOption, isOption) ||
+                other.isOption == isOption) &&
+            const DeepCollectionEquality().equals(other._options, _options));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, specificArms, isOption,
+      const DeepCollectionEquality().hash(_options));
+
+  /// Create a copy of StartArms
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StartArmsImplCopyWith<_$StartArmsImpl> get copyWith =>
+      __$$StartArmsImplCopyWithImpl<_$StartArmsImpl>(this, _$identity);
+}
+
+abstract class _StartArms implements StartArms {
+  factory _StartArms(
+      {final ArmsData? specificArms,
+      required final bool isOption,
+      final List<ArmsData>? options}) = _$StartArmsImpl;
+
+  @override
+  ArmsData? get specificArms; // Конкретное оружие
+  @override
+  bool get isOption; // Указывает, что это выбор
+  @override
+  List<ArmsData>? get options;
+
+  /// Create a copy of StartArms
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$StartArmsImplCopyWith<_$StartArmsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

@@ -25,3 +25,12 @@ class ArmsData with _$ArmsData {
   factory ArmsData.fromJson(Map<String, dynamic> json) =>
       _$ArmsDataFromJson(json);
 }
+
+@freezed
+class StartArms with _$StartArms {
+  factory StartArms({
+    ArmsData? specificArms, // Конкретное оружие
+    required bool isOption, // Указывает, что это выбор
+    List<ArmsData>? options, // Список вариантов для выбора
+  }) = _StartArms;
+}

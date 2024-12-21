@@ -7,7 +7,7 @@ part of 'character_sheet_state.dart';
 // **************************************************************************
 
 String _$characterSheetStateHash() =>
-    r'69a66609eecd1e33a678d8dbe6ffa53b5e4b80af';
+    r'a30c54895c1d81eff201ec9c9a957069dd51bd68';
 
 /// Copied from Dart SDK
 class _SystemHash {

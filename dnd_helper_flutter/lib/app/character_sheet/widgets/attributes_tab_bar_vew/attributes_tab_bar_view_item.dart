@@ -11,18 +11,31 @@ class AttributesTabBarViewItem extends ConsumerWidget {
   final Attributes attribute;
   final String characterId;
 
+  String getSignedValue(int value) {
+    return value > 0 ? '+$value' : '$value';
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(characterSheetStateProvider(characterId));
     return state.when(
       data: (data) {
-        final proficiencyBonus = data.characterData.proficiencyBonus;
-        final savingThrows = data.characterData.savingThrows;
-        final isAttributeInSavingThrows = savingThrows?.contains(attribute);
-        final modifier = data.characterData.getModifier(attribute);
+        final List<Attributes?>? savingThrows = data.characterData.savingThrows;
+        final bool isAttributeInSavingThrows =
+            savingThrows?.contains(attribute) ?? false;
+        final int modifier = data.characterData.getModifier(attribute);
+        final proficiency = data.characterData.proficiencyBonus;
+
+        final modifierOnly = getSignedValue(modifier);
+
+        final modifierPlusProficiency = getSignedValue(modifier + proficiency);
+
+        final modifierPlusDoubleProficiency =
+            getSignedValue(modifier + proficiency * 2);
+
         final listSkills =
             data.characterData.getSkillsByAttribute(attribute).toList();
-        // final widgetsState = ref.watch(widgetsStateProvider(characterId));
+
         return Column(
           children: [
             Row(
@@ -49,9 +62,9 @@ class AttributesTabBarViewItem extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Item.simple(
-                    value: isAttributeInSavingThrows!
-                        ? '+${(modifier + proficiencyBonus).toString()}'
-                        : modifier.toString(),
+                    value: isAttributeInSavingThrows
+                        ? modifierOnly
+                        : modifierPlusProficiency,
                     label: 'СПАСБРОСОК'),
                 Item.simple(value: modifier.toString(), label: 'ПРОВЕРКА'),
                 Item.simple(
@@ -64,11 +77,15 @@ class AttributesTabBarViewItem extends ConsumerWidget {
               children: [
                 for (var skill in listSkills)
                   Item.flexible(
-                    value: data.characterData.skillsExpertise!.contains(skill)
-                        ? '+${modifier + proficiencyBonus * 2}'
-                        : data.characterData.skillsProficiency!.contains(skill)
-                            ? '+${modifier + proficiencyBonus}'
-                            : '+$modifier',
+                    value:
+                        data.characterData.skillsExpertise?.contains(skill) ??
+                                false
+                            ? modifierPlusDoubleProficiency
+                            : data.characterData.skillsProficiency
+                                        ?.contains(skill) ??
+                                    false
+                                ? modifierPlusProficiency
+                                : modifierOnly,
                     label: ref
                         .read(characterSheetStateProvider(characterId).notifier)
                         .getSkillAsStringRu(skill),

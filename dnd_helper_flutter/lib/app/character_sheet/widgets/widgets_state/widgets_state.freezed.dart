@@ -158,7 +158,7 @@ class __$$WidgetsStateParametersImplCopyWithImpl<$Res>
 class _$WidgetsStateParametersImpl implements _WidgetsStateParameters {
   const _$WidgetsStateParametersImpl(
       {this.isTabBarViewVisible = true,
-      this.selectedPage = 1,
+      this.selectedPage = 0,
       this.selectedAttribute = 0,
       this.editMode = false,
       required this.characterId});
