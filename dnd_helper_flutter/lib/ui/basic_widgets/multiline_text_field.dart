@@ -6,11 +6,15 @@ class MultilineTextField extends StatefulWidget {
     this.labelText,
     required this.controller,
     this.onEditingComplete,
+    this.onChanged,
+    this.enabled = true,
   });
 
   final String? labelText;
   final TextEditingController controller; // Добавлено
   final Function(String)? onEditingComplete;
+  final Function(String)? onChanged;
+  final bool enabled;
 
   @override
   MultilineTextFieldState createState() => MultilineTextFieldState();
@@ -21,10 +25,8 @@ class MultilineTextFieldState extends State<MultilineTextField> {
   Widget build(BuildContext context) {
     final focusNode = FocusNode();
     focusNode.addListener(() {
-      if (!focusNode.hasFocus) {
-        if (widget.onEditingComplete != null) {
-          widget.onEditingComplete!(widget.controller.text);
-        }
+      if (!focusNode.hasFocus && widget.onEditingComplete != null) {
+        widget.onEditingComplete!(widget.controller.text);
       }
     });
     return Padding(
@@ -35,9 +37,12 @@ class MultilineTextFieldState extends State<MultilineTextField> {
         ),
         child: TextField(
           controller: widget.controller,
+          focusNode: focusNode,
           keyboardType: TextInputType.multiline,
           maxLines: 10,
           minLines: 1,
+          enabled: widget.enabled,
+          onChanged: widget.onChanged,
           decoration: InputDecoration(
             border: const OutlineInputBorder(),
             labelText: widget.labelText,
