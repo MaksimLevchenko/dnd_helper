@@ -19,51 +19,51 @@ class CreationPersonal extends ConsumerWidget {
           child: Column(
             children: [
               MultilineTextField(
-                controller: controllers['name'],
+                controller: controllers['name']!,
                 labelText: 'Имя',
               ),
               MultilineTextField(
-                controller: controllers['weight'],
+                controller: controllers['weight']!,
                 labelText: 'Вес',
               ),
               MultilineTextField(
-                controller: controllers['height'],
+                controller: controllers['height']!,
                 labelText: 'Рост',
               ),
               MultilineTextField(
-                controller: controllers['age'],
+                controller: controllers['age']!,
                 labelText: 'Возраст',
               ),
               MultilineTextField(
-                controller: controllers['hairColor'],
+                controller: controllers['hairColor']!,
                 labelText: 'Цвет волос',
               ),
               MultilineTextField(
-                controller: controllers['eyeColor'],
+                controller: controllers['eyeColor']!,
                 labelText: 'Цвет глаз',
               ),
               MultilineTextField(
-                controller: controllers['skinColor'],
+                controller: controllers['skinColor']!,
                 labelText: 'Цвет кожи',
               ),
               MultilineTextField(
-                controller: controllers['alliesAndOrganizations'],
+                controller: controllers['alliesAndOrganizations']!,
                 labelText: 'Союзники и организации',
               ),
               MultilineTextField(
-                controller: controllers['purpose'],
+                controller: controllers['purpose']!,
                 labelText: 'Цель',
               ),
               MultilineTextField(
-                controller: controllers['ideals'],
+                controller: controllers['ideals']!,
                 labelText: 'Идеалы',
               ),
               MultilineTextField(
-                controller: controllers['bonds'],
+                controller: controllers['bonds']!,
                 labelText: 'Привязонности',
               ),
               MultilineTextField(
-                controller: controllers['flaws'],
+                controller: controllers['flaws']!,
                 labelText: 'Недостатки',
               ),
               Row(

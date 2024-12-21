@@ -22,8 +22,9 @@ class Abilities extends ConsumerWidget {
             Level(
               characterId: (characterId),
             ),
-            const MultilineTextField(
+            MultilineTextField(
               labelText: 'Способности',
+              controller: TextEditingController(),
             ),
           ],
         ),
