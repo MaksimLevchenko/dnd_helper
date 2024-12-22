@@ -1,5 +1,6 @@
 ﻿using dnd_helper_backend.Api.Contracts.Users;
 using dnd_helper_backend.Core.Models;
+using dnd_helper_backend.Core.ValueObjects;
 using dnd_helper_backend.DataAccess.Repositories;
 using Microsoft.AspNetCore.Mvc;
 namespace dnd_helper_backend.Api.Controllers

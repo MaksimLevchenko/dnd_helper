@@ -4,13 +4,15 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using dnd_helper_backend.Core.Enums;
+using dnd_helper_backend.Core.ValueObjects;
 
 namespace dnd_helper_backend.Core.Models
 {
     public class Arms
     {
         public Arms() { }
-        public Arms(Guid id, string name, bool isMelee, bool isSimple, Coins price, string damage, string damageType, double weight, List<string> armsFeatures) 
+        public Arms(Guid id, string name, bool isMelee, bool isSimple, Coins price, Dices damage, DamageTypes damageType, double weight, List<string> armsFeatures) 
         {
             Id = id;
             Name = name;
@@ -28,8 +30,8 @@ namespace dnd_helper_backend.Core.Models
         public bool IsMelee{ get; set; }
         public bool IsSimple{ get; set; }
         public Coins? Price { get; set; }
-        public string Damage {  get; set; }
-        public string DamageType { get; set; }
+        public Dices Damage {  get; set; }
+        public DamageTypes DamageType { get; set; }
         public double Weight { get; set; }
         public List<string> ArmsFeatures { get; set; }
     }

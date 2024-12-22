@@ -22,8 +22,8 @@ namespace dnd_helper_backend.DataAccess.Configurations
             builder.Property(x => x.Name).IsRequired();
             builder.Property(x => x.IsMelee).IsRequired();
             builder.Property(x => x.IsSimple).IsRequired();
-            builder.Property(x => x.Damage).IsRequired();
-            builder.Property(x => x.DamageType).IsRequired();
+            builder.Property(x => x.Damage).HasConversion<string>().IsRequired();
+            builder.Property(x => x.DamageType).HasConversion<string>().IsRequired();
             builder.Property(x => x.Weight).IsRequired();
 
             builder.Property(x => x.ArmsFeatures)

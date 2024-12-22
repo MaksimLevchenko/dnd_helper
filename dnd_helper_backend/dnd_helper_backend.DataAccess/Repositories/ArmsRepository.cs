@@ -1,4 +1,6 @@
-﻿using dnd_helper_backend.Core.Models;
+﻿using dnd_helper_backend.Core.Enums;
+using dnd_helper_backend.Core.Models;
+using dnd_helper_backend.Core.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -34,7 +36,7 @@ namespace dnd_helper_backend.DataAccess.Repositories
             return result;
         }
 
-        public async Task<Guid> Create(Guid id, string name, bool isMelee, bool isSimple, Coins price, string damage, string damageType, double weight, List<string> armsFeatures)
+        public async Task<Guid> Create(Guid id, string name, bool isMelee, bool isSimple, Coins price, Dices damage, DamageTypes damageType, double weight, List<string> armsFeatures)
         {
 
             var result = new Arms(id, name, isMelee, isSimple, price, damage, damageType, weight, armsFeatures);
@@ -44,7 +46,7 @@ namespace dnd_helper_backend.DataAccess.Repositories
             return result.Id;
         }
 
-        public async Task<Guid> Update(Guid id, string name, bool isMelee, bool isSimple, Coins price, string damage, string damageType, double weight, List<string> armsFeatures)
+        public async Task<Guid> Update(Guid id, string name, bool isMelee, bool isSimple, Coins price, Dices damage, DamageTypes damageType, double weight, List<string> armsFeatures)
         {
             await _context.Arms
                  .Where(x => x.Id == id)

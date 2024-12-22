@@ -1,4 +1,6 @@
-﻿using dnd_helper_backend.Core.Models;
+﻿using dnd_helper_backend.Core.Enums;
+using dnd_helper_backend.Core.Models;
+using dnd_helper_backend.Core.ValueObjects;
 using dnd_helper_backend.DataAccess.Aggregates;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -35,7 +37,7 @@ namespace dnd_helper_backend.DataAccess.Repositories
             return race;
         }
 
-        public async Task<Guid> Create(Guid raceId, string name, Dictionary<string, int> attributes, List<string> skills, List<string> subRaces, Dictionary<string, string> raceFeatures)
+        public async Task<Guid> Create(Guid raceId, string name, Attributes attributes, List<Skills> skills, List<SubRace> subRaces, Dictionary<string, string> raceFeatures)
         {
 
             var race = new Race(raceId, name, attributes, skills, subRaces, raceFeatures);
@@ -45,7 +47,7 @@ namespace dnd_helper_backend.DataAccess.Repositories
             return race.RaceId;
         }
 
-        public async Task<Guid> Update(Guid raceId, string name, Dictionary<string, int> attributes, List<string> skills, List<string> subRaces, Dictionary<string, string> raceFeatures)
+        public async Task<Guid> Update(Guid raceId, string name, Attributes attributes, List<Skills> skills, List<SubRace> subRaces, Dictionary<string, string> raceFeatures)
         {
             await _context.Races
                  .Where(race => race.RaceId == raceId)

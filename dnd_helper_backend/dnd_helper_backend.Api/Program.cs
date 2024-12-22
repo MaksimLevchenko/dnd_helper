@@ -1,13 +1,11 @@
-using Microsoft.EntityFrameworkCore;
 using dnd_helper_backend.DataAccess;
 using dnd_helper_backend.DataAccess.Repositories;
 using dnd_helper_backend.Application.Services;
 using dnd_helper_backend.Infrastructure;
 using dnd_helper_backend.Infrastructure.Jwt;
 using dnd_helper_backend.Api.Extensions;
-using System.Threading.RateLimiting;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -15,6 +13,12 @@ var configuration = builder.Configuration;
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+
+builder.Services.AddCors();
+
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -64,18 +68,27 @@ builder.Services.AddApiAuthentication(configuration);
 
 
 
-builder.WebHost.ConfigureKestrel(serverOptions =>
-{
-    serverOptions.ListenAnyIP(5005, listenOptions =>
-    {
-        listenOptions.UseHttps();
-    });
-});
-builder.WebHost.UseKestrel();
+
+
+//builder.WebHost.ConfigureKestrel(serverOptions =>
+//{
+//    serverOptions.ListenAnyIP(5005, listenOptions =>
+//    {
+
+//    });
+//});
+//builder.WebHost.UseKestrel();
+
+
 
 
 var app = builder.Build();
 
+
+app.UseCors(builder => builder
+     .AllowAnyOrigin()
+     .AllowAnyMethod()
+     .AllowAnyHeader());
 // Configure the HTTP request pipeline.
 
     app.UseSwagger();
@@ -85,6 +98,7 @@ var app = builder.Build();
 //app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapControllers();
 

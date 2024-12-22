@@ -1,4 +1,6 @@
-﻿using dnd_helper_backend.Core.Models;
+﻿using dnd_helper_backend.Core.Enums;
+using dnd_helper_backend.Core.Models;
+using dnd_helper_backend.Core.ValueObjects;
 using dnd_helper_backend.DataAccess.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,14 +32,14 @@ namespace dnd_helper_backend.Api.Controllers
 
         [Route("Create")]
         [HttpPost]
-        public async Task<ActionResult<Guid>> Create(string name, bool isMelee, bool isSimple, Coins price, string damage, string damageType, double weight, List<string> armsFeatures)
+        public async Task<ActionResult<Guid>> Create(string name, bool isMelee, bool isSimple, Coins price, Dices damage, DamageTypes damageType, double weight, List<string> armsFeatures)
         {
             var results = await _armsRepository.Create(Guid.NewGuid(), name, isMelee, isSimple, price, damage, damageType, weight, armsFeatures);
             return Ok(results);
         }
         [Route("Update")]
         [HttpPut]
-        public async Task<ActionResult<Guid>> Update(Guid id, string name, bool isMelee, bool isSimple, Coins price, string damage, string damageType, double weight, List<string> armsFeatures)
+        public async Task<ActionResult<Guid>> Update(Guid id, string name, bool isMelee, bool isSimple, Coins price, Dices damage, DamageTypes damageType, double weight, List<string> armsFeatures)
         {
             var results = await _armsRepository.Update(id, name, isMelee, isSimple, price, damage, damageType, weight, armsFeatures);
             return Ok(results);
