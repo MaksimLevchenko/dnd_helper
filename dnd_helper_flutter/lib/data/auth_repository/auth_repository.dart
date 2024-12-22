@@ -80,6 +80,7 @@ class AuthRepository extends _$AuthRepository {
       parameters: {
         'email': email,
         'pass': password,
+        'username': email,
       },
     ).future);
     log('response: ${response.body}');
@@ -98,7 +99,10 @@ class AuthRepository extends _$AuthRepository {
   Future<void> signOut() async {
     await _storage.remove('email');
     await _storage.remove('password');
-    state = AsyncData(AuthState(isSuccess: false));
+    state = AsyncData(AuthState(
+      isSuccess: false,
+      authKey: null,
+    ));
   }
 }
 

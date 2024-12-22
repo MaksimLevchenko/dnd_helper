@@ -1,0 +1,273 @@
+[
+    {
+        "name": "Human",
+        "attributes": {
+            "strength": 1,
+            "dexterity": 1,
+            "constitution": 1,
+            "intelligence": 1,
+            "wisdom": 1,
+            "charisma": 1
+        },
+        "skills": [
+            "athletics",
+            "survival"
+        ],
+        "subRaces": [
+            {
+                "name": "Subrace Name",
+                "subraceFeatures": {
+                    "featureKey1": "featureValue1",
+                    "featureKey2": "featureValue2"
+                },
+                "attributes": {
+                    "strength": 10,
+                    "dexterity": 12
+                }
+            }
+        ],
+        "raceFeatures": {
+            "Versatility": "You gain one extra skill proficiency.",
+            "Human Determination": "You can reroll a failed saving throw once per long rest."
+        },
+        "imageLink": "https://example.com/images/human.png",
+        "source": "Player's Handbook"
+    },
+    {
+        "name": "Elf",
+        "attributes": {
+            "strength": 0,
+            "dexterity": 2,
+            "constitution": 0,
+            "intelligence": 0,
+            "wisdom": 0,
+            "charisma": 0
+        },
+        "skills": [
+            "perception",
+            "stealth"
+        ],
+        "subRaces": [
+            {
+                "name": "Высший эльф",
+                "subraceFeatures": {
+                    "Магическое обучение": "Вы изучаете одно заклинание школы магии, выбираемое из списка заклинаний волшебника. Интеллект является вашей базовой характеристикой для этого заклинания.",
+                    "Дополнительное владение оружием": "Вы получаете владение длинным мечом, коротким мечом, длинным луком и коротким луком."
+                },
+                "attributes": {
+                    "intelligence": 1
+                }
+            },
+            {
+                "name": "Лесной эльф",
+                "subraceFeatures": {
+                    "Маскировка": "Вы можете прятаться даже за слабыми укрытиями, такими как густая листва, тяжелый дождь, снег или густой туман.",
+                    "Скорость": "Ваша базовая скорость ходьбы увеличивается до 35 футов."
+                },
+                "attributes": {
+                    "wisdom": 1
+                }
+            }
+        ],
+        "raceFeatures": {
+            "Darkvision": "You can see in dim light as if it were bright light.",
+            "Keen Senses": "You have proficiency in the Perception skill.",
+            "Fey Ancestry": "You have advantage on saving throws against being charmed."
+        },
+        "imageLink": "https://example.com/images/elf.png",
+        "source": "Player's Handbook"
+    },
+    {
+        "name": "Dwarf",
+        "attributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 2,
+            "intelligence": 0,
+            "wisdom": 1,
+            "charisma": 0
+        },
+        "skills": [
+            "history"
+        ],
+        "subRaces": [
+            {
+                "name": "Горный Дварф",
+                "subraceFeatures": {
+                    "Дварфская стойкость": "Сопротивление ядам.",
+                    "Боевая тренировка": "Владение топорами, боевыми молотами, легкими и ручными молотами.",
+                    "Инструменты ремесленника": "Владение набором инструментов на выбор."
+                },
+                "attributes": {
+                    "strength": 2
+                }
+            },
+            {
+                "name": "Холмовой Дварф",
+                "subraceFeatures": {
+                    "Дварфская стойкость": "Сопротивление ядам.",
+                    "Мудрость холмов": "Вы получаете бонус +1 к Мудрости.",
+                    "Здоровье Дварфа": "Ваши очки здоровья увеличиваются на 1 на каждом уровне."
+                },
+                "attributes": {
+                    "wisdom": 1
+                }
+            }
+        ],
+        "raceFeatures": {
+            "Darkvision": "You can see in dim light as if it were bright light.",
+            "Dwarven Resilience": "You have advantage on saving throws against poison."
+        },
+        "imageLink": "https://example.com/images/dwarf.png",
+        "source": "Player's Handbook"
+    },
+    {
+        "name": "Halfling",
+        "attributes": {
+            "strength": 0,
+            "dexterity": 2,
+            "constitution": 0,
+            "intelligence": 0,
+            "wisdom": 0,
+            "charisma": 1
+        },
+        "skills": [
+            "acrobatics"
+        ],
+        "subRaces": [
+            {
+                "name": "Коренастый полурослик",
+                "subraceFeatures": {
+                    "Устойчивость коренастых.": "Вы совершаете с преимуществом спасброски от яда, и вы получаете сопротивление урону ядом."
+                },
+                "attributes": {
+                    "constitution": 1
+                }
+            },
+            {
+                "name": "Полурослик (стремительный)",
+                "subraceFeatures": {
+                    "Быстрая реакция": "Вы можете перемещаться через укрытия быстрее, чем обычно.",
+                    "Повышенная скорость": "Ваша базовая скорость ходьбы увеличивается на 5 футов."
+                },
+                "attributes": {
+                    "constitution": 1
+                }
+            }
+        ],
+        "raceFeatures": {
+            "Lucky": "When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.",
+            "Brave": "You have advantage on saving throws against being frightened."
+        },
+        "imageLink": "https://example.com/images/halfling.png",
+        "source": "Player's Handbook"
+    },
+    {
+        "name": "Dragonborn",
+        "attributes": {
+            "strength": 2,
+            "dexterity": 0,
+            "constitution": 0,
+            "intelligence": 0,
+            "wisdom": 0,
+            "charisma": 1
+        },
+        "skills": [
+            "intimidation"
+        ],
+        "subRaces": [
+            {
+                "name": "Subrace Name",
+                "subraceFeatures": {
+                    "featureKey1": "featureValue1",
+                    "featureKey2": "featureValue2"
+                },
+                "attributes": {
+                    "strength": 10,
+                    "dexterity": 12
+                }
+            }
+        ],
+        "raceFeatures": {
+            "Draconic Ancestry": "You have a breath weapon and resistance to a damage type.",
+            "Breath Weapon": "You can use your action to exhale destructive energy."
+        },
+        "imageLink": "https://example.com/images/dragonborn.png",
+        "source": "Player's Handbook"
+    },
+    {
+        "name": "Gnome",
+        "attributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "intelligence": 2,
+            "wisdom": 0,
+            "charisma": 0
+        },
+        "skills": [
+            "arcana"
+        ],
+        "subRaces": [
+            {
+                "name": "Скальный гном",
+                "subraceFeatures": {
+                    "Знание камня": "Вы добавляете удвоенный бонус мастерства к проверкам Интеллекта (История), связанным с происхождением каменных сооружений.",
+                    "Механическая смекалка": "Вы создаёте маленькие механизмы, которые работают благодаря вашему мастерству."
+                },
+                "attributes": {
+                    "constitution": 1
+                }
+            },
+            {
+                "name": "Лесной гном",
+                "subraceFeatures": {
+                    "Природная магия": "Вы знаете заклинание 'Шепот друида'. Интеллект является вашей базовой характеристикой для этого заклинания.",
+                    "Общение с животными": "Через звуки и жесты вы можете общаться с маленькими или менее крупными зверями."
+                },
+                "attributes": {
+                    "dexterity": 1
+                }
+            }
+        ],
+        "raceFeatures": {
+            "Darkvision": "You can see in dim light as if it were bright light.",
+            "Gnome Cunning": "You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic."
+        },
+        "imageLink": "https://example.com/images/gnome.png",
+        "source": "Player's Handbook"
+    },
+    {
+        "name": "Half-Elf",
+        "attributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "intelligence": 0,
+            "wisdom": 0,
+            "charisma": 2
+        },
+        "skills": [
+            "persuasion"
+        ],
+        "subRaces": [
+            {
+                "name": "Subrace Name",
+                "subraceFeatures": {
+                    "featureKey1": "featureValue1",
+                    "featureKey2": "featureValue2"
+                },
+                "attributes": {
+                    "strength": 10,
+                    "dexterity": 12
+                }
+            }
+        ],
+        "raceFeatures": {
+            "Darkvision": "You can see in dim light as if it were bright light.",
+            "Fey Ancestry": "You have advantage on saving throws against being charmed."
+        },
+        "imageLink": "https://example.com/images/half-elf.png",
+        "source": "Player's Handbook"
+    }
+]

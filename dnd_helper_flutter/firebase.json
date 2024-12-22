@@ -1,0 +1,36 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "dnd-helper-app-guap-project",
+          "appId": "1:569634408498:android:0c70c3056b18a08f54942b",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "dnd-helper-app-guap-project",
+          "configurations": {
+            "android": "1:569634408498:android:0c70c3056b18a08f54942b",
+            "ios": "1:569634408498:ios:87174d40fc4dc2db54942b",
+            "macos": "1:569634408498:ios:87174d40fc4dc2db54942b",
+            "web": "1:569634408498:web:0520d5b38591aec654942b",
+            "windows": "1:569634408498:web:1f63eb98c85418e854942b"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "source": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "europe-west1"
+    }
+  }
+}
