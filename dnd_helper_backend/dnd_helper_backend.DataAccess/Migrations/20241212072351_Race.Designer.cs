@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using dnd_helper_backend.DataAccess;
@@ -11,9 +12,11 @@ using dnd_helper_backend.DataAccess;
 namespace dnd_helper_backend.DataAccess.Migrations
 {
     [DbContext(typeof(DndHelperDbContext))]
-    partial class DndHelperDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241212072351_Race")]
+    partial class Race
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,73 +24,6 @@ namespace dnd_helper_backend.DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
-
-            modelBuilder.Entity("dnd_helper_backend.Core.Models.Arms", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string[]>("ArmsFeatures")
-                        .IsRequired()
-                        .HasColumnType("text[]");
-
-                    b.Property<string>("Damage")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("DamageType")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("IsMelee")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("IsSimple")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<double>("Weight")
-                        .HasColumnType("double precision");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Arms");
-                });
-
-            modelBuilder.Entity("dnd_helper_backend.Core.Models.Background", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Equipment")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string[]>("SkillProficiencies")
-                        .IsRequired()
-                        .HasColumnType("text[]");
-
-                    b.Property<string>("ToolProficiencies")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Backgrounds");
-                });
 
             modelBuilder.Entity("dnd_helper_backend.Core.Models.Race", b =>
                 {
@@ -178,41 +114,6 @@ namespace dnd_helper_backend.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("dnd_helper_backend.Core.Models.Arms", b =>
-                {
-                    b.OwnsOne("dnd_helper_backend.Core.Models.Coins", "Price", b1 =>
-                        {
-                            b1.Property<Guid>("ArmsId")
-                                .HasColumnType("uuid");
-
-                            b1.Property<int>("Copper")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Electrum")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Golden")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Platinum")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Silver")
-                                .HasColumnType("integer");
-
-                            b1.HasKey("ArmsId");
-
-                            b1.ToTable("Arms");
-
-                            b1.ToJson("Price");
-
-                            b1.WithOwner()
-                                .HasForeignKey("ArmsId");
-                        });
-
-                    b.Navigation("Price");
                 });
 
             modelBuilder.Entity("dnd_helper_backend.DataAccess.Entities.ArmorEntity", b =>
