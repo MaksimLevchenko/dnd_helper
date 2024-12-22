@@ -1,4 +1,5 @@
-﻿using dnd_helper_backend.Core.Models;
+﻿using dnd_helper_backend.Core.Enums;
+using dnd_helper_backend.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace dnd_helper_backend.DataAccess.Repositories
             return result;
         }
 
-        public async Task<Guid> Create(Guid id, string name, List<string> skillProficiencies, string toolProficiencies, string equipment, string description)
+        public async Task<Guid> Create(Guid id, string name, List<Skills> skillProficiencies, string toolProficiencies, string equipment, string description)
         {
 
             var result = new Background(id, name, skillProficiencies, toolProficiencies, equipment, description);
@@ -44,7 +45,7 @@ namespace dnd_helper_backend.DataAccess.Repositories
             return result.Id;
         }
 
-        public async Task<Guid> Update(Guid id, string name, List<string> skillProficiencies, string toolProficiencies, string equipment, string description)
+        public async Task<Guid> Update(Guid id, string name, List<Skills> skillProficiencies, string toolProficiencies, string equipment, string description)
         {
             await _context.Backgrounds
                  .Where(x => x.Id == id)

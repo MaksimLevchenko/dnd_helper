@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using dnd_helper_backend.Core.ValueObjects;
 
 namespace dnd_helper_backend.Core.Models
 {

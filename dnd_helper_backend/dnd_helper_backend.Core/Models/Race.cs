@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using dnd_helper_backend.Core.Enums;
+using dnd_helper_backend.Core.ValueObjects;
 
 
 namespace dnd_helper_backend.Core.Models
 {
     public class Race
     {
-        public Race(Guid raceId, string name, Dictionary<string, int> attributes, List<string> skills, List<string> subRaces, Dictionary<string, string> raceFeatures) 
+        public Race() { }
+        public Race(Guid raceId, string name, Attributes attributes, List<Skills> skills, List<SubRace> subRaces, Dictionary<string, string> raceFeatures) 
         {
             RaceId = raceId;
             Name = name;
@@ -20,9 +18,9 @@ namespace dnd_helper_backend.Core.Models
         }
         public Guid RaceId { get; set; }
         public string Name { get; set; }
-        public Dictionary<string, int> Attributes {  get; set; }
-        public List<string> Skills { get; set; }
-        public List<string> SubRaces { get; set; }
+        public Attributes Attributes {  get; set; }
+        public List<Skills> Skills { get; set; }
+        public List<SubRace> SubRaces { get; set; }
         public Dictionary<string, string> RaceFeatures { get; set; }
     }
 }

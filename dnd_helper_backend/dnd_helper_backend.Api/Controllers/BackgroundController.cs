@@ -1,4 +1,5 @@
-﻿using dnd_helper_backend.Core.Models;
+﻿using dnd_helper_backend.Core.Enums;
+using dnd_helper_backend.Core.Models;
 using dnd_helper_backend.DataAccess.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,14 +31,14 @@ namespace dnd_helper_backend.Api.Controllers
 
         [Route("Create")]
         [HttpPost]
-        public async Task<ActionResult<Guid>> Create(string name, List<string> skillProficiencies, string toolProficiencies, string equipment, string description)
+        public async Task<ActionResult<Guid>> Create(string name, List<Skills> skillProficiencies, string toolProficiencies, string equipment, string description)
         {
             var results = await _backgroundRepository.Create(Guid.NewGuid(), name, skillProficiencies, toolProficiencies, equipment, description);
             return Ok(results);
         }
         [Route("Update")]
         [HttpPut]
-        public async Task<ActionResult<Guid>> Update(Guid id, string name, List<string> skillProficiencies, string toolProficiencies, string equipment, string description)
+        public async Task<ActionResult<Guid>> Update(Guid id, string name, List<Skills> skillProficiencies, string toolProficiencies, string equipment, string description)
         {
             var results = await _backgroundRepository.Update(id, name, skillProficiencies, toolProficiencies, equipment, description);
             return Ok(results);
