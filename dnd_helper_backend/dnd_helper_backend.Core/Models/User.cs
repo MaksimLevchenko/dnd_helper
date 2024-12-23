@@ -14,6 +14,7 @@
         public string Username { get; }
         public string Email { get; }
         public string PassHash { get; }
+        public List<Character>? Characters { get; set; }
 
         public static (User User, string Error) Create(Guid id, string userName, string email, string passHash)
         {

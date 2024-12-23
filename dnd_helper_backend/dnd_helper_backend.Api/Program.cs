@@ -74,7 +74,7 @@ builder.Services.AddApiAuthentication(configuration);
 //{
 //    serverOptions.ListenAnyIP(5005, listenOptions =>
 //    {
-
+//        listenOptions.UseHttps();
 //    });
 //});
 //builder.WebHost.UseKestrel();

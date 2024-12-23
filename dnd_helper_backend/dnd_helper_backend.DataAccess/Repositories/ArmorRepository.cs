@@ -1,7 +1,5 @@
 ﻿using dnd_helper_backend.Core.Models;
 using dnd_helper_backend.Core.ValueObjects;
-using dnd_helper_backend.DataAccess.Aggregates;
-using dnd_helper_backend.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -51,7 +49,7 @@ namespace dnd_helper_backend.DataAccess.Repositories
                                         int minStrength, string armorType)
         {
 
-            var ArmorEntity = new ArmorEntity
+            var ArmorEntity = new Armor
             {
                 ArmorId = armorId,
                 Name = name,
@@ -59,7 +57,7 @@ namespace dnd_helper_backend.DataAccess.Repositories
                 GrantsDexerityBonus = grantsDexerityBonus,
                 MaxDexterityBonus = maxDexterityBonus,
                 Weight = weight,
-                Price = new CoinsAgg{Platinum = price.Platinum, Electrum = price.Electrum, Copper = price.Copper, Golden = price.Golden, Silver = price.Silver },
+                Price = new Coins{Platinum = price.Platinum, Electrum = price.Electrum, Copper = price.Copper, Golden = price.Golden, Silver = price.Silver },
                 StelsDisadvantage = stelsDisadvantage,
                 MinStrength = minStrength,
                 ArmorType = armorType
@@ -74,7 +72,7 @@ namespace dnd_helper_backend.DataAccess.Repositories
                                         int maxDexterityBonus, int weight, Coins price, bool stelsDisadvantage,
                                         int minStrength, string armorType)
         {
-            CoinsAgg price_new = new CoinsAgg() {Platinum = price.Platinum, Electrum = price.Electrum, Copper = price.Copper, Golden = price.Golden, Silver = price.Silver };
+            Coins price_new = new Coins() {Platinum = price.Platinum, Electrum = price.Electrum, Copper = price.Copper, Golden = price.Golden, Silver = price.Silver };
             await _context.Armors
                  .Where(armor => armor.ArmorId == armorId)
                  .ExecuteUpdateAsync(s => s

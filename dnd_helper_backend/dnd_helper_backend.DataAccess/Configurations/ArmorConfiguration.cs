@@ -1,13 +1,13 @@
-﻿using dnd_helper_backend.DataAccess.Entities;
+﻿using dnd_helper_backend.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
 namespace dnd_helper_backend.DataAccess.Configurations
 {
-    public class ArmorConfiguration : IEntityTypeConfiguration<ArmorEntity>
+    public class ArmorConfiguration : IEntityTypeConfiguration<Armor>
     {
-        public void Configure(EntityTypeBuilder<ArmorEntity> builder)
+        public void Configure(EntityTypeBuilder<Armor> builder)
         {
             builder.OwnsOne(armor => armor.Price, ownedNavigationBuilder =>
             {

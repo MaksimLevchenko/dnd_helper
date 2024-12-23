@@ -9,6 +9,7 @@ namespace dnd_helper_backend.Core.Models
 {
     public class Armor
     {
+        public Armor() { }
         public Armor(Guid armorId, string name, int armorClass, bool grantsDexerityBonus,
                     int maxDexterityBonus, int weight, Coins price, bool stelsDisadvantage,
                     int minStrength, string armorType) 
