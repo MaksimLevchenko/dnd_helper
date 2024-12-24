@@ -75,10 +75,6 @@ class CharacterRepository extends _$CharacterRepository {
         parametersString: jsonEncode(character.toJson()),
       ).future,
     );
-    state = AsyncData([
-      character.copyWith(id: response.body),
-      ...state.value!,
-    ]);
     return character.copyWith(id: response.body);
   }
 
@@ -101,7 +97,8 @@ class CharacterRepository extends _$CharacterRepository {
     }
     ref.read(sendDeleteRequestProvider(
       path: '/api/Character/Delete',
-      parameters: {'characterId': id},
+      query: {'characterId': id},
+      authKey: ref.read(authRepositoryProvider).value!.authKey,
     ).future);
     state = AsyncData(
       state.value!.where((element) => element.id != id).toList(),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -42,19 +44,15 @@ FutureOr<Response> sendPostRequest(
 FutureOr<Response> sendDeleteRequest(
   Ref ref, {
   required String path,
-  Map<String, dynamic>? parameters,
-  String? parametersString,
+  required Map<String, dynamic> query,
   String? authKey,
 }) async {
   // authKey ??= ref.read(authRepositoryProvider).value?.authKey;
-  parametersString ??=
-      '{${parameters?.entries.map((entry) => '"${entry.key}": "${entry.value}"').join(',')}}';
-  if (parametersString == '{}') {
+  if (query.isEmpty) {
     throw Exception('No parameters');
   }
   final response = await delete(
-    Uri.https(serverUrl, path),
-    body: parametersString,
+    Uri.https(serverUrl, path, query),
     headers: {
       'User-Agent':
           'Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0',
@@ -64,6 +62,7 @@ FutureOr<Response> sendDeleteRequest(
       if (authKey != null) 'auth': authKey,
     },
   );
+  log('response: ${response.body}, ${response.statusCode}, ${response.reasonPhrase}');
 
   return response;
 }
