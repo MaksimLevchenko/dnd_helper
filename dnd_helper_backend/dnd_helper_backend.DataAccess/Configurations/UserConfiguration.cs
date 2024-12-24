@@ -12,7 +12,7 @@ namespace dnd_helper_backend.DataAccess.Configurations
             builder.Property(x => x.Email).IsRequired();
             builder.Property(x => x.PassHash).IsRequired();
             builder.Property(x => x.Username).IsRequired();
-            builder.HasMany(x => x.Characters).WithOne(x => x.User);
+            //builder.HasMany(x => x.Characters).WithOne(x => x.User);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using dnd_helper_backend.DataAccess;
@@ -11,9 +12,11 @@ using dnd_helper_backend.DataAccess;
 namespace dnd_helper_backend.DataAccess.Migrations
 {
     [DbContext(typeof(DndHelperDbContext))]
-    partial class DndHelperDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241223173624_Test2")]
+    partial class Test2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,72 +32,83 @@ namespace dnd_helper_backend.DataAccess.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Age")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("AlliesAndOrganizations")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("ArmorClass")
+                    b.Property<int>("ArmorClass")
                         .HasColumnType("integer");
 
                     b.Property<string>("Attacks")
-                        .HasColumnType("jsonb");
-
-                    b.Property<string>("Attributes")
+                        .IsRequired()
                         .HasColumnType("jsonb");
 
                     b.Property<string>("Background")
+                        .IsRequired()
                         .HasColumnType("jsonb");
 
                     b.Property<string>("Biography")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Bonds")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("CharacterClass")
+                        .IsRequired()
                         .HasColumnType("jsonb");
 
                     b.Property<string>("CharacterName")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("CharacterRace")
-                        .HasColumnType("jsonb");
-
-                    b.Property<string>("Coins")
+                        .IsRequired()
                         .HasColumnType("jsonb");
 
                     b.Property<string>("Conditions")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("CurrentHitPoints")
+                    b.Property<int>("CurrentHitPoints")
                         .HasColumnType("integer");
 
                     b.Property<string>("DiceHit")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.PrimitiveCollection<string[]>("Equipment")
+                    b.Property<string[]>("Equipment")
+                        .IsRequired()
                         .HasColumnType("text[]");
 
-                    b.Property<int?>("Exhaustion")
+                    b.Property<int>("Exhausion")
                         .HasColumnType("integer");
 
                     b.Property<int>("Experience")
                         .HasColumnType("integer");
 
                     b.Property<string>("EyeColor")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Flaws")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("HairColor")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Height")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Ideals")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Ideology")
@@ -103,67 +117,68 @@ namespace dnd_helper_backend.DataAccess.Migrations
                     b.Property<bool>("Inspiration")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("KnownSpells")
-                        .HasColumnType("jsonb");
-
-                    b.PrimitiveCollection<string[]>("Languages")
+                    b.Property<string[]>("Languages")
+                        .IsRequired()
                         .HasColumnType("text[]");
 
-                    b.Property<int?>("MaxHitPoints")
+                    b.Property<int>("MaxHitPoints")
                         .HasColumnType("integer");
 
                     b.Property<string>("Notes")
+                        .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<string>("PreparedSpells")
-                        .HasColumnType("jsonb");
 
                     b.Property<string>("Purpose")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.PrimitiveCollection<string[]>("SavingThrows")
+                    b.Property<string[]>("SavingThrows")
+                        .IsRequired()
                         .HasColumnType("text[]");
 
-                    b.PrimitiveCollection<string[]>("SkillsExpertise")
+                    b.Property<string[]>("SkillsExpertise")
+                        .IsRequired()
                         .HasColumnType("text[]");
 
-                    b.PrimitiveCollection<string[]>("SkillsProficiency")
+                    b.Property<string[]>("SkillsProficiency")
+                        .IsRequired()
                         .HasColumnType("text[]");
 
                     b.Property<string>("SkinColor")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("Speed")
+                    b.Property<int>("Speed")
                         .HasColumnType("integer");
 
-                    b.Property<string>("SpellSlots")
-                        .HasColumnType("jsonb");
-
-                    b.Property<string>("SpellcastingAttribute")
-                        .HasColumnType("text");
-
                     b.Property<string>("SubClass")
+                        .IsRequired()
                         .HasColumnType("jsonb");
 
                     b.Property<string>("SubRace")
+                        .IsRequired()
                         .HasColumnType("jsonb");
 
-                    b.Property<int?>("TemporaryHitPoints")
+                    b.Property<int>("TemporaryHitPoints")
                         .HasColumnType("integer");
 
-                    b.PrimitiveCollection<string[]>("Tools")
+                    b.Property<string[]>("Tools")
+                        .IsRequired()
                         .HasColumnType("text[]");
 
-                    b.PrimitiveCollection<string[]>("Treasures")
+                    b.Property<string[]>("Treasures")
+                        .IsRequired()
                         .HasColumnType("text[]");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
 
-                    b.PrimitiveCollection<string[]>("Weapons")
+                    b.Property<string[]>("Weapons")
+                        .IsRequired()
                         .HasColumnType("text[]");
 
                     b.Property<string>("Weight")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -202,6 +217,75 @@ namespace dnd_helper_backend.DataAccess.Migrations
                         .WithMany("Characters")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.OwnsOne("dnd_helper_backend.Core.ValueObjects.Attributes", "Attributes", b1 =>
+                        {
+                            b1.Property<Guid>("CharacterId")
+                                .HasColumnType("uuid");
+
+                            b1.Property<int>("Charisma")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Constitution")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Dexterity")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Intelligence")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Strength")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Wisdom")
+                                .HasColumnType("integer");
+
+                            b1.HasKey("CharacterId");
+
+                            b1.ToTable("Characters");
+
+                            b1.ToJson("Attributes");
+
+                            b1.WithOwner()
+                                .HasForeignKey("CharacterId");
+                        });
+
+                    b.OwnsOne("dnd_helper_backend.Core.ValueObjects.Coins", "Coins", b1 =>
+                        {
+                            b1.Property<Guid>("CharacterId")
+                                .HasColumnType("uuid");
+
+                            b1.Property<int>("Copper")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Electrum")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Golden")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Platinum")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Silver")
+                                .HasColumnType("integer");
+
+                            b1.HasKey("CharacterId");
+
+                            b1.ToTable("Characters");
+
+                            b1.ToJson("Coins");
+
+                            b1.WithOwner()
+                                .HasForeignKey("CharacterId");
+                        });
+
+                    b.Navigation("Attributes")
+                        .IsRequired();
+
+                    b.Navigation("Coins")
                         .IsRequired();
 
                     b.Navigation("User");

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using dnd_helper_backend.DataAccess;
@@ -11,9 +12,11 @@ using dnd_helper_backend.DataAccess;
 namespace dnd_helper_backend.DataAccess.Migrations
 {
     [DbContext(typeof(DndHelperDbContext))]
-    partial class DndHelperDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241224100638_Test4Json")]
+    partial class Test4Json
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,7 +76,7 @@ namespace dnd_helper_backend.DataAccess.Migrations
                     b.Property<string>("DiceHit")
                         .HasColumnType("text");
 
-                    b.PrimitiveCollection<string[]>("Equipment")
+                    b.Property<string[]>("Equipment")
                         .HasColumnType("text[]");
 
                     b.Property<int?>("Exhaustion")
@@ -106,7 +109,7 @@ namespace dnd_helper_backend.DataAccess.Migrations
                     b.Property<string>("KnownSpells")
                         .HasColumnType("jsonb");
 
-                    b.PrimitiveCollection<string[]>("Languages")
+                    b.Property<string[]>("Languages")
                         .HasColumnType("text[]");
 
                     b.Property<int?>("MaxHitPoints")
@@ -121,13 +124,13 @@ namespace dnd_helper_backend.DataAccess.Migrations
                     b.Property<string>("Purpose")
                         .HasColumnType("text");
 
-                    b.PrimitiveCollection<string[]>("SavingThrows")
+                    b.Property<string[]>("SavingThrows")
                         .HasColumnType("text[]");
 
-                    b.PrimitiveCollection<string[]>("SkillsExpertise")
+                    b.Property<string[]>("SkillsExpertise")
                         .HasColumnType("text[]");
 
-                    b.PrimitiveCollection<string[]>("SkillsProficiency")
+                    b.Property<string[]>("SkillsProficiency")
                         .HasColumnType("text[]");
 
                     b.Property<string>("SkinColor")
@@ -151,16 +154,16 @@ namespace dnd_helper_backend.DataAccess.Migrations
                     b.Property<int?>("TemporaryHitPoints")
                         .HasColumnType("integer");
 
-                    b.PrimitiveCollection<string[]>("Tools")
+                    b.Property<string[]>("Tools")
                         .HasColumnType("text[]");
 
-                    b.PrimitiveCollection<string[]>("Treasures")
+                    b.Property<string[]>("Treasures")
                         .HasColumnType("text[]");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
 
-                    b.PrimitiveCollection<string[]>("Weapons")
+                    b.Property<string[]>("Weapons")
                         .HasColumnType("text[]");
 
                     b.Property<string>("Weight")

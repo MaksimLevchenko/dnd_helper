@@ -1,7 +1,10 @@
 ﻿using dnd_helper_backend.Core.Enums;
 using dnd_helper_backend.Core.Models;
+using dnd_helper_backend.Core.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection.Emit;
+using System.Text.Json;
 
 namespace dnd_helper_backend.DataAccess.Configurations
 {
@@ -12,60 +15,91 @@ namespace dnd_helper_backend.DataAccess.Configurations
             builder.HasKey(x => x.Id);
 
             builder.HasOne(x => x.User).WithMany(x => x.Characters);
-            builder.HasOne(x => x.CharacterRace).WithMany();
-            builder.HasOne(x => x.SubRace).WithMany();
-            builder.HasOne(x => x.CharacterClass).WithMany();
-            builder.HasOne(x => x.SubClass).WithMany();
-            builder.HasOne(x => x.Background).WithMany();
-            builder.HasMany(x => x.Attacks).WithMany();
 
-            builder.Property(x => x.DiceHit).HasConversion<string>().IsRequired();
-            builder.Property(x => x.ideology).HasConversion<string>().IsRequired();
-            builder.Property(x => x.Conditions).HasConversion<string>().IsRequired();
+            builder.Property(p => p.CharacterRace)
+                .HasConversion(
+                v => JsonSerializer.Serialize(v, new JsonSerializerOptions()),
+                v => JsonSerializer.Deserialize<Race>(v, new JsonSerializerOptions()))
+                .HasColumnType("jsonb");
 
-            builder.OwnsOne(x => x.Attributes, ownedNavigationBuilder =>
-            {
-                ownedNavigationBuilder.ToJson();
-            });
-            builder.OwnsOne(x => x.Coins, ownedNavigationBuilder =>
-            {
-                ownedNavigationBuilder.ToJson();
-            });
+            builder.Property(p => p.SubRace)
+                .HasConversion(
+                v => JsonSerializer.Serialize(v, new JsonSerializerOptions()),
+                v => JsonSerializer.Deserialize<SubRace>(v, new JsonSerializerOptions()))
+                .HasColumnType("jsonb");
+
+            builder.Property(p => p.CharacterClass)
+                .HasConversion(
+                v => JsonSerializer.Serialize(v, new JsonSerializerOptions()),
+                v => JsonSerializer.Deserialize<Class>(v, new JsonSerializerOptions()))
+                .HasColumnType("jsonb");
+
+            builder.Property(p => p.SubClass)
+                .HasConversion(
+                v => JsonSerializer.Serialize(v, new JsonSerializerOptions()),
+                v => JsonSerializer.Deserialize<SubClass>(v, new JsonSerializerOptions()))
+                .HasColumnType("jsonb");
+
+            builder.Property(p => p.Background)
+                .HasConversion(
+                v => JsonSerializer.Serialize(v, new JsonSerializerOptions()),
+                v => JsonSerializer.Deserialize<Background>(v, new JsonSerializerOptions()))
+                .HasColumnType("jsonb");
+
+            builder.Property(p => p.Attacks)
+                .HasConversion(
+                v => JsonSerializer.Serialize(v, new JsonSerializerOptions()),
+                v => JsonSerializer.Deserialize<Arms[]>(v, new JsonSerializerOptions()))
+                .HasColumnType("jsonb");
+
+            builder.Property(p => p.Attributes)
+                .HasConversion(
+                v => JsonSerializer.Serialize(v, new JsonSerializerOptions()),
+                v => JsonSerializer.Deserialize<Dictionary<string, int>>(v, new JsonSerializerOptions()))
+                .HasColumnType("jsonb");
+
+            builder.Property(p => p.PreparedSpells)
+                .HasConversion(
+                v => JsonSerializer.Serialize(v, new JsonSerializerOptions()),
+                v => JsonSerializer.Deserialize<Spell[]>(v, new JsonSerializerOptions()))
+                .HasColumnType("jsonb");
+
+            builder.Property(p => p.KnownSpells)
+                .HasConversion(
+                v => JsonSerializer.Serialize(v, new JsonSerializerOptions()),
+                v => JsonSerializer.Deserialize<Spell[]>(v, new JsonSerializerOptions()))
+                .HasColumnType("jsonb");
+
+            builder.Property(p => p.Coins)
+                .HasConversion(
+                v => JsonSerializer.Serialize(v, new JsonSerializerOptions()),
+                v => JsonSerializer.Deserialize<Coins>(v, new JsonSerializerOptions()))
+                .HasColumnType("jsonb");
 
             builder.Property(x => x.SavingThrows)
-            .HasColumnType("text[]") // Тип массива в PostgreSQL
-            .HasConversion(
-                v => v.Select(r => r.ToString()).ToArray(), // Преобразование List в массив
-                v => v.Select(r => Enum.Parse<AttributesEnum>(r)).ToList()   // Преобразование массива обратно в List
-            );
+            .HasColumnType("text[]");
             builder.Property(x => x.SkillsProficiency)
-            .HasColumnType("text[]") // Тип массива в PostgreSQL
-            .HasConversion(
-                v => v.Select(r => r.ToString()).ToArray(), // Преобразование List в массив
-                v => v.Select(r => Enum.Parse<Skills>(r)).ToList()   // Преобразование массива обратно в List
-            );
+            .HasColumnType("text[]");
             builder.Property(x => x.SkillsExpertise)
-            .HasColumnType("text[]") // Тип массива в PostgreSQL
-            .HasConversion(
-                v => v.Select(r => r.ToString()).ToArray(), // Преобразование List в массив
-                v => v.Select(r => Enum.Parse<Skills>(r)).ToList()   // Преобразование массива обратно в List
-            );
+            .HasColumnType("text[]");
 
             builder.Property(x => x.Languages)
-            .HasColumnType("text[]"); // Тип массива в PostgreSQL
-
+            .HasColumnType("text[]");
             builder.Property(x => x.Tools)
-            .HasColumnType("text[]"); // Тип массива в PostgreSQL
-
+            .HasColumnType("text[]");
             builder.Property(x => x.Weapons)
-            .HasColumnType("text[]"); // Тип массива в PostgreSQL
+            .HasColumnType("text[]");
 
             builder.Property(x => x.Equipment)
-            .HasColumnType("text[]"); // Тип массива в PostgreSQL
+            .HasColumnType("text[]");
 
             builder.Property(x => x.Treasures)
-            .HasColumnType("text[]"); // Тип массива в PostgreSQL
-
+            .HasColumnType("text[]");
+            builder.Property(x => x.SpellSlots)
+            .HasConversion(
+                v => JsonSerializer.Serialize(v, new JsonSerializerOptions()),
+                v => JsonSerializer.Deserialize<Dictionary<int, int>>(v, new JsonSerializerOptions()))
+            .HasColumnType("jsonb");
         }
     }
 }
