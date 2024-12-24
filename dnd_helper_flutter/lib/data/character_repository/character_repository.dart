@@ -1,30 +1,30 @@
 import 'dart:convert';
-import 'dart:developer';
-import 'dart:io';
+// import 'dart:developer';
+// import 'dart:io';
 import 'package:dnd_helper_flutter/data/auth_repository/auth_repository.dart';
 import 'package:dnd_helper_flutter/data/client_repository/client_repository.dart';
-import 'package:dnd_helper_flutter/models/attacks_data/attacks_data.dart';
-import 'package:dnd_helper_flutter/models/class_data/subclass_data.dart';
-import 'package:dnd_helper_flutter/models/enums/actions.dart';
-import 'package:dnd_helper_flutter/models/enums/conditions.dart';
-import 'package:dnd_helper_flutter/models/enums/damage_types.dart';
-import 'package:dnd_helper_flutter/models/enums/spells_enums/magic_scools.dart';
-import 'package:dnd_helper_flutter/models/race_data/subrace_data.dart';
-import 'package:dnd_helper_flutter/models/spells_data/spells_data.dart';
-import 'package:http/http.dart';
-import 'package:universal_html/html.dart' as web;
+// import 'package:dnd_helper_flutter/models/attacks_data/attacks_data.dart';
+// import 'package:dnd_helper_flutter/models/class_data/subclass_data.dart';
+// import 'package:dnd_helper_flutter/models/enums/actions.dart';
+// import 'package:dnd_helper_flutter/models/enums/conditions.dart';
+// import 'package:dnd_helper_flutter/models/enums/damage_types.dart';
+// import 'package:dnd_helper_flutter/models/enums/spells_enums/magic_scools.dart';
+// import 'package:dnd_helper_flutter/models/race_data/subrace_data.dart';
+// import 'package:dnd_helper_flutter/models/spells_data/spells_data.dart';
+// import 'package:http/http.dart';
+// import 'package:universal_html/html.dart' as web;
 
-import 'package:dnd_helper_flutter/models/arms_data/arms_data.dart';
-import 'package:dnd_helper_flutter/models/background_data/background_data.dart';
+// import 'package:dnd_helper_flutter/models/arms_data/arms_data.dart';
+// import 'package:dnd_helper_flutter/models/background_data/background_data.dart';
+// import 'package:dnd_helper_flutter/models/class_data/class_data.dart';
+// import 'package:dnd_helper_flutter/models/coins_data/coins_data.dart';
+// import 'package:dnd_helper_flutter/models/enums/attributes.dart';
+// import 'package:dnd_helper_flutter/models/enums/dice.dart';
+// import 'package:dnd_helper_flutter/models/enums/ideology.dart';
+// import 'package:dnd_helper_flutter/models/enums/skills.dart';
+// import 'package:dnd_helper_flutter/models/race_data/race_data.dart';
+// import 'package:flutter/foundation.dart';
 import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
-import 'package:dnd_helper_flutter/models/class_data/class_data.dart';
-import 'package:dnd_helper_flutter/models/coins_data/coins_data.dart';
-import 'package:dnd_helper_flutter/models/enums/attributes.dart';
-import 'package:dnd_helper_flutter/models/enums/dice.dart';
-import 'package:dnd_helper_flutter/models/enums/ideology.dart';
-import 'package:dnd_helper_flutter/models/enums/skills.dart';
-import 'package:dnd_helper_flutter/models/race_data/race_data.dart';
-import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 // import 'package:universal_html/html.dart' as web;
 
@@ -34,98 +34,72 @@ part 'character_repository.g.dart';
 class CharacterRepository extends _$CharacterRepository {
   @override
   FutureOr<List<CharacterData>> build() async {
-    // TODO get characters from server
-
-    return [
-      if (kDebugMode)
-        const CharacterData(
-          id: '1',
-          characterName: 'Aragorn',
-          characterRace: RaceData(name: 'Human', imageLink: 'link_to_image'),
-          subrace: null,
-          characterClass: ClassData(
-            id: '1',
-            name: 'Ranger',
-            subClasses: [],
-            savingThrows: [Attributes.dexterity, Attributes.wisdom],
-            hitDice: Dice.d10,
-            proficienciesWeapons: ['Simple weapons', 'Martial weapons'],
-            proficienciesArmor: ['Light armor', 'Medium armor', 'Shields'],
-            startEquipment: [
-              ['Longbow', 'Quiver of 20 arrows']
-            ],
-            classFeatures: {},
-            description:
-                'A warrior who uses martial prowess and nature magic to combat threats on the edges of civilization.',
-            imageLink: 'link_to_image',
-            source: 'Player\'s Handbook',
-          ),
-          subclass: null,
-          background: BackgroundData(description: 'Noble'),
-          experience: 5000,
-          diceHit: Dice.d10,
-          maxHitPoints: 50,
-          currentHitPoints: 45,
-          temporaryHitPoints: 5,
-          speed: 30,
-          armorClass: 16,
-          inspiration: true,
-          conditions: null,
-          exhaustion: 1,
-          attributes: {
-            Attributes.strength: 15,
-            Attributes.dexterity: 14,
-            Attributes.constitution: 13,
-            Attributes.intelligence: 12,
-            Attributes.wisdom: 10,
-            Attributes.charisma: 8,
-          },
-          savingThrows: [Attributes.strength, Attributes.dexterity],
-          skillsProficiency: [Skills.acrobatics, Skills.perception],
-          skillsExpertise: [Skills.survival],
-          attacks: [
-            ArmsData(),
-          ],
-          preparedSpells: [],
-          knownSpells: [],
-          spellcastingAttribute: null,
-          spellSlots: {1: 4, 2: 2},
-          languages: ['Common', 'Elvish'],
-          tools: ['Herbalism Kit'],
-          weapons: ['Longsword', 'Bow'],
-          ideology: Ideology.chaoticGood,
-          biography: 'Born to lead and protect his people.',
-          weight: '85kg',
-          height: '6ft',
-          age: '87',
-          hairColor: 'Dark',
-          eyeColor: 'Gray',
-          skinColor: 'Fair',
-          alliesAndOrganizations: 'Fellowship of the Ring',
-          purpose: 'Reclaim the throne of Gondor.',
-          ideals: 'Courage and honor.',
-          bonds: 'Protect his friends.',
-          flaws: 'Sometimes doubts himself.',
-          notes: 'Loyal to his friends and people.',
-          coins: CoinsData(
-            copper: 0,
-          ),
-          equipment: ['Ranger\'s outfit', 'Traveling gear'],
-          treasures: ['Andúril', 'Ring of Barahir'],
-        )
-    ];
+    final auth = await ref.watch(authRepositoryProvider.future);
+    if (!auth.isSuccess) {
+      return [];
+    }
+    final charactersJson = await ref.read(sendGetRequestProvider(
+      path: '/api/Character/GetUserCharacters',
+      authKey: auth.authKey!,
+    ).future);
+    if (charactersJson.body.isEmpty) {
+      return [];
+    }
+    return (jsonDecode(charactersJson.body) as List)
+        .map((e) => CharacterData.fromJson(e))
+        .toList();
   }
 
-  FutureOr<CharacterData> saveCharacter(CharacterData character) {
-    final characterWithId = character.copyWith(id: '${DateTime.now()}');
+  FutureOr<CharacterData> saveCharacter(CharacterData character) async {
+    late final Future<CharacterData> updatedCharacter;
+    if (character.id != null) {
+      updatedCharacter = _updateCharacter(character);
+    } else {
+      updatedCharacter = _createCharacter(character);
+    }
     state = AsyncData([
-      characterWithId,
+      await updatedCharacter,
       ...state.value?.where((element) => element.id != character.id) ?? [],
     ]);
-    return characterWithId;
+    return updatedCharacter;
+  }
+
+  Future<CharacterData> _createCharacter(CharacterData character) async {
+    if (ref.read(authRepositoryProvider).value?.authKey == null ||
+        character.id == null) {
+      throw Exception('No auth key or character id');
+    }
+    final response = await ref.read(
+      sendPostRequestProvider(
+        path: '/api/Character/Create',
+        authKey: ref.read(authRepositoryProvider).value!.authKey,
+        parametersString: jsonEncode(character.toJson()),
+      ).future,
+    );
+    return CharacterData.fromJson(jsonDecode(response.body));
+  }
+
+  Future<CharacterData> _updateCharacter(CharacterData character) async {
+    if (ref.read(authRepositoryProvider).value?.authKey == null ||
+        character.id == null) {
+      throw Exception('No auth key or character id');
+    }
+    final response = await ref.read(sendPostRequestProvider(
+      path: '/api/Character/Update',
+      authKey: ref.read(authRepositoryProvider).value!.authKey,
+      parametersString: jsonEncode(character.toJson()),
+    ).future);
+    return CharacterData.fromJson(jsonDecode(response.body));
   }
 
   FutureOr<bool> deleteCharacter(String id) {
+    if (ref.read(authRepositoryProvider).value?.authKey == null || id.isEmpty) {
+      throw Exception('No auth key');
+    }
+    ref.read(sendDeleteRequestProvider(
+      path: '/api/Character/Delete',
+      parameters: {'characterId': id},
+    ).future);
     state = AsyncData(
       state.value!.where((element) => element.id != id).toList(),
     );

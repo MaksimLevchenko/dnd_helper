@@ -4,7 +4,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'client_repository.g.dart';
 
-const serverUrl = '146.66.198.47:5005';
+// const serverUrl = '146.66.198.47:5005';
+const serverUrl = 'dnd-grokes.amvera.io';
 
 @riverpod
 FutureOr<Response> sendPostRequest(
@@ -17,9 +18,12 @@ FutureOr<Response> sendPostRequest(
   // authKey ??= ref.read(authRepositoryProvider).value?.authKey;
   parametersString ??=
       '{${parameters?.entries.map((entry) => '"${entry.key}": "${entry.value}"').join(',')}}';
+  if (parametersString == '{}') {
+    throw Exception('No parameters');
+  }
   // log('json: $parametersString');
   final response = await post(
-    Uri.http(serverUrl, path),
+    Uri.https(serverUrl, path),
     body: '''
   $parametersString
 ''',
@@ -35,6 +39,36 @@ FutureOr<Response> sendPostRequest(
 }
 
 @riverpod
+FutureOr<Response> sendDeleteRequest(
+  Ref ref, {
+  required String path,
+  Map<String, dynamic>? parameters,
+  String? parametersString,
+  String? authKey,
+}) async {
+  // authKey ??= ref.read(authRepositoryProvider).value?.authKey;
+  parametersString ??=
+      '{${parameters?.entries.map((entry) => '"${entry.key}": "${entry.value}"').join(',')}}';
+  if (parametersString == '{}') {
+    throw Exception('No parameters');
+  }
+  final response = await delete(
+    Uri.https(serverUrl, path),
+    body: parametersString,
+    headers: {
+      'User-Agent':
+          'Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0',
+      'Connection': 'keep-alive',
+      'Accept': '*/*',
+      'Content-Type': 'application/json',
+      if (authKey != null) 'auth': authKey,
+    },
+  );
+
+  return response;
+}
+
+@riverpod
 FutureOr<Response> sendGetRequest(
   Ref ref, {
   required String path,
@@ -42,7 +76,7 @@ FutureOr<Response> sendGetRequest(
 }) async {
   // authKey ??= ref.read(authRepositoryProvider).value?.authKey;
   final response = await get(
-    Uri.http(serverUrl, path),
+    Uri.https(serverUrl, path),
     headers: {
       'User-Agent':
           'Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0',
