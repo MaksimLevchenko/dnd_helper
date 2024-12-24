@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
+import 'package:dnd_helper_flutter/data/character_repository/character_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -14,7 +17,7 @@ class PagesState extends _$PagesState {
         await ref.watch(characterSheetStateProvider(characterId).future);
     final data = characterState.characterData;
     TextEditingController createController([String? text]) =>
-        TextEditingController(text: text);
+        TextEditingController(text: text ?? '');
 
     return PagesStateModel(
       characterId: characterId,
@@ -35,7 +38,21 @@ class PagesState extends _$PagesState {
     );
   }
 
-  void onControllerChange() {}
+  void savePersonal(String characterId) {
+    ref.read(characterSheetStateProvider(characterId).notifier).savePersonal(
+        state.value!.biographyController.text,
+        state.value!.weightController.text,
+        state.value!.heightController.text,
+        state.value!.ageController.text,
+        state.value!.hairColorController.text,
+        state.value!.eyeColorController.text,
+        state.value!.skinColorController.text,
+        state.value!.alliesAndOrganizationsController.text,
+        state.value!.purposeController.text,
+        state.value!.idealsController.text,
+        state.value!.bondsController.text,
+        state.value!.flawsController.text);
+  }
 }
 
 @freezed

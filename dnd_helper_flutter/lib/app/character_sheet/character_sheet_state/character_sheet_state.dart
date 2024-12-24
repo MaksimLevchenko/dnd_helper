@@ -21,6 +21,42 @@ class CharacterSheetState extends _$CharacterSheetState {
     return CharacterSheetParameters(characterData: characterData);
   }
 
+  savePersonal(
+    String biography,
+    String weight,
+    String height,
+    String age,
+    String hairColor,
+    String eyeColor,
+    String skinColor,
+    String alliesAndOrganizations,
+    String purpose,
+    String ideals,
+    String bonds,
+    String flaws,
+  ) {
+    state = state.whenData((parameters) {
+      final updatedCharacterData = parameters.characterData.copyWith(
+        biography: biography,
+        weight: weight,
+        height: height,
+        age: age,
+        hairColor: hairColor,
+        eyeColor: eyeColor,
+        skinColor: skinColor,
+        alliesAndOrganizations: alliesAndOrganizations,
+        purpose: purpose,
+        ideals: ideals,
+        bonds: bonds,
+        flaws: flaws,
+      );
+      ref
+          .read(characterRepositoryProvider.notifier)
+          .saveCharacter(updatedCharacterData);
+      return CharacterSheetParameters(characterData: updatedCharacterData);
+    });
+  }
+
   void toggleInspiration() {
     state = state.whenData((parameters) {
       final updatedCharacterData = parameters.characterData.copyWith(

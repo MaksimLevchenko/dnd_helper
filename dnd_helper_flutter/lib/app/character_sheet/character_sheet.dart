@@ -102,17 +102,21 @@ class CharacterSheet extends ConsumerWidget {
         );
       },
       loading: () => const CircularProgressIndicator(),
-      error: (err, stack) => Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Произошла ошибка'),
-            Button(
-              onPressed: () =>
-                  ref.refresh(characterSheetStateProvider(characterId)),
-              text: 'Повторить',
-            ),
-          ],
+      error: (err, stack) => Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text('Произошла ошибка'),
+              Text('$err'),
+              Text('$stack'),
+              Button(
+                onPressed: () =>
+                    ref.refresh(characterSheetStateProvider(characterId)),
+                text: 'Повторить',
+              ),
+            ],
+          ),
         ),
       ),
     );
