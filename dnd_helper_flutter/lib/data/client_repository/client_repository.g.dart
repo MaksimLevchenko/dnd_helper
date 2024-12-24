@@ -206,7 +206,7 @@ class _SendPostRequestProviderElement
   String? get authKey => (origin as SendPostRequestProvider).authKey;
 }
 
-String _$sendDeleteRequestHash() => r'13321fb4a91ae7bba5cfc817b4e6eb1e7409917a';
+String _$sendDeleteRequestHash() => r'd5c80c6fc7575a40039d89efd692b388d83ecbe4';
 
 /// See also [sendDeleteRequest].
 @ProviderFor(sendDeleteRequest)
@@ -220,14 +220,12 @@ class SendDeleteRequestFamily extends Family<AsyncValue<Response>> {
   /// See also [sendDeleteRequest].
   SendDeleteRequestProvider call({
     required String path,
-    Map<String, dynamic>? parameters,
-    String? parametersString,
+    required Map<String, dynamic> query,
     String? authKey,
   }) {
     return SendDeleteRequestProvider(
       path: path,
-      parameters: parameters,
-      parametersString: parametersString,
+      query: query,
       authKey: authKey,
     );
   }
@@ -238,8 +236,7 @@ class SendDeleteRequestFamily extends Family<AsyncValue<Response>> {
   ) {
     return call(
       path: provider.path,
-      parameters: provider.parameters,
-      parametersString: provider.parametersString,
+      query: provider.query,
       authKey: provider.authKey,
     );
   }
@@ -264,15 +261,13 @@ class SendDeleteRequestProvider extends AutoDisposeFutureProvider<Response> {
   /// See also [sendDeleteRequest].
   SendDeleteRequestProvider({
     required String path,
-    Map<String, dynamic>? parameters,
-    String? parametersString,
+    required Map<String, dynamic> query,
     String? authKey,
   }) : this._internal(
           (ref) => sendDeleteRequest(
             ref as SendDeleteRequestRef,
             path: path,
-            parameters: parameters,
-            parametersString: parametersString,
+            query: query,
             authKey: authKey,
           ),
           from: sendDeleteRequestProvider,
@@ -285,8 +280,7 @@ class SendDeleteRequestProvider extends AutoDisposeFutureProvider<Response> {
           allTransitiveDependencies:
               SendDeleteRequestFamily._allTransitiveDependencies,
           path: path,
-          parameters: parameters,
-          parametersString: parametersString,
+          query: query,
           authKey: authKey,
         );
 
@@ -298,14 +292,12 @@ class SendDeleteRequestProvider extends AutoDisposeFutureProvider<Response> {
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.path,
-    required this.parameters,
-    required this.parametersString,
+    required this.query,
     required this.authKey,
   }) : super.internal();
 
   final String path;
-  final Map<String, dynamic>? parameters;
-  final String? parametersString;
+  final Map<String, dynamic> query;
   final String? authKey;
 
   @override
@@ -322,8 +314,7 @@ class SendDeleteRequestProvider extends AutoDisposeFutureProvider<Response> {
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         path: path,
-        parameters: parameters,
-        parametersString: parametersString,
+        query: query,
         authKey: authKey,
       ),
     );
@@ -338,8 +329,7 @@ class SendDeleteRequestProvider extends AutoDisposeFutureProvider<Response> {
   bool operator ==(Object other) {
     return other is SendDeleteRequestProvider &&
         other.path == path &&
-        other.parameters == parameters &&
-        other.parametersString == parametersString &&
+        other.query == query &&
         other.authKey == authKey;
   }
 
@@ -347,8 +337,7 @@ class SendDeleteRequestProvider extends AutoDisposeFutureProvider<Response> {
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, path.hashCode);
-    hash = _SystemHash.combine(hash, parameters.hashCode);
-    hash = _SystemHash.combine(hash, parametersString.hashCode);
+    hash = _SystemHash.combine(hash, query.hashCode);
     hash = _SystemHash.combine(hash, authKey.hashCode);
 
     return _SystemHash.finish(hash);
@@ -359,11 +348,8 @@ mixin SendDeleteRequestRef on AutoDisposeFutureProviderRef<Response> {
   /// The parameter `path` of this provider.
   String get path;
 
-  /// The parameter `parameters` of this provider.
-  Map<String, dynamic>? get parameters;
-
-  /// The parameter `parametersString` of this provider.
-  String? get parametersString;
+  /// The parameter `query` of this provider.
+  Map<String, dynamic> get query;
 
   /// The parameter `authKey` of this provider.
   String? get authKey;
@@ -377,11 +363,7 @@ class _SendDeleteRequestProviderElement
   @override
   String get path => (origin as SendDeleteRequestProvider).path;
   @override
-  Map<String, dynamic>? get parameters =>
-      (origin as SendDeleteRequestProvider).parameters;
-  @override
-  String? get parametersString =>
-      (origin as SendDeleteRequestProvider).parametersString;
+  Map<String, dynamic> get query => (origin as SendDeleteRequestProvider).query;
   @override
   String? get authKey => (origin as SendDeleteRequestProvider).authKey;
 }

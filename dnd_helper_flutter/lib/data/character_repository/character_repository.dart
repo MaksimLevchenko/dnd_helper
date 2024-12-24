@@ -75,7 +75,7 @@ class CharacterRepository extends _$CharacterRepository {
         parametersString: jsonEncode(character.toJson()),
       ).future,
     );
-    return CharacterData.fromJson(jsonDecode(response.body));
+    return character.copyWith(id: response.body);
   }
 
   Future<CharacterData> _updateCharacter(CharacterData character) async {
@@ -88,7 +88,7 @@ class CharacterRepository extends _$CharacterRepository {
       authKey: ref.read(authRepositoryProvider).value!.authKey,
       parametersString: jsonEncode(character.toJson()),
     ).future);
-    return CharacterData.fromJson(jsonDecode(response.body));
+    return character;
   }
 
   FutureOr<bool> deleteCharacter(String id) {
@@ -97,7 +97,8 @@ class CharacterRepository extends _$CharacterRepository {
     }
     ref.read(sendDeleteRequestProvider(
       path: '/api/Character/Delete',
-      parameters: {'characterId': id},
+      query: {'characterId': id},
+      authKey: ref.read(authRepositoryProvider).value!.authKey,
     ).future);
     state = AsyncData(
       state.value!.where((element) => element.id != id).toList(),

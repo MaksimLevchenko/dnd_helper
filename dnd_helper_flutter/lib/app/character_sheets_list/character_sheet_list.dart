@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dnd_helper_flutter/app/widgets/app_scaffold.dart';
+import 'package:dnd_helper_flutter/app/widgets/sign_in_button.dart';
 import 'package:dnd_helper_flutter/data/auth_repository/auth_repository.dart';
 import 'package:dnd_helper_flutter/data/character_repository/character_repository.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,22 @@ class CharacterSheetList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    if (ref.watch(authRepositoryProvider).value?.isSuccess != true) {
+      return const AppScaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Вы не авторизованы, пожалуйста, войдите.',
+                textAlign: TextAlign.center,
+              ),
+              SignInButton(),
+            ],
+          ),
+        ),
+      );
+    }
     return AppScaffold(
       body: Center(
         child: Column(
@@ -60,7 +77,8 @@ class CharacterSheetList extends ConsumerWidget {
                                               .read(characterRepositoryProvider
                                                   .notifier)
                                               .deleteCharacter(
-                                                  state[index].id!);
+                                                state[index].id!,
+                                              );
                                           Navigator.of(context).pop();
                                         },
                                         child: const Text('Да'),
