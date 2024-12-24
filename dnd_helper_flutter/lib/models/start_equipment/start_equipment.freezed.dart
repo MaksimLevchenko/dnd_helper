@@ -24,12 +24,8 @@ mixin _$StartEquipment {
   List<ArmsData>? get arms => throw _privateConstructorUsedError;
   List<ArmorData>? get armor => throw _privateConstructorUsedError;
 
-  /// Serializes this StartEquipment to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of StartEquipment
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $StartEquipmentCopyWith<StartEquipment> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,8 +52,6 @@ class _$StartEquipmentCopyWithImpl<$Res, $Val extends StartEquipment>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of StartEquipment
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -104,8 +98,6 @@ class __$$StartEquipmentImplCopyWithImpl<$Res>
       _$StartEquipmentImpl _value, $Res Function(_$StartEquipmentImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of StartEquipment
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -189,7 +181,7 @@ class _$StartEquipmentImpl implements _StartEquipment {
             const DeepCollectionEquality().equals(other._armor, _armor));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -197,9 +189,7 @@ class _$StartEquipmentImpl implements _StartEquipment {
       const DeepCollectionEquality().hash(_arms),
       const DeepCollectionEquality().hash(_armor));
 
-  /// Create a copy of StartEquipment
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$StartEquipmentImplCopyWith<_$StartEquipmentImpl> get copyWith =>
@@ -229,11 +219,8 @@ abstract class _StartEquipment implements StartEquipment {
   List<ArmsData>? get arms;
   @override
   List<ArmorData>? get armor;
-
-  /// Create a copy of StartEquipment
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$StartEquipmentImplCopyWith<_$StartEquipmentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

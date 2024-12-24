@@ -23,12 +23,8 @@ mixin _$EquipmentData {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
 
-  /// Serializes this EquipmentData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of EquipmentData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $EquipmentDataCopyWith<EquipmentData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,8 +48,6 @@ class _$EquipmentDataCopyWithImpl<$Res, $Val extends EquipmentData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of EquipmentData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,8 +86,6 @@ class __$$EquipmentDataImplCopyWithImpl<$Res>
       _$EquipmentDataImpl _value, $Res Function(_$EquipmentDataImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of EquipmentData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -141,13 +133,11 @@ class _$EquipmentDataImpl implements _EquipmentData {
                 other.description == description));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, description);
 
-  /// Create a copy of EquipmentData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$EquipmentDataImplCopyWith<_$EquipmentDataImpl> get copyWith =>
@@ -173,11 +163,8 @@ abstract class _EquipmentData implements EquipmentData {
   String get name;
   @override
   String get description;
-
-  /// Create a copy of EquipmentData
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$EquipmentDataImplCopyWith<_$EquipmentDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

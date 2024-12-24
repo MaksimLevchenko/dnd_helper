@@ -33,6 +33,25 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyB6Er_rZIYedq5jOw_3TWr7BnVwFE5IqVY",
+      authDomain: "dnd-helper-app-guap-project.firebaseapp.com",
+      projectId: "dnd-helper-app-guap-project",
+      storageBucket: "dnd-helper-app-guap-project.firebasestorage.app",
+      messagingSenderId: "569634408498",
+      appId: "1:569634408498:web:0520d5b38591aec654942b"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

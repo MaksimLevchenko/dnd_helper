@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "569634408498",
+    "project_id": "dnd-helper-app-guap-project",
+    "storage_bucket": "dnd-helper-app-guap-project.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569634408498:android:0c70c3056b18a08f54942b",
+        "android_client_info": {
+          "package_name": "com.example.dnd_helper_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdBgJxxgoWBP2hRTBaQTvkFKmUiTJ_qmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

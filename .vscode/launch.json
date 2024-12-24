@@ -25,7 +25,7 @@
             "name": "backend",
             "type": "dotnet",
             "request": "launch",
-            "projectPath": "${workspaceFolder}\\dnd_helper_backend\\dnd_helper_backend\\dnd_helper_backend.csproj"
+            "projectPath": "${workspaceFolder}\\dnd_helper_backend\\dnd_helper_backend.Api\\dnd_helper_backend.Api.csproj"
         }
     ]
     ,"compounds": [

@@ -18,7 +18,7 @@ class SpellsData with _$SpellsData {
   const factory SpellsData({
     @Default('name') String name,
     int? level,
-    MagicScools? school,
+    MagicSchools? school,
     bool? isVerbal,
     bool? isSomatic,
     bool? isMaterial,

@@ -10,7 +10,7 @@ _$SpellsDataImpl _$$SpellsDataImplFromJson(Map<String, dynamic> json) =>
     _$SpellsDataImpl(
       name: json['name'] as String? ?? 'name',
       level: (json['level'] as num?)?.toInt(),
-      school: $enumDecodeNullable(_$MagicScoolsEnumMap, json['school']),
+      school: $enumDecodeNullable(_$MagicSchoolsEnumMap, json['school']),
       isVerbal: json['isVerbal'] as bool?,
       isSomatic: json['isSomatic'] as bool?,
       isMaterial: json['isMaterial'] as bool?,
@@ -48,7 +48,7 @@ Map<String, dynamic> _$$SpellsDataImplToJson(_$SpellsDataImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'level': instance.level,
-      'school': _$MagicScoolsEnumMap[instance.school],
+      'school': _$MagicSchoolsEnumMap[instance.school],
       'isVerbal': instance.isVerbal,
       'isSomatic': instance.isSomatic,
       'isMaterial': instance.isMaterial,
@@ -75,15 +75,15 @@ Map<String, dynamic> _$$SpellsDataImplToJson(_$SpellsDataImpl instance) =>
       'source': instance.source,
     };
 
-const _$MagicScoolsEnumMap = {
-  MagicScools.abjuration: 'abjuration',
-  MagicScools.conjuration: 'conjuration',
-  MagicScools.divination: 'divination',
-  MagicScools.enchantment: 'enchantment',
-  MagicScools.evocation: 'evocation',
-  MagicScools.illusion: 'illusion',
-  MagicScools.necromancy: 'necromancy',
-  MagicScools.transmutation: 'transmutation',
+const _$MagicSchoolsEnumMap = {
+  MagicSchools.abjuration: 'abjuration',
+  MagicSchools.conjuration: 'conjuration',
+  MagicSchools.divination: 'divination',
+  MagicSchools.enchantment: 'enchantment',
+  MagicSchools.evocation: 'evocation',
+  MagicSchools.illusion: 'illusion',
+  MagicSchools.necromancy: 'necromancy',
+  MagicSchools.transmutation: 'transmutation',
 };
 
 const _$CastingResourceEnumMap = {

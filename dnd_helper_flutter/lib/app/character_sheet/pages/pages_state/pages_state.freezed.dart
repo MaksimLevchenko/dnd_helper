@@ -43,9 +43,7 @@ mixin _$PagesStateModel {
   TextEditingController get flawsController =>
       throw _privateConstructorUsedError;
 
-  /// Create a copy of PagesStateModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $PagesStateModelCopyWith<PagesStateModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -83,8 +81,6 @@ class _$PagesStateModelCopyWithImpl<$Res, $Val extends PagesStateModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of PagesStateModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -197,8 +193,6 @@ class __$$PagesStateModelImplCopyWithImpl<$Res>
       _$PagesStateModelImpl _value, $Res Function(_$PagesStateModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of PagesStateModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -386,9 +380,7 @@ class _$PagesStateModelImpl implements _PagesStateModel {
       bondsController,
       flawsController);
 
-  /// Create a copy of PagesStateModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$PagesStateModelImplCopyWith<_$PagesStateModelImpl> get copyWith =>
@@ -442,11 +434,8 @@ abstract class _PagesStateModel implements PagesStateModel {
   TextEditingController get bondsController;
   @override
   TextEditingController get flawsController;
-
-  /// Create a copy of PagesStateModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$PagesStateModelImplCopyWith<_$PagesStateModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
