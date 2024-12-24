@@ -5,26 +5,6 @@ import 'dart:developer';
 import 'package:dnd_helper_flutter/app/widgets/app_scaffold.dart';
 import 'package:dnd_helper_flutter/data/auth_repository/auth_repository.dart';
 import 'package:dnd_helper_flutter/data/character_repository/character_repository.dart';
-import 'package:dnd_helper_flutter/data/client_repository/client_repository.dart';
-import 'package:dnd_helper_flutter/models/arms_data/arms_data.dart';
-import 'package:dnd_helper_flutter/models/attacks_data/attacks_data.dart';
-import 'package:dnd_helper_flutter/models/background_data/background_data.dart';
-import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
-import 'package:dnd_helper_flutter/models/class_data/class_data.dart';
-import 'package:dnd_helper_flutter/models/class_data/subclass_data.dart';
-import 'package:dnd_helper_flutter/models/coins_data/coins_data.dart';
-import 'package:dnd_helper_flutter/models/enums/actions.dart';
-import 'package:dnd_helper_flutter/models/enums/attributes.dart';
-import 'package:dnd_helper_flutter/models/enums/conditions.dart';
-import 'package:dnd_helper_flutter/models/enums/damage_types.dart';
-import 'package:dnd_helper_flutter/models/enums/dice.dart';
-import 'package:dnd_helper_flutter/models/enums/ideology.dart';
-import 'package:dnd_helper_flutter/models/enums/skills.dart';
-import 'package:dnd_helper_flutter/models/enums/spells_enums/magic_scools.dart';
-import 'package:dnd_helper_flutter/models/race_data/race_data.dart';
-import 'package:dnd_helper_flutter/models/race_data/subrace_data.dart';
-import 'package:dnd_helper_flutter/models/spells_data/spells_data.dart';
-import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -39,7 +19,13 @@ class CharacterSheetList extends ConsumerWidget {
         child: Column(
           children: [
             // const ToMasterPage(),
-            const Text("here will be a list of character sheets"),
+            ListTile(
+              onTap: () {
+                context.push('/creation_class');
+              },
+              title: const Text('Создать персонажа'),
+              titleAlignment: ListTileTitleAlignment.center,
+            ),
             ref.watch(characterRepositoryProvider).when(
                   error: (error, stackTrace) {
                     return Text('Error: $error');
@@ -58,21 +44,44 @@ class CharacterSheetList extends ConsumerWidget {
                             GoRouter.of(context).goNamed('characterSheet',
                                 pathParameters: {'id': state[index].id!});
                           },
-                          title: Text('Sheet ${state[index].characterName}'),
+                          title: Text('${state[index].characterName}'),
+                          trailing: IconButton(
+                            icon: const Icon(Icons.close),
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    title: const Text('Удалить персонажа?'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          ref
+                                              .read(characterRepositoryProvider
+                                                  .notifier)
+                                              .deleteCharacter(
+                                                  state[index].id!);
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: const Text('Да'),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: const Text('Нет'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                          ),
                         ),
                       ),
                     );
                   },
                 ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Button(
-                onPressed: () {
-                  context.push('/creation_class');
-                },
-                text: 'to creation',
-              ),
-            ),
           ],
         ),
       ),

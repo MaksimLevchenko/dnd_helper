@@ -24,19 +24,9 @@ class Personality extends ConsumerWidget {
                 MultilineTextField(
                   controller: data.biographyController,
                   labelText: 'Биография',
-                ),
-                Shimmer.fromColors(
-                  baseColor: Theme.of(context).colorScheme.secondary,
-                  highlightColor: Theme.of(context).colorScheme.primary,
-                  child: Container(
-                    width: double.infinity,
-                    height: 50,
-                    margin: const EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(6.0),
-                    ),
-                  ),
+                  onEditingComplete: (text) => ref
+                      .read(pagesStateProvider(characterId).notifier)
+                      .savePersonal(characterId),
                 ),
               ],
             );
