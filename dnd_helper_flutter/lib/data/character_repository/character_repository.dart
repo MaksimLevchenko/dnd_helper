@@ -75,7 +75,11 @@ class CharacterRepository extends _$CharacterRepository {
         parametersString: jsonEncode(character.toJson()),
       ).future,
     );
-    return CharacterData.fromJson(jsonDecode(response.body));
+    state = AsyncData([
+      character.copyWith(id: response.body),
+      ...state.value!,
+    ]);
+    return character.copyWith(id: response.body);
   }
 
   Future<CharacterData> _updateCharacter(CharacterData character) async {
@@ -88,7 +92,7 @@ class CharacterRepository extends _$CharacterRepository {
       authKey: ref.read(authRepositoryProvider).value!.authKey,
       parametersString: jsonEncode(character.toJson()),
     ).future);
-    return CharacterData.fromJson(jsonDecode(response.body));
+    return character;
   }
 
   FutureOr<bool> deleteCharacter(String id) {
