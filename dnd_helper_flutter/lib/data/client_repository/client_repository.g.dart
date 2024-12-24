@@ -6,7 +6,7 @@ part of 'client_repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$sendPostRequestHash() => r'1cb24834fc5d1fc2f37294746641b75bd3e443a4';
+String _$sendPostRequestHash() => r'7bebc6230a3211b71cf9dbb475f1c63666ca0086';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -41,12 +41,14 @@ class SendPostRequestFamily extends Family<AsyncValue<Response>> {
   /// See also [sendPostRequest].
   SendPostRequestProvider call({
     required String path,
-    Map<String, Object>? parameters,
+    Map<String, dynamic>? parameters,
+    String? parametersString,
     String? authKey,
   }) {
     return SendPostRequestProvider(
       path: path,
       parameters: parameters,
+      parametersString: parametersString,
       authKey: authKey,
     );
   }
@@ -58,6 +60,7 @@ class SendPostRequestFamily extends Family<AsyncValue<Response>> {
     return call(
       path: provider.path,
       parameters: provider.parameters,
+      parametersString: provider.parametersString,
       authKey: provider.authKey,
     );
   }
@@ -82,13 +85,15 @@ class SendPostRequestProvider extends AutoDisposeFutureProvider<Response> {
   /// See also [sendPostRequest].
   SendPostRequestProvider({
     required String path,
-    Map<String, Object>? parameters,
+    Map<String, dynamic>? parameters,
+    String? parametersString,
     String? authKey,
   }) : this._internal(
           (ref) => sendPostRequest(
             ref as SendPostRequestRef,
             path: path,
             parameters: parameters,
+            parametersString: parametersString,
             authKey: authKey,
           ),
           from: sendPostRequestProvider,
@@ -102,6 +107,7 @@ class SendPostRequestProvider extends AutoDisposeFutureProvider<Response> {
               SendPostRequestFamily._allTransitiveDependencies,
           path: path,
           parameters: parameters,
+          parametersString: parametersString,
           authKey: authKey,
         );
 
@@ -114,11 +120,13 @@ class SendPostRequestProvider extends AutoDisposeFutureProvider<Response> {
     required super.from,
     required this.path,
     required this.parameters,
+    required this.parametersString,
     required this.authKey,
   }) : super.internal();
 
   final String path;
-  final Map<String, Object>? parameters;
+  final Map<String, dynamic>? parameters;
+  final String? parametersString;
   final String? authKey;
 
   @override
@@ -136,6 +144,7 @@ class SendPostRequestProvider extends AutoDisposeFutureProvider<Response> {
         debugGetCreateSourceHash: null,
         path: path,
         parameters: parameters,
+        parametersString: parametersString,
         authKey: authKey,
       ),
     );
@@ -151,6 +160,7 @@ class SendPostRequestProvider extends AutoDisposeFutureProvider<Response> {
     return other is SendPostRequestProvider &&
         other.path == path &&
         other.parameters == parameters &&
+        other.parametersString == parametersString &&
         other.authKey == authKey;
   }
 
@@ -159,6 +169,7 @@ class SendPostRequestProvider extends AutoDisposeFutureProvider<Response> {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, path.hashCode);
     hash = _SystemHash.combine(hash, parameters.hashCode);
+    hash = _SystemHash.combine(hash, parametersString.hashCode);
     hash = _SystemHash.combine(hash, authKey.hashCode);
 
     return _SystemHash.finish(hash);
@@ -170,7 +181,10 @@ mixin SendPostRequestRef on AutoDisposeFutureProviderRef<Response> {
   String get path;
 
   /// The parameter `parameters` of this provider.
-  Map<String, Object>? get parameters;
+  Map<String, dynamic>? get parameters;
+
+  /// The parameter `parametersString` of this provider.
+  String? get parametersString;
 
   /// The parameter `authKey` of this provider.
   String? get authKey;
@@ -183,13 +197,16 @@ class _SendPostRequestProviderElement
   @override
   String get path => (origin as SendPostRequestProvider).path;
   @override
-  Map<String, Object>? get parameters =>
+  Map<String, dynamic>? get parameters =>
       (origin as SendPostRequestProvider).parameters;
+  @override
+  String? get parametersString =>
+      (origin as SendPostRequestProvider).parametersString;
   @override
   String? get authKey => (origin as SendPostRequestProvider).authKey;
 }
 
-String _$sendGetRequestHash() => r'fe02a9749950b5af74d95be3bbebc3304611bf9d';
+String _$sendGetRequestHash() => r'eda2d00fd9129e62f07694bac3bba68794044b1c';
 
 /// See also [sendGetRequest].
 @ProviderFor(sendGetRequest)

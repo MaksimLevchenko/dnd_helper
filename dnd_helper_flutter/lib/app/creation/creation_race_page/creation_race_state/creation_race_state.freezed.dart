@@ -22,9 +22,7 @@ mixin _$CreationRaceParameters {
   String? get selectedSubraceName => throw _privateConstructorUsedError;
   SubraceData? get selectedSubraceData => throw _privateConstructorUsedError;
 
-  /// Create a copy of CreationRaceParameters
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $CreationRaceParametersCopyWith<CreationRaceParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -57,8 +55,6 @@ class _$CreationRaceParametersCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CreationRaceParameters
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,8 +88,6 @@ class _$CreationRaceParametersCopyWithImpl<$Res,
     ) as $Val);
   }
 
-  /// Create a copy of CreationRaceParameters
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $RaceDataCopyWith<$Res>? get selectedRaceData {
@@ -106,8 +100,6 @@ class _$CreationRaceParametersCopyWithImpl<$Res,
     });
   }
 
-  /// Create a copy of CreationRaceParameters
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SubraceDataCopyWith<$Res>? get selectedSubraceData {
@@ -153,8 +145,6 @@ class __$$CreationRaceParametersImplCopyWithImpl<$Res>
       $Res Function(_$CreationRaceParametersImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CreationRaceParameters
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -247,9 +237,7 @@ class _$CreationRaceParametersImpl implements _CreationRaceParameters {
       selectedSubraceName,
       selectedSubraceData);
 
-  /// Create a copy of CreationRaceParameters
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CreationRaceParametersImplCopyWith<_$CreationRaceParametersImpl>
@@ -275,11 +263,8 @@ abstract class _CreationRaceParameters implements CreationRaceParameters {
   String? get selectedSubraceName;
   @override
   SubraceData? get selectedSubraceData;
-
-  /// Create a copy of CreationRaceParameters
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$CreationRaceParametersImplCopyWith<_$CreationRaceParametersImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

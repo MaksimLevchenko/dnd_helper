@@ -30,12 +30,8 @@ mixin _$RaceData {
   String get imageLink => throw _privateConstructorUsedError;
   String? get source => throw _privateConstructorUsedError;
 
-  /// Serializes this RaceData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of RaceData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $RaceDataCopyWith<RaceData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -67,8 +63,6 @@ class _$RaceDataCopyWithImpl<$Res, $Val extends RaceData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of RaceData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -151,8 +145,6 @@ class __$$RaceDataImplCopyWithImpl<$Res>
       _$RaceDataImpl _value, $Res Function(_$RaceDataImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of RaceData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -312,7 +304,7 @@ class _$RaceDataImpl implements _RaceData {
             (identical(other.source, source) || other.source == source));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -326,9 +318,7 @@ class _$RaceDataImpl implements _RaceData {
       imageLink,
       source);
 
-  /// Create a copy of RaceData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$RaceDataImplCopyWith<_$RaceDataImpl> get copyWith =>
@@ -375,11 +365,8 @@ abstract class _RaceData implements RaceData {
   String get imageLink;
   @override
   String? get source;
-
-  /// Create a copy of RaceData
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$RaceDataImplCopyWith<_$RaceDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

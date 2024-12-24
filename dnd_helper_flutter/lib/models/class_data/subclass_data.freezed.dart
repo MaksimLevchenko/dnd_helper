@@ -31,12 +31,8 @@ mixin _$SubclassData {
       throw _privateConstructorUsedError;
   Map<int, String>? get subclassSkills => throw _privateConstructorUsedError;
 
-  /// Serializes this SubclassData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of SubclassData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $SubclassDataCopyWith<SubclassData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -67,8 +63,6 @@ class _$SubclassDataCopyWithImpl<$Res, $Val extends SubclassData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SubclassData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,8 +133,6 @@ class __$$SubclassDataImplCopyWithImpl<$Res>
       _$SubclassDataImpl _value, $Res Function(_$SubclassDataImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SubclassData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -267,7 +259,7 @@ class _$SubclassDataImpl implements _SubclassData {
                 .equals(other._subclassSkills, _subclassSkills));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -279,9 +271,7 @@ class _$SubclassDataImpl implements _SubclassData {
       const DeepCollectionEquality().hash(_subclassSpells),
       const DeepCollectionEquality().hash(_subclassSkills));
 
-  /// Create a copy of SubclassData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SubclassDataImplCopyWith<_$SubclassDataImpl> get copyWith =>
@@ -315,18 +305,15 @@ abstract class _SubclassData implements SubclassData {
   @override
   String? get description;
   @override
-  String? get parentClass; // lvl: [name: desc, name: desc]
-  @override
+  String? get parentClass;
+  @override // lvl: [name: desc, name: desc]
   Map<int, List<Map<String, String>>>? get subclassFeatures;
   @override
   Map<int, Map<int, String>>? get subclassSpells;
   @override
   Map<int, String>? get subclassSkills;
-
-  /// Create a copy of SubclassData
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SubclassDataImplCopyWith<_$SubclassDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

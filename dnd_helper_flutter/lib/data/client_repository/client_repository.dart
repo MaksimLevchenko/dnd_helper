@@ -1,5 +1,3 @@
-import 'package:dnd_helper_flutter/data/auth_repository/auth_repository.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -12,19 +10,18 @@ const serverUrl = '146.66.198.47:5005';
 FutureOr<Response> sendPostRequest(
   Ref ref, {
   required String path,
-  Map<String, Object>? parameters,
+  Map<String, dynamic>? parameters,
+  String? parametersString,
   String? authKey,
 }) async {
   // authKey ??= ref.read(authRepositoryProvider).value?.authKey;
-  final parametersString = parameters?.entries
-      .map((entry) => '"${entry.key}": "${entry.value}"')
-      .join(',');
+  parametersString ??=
+      '{${parameters?.entries.map((entry) => '"${entry.key}": "${entry.value}"').join(',')}}';
+  // log('json: $parametersString');
   final response = await post(
-    Uri.https(serverUrl, path),
+    Uri.http(serverUrl, path),
     body: '''
-{
   $parametersString
-}
 ''',
     headers: {
       'Accept-Language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6',
@@ -45,7 +42,7 @@ FutureOr<Response> sendGetRequest(
 }) async {
   // authKey ??= ref.read(authRepositoryProvider).value?.authKey;
   final response = await get(
-    Uri.https(serverUrl, path),
+    Uri.http(serverUrl, path),
     headers: {
       'User-Agent':
           'Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0',

@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-enum MagicScools {
+enum MagicSchools {
   @JsonValue('abjuration')
   abjuration,
   @JsonValue('conjuration')
@@ -19,20 +19,20 @@ enum MagicScools {
   transmutation,
 }
 
-/// Converts to and from [MagicScools] and [String]>.
-class MagicScoolsConverter implements JsonConverter<MagicScools?, String?> {
-  /// Create a new instance of [MagicScools].
-  const MagicScoolsConverter();
+/// Converts to and from [MagicSchools] and [String]>.
+class MagicSchoolsConverter implements JsonConverter<MagicSchools?, String?> {
+  /// Create a new instance of [MagicSchools].
+  const MagicSchoolsConverter();
 
   @override
-  MagicScools? fromJson(String? json) {
+  MagicSchools? fromJson(String? json) {
     if (json == null) return null;
-    return MagicScools.values
+    return MagicSchools.values
         .firstWhere((e) => e.toString().split('.').last == json);
   }
 
   @override
-  String? toJson(MagicScools? object) {
+  String? toJson(MagicSchools? object) {
     return object?.toString().split('.').last;
   }
 }

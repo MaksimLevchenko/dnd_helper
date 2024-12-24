@@ -22,9 +22,7 @@ mixin _$WidgetsStateParameters {
   bool get editMode => throw _privateConstructorUsedError;
   String get characterId => throw _privateConstructorUsedError;
 
-  /// Create a copy of WidgetsStateParameters
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $WidgetsStateParametersCopyWith<WidgetsStateParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,8 +52,6 @@ class _$WidgetsStateParametersCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of WidgetsStateParameters
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -117,8 +113,6 @@ class __$$WidgetsStateParametersImplCopyWithImpl<$Res>
       $Res Function(_$WidgetsStateParametersImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of WidgetsStateParameters
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -204,9 +198,7 @@ class _$WidgetsStateParametersImpl implements _WidgetsStateParameters {
   int get hashCode => Object.hash(runtimeType, isTabBarViewVisible,
       selectedPage, selectedAttribute, editMode, characterId);
 
-  /// Create a copy of WidgetsStateParameters
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$WidgetsStateParametersImplCopyWith<_$WidgetsStateParametersImpl>
@@ -232,11 +224,8 @@ abstract class _WidgetsStateParameters implements WidgetsStateParameters {
   bool get editMode;
   @override
   String get characterId;
-
-  /// Create a copy of WidgetsStateParameters
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$WidgetsStateParametersImplCopyWith<_$WidgetsStateParametersImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

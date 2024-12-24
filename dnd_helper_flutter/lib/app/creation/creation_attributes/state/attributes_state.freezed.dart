@@ -19,9 +19,7 @@ mixin _$AttributesStateModel {
   SelectType get selectionType => throw _privateConstructorUsedError;
   Map<Attributes, int> get attributes => throw _privateConstructorUsedError;
 
-  /// Create a copy of AttributesStateModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $AttributesStateModelCopyWith<AttributesStateModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -46,8 +44,6 @@ class _$AttributesStateModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of AttributesStateModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,8 +82,6 @@ class __$$AttributesStateModelImplCopyWithImpl<$Res>
       $Res Function(_$AttributesStateModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AttributesStateModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -147,9 +141,7 @@ class _$AttributesStateModelImpl implements _AttributesStateModel {
   int get hashCode => Object.hash(runtimeType, selectionType,
       const DeepCollectionEquality().hash(_attributes));
 
-  /// Create a copy of AttributesStateModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AttributesStateModelImplCopyWith<_$AttributesStateModelImpl>
@@ -167,11 +159,8 @@ abstract class _AttributesStateModel implements AttributesStateModel {
   SelectType get selectionType;
   @override
   Map<Attributes, int> get attributes;
-
-  /// Create a copy of AttributesStateModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AttributesStateModelImplCopyWith<_$AttributesStateModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

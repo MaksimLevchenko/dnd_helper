@@ -32,12 +32,8 @@ mixin _$ArmsData {
   @Uint8ListConverter()
   Uint8List? get image => throw _privateConstructorUsedError;
 
-  /// Serializes this ArmsData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ArmsData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ArmsDataCopyWith<ArmsData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -71,8 +67,6 @@ class _$ArmsDataCopyWithImpl<$Res, $Val extends ArmsData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ArmsData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -126,8 +120,6 @@ class _$ArmsDataCopyWithImpl<$Res, $Val extends ArmsData>
     ) as $Val);
   }
 
-  /// Create a copy of ArmsData
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CoinsDataCopyWith<$Res>? get price {
@@ -172,8 +164,6 @@ class __$$ArmsDataImplCopyWithImpl<$Res>
       _$ArmsDataImpl _value, $Res Function(_$ArmsDataImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ArmsData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -300,7 +290,7 @@ class _$ArmsDataImpl implements _ArmsData {
             const DeepCollectionEquality().equals(other.image, image));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -314,9 +304,7 @@ class _$ArmsDataImpl implements _ArmsData {
       const DeepCollectionEquality().hash(_armsFeatures),
       const DeepCollectionEquality().hash(image));
 
-  /// Create a copy of ArmsData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ArmsDataImplCopyWith<_$ArmsDataImpl> get copyWith =>
@@ -365,11 +353,8 @@ abstract class _ArmsData implements ArmsData {
   @override
   @Uint8ListConverter()
   Uint8List? get image;
-
-  /// Create a copy of ArmsData
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ArmsDataImplCopyWith<_$ArmsDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -382,9 +367,7 @@ mixin _$StartArms {
       throw _privateConstructorUsedError; // Указывает, что это выбор
   List<ArmsData>? get options => throw _privateConstructorUsedError;
 
-  /// Create a copy of StartArms
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $StartArmsCopyWith<StartArms> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -409,8 +392,6 @@ class _$StartArmsCopyWithImpl<$Res, $Val extends StartArms>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of StartArms
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -434,8 +415,6 @@ class _$StartArmsCopyWithImpl<$Res, $Val extends StartArms>
     ) as $Val);
   }
 
-  /// Create a copy of StartArms
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ArmsDataCopyWith<$Res>? get specificArms {
@@ -471,8 +450,6 @@ class __$$StartArmsImplCopyWithImpl<$Res>
       _$StartArmsImpl _value, $Res Function(_$StartArmsImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of StartArms
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -544,9 +521,7 @@ class _$StartArmsImpl implements _StartArms {
   int get hashCode => Object.hash(runtimeType, specificArms, isOption,
       const DeepCollectionEquality().hash(_options));
 
-  /// Create a copy of StartArms
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$StartArmsImplCopyWith<_$StartArmsImpl> get copyWith =>
@@ -560,16 +535,13 @@ abstract class _StartArms implements StartArms {
       final List<ArmsData>? options}) = _$StartArmsImpl;
 
   @override
-  ArmsData? get specificArms; // Конкретное оружие
-  @override
-  bool get isOption; // Указывает, что это выбор
-  @override
+  ArmsData? get specificArms;
+  @override // Конкретное оружие
+  bool get isOption;
+  @override // Указывает, что это выбор
   List<ArmsData>? get options;
-
-  /// Create a copy of StartArms
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$StartArmsImplCopyWith<_$StartArmsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

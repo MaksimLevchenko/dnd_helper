@@ -26,12 +26,8 @@ mixin _$CoinsData {
   int? get silver => throw _privateConstructorUsedError;
   int? get copper => throw _privateConstructorUsedError;
 
-  /// Serializes this CoinsData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of CoinsData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $CoinsDataCopyWith<CoinsData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,8 +51,6 @@ class _$CoinsDataCopyWithImpl<$Res, $Val extends CoinsData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CoinsData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -111,8 +105,6 @@ class __$$CoinsDataImplCopyWithImpl<$Res>
       _$CoinsDataImpl _value, $Res Function(_$CoinsDataImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CoinsData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -186,14 +178,12 @@ class _$CoinsDataImpl implements _CoinsData {
             (identical(other.copper, copper) || other.copper == copper));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, platinum, electrum, golden, silver, copper);
 
-  /// Create a copy of CoinsData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CoinsDataImplCopyWith<_$CoinsDataImpl> get copyWith =>
@@ -228,11 +218,8 @@ abstract class _CoinsData implements CoinsData {
   int? get silver;
   @override
   int? get copper;
-
-  /// Create a copy of CoinsData
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$CoinsDataImplCopyWith<_$CoinsDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
