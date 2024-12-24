@@ -65,9 +65,8 @@ class CharacterRepository extends _$CharacterRepository {
   }
 
   Future<CharacterData> _createCharacter(CharacterData character) async {
-    if (ref.read(authRepositoryProvider).value?.authKey == null ||
-        character.id == null) {
-      throw Exception('No auth key or character id');
+    if (ref.read(authRepositoryProvider).value?.authKey == null) {
+      throw Exception('No auth key');
     }
     final response = await ref.read(
       sendPostRequestProvider(
