@@ -16,8 +16,6 @@ class SheetHeader extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.read(characterSheetStateProvider(character.id!));
-
     return DefaultTabController(
       length: 6,
       child: Column(
@@ -40,14 +38,14 @@ class SheetHeader extends ConsumerWidget {
                 Column(
                   children: [
                     Text(
-                      characterData.characterName!,
+                      character.characterName!,
                       style: TextStyle(
                         fontSize: 16,
                         color: Theme.of(context).colorScheme.onTertiary,
                       ),
                     ),
                     Text(
-                      "${characterData.characterRace!.name} - ${characterData.characterClass!.name}",
+                      "${character.characterRace!.name} - ${character.characterClass!.name}",
                       style: TextStyle(
                         fontSize: 16,
                         color: Theme.of(context).colorScheme.onTertiary,
