@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
 import 'package:dnd_helper_flutter/data/character_repository/character_repository.dart';
+import 'package:dnd_helper_flutter/models/arms_data/arms_data.dart';
 import 'package:dnd_helper_flutter/models/background_data/background_data.dart';
 import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:dnd_helper_flutter/models/enums/conditions.dart';
@@ -47,34 +48,63 @@ class PagesState extends _$PagesState {
       flawsController: createController(character!.flaws),
       backstoryDescriptionController:
           createController(character?.background?.description),
+      hitPointsController:
+          createController((character?.maxHitPoints ?? 0).toString()),
+      armorClassController:
+          createController((character?.armorClass ?? 10).toString()),
+      speedController: createController((character?.speed ?? 30).toString()),
+      attacksControllers: [
+        for (var i = 0;
+            i <
+                (ref
+                        .watch(characterSheetStateProvider(characterId))
+                        .value!
+                        .characterData
+                        .attacks
+                        ?.length ??
+                    1);
+            i++)
+          createController(character?.attacks?[i].name),
+      ],
     );
   }
 
   void save(String characterId) {
-    future.then((value) {
-      ref
-          .read(characterRepositoryProvider.notifier)
-          .saveCharacter(character!.copyWith(
-            biography: value.biographyController.text,
-            weight: value.weightController.text,
-            height: value.heightController.text,
-            age: value.ageController.text,
-            hairColor: value.hairColorController.text,
-            eyeColor: value.eyeColorController.text,
-            skinColor: value.skinColorController.text,
-            alliesAndOrganizations: value.alliesAndOrganizationsController.text,
-            purpose: value.purposeController.text,
-            ideals: value.idealsController.text,
-            bonds: value.bondsController.text,
-            flaws: value.flawsController.text,
-            background: character?.background?.copyWith(
-                    name: value.backstoryController.text,
-                    description: value.backstoryDescriptionController.text) ??
-                BackgroundData(
-                    name: value.backstoryController.text,
-                    description: value.backstoryDescriptionController.text),
-          ));
-    });
+    future.then(
+      (value) {
+        ref.read(characterRepositoryProvider.notifier).saveCharacter(
+              character!.copyWith(
+                biography: value.biographyController.text,
+                weight: value.weightController.text,
+                height: value.heightController.text,
+                age: value.ageController.text,
+                hairColor: value.hairColorController.text,
+                eyeColor: value.eyeColorController.text,
+                skinColor: value.skinColorController.text,
+                alliesAndOrganizations:
+                    value.alliesAndOrganizationsController.text,
+                purpose: value.purposeController.text,
+                ideals: value.idealsController.text,
+                bonds: value.bondsController.text,
+                flaws: value.flawsController.text,
+                background: character?.background?.copyWith(
+                        name: value.backstoryController.text,
+                        description:
+                            value.backstoryDescriptionController.text) ??
+                    BackgroundData(
+                        name: value.backstoryController.text,
+                        description: value.backstoryDescriptionController.text),
+                maxHitPoints: int.parse(value.hitPointsController.text),
+                armorClass: int.parse(value.armorClassController.text),
+                speed: int.parse(value.speedController.text),
+                attacks: [
+                  for (var controller in value.attacksControllers)
+                    ArmsData(name: controller.text)
+                ],
+              ),
+            );
+      },
+    );
   }
 }
 
@@ -96,5 +126,9 @@ class PagesStateModel with _$PagesStateModel {
     required TextEditingController flawsController,
     required TextEditingController backstoryController,
     required TextEditingController backstoryDescriptionController,
+    required TextEditingController hitPointsController,
+    required TextEditingController armorClassController,
+    required TextEditingController speedController,
+    required List<TextEditingController> attacksControllers,
   }) = _PagesStateModel;
 }
