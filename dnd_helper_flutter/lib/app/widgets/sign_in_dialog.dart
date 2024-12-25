@@ -118,7 +118,7 @@ class _SignInDialogState extends ConsumerState<SignInDialog> {
                   );
                 }
               }
-              context.pop();
+              if (context.mounted) context.pop();
             },
             child: Text(
                 mode == SignInMode.signIn ? 'Войти' : 'Зарегистрироваться'),

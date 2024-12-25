@@ -72,13 +72,18 @@ class CreationPersonal extends ConsumerWidget {
                   const ToBackPageButton(),
                   const Gap(10),
                   Button(
-                    onPressed: () {
-                      ref.read(creationStateProvider.notifier).setPersonal(
-                            controllers,
-                          );
-                      context.push('/creation_summary');
+                    onPressed: () async {
+                      final notifier = ref.read(creationStateProvider.notifier);
+                      final newCharacter = await notifier.saveCharacter();
+
+                      if (context.mounted) {
+                        GoRouter.of(context).goNamed(
+                          'characterSheet',
+                          pathParameters: {'id': newCharacter.id!},
+                        );
+                      }
                     },
-                    text: 'Next',
+                    child: const Text('Save'),
                   ),
                 ],
               ),
