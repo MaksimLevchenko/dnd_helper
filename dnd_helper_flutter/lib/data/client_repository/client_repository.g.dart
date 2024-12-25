@@ -6,7 +6,7 @@ part of 'client_repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$sendPostRequestHash() => r'ec2519fcdec7a198465e5433751894f0d2f993c3';
+String _$sendPostRequestHash() => r'8326d7a73e14b771e4435a32ae5482fbd5dc0201';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -206,7 +206,186 @@ class _SendPostRequestProviderElement
   String? get authKey => (origin as SendPostRequestProvider).authKey;
 }
 
-String _$sendDeleteRequestHash() => r'd5c80c6fc7575a40039d89efd692b388d83ecbe4';
+String _$sendPutRequestHash() => r'e57cd91ba6042b53e92c7857be1b3947c1c6476f';
+
+/// See also [sendPutRequest].
+@ProviderFor(sendPutRequest)
+const sendPutRequestProvider = SendPutRequestFamily();
+
+/// See also [sendPutRequest].
+class SendPutRequestFamily extends Family<AsyncValue<Response>> {
+  /// See also [sendPutRequest].
+  const SendPutRequestFamily();
+
+  /// See also [sendPutRequest].
+  SendPutRequestProvider call({
+    required String path,
+    Map<String, dynamic>? parameters,
+    String? parametersString,
+    String? authKey,
+  }) {
+    return SendPutRequestProvider(
+      path: path,
+      parameters: parameters,
+      parametersString: parametersString,
+      authKey: authKey,
+    );
+  }
+
+  @override
+  SendPutRequestProvider getProviderOverride(
+    covariant SendPutRequestProvider provider,
+  ) {
+    return call(
+      path: provider.path,
+      parameters: provider.parameters,
+      parametersString: provider.parametersString,
+      authKey: provider.authKey,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'sendPutRequestProvider';
+}
+
+/// See also [sendPutRequest].
+class SendPutRequestProvider extends AutoDisposeFutureProvider<Response> {
+  /// See also [sendPutRequest].
+  SendPutRequestProvider({
+    required String path,
+    Map<String, dynamic>? parameters,
+    String? parametersString,
+    String? authKey,
+  }) : this._internal(
+          (ref) => sendPutRequest(
+            ref as SendPutRequestRef,
+            path: path,
+            parameters: parameters,
+            parametersString: parametersString,
+            authKey: authKey,
+          ),
+          from: sendPutRequestProvider,
+          name: r'sendPutRequestProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$sendPutRequestHash,
+          dependencies: SendPutRequestFamily._dependencies,
+          allTransitiveDependencies:
+              SendPutRequestFamily._allTransitiveDependencies,
+          path: path,
+          parameters: parameters,
+          parametersString: parametersString,
+          authKey: authKey,
+        );
+
+  SendPutRequestProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.path,
+    required this.parameters,
+    required this.parametersString,
+    required this.authKey,
+  }) : super.internal();
+
+  final String path;
+  final Map<String, dynamic>? parameters;
+  final String? parametersString;
+  final String? authKey;
+
+  @override
+  Override overrideWith(
+    FutureOr<Response> Function(SendPutRequestRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: SendPutRequestProvider._internal(
+        (ref) => create(ref as SendPutRequestRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        path: path,
+        parameters: parameters,
+        parametersString: parametersString,
+        authKey: authKey,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<Response> createElement() {
+    return _SendPutRequestProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is SendPutRequestProvider &&
+        other.path == path &&
+        other.parameters == parameters &&
+        other.parametersString == parametersString &&
+        other.authKey == authKey;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, path.hashCode);
+    hash = _SystemHash.combine(hash, parameters.hashCode);
+    hash = _SystemHash.combine(hash, parametersString.hashCode);
+    hash = _SystemHash.combine(hash, authKey.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin SendPutRequestRef on AutoDisposeFutureProviderRef<Response> {
+  /// The parameter `path` of this provider.
+  String get path;
+
+  /// The parameter `parameters` of this provider.
+  Map<String, dynamic>? get parameters;
+
+  /// The parameter `parametersString` of this provider.
+  String? get parametersString;
+
+  /// The parameter `authKey` of this provider.
+  String? get authKey;
+}
+
+class _SendPutRequestProviderElement
+    extends AutoDisposeFutureProviderElement<Response> with SendPutRequestRef {
+  _SendPutRequestProviderElement(super.provider);
+
+  @override
+  String get path => (origin as SendPutRequestProvider).path;
+  @override
+  Map<String, dynamic>? get parameters =>
+      (origin as SendPutRequestProvider).parameters;
+  @override
+  String? get parametersString =>
+      (origin as SendPutRequestProvider).parametersString;
+  @override
+  String? get authKey => (origin as SendPutRequestProvider).authKey;
+}
+
+String _$sendDeleteRequestHash() => r'e97331a09bf124f71bb9ffbc3686e110a960f730';
 
 /// See also [sendDeleteRequest].
 @ProviderFor(sendDeleteRequest)
@@ -368,7 +547,7 @@ class _SendDeleteRequestProviderElement
   String? get authKey => (origin as SendDeleteRequestProvider).authKey;
 }
 
-String _$sendGetRequestHash() => r'cad1deea1e3bd2b0084661acd72c45c77d5531e7';
+String _$sendGetRequestHash() => r'1e33afc75890b9560efd80995f70e306b014762f';
 
 /// See also [sendGetRequest].
 @ProviderFor(sendGetRequest)

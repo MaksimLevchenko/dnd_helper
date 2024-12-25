@@ -58,6 +58,10 @@ class CharacterRepository extends _$CharacterRepository {
     } else {
       updatedCharacter = _createCharacter(character);
     }
+    if ((await updatedCharacter).id == null ||
+        (await updatedCharacter).id!.isEmpty) {
+      throw Exception('No updated character');
+    }
     state = AsyncData([
       await updatedCharacter,
       ...state.value?.where((element) => element.id != character.id) ?? [],
@@ -85,7 +89,7 @@ class CharacterRepository extends _$CharacterRepository {
       throw Exception('No auth key or character id');
     }
     log('authKey: ${ref.read(authRepositoryProvider).value!.authKey}');
-    final response = await ref.read(sendPostRequestProvider(
+    final response = await ref.read(sendPutRequestProvider(
       path: '/api/Character/Update',
       authKey: ref.read(authRepositoryProvider).value!.authKey,
       parametersString: jsonEncode(character.toJson()),
