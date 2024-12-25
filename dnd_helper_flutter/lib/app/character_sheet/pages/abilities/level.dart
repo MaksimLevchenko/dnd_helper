@@ -66,6 +66,8 @@ class Level extends ConsumerWidget {
               ),
             ),
             child: ref.watch(characterSheetStateProvider(character.id!)).when(
+                  skipLoadingOnRefresh: true,
+                  skipLoadingOnReload: true,
                   data: (data) => Text(
                     'УРОВЕНЬ: ${data.characterData.level.toString()} ',
                     style: TextStyle(
@@ -97,6 +99,8 @@ class Level extends ConsumerWidget {
               ),
             ),
             child: ref.watch(characterSheetStateProvider(character.id!)).when(
+                  skipLoadingOnRefresh: true,
+                  skipLoadingOnReload: true,
                   data: (data) => Text(
                     data.characterData.nextLevelExperience() != 0
                         ? ' ${data.characterData.experience.toString()} / ${data.characterData.nextLevelExperience().toString()} '

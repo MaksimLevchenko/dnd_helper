@@ -15,6 +15,8 @@ class CharacterSheet extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final characterState = ref.watch(characterSheetStateProvider(characterId));
     return characterState.when(
+      skipLoadingOnRefresh: true,
+      skipLoadingOnReload: true,
       data: (characterState) {
         final widgetsState = ref.watch(
             characterSheetStateProvider(characterState.characterData.id!));

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 // import 'dart:developer';
 // import 'dart:io';
 import 'package:dnd_helper_flutter/data/auth_repository/auth_repository.dart';
@@ -83,11 +84,13 @@ class CharacterRepository extends _$CharacterRepository {
         character.id == null) {
       throw Exception('No auth key or character id');
     }
+    log('authKey: ${ref.read(authRepositoryProvider).value!.authKey}');
     final response = await ref.read(sendPostRequestProvider(
       path: '/api/Character/Update',
       authKey: ref.read(authRepositoryProvider).value!.authKey,
       parametersString: jsonEncode(character.toJson()),
     ).future);
+    log('response: ${response.body}, ${response.statusCode}, ${response.reasonPhrase}');
     return character;
   }
 

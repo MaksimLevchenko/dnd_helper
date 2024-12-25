@@ -10,9 +10,7 @@ FutureOr<CharacterData?> getCharacter(Ref ref, {required String id}) async {
   return ref
       .watch(characterRepositoryProvider)
       .value
-      ?.where((element) => element.id == id)
-      .firstOrNull;
-  // TODO get character from server
+      ?.firstWhere((element) => element.id == id);
   // if (character == null) return null;
   // update repository
 }
