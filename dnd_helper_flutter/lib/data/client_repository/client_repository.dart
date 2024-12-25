@@ -9,6 +9,7 @@ part 'client_repository.g.dart';
 
 // const _serverUrl = '146.66.198.47:5005';
 const _serverUrl = 'dnd-grokes.amvera.io';
+
 Uri _parceUri({required String path, Map<String, dynamic>? parameters}) =>
     Uri.https(
       _serverUrl,
@@ -27,12 +28,12 @@ FutureOr<Response> sendPostRequest(
   // authKey ??= ref.read(authRepositoryProvider).value?.authKey;
   parametersString ??=
       '{${parameters?.entries.map((entry) => '"${entry.key}": "${entry.value}"').join(',')}}';
-  if (parametersString == '{}') {
+  if (parametersString == '{}' || parametersString.isEmpty) {
     throw Exception('No parameters');
   }
   log('json: $parametersString');
   final response = await post(
-    _parceUri(path: path),
+    Uri.https(_serverUrl, path),
     body: '''
   $parametersString
 ''',
@@ -40,6 +41,7 @@ FutureOr<Response> sendPostRequest(
       'Accept-Language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,und;q=0.6',
       'Content-Type': 'application/json',
       'accept': '*/*',
+      'Access-Control-Allow-Origin': '*',
       if (authKey != null) 'auth': authKey,
     },
   );
