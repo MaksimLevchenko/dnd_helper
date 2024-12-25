@@ -17,6 +17,8 @@ class Personality extends ConsumerWidget {
       color: Theme.of(context).colorScheme.surface,
       child: Center(
         child: state.when(
+          skipLoadingOnRefresh: true,
+          skipLoadingOnReload: true,
           data: (data) {
             return Column(
               children: [

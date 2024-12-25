@@ -19,6 +19,8 @@ class AttributesTabBarViewItem extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(characterSheetStateProvider(characterId));
     return state.when(
+      skipLoadingOnRefresh: true,
+      skipLoadingOnReload: true,
       data: (data) {
         final List<Attributes?>? savingThrows = data.characterData.savingThrows;
         final bool isAttributeInSavingThrows =

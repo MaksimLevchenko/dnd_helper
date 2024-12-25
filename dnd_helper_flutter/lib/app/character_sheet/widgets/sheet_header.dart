@@ -16,78 +16,52 @@ class SheetHeader extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.read(characterSheetStateProvider(characterData.id ?? ''));
-
     return DefaultTabController(
       length: 6,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          state.when(
-            data: (data) {
-              return Container(
-                color: Theme.of(context).colorScheme.tertiary,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Container(
+            color: Theme.of(context).colorScheme.tertiary,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    GoRouter.of(context).go('/characters');
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back_rounded,
+                    color: Colors.white,
+                  ),
+                ),
+                Column(
                   children: [
-                    IconButton(
-                      onPressed: () {
-                        GoRouter.of(context).go('/characters');
-                      },
-                      icon: const Icon(
-                        Icons.arrow_back_rounded,
-                        color: Colors.white,
+                    Text(
+                      characterData.characterName!,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Theme.of(context).colorScheme.onTertiary,
                       ),
                     ),
-
-                    Column(
-                      children: [
-                        Text(
-                          data.characterData.characterName!,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Theme.of(context).colorScheme.onTertiary,
-                          ),
-                        ),
-                        Text(
-                          "${data.characterData.characterRace!.name} - ${data.characterData.characterClass!.name}",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Theme.of(context).colorScheme.onTertiary,
-                          ),
-                        ),
-                      ],
-                    ),
-                    // GestureDetector(
-                    //   onTap: ref
-                    //       .read(characterSheetStateProvider.notifier)
-                    //       .toggleInspiration,
-                    //   child: data.characterData.inspiration
-                    //       ? const Image(
-                    //           image: AssetImage(
-                    //               'assets/icons/star_in_checkbox_96.png'),
-                    //           width: 32,
-                    //           height: 32,
-                    //         )
-                    //       : const Image(
-                    //           image: AssetImage('assets/icons/checkbox_96.png'),
-                    //           width: 32,
-                    //           height: 32,
-                    //         ),
-                    // ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.settings_rounded,
-                        color: Colors.white,
+                    Text(
+                      "${characterData.characterRace!.name} - ${characterData.characterClass!.name}",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Theme.of(context).colorScheme.onTertiary,
                       ),
                     ),
                   ],
                 ),
-              );
-            },
-            loading: () => const CircularProgressIndicator(),
-            error: (error, stackTrace) => Text('Error: $error'),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.settings_rounded,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
           ),
           const SizedBox(
             height: 8,
