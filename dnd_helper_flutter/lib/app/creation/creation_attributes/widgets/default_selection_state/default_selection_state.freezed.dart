@@ -20,7 +20,9 @@ mixin _$DefaultSelectionStateModel {
   List<int> get statValues => throw _privateConstructorUsedError;
   Map<Attributes, int> get attributes => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DefaultSelectionStateModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DefaultSelectionStateModelCopyWith<DefaultSelectionStateModel>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -49,6 +51,8 @@ class _$DefaultSelectionStateModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DefaultSelectionStateModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -98,6 +102,8 @@ class __$$DefaultSelectionStateModelImplCopyWithImpl<$Res>
       $Res Function(_$DefaultSelectionStateModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DefaultSelectionStateModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -182,7 +188,9 @@ class _$DefaultSelectionStateModelImpl implements _DefaultSelectionStateModel {
       const DeepCollectionEquality().hash(_statValues),
       const DeepCollectionEquality().hash(_attributes));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DefaultSelectionStateModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DefaultSelectionStateModelImplCopyWith<_$DefaultSelectionStateModelImpl>
@@ -204,8 +212,11 @@ abstract class _DefaultSelectionStateModel
   List<int> get statValues;
   @override
   Map<Attributes, int> get attributes;
+
+  /// Create a copy of DefaultSelectionStateModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DefaultSelectionStateModelImplCopyWith<_$DefaultSelectionStateModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

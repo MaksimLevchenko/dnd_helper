@@ -22,7 +22,9 @@ mixin _$CharacterSheetParameters {
   int get selectedAttribute => throw _privateConstructorUsedError;
   bool get editMode => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CharacterSheetParameters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CharacterSheetParametersCopyWith<CharacterSheetParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +56,8 @@ class _$CharacterSheetParametersCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CharacterSheetParameters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -87,6 +91,8 @@ class _$CharacterSheetParametersCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of CharacterSheetParameters
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CharacterDataCopyWith<$Res> get characterData {
@@ -126,6 +132,8 @@ class __$$CharacterSheetParametersImplCopyWithImpl<$Res>
       $Res Function(_$CharacterSheetParametersImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CharacterSheetParameters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -211,7 +219,9 @@ class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
   int get hashCode => Object.hash(runtimeType, characterData,
       isTabBarViewVisible, selectedPage, selectedAttribute, editMode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CharacterSheetParameters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CharacterSheetParametersImplCopyWith<_$CharacterSheetParametersImpl>
@@ -237,8 +247,11 @@ abstract class _CharacterSheetParameters implements CharacterSheetParameters {
   int get selectedAttribute;
   @override
   bool get editMode;
+
+  /// Create a copy of CharacterSheetParameters
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CharacterSheetParametersImplCopyWith<_$CharacterSheetParametersImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

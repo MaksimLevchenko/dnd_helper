@@ -8,6 +8,8 @@ class MultilineTextField extends StatefulWidget {
     this.onEditingComplete,
     this.onChanged,
     this.enabled = true,
+    this.keyboardType = TextInputType.multiline,
+    this.inputFormatters,
   });
 
   final String? labelText;
@@ -15,6 +17,8 @@ class MultilineTextField extends StatefulWidget {
   final Function(String)? onEditingComplete;
   final Function(String)? onChanged;
   final bool enabled;
+  final TextInputType keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
 
   @override
   MultilineTextFieldState createState() => MultilineTextFieldState();
@@ -39,7 +43,8 @@ class MultilineTextFieldState extends State<MultilineTextField> {
         child: TextField(
           controller: widget.controller,
           focusNode: focusNode,
-          keyboardType: TextInputType.multiline,
+          keyboardType: widget.keyboardType,
+          inputFormatters: widget.inputFormatters,
           maxLines: 10,
           minLines: 1,
           enabled: widget.enabled,

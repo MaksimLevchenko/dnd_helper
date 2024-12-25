@@ -44,8 +44,18 @@ mixin _$PagesStateModel {
       throw _privateConstructorUsedError;
   TextEditingController get backstoryDescriptionController =>
       throw _privateConstructorUsedError;
+  TextEditingController get hitPointsController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get armorClassController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get speedController =>
+      throw _privateConstructorUsedError;
+  List<TextEditingController> get attacksControllers =>
+      throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PagesStateModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PagesStateModelCopyWith<PagesStateModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -71,7 +81,11 @@ abstract class $PagesStateModelCopyWith<$Res> {
       TextEditingController bondsController,
       TextEditingController flawsController,
       TextEditingController backstoryController,
-      TextEditingController backstoryDescriptionController});
+      TextEditingController backstoryDescriptionController,
+      TextEditingController hitPointsController,
+      TextEditingController armorClassController,
+      TextEditingController speedController,
+      List<TextEditingController> attacksControllers});
 }
 
 /// @nodoc
@@ -84,6 +98,8 @@ class _$PagesStateModelCopyWithImpl<$Res, $Val extends PagesStateModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PagesStateModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -102,6 +118,10 @@ class _$PagesStateModelCopyWithImpl<$Res, $Val extends PagesStateModel>
     Object? flawsController = null,
     Object? backstoryController = null,
     Object? backstoryDescriptionController = null,
+    Object? hitPointsController = null,
+    Object? armorClassController = null,
+    Object? speedController = null,
+    Object? attacksControllers = null,
   }) {
     return _then(_value.copyWith(
       characterId: null == characterId
@@ -164,6 +184,22 @@ class _$PagesStateModelCopyWithImpl<$Res, $Val extends PagesStateModel>
           ? _value.backstoryDescriptionController
           : backstoryDescriptionController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      hitPointsController: null == hitPointsController
+          ? _value.hitPointsController
+          : hitPointsController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      armorClassController: null == armorClassController
+          ? _value.armorClassController
+          : armorClassController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      speedController: null == speedController
+          ? _value.speedController
+          : speedController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      attacksControllers: null == attacksControllers
+          ? _value.attacksControllers
+          : attacksControllers // ignore: cast_nullable_to_non_nullable
+              as List<TextEditingController>,
     ) as $Val);
   }
 }
@@ -191,7 +227,11 @@ abstract class _$$PagesStateModelImplCopyWith<$Res>
       TextEditingController bondsController,
       TextEditingController flawsController,
       TextEditingController backstoryController,
-      TextEditingController backstoryDescriptionController});
+      TextEditingController backstoryDescriptionController,
+      TextEditingController hitPointsController,
+      TextEditingController armorClassController,
+      TextEditingController speedController,
+      List<TextEditingController> attacksControllers});
 }
 
 /// @nodoc
@@ -202,6 +242,8 @@ class __$$PagesStateModelImplCopyWithImpl<$Res>
       _$PagesStateModelImpl _value, $Res Function(_$PagesStateModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PagesStateModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -220,6 +262,10 @@ class __$$PagesStateModelImplCopyWithImpl<$Res>
     Object? flawsController = null,
     Object? backstoryController = null,
     Object? backstoryDescriptionController = null,
+    Object? hitPointsController = null,
+    Object? armorClassController = null,
+    Object? speedController = null,
+    Object? attacksControllers = null,
   }) {
     return _then(_$PagesStateModelImpl(
       characterId: null == characterId
@@ -282,6 +328,22 @@ class __$$PagesStateModelImplCopyWithImpl<$Res>
           ? _value.backstoryDescriptionController
           : backstoryDescriptionController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      hitPointsController: null == hitPointsController
+          ? _value.hitPointsController
+          : hitPointsController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      armorClassController: null == armorClassController
+          ? _value.armorClassController
+          : armorClassController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      speedController: null == speedController
+          ? _value.speedController
+          : speedController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      attacksControllers: null == attacksControllers
+          ? _value._attacksControllers
+          : attacksControllers // ignore: cast_nullable_to_non_nullable
+              as List<TextEditingController>,
     ));
   }
 }
@@ -304,7 +366,12 @@ class _$PagesStateModelImpl implements _PagesStateModel {
       required this.bondsController,
       required this.flawsController,
       required this.backstoryController,
-      required this.backstoryDescriptionController});
+      required this.backstoryDescriptionController,
+      required this.hitPointsController,
+      required this.armorClassController,
+      required this.speedController,
+      required final List<TextEditingController> attacksControllers})
+      : _attacksControllers = attacksControllers;
 
   @override
   final String characterId;
@@ -336,10 +403,24 @@ class _$PagesStateModelImpl implements _PagesStateModel {
   final TextEditingController backstoryController;
   @override
   final TextEditingController backstoryDescriptionController;
+  @override
+  final TextEditingController hitPointsController;
+  @override
+  final TextEditingController armorClassController;
+  @override
+  final TextEditingController speedController;
+  final List<TextEditingController> _attacksControllers;
+  @override
+  List<TextEditingController> get attacksControllers {
+    if (_attacksControllers is EqualUnmodifiableListView)
+      return _attacksControllers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_attacksControllers);
+  }
 
   @override
   String toString() {
-    return 'PagesStateModel(characterId: $characterId, biographyController: $biographyController, weightController: $weightController, heightController: $heightController, ageController: $ageController, hairColorController: $hairColorController, eyeColorController: $eyeColorController, skinColorController: $skinColorController, alliesAndOrganizationsController: $alliesAndOrganizationsController, purposeController: $purposeController, idealsController: $idealsController, bondsController: $bondsController, flawsController: $flawsController, backstoryController: $backstoryController, backstoryDescriptionController: $backstoryDescriptionController)';
+    return 'PagesStateModel(characterId: $characterId, biographyController: $biographyController, weightController: $weightController, heightController: $heightController, ageController: $ageController, hairColorController: $hairColorController, eyeColorController: $eyeColorController, skinColorController: $skinColorController, alliesAndOrganizationsController: $alliesAndOrganizationsController, purposeController: $purposeController, idealsController: $idealsController, bondsController: $bondsController, flawsController: $flawsController, backstoryController: $backstoryController, backstoryDescriptionController: $backstoryDescriptionController, hitPointsController: $hitPointsController, armorClassController: $armorClassController, speedController: $speedController, attacksControllers: $attacksControllers)';
   }
 
   @override
@@ -380,29 +461,44 @@ class _$PagesStateModelImpl implements _PagesStateModel {
             (identical(other.backstoryDescriptionController,
                     backstoryDescriptionController) ||
                 other.backstoryDescriptionController ==
-                    backstoryDescriptionController));
+                    backstoryDescriptionController) &&
+            (identical(other.hitPointsController, hitPointsController) ||
+                other.hitPointsController == hitPointsController) &&
+            (identical(other.armorClassController, armorClassController) ||
+                other.armorClassController == armorClassController) &&
+            (identical(other.speedController, speedController) ||
+                other.speedController == speedController) &&
+            const DeepCollectionEquality()
+                .equals(other._attacksControllers, _attacksControllers));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      characterId,
-      biographyController,
-      weightController,
-      heightController,
-      ageController,
-      hairColorController,
-      eyeColorController,
-      skinColorController,
-      alliesAndOrganizationsController,
-      purposeController,
-      idealsController,
-      bondsController,
-      flawsController,
-      backstoryController,
-      backstoryDescriptionController);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        characterId,
+        biographyController,
+        weightController,
+        heightController,
+        ageController,
+        hairColorController,
+        eyeColorController,
+        skinColorController,
+        alliesAndOrganizationsController,
+        purposeController,
+        idealsController,
+        bondsController,
+        flawsController,
+        backstoryController,
+        backstoryDescriptionController,
+        hitPointsController,
+        armorClassController,
+        speedController,
+        const DeepCollectionEquality().hash(_attacksControllers)
+      ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PagesStateModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PagesStateModelImplCopyWith<_$PagesStateModelImpl> get copyWith =>
@@ -412,22 +508,26 @@ class _$PagesStateModelImpl implements _PagesStateModel {
 
 abstract class _PagesStateModel implements PagesStateModel {
   factory _PagesStateModel(
-      {required final String characterId,
-      required final TextEditingController biographyController,
-      required final TextEditingController weightController,
-      required final TextEditingController heightController,
-      required final TextEditingController ageController,
-      required final TextEditingController hairColorController,
-      required final TextEditingController eyeColorController,
-      required final TextEditingController skinColorController,
-      required final TextEditingController alliesAndOrganizationsController,
-      required final TextEditingController purposeController,
-      required final TextEditingController idealsController,
-      required final TextEditingController bondsController,
-      required final TextEditingController flawsController,
-      required final TextEditingController backstoryController,
-      required final TextEditingController
-          backstoryDescriptionController}) = _$PagesStateModelImpl;
+          {required final String characterId,
+          required final TextEditingController biographyController,
+          required final TextEditingController weightController,
+          required final TextEditingController heightController,
+          required final TextEditingController ageController,
+          required final TextEditingController hairColorController,
+          required final TextEditingController eyeColorController,
+          required final TextEditingController skinColorController,
+          required final TextEditingController alliesAndOrganizationsController,
+          required final TextEditingController purposeController,
+          required final TextEditingController idealsController,
+          required final TextEditingController bondsController,
+          required final TextEditingController flawsController,
+          required final TextEditingController backstoryController,
+          required final TextEditingController backstoryDescriptionController,
+          required final TextEditingController hitPointsController,
+          required final TextEditingController armorClassController,
+          required final TextEditingController speedController,
+          required final List<TextEditingController> attacksControllers}) =
+      _$PagesStateModelImpl;
 
   @override
   String get characterId;
@@ -460,7 +560,18 @@ abstract class _PagesStateModel implements PagesStateModel {
   @override
   TextEditingController get backstoryDescriptionController;
   @override
-  @JsonKey(ignore: true)
+  TextEditingController get hitPointsController;
+  @override
+  TextEditingController get armorClassController;
+  @override
+  TextEditingController get speedController;
+  @override
+  List<TextEditingController> get attacksControllers;
+
+  /// Create a copy of PagesStateModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PagesStateModelImplCopyWith<_$PagesStateModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
