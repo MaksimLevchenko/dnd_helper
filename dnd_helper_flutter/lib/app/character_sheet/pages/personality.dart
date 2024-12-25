@@ -31,6 +31,90 @@ class Personality extends ConsumerWidget {
                       .read(pagesStateProvider(character.id!).notifier)
                       .savePersonal(character.id!),
                 ),
+                MultilineTextField(
+                  controller: data.abilitiesController,
+                  labelText: 'Способности',
+                  onEditingComplete: (text) => ref
+                      .read(pagesStateProvider(character.id!).notifier)
+                      .savePersonal(character.id!),
+                ),
+                MultilineTextField(
+                  controller: data.weightController,
+                  labelText: 'Вес',
+                  onEditingComplete: (text) => ref
+                      .read(pagesStateProvider(character.id!).notifier)
+                      .savePersonal(character.id!),
+                ),
+                MultilineTextField(
+                  controller: data.heightController,
+                  labelText: 'Рост',
+                  onEditingComplete: (text) => ref
+                      .read(pagesStateProvider(character.id!).notifier)
+                      .savePersonal(character.id!),
+                ),
+                MultilineTextField(
+                  controller: data.ageController,
+                  labelText: 'Возраст',
+                  onEditingComplete: (text) => ref
+                      .read(pagesStateProvider(character.id!).notifier)
+                      .savePersonal(character.id!),
+                ),
+                MultilineTextField(
+                  controller: data.hairColorController,
+                  labelText: 'Цвет волос',
+                  onEditingComplete: (text) => ref
+                      .read(pagesStateProvider(character.id!).notifier)
+                      .savePersonal(character.id!),
+                ),
+                MultilineTextField(
+                  controller: data.eyeColorController,
+                  labelText: 'Цвет глаз',
+                  onEditingComplete: (text) => ref
+                      .read(pagesStateProvider(character.id!).notifier)
+                      .savePersonal(character.id!),
+                ),
+                MultilineTextField(
+                  controller: data.skinColorController,
+                  labelText: 'Цвет кожи',
+                  onEditingComplete: (text) => ref
+                      .read(pagesStateProvider(character.id!).notifier)
+                      .savePersonal(character.id!),
+                ),
+                MultilineTextField(
+                  controller: data.alliesAndOrganizationsController,
+                  labelText: 'Союзники и организации',
+                  onEditingComplete: (text) => ref
+                      .read(pagesStateProvider(character.id!).notifier)
+                      .savePersonal(character.id!),
+                ),
+                MultilineTextField(
+                  controller: data.purposeController,
+                  labelText: 'Цель',
+                  onEditingComplete: (text) => ref
+                      .read(pagesStateProvider(character.id!).notifier)
+                      .savePersonal(character.id!),
+                ),
+                MultilineTextField(
+                  controller: data.idealsController,
+                  labelText: 'Идеалы',
+                  onEditingComplete: (text) => ref
+                      .read(pagesStateProvider(character.id!).notifier)
+                      .savePersonal(character.id!),
+                ),
+                MultilineTextField(
+                  controller: data.bondsController,
+                  labelText: 'Обязательства',
+                  onEditingComplete: (text) => ref
+                      .read(pagesStateProvider(character.id!).notifier)
+                      .savePersonal(character.id!),
+                ),
+                MultilineTextField(
+                  controller: data.flawsController,
+                  labelText: 'Недостатки',
+                  onEditingComplete: (text) => ref
+                      .read(pagesStateProvider(character.id!).notifier)
+                      .savePersonal(character.id!),
+                ),
               ],
             );
           },

@@ -5,6 +5,8 @@ import 'package:dnd_helper_flutter/app/character_sheet/pages/personality.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/pages/spells.dart';
 import 'package:dnd_helper_flutter/data/character_repository/character_repository.dart';
 import 'package:dnd_helper_flutter/data/character_repository/get_character.dart';
+import 'package:dnd_helper_flutter/models/arms_data/arms_data.dart';
+import 'package:dnd_helper_flutter/models/attacks_data/attacks_data.dart';
 import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
 import 'package:dnd_helper_flutter/models/enums/skills.dart';
@@ -171,6 +173,44 @@ class CharacterSheetState extends _$CharacterSheetState {
     state = state.whenData((parameters) {
       return parameters.copyWith(editMode: !parameters.editMode);
     });
+  }
+
+  void increaceAttacksCount() {
+    state = state.whenData(
+      (parameters) {
+        final updatedCharacterData = parameters.characterData.copyWith(
+          attacks: parameters.characterData.attacks != null
+              ? [...?parameters.characterData.attacks, const ArmsData(name: '')]
+              : [const ArmsData(name: ''), const ArmsData(name: '')],
+        );
+        ref
+            .read(characterRepositoryProvider.notifier)
+            .saveCharacter(updatedCharacterData);
+        return CharacterSheetParameters(characterData: updatedCharacterData);
+      },
+    );
+  }
+
+  void deleteAttack(int index) {
+    state = state.whenData(
+      (parameters) {
+        if (parameters.characterData.attacks != null) {
+          final updatedCharacterData = parameters.characterData.copyWith(
+            attacks: parameters.characterData.attacks!
+                .asMap()
+                .entries
+                .where((entry) => entry.key != index)
+                .map((entry) => entry.value)
+                .toList(),
+          );
+          ref
+              .read(characterRepositoryProvider.notifier)
+              .saveCharacter(updatedCharacterData);
+          return CharacterSheetParameters(characterData: updatedCharacterData);
+        }
+        return parameters;
+      },
+    );
   }
 }
 
