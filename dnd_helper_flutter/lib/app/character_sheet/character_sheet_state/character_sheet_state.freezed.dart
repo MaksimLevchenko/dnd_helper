@@ -17,8 +17,14 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CharacterSheetParameters {
   CharacterData get characterData => throw _privateConstructorUsedError;
+  bool get isTabBarViewVisible => throw _privateConstructorUsedError;
+  int get selectedPage => throw _privateConstructorUsedError;
+  int get selectedAttribute => throw _privateConstructorUsedError;
+  bool get editMode => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CharacterSheetParameters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CharacterSheetParametersCopyWith<CharacterSheetParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -29,7 +35,12 @@ abstract class $CharacterSheetParametersCopyWith<$Res> {
           $Res Function(CharacterSheetParameters) then) =
       _$CharacterSheetParametersCopyWithImpl<$Res, CharacterSheetParameters>;
   @useResult
-  $Res call({CharacterData characterData});
+  $Res call(
+      {CharacterData characterData,
+      bool isTabBarViewVisible,
+      int selectedPage,
+      int selectedAttribute,
+      bool editMode});
 
   $CharacterDataCopyWith<$Res> get characterData;
 }
@@ -45,19 +56,43 @@ class _$CharacterSheetParametersCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CharacterSheetParameters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? characterData = null,
+    Object? isTabBarViewVisible = null,
+    Object? selectedPage = null,
+    Object? selectedAttribute = null,
+    Object? editMode = null,
   }) {
     return _then(_value.copyWith(
       characterData: null == characterData
           ? _value.characterData
           : characterData // ignore: cast_nullable_to_non_nullable
               as CharacterData,
+      isTabBarViewVisible: null == isTabBarViewVisible
+          ? _value.isTabBarViewVisible
+          : isTabBarViewVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selectedPage: null == selectedPage
+          ? _value.selectedPage
+          : selectedPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      selectedAttribute: null == selectedAttribute
+          ? _value.selectedAttribute
+          : selectedAttribute // ignore: cast_nullable_to_non_nullable
+              as int,
+      editMode: null == editMode
+          ? _value.editMode
+          : editMode // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
+  /// Create a copy of CharacterSheetParameters
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CharacterDataCopyWith<$Res> get characterData {
@@ -76,7 +111,12 @@ abstract class _$$CharacterSheetParametersImplCopyWith<$Res>
       __$$CharacterSheetParametersImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CharacterData characterData});
+  $Res call(
+      {CharacterData characterData,
+      bool isTabBarViewVisible,
+      int selectedPage,
+      int selectedAttribute,
+      bool editMode});
 
   @override
   $CharacterDataCopyWith<$Res> get characterData;
@@ -92,16 +132,38 @@ class __$$CharacterSheetParametersImplCopyWithImpl<$Res>
       $Res Function(_$CharacterSheetParametersImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CharacterSheetParameters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? characterData = null,
+    Object? isTabBarViewVisible = null,
+    Object? selectedPage = null,
+    Object? selectedAttribute = null,
+    Object? editMode = null,
   }) {
     return _then(_$CharacterSheetParametersImpl(
       characterData: null == characterData
           ? _value.characterData
           : characterData // ignore: cast_nullable_to_non_nullable
               as CharacterData,
+      isTabBarViewVisible: null == isTabBarViewVisible
+          ? _value.isTabBarViewVisible
+          : isTabBarViewVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selectedPage: null == selectedPage
+          ? _value.selectedPage
+          : selectedPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      selectedAttribute: null == selectedAttribute
+          ? _value.selectedAttribute
+          : selectedAttribute // ignore: cast_nullable_to_non_nullable
+              as int,
+      editMode: null == editMode
+          ? _value.editMode
+          : editMode // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -109,14 +171,31 @@ class __$$CharacterSheetParametersImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
-  _$CharacterSheetParametersImpl({required this.characterData});
+  _$CharacterSheetParametersImpl(
+      {required this.characterData,
+      this.isTabBarViewVisible = true,
+      this.selectedPage = 0,
+      this.selectedAttribute = 0,
+      this.editMode = false});
 
   @override
   final CharacterData characterData;
+  @override
+  @JsonKey()
+  final bool isTabBarViewVisible;
+  @override
+  @JsonKey()
+  final int selectedPage;
+  @override
+  @JsonKey()
+  final int selectedAttribute;
+  @override
+  @JsonKey()
+  final bool editMode;
 
   @override
   String toString() {
-    return 'CharacterSheetParameters(characterData: $characterData)';
+    return 'CharacterSheetParameters(characterData: $characterData, isTabBarViewVisible: $isTabBarViewVisible, selectedPage: $selectedPage, selectedAttribute: $selectedAttribute, editMode: $editMode)';
   }
 
   @override
@@ -125,13 +204,24 @@ class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
         (other.runtimeType == runtimeType &&
             other is _$CharacterSheetParametersImpl &&
             (identical(other.characterData, characterData) ||
-                other.characterData == characterData));
+                other.characterData == characterData) &&
+            (identical(other.isTabBarViewVisible, isTabBarViewVisible) ||
+                other.isTabBarViewVisible == isTabBarViewVisible) &&
+            (identical(other.selectedPage, selectedPage) ||
+                other.selectedPage == selectedPage) &&
+            (identical(other.selectedAttribute, selectedAttribute) ||
+                other.selectedAttribute == selectedAttribute) &&
+            (identical(other.editMode, editMode) ||
+                other.editMode == editMode));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, characterData);
+  int get hashCode => Object.hash(runtimeType, characterData,
+      isTabBarViewVisible, selectedPage, selectedAttribute, editMode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CharacterSheetParameters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CharacterSheetParametersImplCopyWith<_$CharacterSheetParametersImpl>
@@ -141,13 +231,27 @@ class _$CharacterSheetParametersImpl implements _CharacterSheetParameters {
 
 abstract class _CharacterSheetParameters implements CharacterSheetParameters {
   factory _CharacterSheetParameters(
-          {required final CharacterData characterData}) =
-      _$CharacterSheetParametersImpl;
+      {required final CharacterData characterData,
+      final bool isTabBarViewVisible,
+      final int selectedPage,
+      final int selectedAttribute,
+      final bool editMode}) = _$CharacterSheetParametersImpl;
 
   @override
   CharacterData get characterData;
   @override
-  @JsonKey(ignore: true)
+  bool get isTabBarViewVisible;
+  @override
+  int get selectedPage;
+  @override
+  int get selectedAttribute;
+  @override
+  bool get editMode;
+
+  /// Create a copy of CharacterSheetParameters
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CharacterSheetParametersImplCopyWith<_$CharacterSheetParametersImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

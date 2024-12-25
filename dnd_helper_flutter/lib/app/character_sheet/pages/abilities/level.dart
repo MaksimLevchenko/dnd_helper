@@ -1,4 +1,5 @@
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
+import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:dnd_helper_flutter/ui/calculator/calculator_grid.dart';
 import 'package:dnd_helper_flutter/domain/build_context_extension.dart';
 import 'package:dnd_helper_flutter/ui/calculator/calculator_state/calculator_state.dart';
@@ -6,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class Level extends ConsumerWidget {
-  const Level({super.key, required this.characterId});
-  final String characterId;
+  const Level({super.key, required this.character});
+  final CharacterData character;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -37,7 +38,7 @@ class Level extends ConsumerWidget {
                             .read(calculatorStateProvider.notifier)
                             .evaluateExpression(controller.text);
                         ref
-                            .read(characterSheetStateProvider(characterId)
+                            .read(characterSheetStateProvider(character.id!)
                                 .notifier)
                             .updateExperience(exp, ref);
                       },
@@ -56,7 +57,7 @@ class Level extends ConsumerWidget {
           Container(
             alignment: Alignment.centerRight,
             height: 14,
-            width: pageSize.width * 0.2,
+            width: pageSize.width * 0.21,
             decoration: BoxDecoration(
               color: secondary,
               borderRadius: const BorderRadius.only(
@@ -64,7 +65,7 @@ class Level extends ConsumerWidget {
                 bottomLeft: Radius.circular(8),
               ),
             ),
-            child: ref.watch(characterSheetStateProvider(characterId)).when(
+            child: ref.watch(characterSheetStateProvider(character.id!)).when(
                   skipLoadingOnRefresh: true,
                   skipLoadingOnReload: true,
                   data: (data) => Text(
@@ -87,9 +88,7 @@ class Level extends ConsumerWidget {
           const SizedBox(width: 2),
           Container(
             height: 14,
-            width: context.isMobile
-                ? pageSize.width * 0.70
-                : pageSize.width * 0.74,
+            width: pageSize.width * 0.71,
             decoration: BoxDecoration(
               color: secondary,
               borderRadius: const BorderRadius.only(
@@ -97,7 +96,7 @@ class Level extends ConsumerWidget {
                 bottomRight: Radius.circular(8),
               ),
             ),
-            child: ref.watch(characterSheetStateProvider(characterId)).when(
+            child: ref.watch(characterSheetStateProvider(character.id!)).when(
                   skipLoadingOnRefresh: true,
                   skipLoadingOnReload: true,
                   data: (data) => Text(

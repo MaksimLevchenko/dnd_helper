@@ -1,8 +1,10 @@
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/widgets/desktop/sheet_tab_bar_view.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/widgets/mobile/bottom_tab_bar.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/widgets/sheet_header.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/widgets/widgets_state/widgets_state.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/widgets/tab_view_state/tab_wiew_state.dart';
 import 'package:dnd_helper_flutter/domain/build_context_extension.dart';
+import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,7 +16,6 @@ class CharacterSheet extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final characterState = ref.watch(characterSheetStateProvider(characterId));
-    final widgetsState = ref.watch(widgetsStateProvider(characterId));
     return characterState.when(
       skipLoadingOnRefresh: true,
       skipLoadingOnReload: true,
@@ -53,14 +54,14 @@ class CharacterSheet extends ConsumerWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               SheetHeader(
-                                  characterData: characterState.characterData),
+                                  character: characterState.characterData),
                               context.isMobile
                                   ? ref
-                                      .read(widgetsStateProvider(characterId)
-                                          .notifier)
-                                      .getPage(widgetsState.selectedPage)
+                                      .read(tabWiewStateProvider.notifier)
+                                      .getPage(ref.watch(tabWiewStateProvider),
+                                          characterState.characterData)
                                   : SheetTabBarView(
-                                      characterId: (characterId),
+                                      character: (characterState.characterData),
                                     ),
                             ],
                           ),
@@ -68,32 +69,8 @@ class CharacterSheet extends ConsumerWidget {
                       ),
                     ),
                     bottomNavigationBar: context.isMobile
-                        ? BottomNavigationBar(
-                            useLegacyColorScheme: false,
-                            onTap: (index) {
-                              ref
-                                  .read(widgetsStateProvider(characterId)
-                                      .notifier)
-                                  .onTabBarTap(index);
-                            },
-                            currentIndex: widgetsState.selectedPage,
-                            items: const <BottomNavigationBarItem>[
-                              BottomNavigationBarItem(
-                                  icon: Icon(Icons.access_alarm_outlined),
-                                  label: 'бой'),
-                              BottomNavigationBarItem(
-                                  icon: Icon(Icons.access_alarm_outlined),
-                                  label: 'способности'),
-                              BottomNavigationBarItem(
-                                  icon: Icon(Icons.access_alarm_outlined),
-                                  label: 'инвентарь'),
-                              BottomNavigationBarItem(
-                                  icon: Icon(Icons.access_alarm_outlined),
-                                  label: 'личность'),
-                              BottomNavigationBarItem(
-                                  icon: Icon(Icons.access_alarm_outlined),
-                                  label: 'заклинания'),
-                            ],
+                        ? BottomTabBar(
+                            character: characterState.characterData,
                           )
                         : null,
                   ),

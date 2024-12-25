@@ -25,8 +25,12 @@ mixin _$SubraceData {
       throw _privateConstructorUsedError;
   Map<Attributes, int>? get attributes => throw _privateConstructorUsedError;
 
+  /// Serializes this SubraceData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubraceData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SubraceDataCopyWith<SubraceData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$SubraceDataCopyWithImpl<$Res, $Val extends SubraceData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SubraceData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -99,6 +105,8 @@ class __$$SubraceDataImplCopyWithImpl<$Res>
       _$SubraceDataImpl _value, $Res Function(_$SubraceDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubraceData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -175,7 +183,7 @@ class _$SubraceDataImpl implements _SubraceData {
                 .equals(other._attributes, _attributes));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -183,7 +191,9 @@ class _$SubraceDataImpl implements _SubraceData {
       const DeepCollectionEquality().hash(_subraceFeatures),
       const DeepCollectionEquality().hash(_attributes));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubraceData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SubraceDataImplCopyWith<_$SubraceDataImpl> get copyWith =>
@@ -212,8 +222,11 @@ abstract class _SubraceData implements SubraceData {
   Map<String, String>? get subraceFeatures;
   @override
   Map<Attributes, int>? get attributes;
+
+  /// Create a copy of SubraceData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SubraceDataImplCopyWith<_$SubraceDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

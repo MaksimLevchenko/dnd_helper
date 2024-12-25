@@ -20,7 +20,9 @@ mixin _$CreationClassParameters {
   String? get selectedClassName => throw _privateConstructorUsedError;
   ClassData? get selectedClassData => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreationClassParameters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreationClassParametersCopyWith<CreationClassParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +52,8 @@ class _$CreationClassParametersCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreationClassParameters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -73,6 +77,8 @@ class _$CreationClassParametersCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of CreationClassParameters
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ClassDataCopyWith<$Res>? get selectedClassData {
@@ -114,6 +120,8 @@ class __$$CreationClassParametersImplCopyWithImpl<$Res>
       $Res Function(_$CreationClassParametersImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreationClassParameters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -184,7 +192,9 @@ class _$CreationClassParametersImpl implements _CreationClassParameters {
       selectedClassName,
       selectedClassData);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreationClassParameters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreationClassParametersImplCopyWith<_$CreationClassParametersImpl>
@@ -204,8 +214,11 @@ abstract class _CreationClassParameters implements CreationClassParameters {
   String? get selectedClassName;
   @override
   ClassData? get selectedClassData;
+
+  /// Create a copy of CreationClassParameters
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreationClassParametersImplCopyWith<_$CreationClassParametersImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -1,21 +1,22 @@
-import 'package:dnd_helper_flutter/app/character_sheet/widgets/widgets_state/widgets_state.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/widgets/tab_view_state/tab_wiew_state.dart';
+import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SheetTabBarView extends ConsumerWidget {
-  const SheetTabBarView({super.key, required this.characterId});
-  final String characterId;
+  const SheetTabBarView({super.key, required this.character});
+  final CharacterData character;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notifier = ref.read(widgetsStateProvider(characterId).notifier);
     return DefaultTabController(
       length: 5,
       child: Column(
         children: [
           TabBar(
             onTap: (index) {
-              notifier.onTabBarTap(index);
+              ref.read(tabWiewStateProvider.notifier).onTabBarTap(index);
             },
             tabs: const <Tab>[
               Tab(
@@ -35,8 +36,9 @@ class SheetTabBarView extends ConsumerWidget {
               ),
             ],
           ),
-          notifier.getPage(
-              ref.watch(widgetsStateProvider(characterId)).selectedPage)
+          ref
+              .read(tabWiewStateProvider.notifier)
+              .getPage(ref.watch(tabWiewStateProvider), character)
         ],
       ),
     );

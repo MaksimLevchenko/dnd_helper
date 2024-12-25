@@ -20,7 +20,9 @@ mixin _$CreationBackgroundStateModel {
   BackgroundData? get selectedBackground => throw _privateConstructorUsedError;
   String? get selectedBackgroundName => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreationBackgroundStateModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreationBackgroundStateModelCopyWith<CreationBackgroundStateModel>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -52,6 +54,8 @@ class _$CreationBackgroundStateModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreationBackgroundStateModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -75,6 +79,8 @@ class _$CreationBackgroundStateModelCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of CreationBackgroundStateModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $BackgroundDataCopyWith<$Res>? get selectedBackground {
@@ -116,6 +122,8 @@ class __$$CreationRaceParametersImplCopyWithImpl<$Res>
       $Res Function(_$CreationRaceParametersImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreationBackgroundStateModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -187,7 +195,9 @@ class _$CreationRaceParametersImpl implements _CreationRaceParameters {
       selectedBackground,
       selectedBackgroundName);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreationBackgroundStateModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreationRaceParametersImplCopyWith<_$CreationRaceParametersImpl>
@@ -207,8 +217,11 @@ abstract class _CreationRaceParameters implements CreationBackgroundStateModel {
   BackgroundData? get selectedBackground;
   @override
   String? get selectedBackgroundName;
+
+  /// Create a copy of CreationBackgroundStateModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreationRaceParametersImplCopyWith<_$CreationRaceParametersImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

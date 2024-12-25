@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ThemeParameters {
   bool get isDark => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ThemeParameters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ThemeParametersCopyWith<ThemeParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -42,6 +44,8 @@ class _$ThemeParametersCopyWithImpl<$Res, $Val extends ThemeParameters>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ThemeParameters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -75,6 +79,8 @@ class __$$ThemeParametersImplCopyWithImpl<$Res>
       _$ThemeParametersImpl _value, $Res Function(_$ThemeParametersImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ThemeParameters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,7 +120,9 @@ class _$ThemeParametersImpl implements _ThemeParameters {
   @override
   int get hashCode => Object.hash(runtimeType, isDark);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ThemeParameters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ThemeParametersImplCopyWith<_$ThemeParametersImpl> get copyWith =>
@@ -127,8 +135,11 @@ abstract class _ThemeParameters implements ThemeParameters {
 
   @override
   bool get isDark;
+
+  /// Create a copy of ThemeParameters
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ThemeParametersImplCopyWith<_$ThemeParametersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

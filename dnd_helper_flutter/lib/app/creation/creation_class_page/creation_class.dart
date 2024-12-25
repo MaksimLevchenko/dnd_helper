@@ -88,16 +88,11 @@ class CreationClass extends ConsumerWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SelectableText(
-                        state.selectedClassName == null
-                            ? ''
-                            : 'Информация о ${state.selectedClassName}',
-                        style: const TextStyle(fontSize: 20),
-                      ),
                       if (state.selectedClassData != null)
-                        SelectableText(
-                            ' ${state.selectedClassData!.description}'),
+                        SelectableText(state.selectedClassData!.description,
+                            textAlign: TextAlign.start),
                       const SizedBox(height: 20),
                       if (state.selectedClassData != null)
                         SelectableText(

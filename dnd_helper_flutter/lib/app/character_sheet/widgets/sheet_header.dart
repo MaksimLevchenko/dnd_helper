@@ -9,10 +9,10 @@ import 'package:go_router/go_router.dart';
 class SheetHeader extends ConsumerWidget {
   const SheetHeader({
     super.key,
-    required this.characterData,
+    required this.character,
   });
 
-  final CharacterData characterData;
+  final CharacterData character;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -38,14 +38,14 @@ class SheetHeader extends ConsumerWidget {
                 Column(
                   children: [
                     Text(
-                      characterData.characterName!,
+                      character.characterName!,
                       style: TextStyle(
                         fontSize: 16,
                         color: Theme.of(context).colorScheme.onTertiary,
                       ),
                     ),
                     Text(
-                      "${characterData.characterRace!.name} - ${characterData.characterClass!.name}",
+                      "${character.characterRace!.name} - ${character.characterClass!.name}",
                       style: TextStyle(
                         fontSize: 16,
                         color: Theme.of(context).colorScheme.onTertiary,
@@ -67,12 +67,14 @@ class SheetHeader extends ConsumerWidget {
             height: 8,
           ),
           AttributesTabBar(
-            characterId: characterData.id ?? '',
+            character: character,
           ),
           const SizedBox(
             height: 4,
           ),
-          AttributesTabBarView(characterId: characterData.id ?? ''),
+          AttributesTabBarView(
+            character: character,
+          ),
         ],
       ),
     );
