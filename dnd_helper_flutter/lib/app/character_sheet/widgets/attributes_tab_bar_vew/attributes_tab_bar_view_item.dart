@@ -52,10 +52,10 @@ class AttributesTabBarViewItem extends ConsumerWidget {
                 const SizedBox(width: 10),
                 // IconButton(
                 //     onPressed: () {
-                //       ref.read(widgetsStateProvider.notifier).toggleEditMode();
+                //       ref.read(stateProvider.notifier).toggleEditMode();
                 //     },
                 //     icon: Icon(Icons.mode_edit_rounded,
-                //         color: widgetsState.editMode
+                //         color: state.editMode
                 //             ? Theme.of(context).colorScheme.tertiary
                 //             : Theme.of(context).colorScheme.outline))
               ],
@@ -78,7 +78,7 @@ class AttributesTabBarViewItem extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 for (var skill in listSkills)
-                  Item.flexible(
+                  Item.simple(
                     value:
                         data.characterData.skillsExpertise?.contains(skill) ??
                                 false

@@ -83,13 +83,7 @@ class CharacterSheetState extends _$CharacterSheetState {
   }
 
   Map<Attributes, int> getAttributes() {
-    return state.when(
-      data: (CharacterSheetParameters data) {
-        return data.characterData.attributes;
-      },
-      loading: () => {},
-      error: (error, stack) => {},
-    );
+    return state.value!.characterData.attributes;
   }
 
   String getAttribyteAsStringRu(Attributes attribute) {
@@ -171,23 +165,6 @@ class CharacterSheetState extends _$CharacterSheetState {
           : parameters.copyWith(
               selectedAttribute: index, isTabBarViewVisible: true);
     });
-  }
-
-  Widget getPage(int index) {
-    switch (index) {
-      case 0:
-        return Fight(character: state.value!.characterData);
-      case 1:
-        return Abilities(character: state.value!.characterData);
-      case 2:
-        return const Inventory();
-      case 3:
-        return Personality(character: state.value!.characterData);
-      case 4:
-        return const Spells();
-      default:
-        return Fight(character: state.value!.characterData);
-    }
   }
 
   void toggleEditMode() {

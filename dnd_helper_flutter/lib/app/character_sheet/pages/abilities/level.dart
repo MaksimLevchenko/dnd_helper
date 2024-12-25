@@ -57,7 +57,7 @@ class Level extends ConsumerWidget {
           Container(
             alignment: Alignment.centerRight,
             height: 14,
-            width: pageSize.width * 0.2,
+            width: pageSize.width * 0.21,
             decoration: BoxDecoration(
               color: secondary,
               borderRadius: const BorderRadius.only(
@@ -88,9 +88,7 @@ class Level extends ConsumerWidget {
           const SizedBox(width: 2),
           Container(
             height: 14,
-            width: context.isMobile
-                ? pageSize.width * 0.70
-                : pageSize.width * 0.74,
+            width: pageSize.width * 0.71,
             decoration: BoxDecoration(
               color: secondary,
               borderRadius: const BorderRadius.only(

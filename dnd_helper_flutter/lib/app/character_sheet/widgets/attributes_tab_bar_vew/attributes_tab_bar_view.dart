@@ -11,10 +11,10 @@ class AttributesTabBarView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final widgetsState = ref.watch(characterSheetStateProvider(character.id!));
+    final state = ref.watch(characterSheetStateProvider(character.id!));
 
     return Container(
-      height: widgetsState.value!.isTabBarViewVisible ? 160 : 0,
+      height: state.value!.isTabBarViewVisible ? 140 : 0,
       color: Theme.of(context).colorScheme.surface,
       child: TabBarView(
         children: [
