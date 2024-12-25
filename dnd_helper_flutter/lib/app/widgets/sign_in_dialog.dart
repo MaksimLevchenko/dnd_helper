@@ -25,7 +25,7 @@ class _SignInDialogState extends ConsumerState<SignInDialog> {
     return Form(
       key: formKey,
       child: AlertDialog(
-        title: Text(mode == SignInMode.signIn ? 'Sign In' : 'Register'),
+        title: Text(mode == SignInMode.signIn ? 'Войти' : 'Зарегистрироваться'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -33,10 +33,10 @@ class _SignInDialogState extends ConsumerState<SignInDialog> {
               controller: loginController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter email';
+                  return 'Пожалуйста, введите email';
                 }
                 if (!value.contains('@')) {
-                  return 'Please enter valid email';
+                  return 'Пожалуйста, введите корректный email';
                 }
                 return null;
               },
@@ -44,13 +44,13 @@ class _SignInDialogState extends ConsumerState<SignInDialog> {
             ),
             TextFormField(
               controller: passwordController,
-              decoration: const InputDecoration(labelText: 'Password'),
+              decoration: const InputDecoration(labelText: 'Пароль'),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter password';
+                  return 'Пожалуйста, введите пароль';
                 }
                 if (value.length < 6) {
-                  return 'Password must be at least 6 characters long';
+                  return 'Пароль должен быть не менее 6 символов';
                 }
                 return null;
               },
@@ -58,10 +58,11 @@ class _SignInDialogState extends ConsumerState<SignInDialog> {
             if (mode == SignInMode.register)
               TextFormField(
                 initialValue: (kDebugMode) ? '111111' : '',
-                decoration: const InputDecoration(labelText: 'Repeat password'),
+                decoration:
+                    const InputDecoration(labelText: 'Повторите пароль'),
                 validator: (value) => value == passwordController.text
                     ? null
-                    : 'Passwords do not match',
+                    : 'Пароли не совпадают',
               ),
             Button.textButton(
               onPressed: () {
@@ -71,8 +72,9 @@ class _SignInDialogState extends ConsumerState<SignInDialog> {
                       : SignInMode.signIn;
                 });
               },
-              child: Text(
-                  mode == SignInMode.signIn ? 'Or register' : 'Or sign in'),
+              child: Text(mode == SignInMode.signIn
+                  ? 'Или зарегистрироваться'
+                  : 'Или войти'),
             ),
           ],
         ),
@@ -82,27 +84,44 @@ class _SignInDialogState extends ConsumerState<SignInDialog> {
             onPressed: () {
               context.pop();
             },
-            child: const Text('Cancel'),
+            child: const Text('Отмена'),
           ),
           Button(
-            onPressed: () {
+            onPressed: () async {
               if (!formKey.currentState!.validate()) {
                 return;
               }
               if (mode == SignInMode.signIn) {
-                ref.read(authRepositoryProvider.notifier).signIn(
-                      loginController.text,
-                      passwordController.text,
-                    );
+                final response =
+                    await ref.read(authRepositoryProvider.notifier).signIn(
+                          loginController.text,
+                          passwordController.text,
+                        );
+                if (!response && context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Неправильный логин или пароль'),
+                    ),
+                  );
+                }
               } else {
-                ref.read(authRepositoryProvider.notifier).signUp(
-                      loginController.text,
-                      passwordController.text,
-                    );
+                final response =
+                    await ref.read(authRepositoryProvider.notifier).signUp(
+                          loginController.text,
+                          passwordController.text,
+                        );
+                if (!response && context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Произошла ошибка, попробуйте позже'),
+                    ),
+                  );
+                }
               }
               context.pop();
             },
-            child: Text(mode == SignInMode.signIn ? 'Sign In' : 'Register'),
+            child: Text(
+                mode == SignInMode.signIn ? 'Войти' : 'Зарегистрироваться'),
           ),
         ],
       ),

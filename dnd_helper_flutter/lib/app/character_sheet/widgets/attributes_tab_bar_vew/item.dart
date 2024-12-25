@@ -102,6 +102,7 @@ class Item extends ConsumerWidget {
         : Padding(
             padding: const EdgeInsets.all(2),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
                   decoration: BoxDecoration(

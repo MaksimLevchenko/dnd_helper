@@ -7,10 +7,9 @@ part 'get_character.g.dart';
 
 @Riverpod(keepAlive: true)
 FutureOr<CharacterData?> getCharacter(Ref ref, {required String id}) async {
-  return ref
-      .watch(characterRepositoryProvider)
-      .value
-      ?.firstWhere((element) => element.id == id);
+  final state = await ref.watch(characterRepositoryProvider.future);
+  return state.firstWhere((element) => element.id == id);
+
   // if (character == null) return null;
   // update repository
 }

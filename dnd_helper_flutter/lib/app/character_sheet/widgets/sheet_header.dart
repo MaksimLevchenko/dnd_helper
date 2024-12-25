@@ -53,13 +53,16 @@ class SheetHeader extends ConsumerWidget {
                     ),
                   ],
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.settings_rounded,
-                    color: Colors.white,
-                  ),
+                const SizedBox(
+                  width: 50,
                 ),
+                // IconButton(
+                //   onPressed: () {},
+                //   icon: const Icon(
+                //     Icons.settings_rounded,
+                //     color: Colors.white,
+                //   ),
+                // ),
               ],
             ),
           ),

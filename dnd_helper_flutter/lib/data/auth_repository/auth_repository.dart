@@ -1,8 +1,6 @@
 import 'dart:developer';
 import 'package:dnd_helper_flutter/data/client_repository/client_repository.dart';
-import 'package:dnd_helper_flutter/main.dart';
 import 'package:encrypt_shared_preferences/provider.dart';
-import 'package:http/http.dart' as http;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_repository.g.dart';
@@ -48,21 +46,26 @@ class AuthRepository extends _$AuthRepository {
     //   },
     // );
 
-    final response = await ref.read(sendPostRequestProvider(
-      path: 'api/User/Login',
-      parameters: {
-        'email': email,
-        'pass': password,
-      },
-    ).future);
+    try {
+      final response = await ref.read(sendPostRequestProvider(
+        path: 'api/User/Login',
+        parameters: {
+          'email': email,
+          'pass': password,
+        },
+      ).future);
 
-    if (response.statusCode == 200) {
-      await _storage.setString('email', email);
-      await _storage.setString('password', password);
-      log('response.body: ${response.body}');
-      state = AsyncData(AuthState(isSuccess: true, authKey: response.body));
-      return true;
-    } else {
+      if (response.statusCode == 200) {
+        await _storage.setString('email', email);
+        await _storage.setString('password', password);
+        log('response.body: ${response.body}');
+        state = AsyncData(AuthState(isSuccess: true, authKey: response.body));
+        return true;
+      } else {
+        return false;
+      }
+    } on Exception catch (e) {
+      log('Exception: $e');
       return false;
     }
   }
@@ -75,23 +78,28 @@ class AuthRepository extends _$AuthRepository {
     //     'pass': password,
     //   },
     // );
-    final response = await ref.read(sendPostRequestProvider(
-      path: 'api/User/Register',
-      parameters: {
-        'email': email,
-        'pass': password,
-        'username': email,
-      },
-    ).future);
-    log('response: ${response.body}');
-    log('response.statusCode: ${response.statusCode}');
+    try {
+      final response = await ref.read(sendPostRequestProvider(
+        path: 'api/User/Register',
+        parameters: {
+          'email': email,
+          'pass': password,
+          'username': email,
+        },
+      ).future);
+      log('response: ${response.body}');
+      log('response.statusCode: ${response.statusCode}');
 
-    if (response.statusCode == 200) {
-      await _storage.setString('email', email);
-      await _storage.setString('password', password);
-      state = AsyncData(AuthState(isSuccess: true, authKey: response.body));
-      return true;
-    } else {
+      if (response.statusCode == 200) {
+        await _storage.setString('email', email);
+        await _storage.setString('password', password);
+        state = AsyncData(AuthState(isSuccess: true, authKey: response.body));
+        return true;
+      } else {
+        return false;
+      }
+    } on Exception catch (e) {
+      log('Exception: $e');
       return false;
     }
   }

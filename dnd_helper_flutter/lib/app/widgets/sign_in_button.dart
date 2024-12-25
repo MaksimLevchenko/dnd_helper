@@ -29,11 +29,11 @@ class SignInButton extends ConsumerWidget {
                     },
                   );
                 },
-                child: const Text('Sign In'),
+                child: const Text('Войти'),
               );
             }
           },
-          error: (error, stack) => Text('Error $error'),
+          error: (error, stack) => Text('Произошла ошибка $error'),
           loading: () => const CircularProgressIndicator(),
         );
   }

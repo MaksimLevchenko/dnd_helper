@@ -6,7 +6,7 @@ part of 'pages_state.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$pagesStateHash() => r'6d3d2727bcee25df5fec11bfd58612d5a67a3657';
+String _$pagesStateHash() => r'627fc412b17aeb011d74d4f274d334039b7cd210';
 
 /// Copied from Dart SDK
 class _SystemHash {

@@ -21,9 +21,10 @@ class MultilineTextField extends StatefulWidget {
 }
 
 class MultilineTextFieldState extends State<MultilineTextField> {
+  final focusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
-    final focusNode = FocusNode();
     focusNode.addListener(() {
       if (!focusNode.hasFocus && widget.onEditingComplete != null) {
         widget.onEditingComplete!(widget.controller.text);

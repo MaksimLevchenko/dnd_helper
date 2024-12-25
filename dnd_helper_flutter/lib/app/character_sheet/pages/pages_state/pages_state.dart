@@ -2,6 +2,9 @@ import 'dart:developer';
 
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
 import 'package:dnd_helper_flutter/data/character_repository/character_repository.dart';
+import 'package:dnd_helper_flutter/models/background_data/background_data.dart';
+import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
+import 'package:dnd_helper_flutter/models/enums/conditions.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -11,47 +14,67 @@ part 'pages_state.freezed.dart';
 
 @Riverpod(keepAlive: true)
 class PagesState extends _$PagesState {
+  CharacterData? character;
+
   @override
   Future<PagesStateModel> build(String characterId) async {
     final characterState =
         await ref.watch(characterSheetStateProvider(characterId).future);
-    final data = characterState.characterData;
+    character = characterState.characterData;
     TextEditingController createController([String? text]) =>
         TextEditingController(text: text ?? '');
 
+    if (character == null) {
+      log('Character not found');
+      return Future.error('Character not found');
+    }
+
     return PagesStateModel(
       characterId: characterId,
-      abilitiesController: createController(),
-      biographyController: createController(data.biography),
-      weightController: createController(data.weight),
-      heightController: createController(data.height),
-      ageController: createController(data.age),
-      hairColorController: createController(data.hairColor),
-      eyeColorController: createController(data.eyeColor),
-      skinColorController: createController(data.skinColor),
+      backstoryController: createController(character?.background?.name),
+      biographyController: createController(character!.biography),
+      weightController: createController(character!.weight),
+      heightController: createController(character!.height),
+      ageController: createController(character!.age),
+      hairColorController: createController(character!.hairColor),
+      eyeColorController: createController(character!.eyeColor),
+      skinColorController: createController(character!.skinColor),
       alliesAndOrganizationsController:
-          createController(data.alliesAndOrganizations),
-      purposeController: createController(data.purpose),
-      idealsController: createController(data.ideals),
-      bondsController: createController(data.bonds),
-      flawsController: createController(data.flaws),
+          createController(character!.alliesAndOrganizations),
+      purposeController: createController(character!.purpose),
+      idealsController: createController(character!.ideals),
+      bondsController: createController(character!.bonds),
+      flawsController: createController(character!.flaws),
+      backstoryDescriptionController:
+          createController(character?.background?.description),
     );
   }
 
-  void savePersonal(String characterId) {
-    ref.read(characterSheetStateProvider(characterId).notifier).savePersonal(
-        state.value!.biographyController.text,
-        state.value!.weightController.text,
-        state.value!.heightController.text,
-        state.value!.ageController.text,
-        state.value!.hairColorController.text,
-        state.value!.eyeColorController.text,
-        state.value!.skinColorController.text,
-        state.value!.alliesAndOrganizationsController.text,
-        state.value!.purposeController.text,
-        state.value!.idealsController.text,
-        state.value!.bondsController.text,
-        state.value!.flawsController.text);
+  void save(String characterId) {
+    future.then((value) {
+      ref
+          .read(characterRepositoryProvider.notifier)
+          .saveCharacter(character!.copyWith(
+            biography: value.biographyController.text,
+            weight: value.weightController.text,
+            height: value.heightController.text,
+            age: value.ageController.text,
+            hairColor: value.hairColorController.text,
+            eyeColor: value.eyeColorController.text,
+            skinColor: value.skinColorController.text,
+            alliesAndOrganizations: value.alliesAndOrganizationsController.text,
+            purpose: value.purposeController.text,
+            ideals: value.idealsController.text,
+            bonds: value.bondsController.text,
+            flaws: value.flawsController.text,
+            background: character?.background?.copyWith(
+                    name: value.backstoryController.text,
+                    description: value.backstoryDescriptionController.text) ??
+                BackgroundData(
+                    name: value.backstoryController.text,
+                    description: value.backstoryDescriptionController.text),
+          ));
+    });
   }
 }
 
@@ -59,7 +82,6 @@ class PagesState extends _$PagesState {
 class PagesStateModel with _$PagesStateModel {
   factory PagesStateModel({
     required String characterId,
-    required TextEditingController abilitiesController,
     required TextEditingController biographyController,
     required TextEditingController weightController,
     required TextEditingController heightController,
@@ -72,5 +94,7 @@ class PagesStateModel with _$PagesStateModel {
     required TextEditingController idealsController,
     required TextEditingController bondsController,
     required TextEditingController flawsController,
+    required TextEditingController backstoryController,
+    required TextEditingController backstoryDescriptionController,
   }) = _PagesStateModel;
 }

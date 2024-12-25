@@ -74,8 +74,8 @@ class AttributesTabBarViewItem extends ConsumerWidget {
                     label: 'ЗНАЧЕНИЕ')
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Wrap(
+              alignment: WrapAlignment.center,
               children: [
                 for (var skill in listSkills)
                   Item.simple(
