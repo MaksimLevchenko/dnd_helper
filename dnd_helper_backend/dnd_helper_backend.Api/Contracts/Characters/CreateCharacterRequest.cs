@@ -1,0 +1,53 @@
+﻿using dnd_helper_backend.Core.Enums;
+using dnd_helper_backend.Core.Models;
+using dnd_helper_backend.Core.ValueObjects;
+
+namespace dnd_helper_backend.Api.Contracts.Characters
+{
+    public record CreateCharacterRequest(
+            string? CharacterName,
+            Race? CharacterRace,
+            SubRace? SubRace,
+            Class? CharacterClass,
+            SubClass? SubClass,
+            Background? Background,
+            int Experience = 0,
+            string? DiceHit = null,
+            int? MaxHitPoints = null,
+            int? CurrentHitPoints = null,
+            int? TemporaryHitPoints = null,
+            int? Speed = null,
+            int? ArmorClass = null,
+            bool Inspiration = false,
+            string? Conditions = null,
+            int? Exhaustion = null,
+            Dictionary<string, int>? Attributes = null,
+            string?[]? SavingThrows = null,
+            string?[]? SkillsProficiency = null,
+            string?[]? SkillsExpertise = null,
+            Arms[]? Attacks = null,
+            Spell[]? PreparedSpells = null,
+            Spell[]? KnownSpells = null,
+            string? SpellcastingAttribute = null,
+            Dictionary<int, int>? SpellSlots = null,
+            string?[]? Languages = null,
+            string?[]? Tools = null,
+            string?[]? Weapons = null,
+            string? Ideology = null,
+            string? Biography = null,
+            string? Weight = null,
+            string? Height = null,
+            string? Age = null,
+            string? HairColor = null,
+            string? EyeColor = null,
+            string? SkinColor = null,
+            string? AlliesAndOrganizations = null,
+            string? Purpose = null,
+            string? Ideals = null,
+            string? Bonds = null,
+            string? Flaws = null,
+            string? Notes = null,
+            Coins? Coins = null,
+            string?[]? Equipment = null,
+            string?[]? Treasures = null);
+}

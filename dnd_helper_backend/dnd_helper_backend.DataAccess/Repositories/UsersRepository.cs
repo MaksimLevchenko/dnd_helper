@@ -1,5 +1,4 @@
-﻿using dnd_helper_backend.DataAccess.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using dnd_helper_backend.Core.Models;
 
 namespace dnd_helper_backend.DataAccess.Repositories
@@ -27,13 +26,7 @@ namespace dnd_helper_backend.DataAccess.Repositories
 
         public async Task<Guid> Create(User user)
         {
-            var userEntity = new UserEntity
-            {
-                Id = user.Id,
-                Username = user.Username,
-                Email = user.Email,
-                PassHash = user.PassHash
-            };
+            var userEntity = new User(user.Id, user.Username, user.Email, user.PassHash);
 
             await _context.AddAsync(userEntity);
             await _context.SaveChangesAsync();

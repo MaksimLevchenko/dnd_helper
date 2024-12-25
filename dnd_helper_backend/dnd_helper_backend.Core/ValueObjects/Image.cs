@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dnd_helper_backend.Core.Models
+namespace dnd_helper_backend.Core.ValueObjects
 {
     public class Image
     {
-        public Image(string fileName) 
+        public Image(string fileName)
         {
             FileName = fileName;
         }

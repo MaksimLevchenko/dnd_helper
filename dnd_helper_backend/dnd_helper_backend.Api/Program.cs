@@ -56,11 +56,15 @@ builder.Services.AddDbContext<DndHelperDbContext>(
     });
 
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
-builder.Services.AddScoped<IArmorRepository, ArmorRepository>();
-builder.Services.AddScoped<IArmsRepository, ArmsRepository>();
-builder.Services.AddScoped<IBackgroundsRepository, BackgroundsRepository>();
-builder.Services.AddScoped<IRacesRepository, RacesRepository>();
+builder.Services.AddScoped<ICharactersRepository, CharactersRepository>();
+
+//builder.Services.AddScoped<IArmorRepository, ArmorRepository>();
+//builder.Services.AddScoped<IArmsRepository, ArmsRepository>();
+//builder.Services.AddScoped<IBackgroundsRepository, BackgroundsRepository>();
+//builder.Services.AddScoped<IRacesRepository, RacesRepository>();
+
 builder.Services.AddScoped<IUsersService, UsersService>();
+builder.Services.AddScoped<ICharacterService, CharacterService>();
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
@@ -74,7 +78,7 @@ builder.Services.AddApiAuthentication(configuration);
 //{
 //    serverOptions.ListenAnyIP(5005, listenOptions =>
 //    {
-
+//        listenOptions.UseHttps();
 //    });
 //});
 //builder.WebHost.UseKestrel();

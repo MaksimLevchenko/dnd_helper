@@ -22,188 +22,158 @@ namespace dnd_helper_backend.DataAccess.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("dnd_helper_backend.Core.Models.Arms", b =>
+            modelBuilder.Entity("dnd_helper_backend.Core.Models.Character", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string[]>("ArmsFeatures")
-                        .IsRequired()
-                        .HasColumnType("text[]");
-
-                    b.Property<string>("Damage")
-                        .IsRequired()
+                    b.Property<string>("Age")
                         .HasColumnType("text");
 
-                    b.Property<string>("DamageType")
-                        .IsRequired()
+                    b.Property<string>("AlliesAndOrganizations")
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsMelee")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("IsSimple")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<double>("Weight")
-                        .HasColumnType("double precision");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Arms");
-                });
-
-            modelBuilder.Entity("dnd_helper_backend.Core.Models.Attack", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("ActionCost")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Damage")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("DamageType")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("Range")
+                    b.Property<int?>("ArmorClass")
                         .HasColumnType("integer");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Attacks");
-                });
-
-            modelBuilder.Entity("dnd_helper_backend.Core.Models.Background", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Equipment")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string[]>("SkillProficiencies")
-                        .IsRequired()
-                        .HasColumnType("text[]");
-
-                    b.Property<string>("ToolProficiencies")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Backgrounds");
-                });
-
-            modelBuilder.Entity("dnd_helper_backend.Core.Models.Race", b =>
-                {
-                    b.Property<Guid>("RaceId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("RaceFeatures")
-                        .IsRequired()
+                    b.Property<string>("Attacks")
                         .HasColumnType("jsonb");
 
-                    b.Property<string[]>("Skills")
-                        .IsRequired()
-                        .HasColumnType("text[]");
+                    b.Property<string>("Attributes")
+                        .HasColumnType("jsonb");
 
-                    b.HasKey("RaceId");
+                    b.Property<string>("Background")
+                        .HasColumnType("jsonb");
 
-                    b.ToTable("Races");
-                });
-
-            modelBuilder.Entity("dnd_helper_backend.Core.Models.SubRace", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
+                    b.Property<string>("Biography")
                         .HasColumnType("text");
 
-                    b.Property<Guid>("RaceId")
+                    b.Property<string>("Bonds")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CharacterClass")
+                        .HasColumnType("jsonb");
+
+                    b.Property<string>("CharacterName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CharacterRace")
+                        .HasColumnType("jsonb");
+
+                    b.Property<string>("Coins")
+                        .HasColumnType("jsonb");
+
+                    b.Property<string>("Conditions")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("CurrentHitPoints")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("DiceHit")
+                        .HasColumnType("text");
+
+                    b.PrimitiveCollection<string[]>("Equipment")
+                        .HasColumnType("text[]");
+
+                    b.Property<int?>("Exhaustion")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Experience")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("EyeColor")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Flaws")
+                        .HasColumnType("text");
+
+                    b.Property<string>("HairColor")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Height")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Ideals")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Ideology")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("Inspiration")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("KnownSpells")
+                        .HasColumnType("jsonb");
+
+                    b.PrimitiveCollection<string[]>("Languages")
+                        .HasColumnType("text[]");
+
+                    b.Property<int?>("MaxHitPoints")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PreparedSpells")
+                        .HasColumnType("jsonb");
+
+                    b.Property<string>("Purpose")
+                        .HasColumnType("text");
+
+                    b.PrimitiveCollection<string[]>("SavingThrows")
+                        .HasColumnType("text[]");
+
+                    b.PrimitiveCollection<string[]>("SkillsExpertise")
+                        .HasColumnType("text[]");
+
+                    b.PrimitiveCollection<string[]>("SkillsProficiency")
+                        .HasColumnType("text[]");
+
+                    b.Property<string>("SkinColor")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("Speed")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("SpellSlots")
+                        .HasColumnType("jsonb");
+
+                    b.Property<string>("SpellcastingAttribute")
+                        .HasColumnType("text");
+
+                    b.Property<string>("SubClass")
+                        .HasColumnType("jsonb");
+
+                    b.Property<string>("SubRace")
+                        .HasColumnType("jsonb");
+
+                    b.Property<int?>("TemporaryHitPoints")
+                        .HasColumnType("integer");
+
+                    b.PrimitiveCollection<string[]>("Tools")
+                        .HasColumnType("text[]");
+
+                    b.PrimitiveCollection<string[]>("Treasures")
+                        .HasColumnType("text[]");
+
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("SubraceFeatures")
-                        .IsRequired()
-                        .HasColumnType("jsonb");
+                    b.PrimitiveCollection<string[]>("Weapons")
+                        .HasColumnType("text[]");
+
+                    b.Property<string>("Weight")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RaceId");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("SubRaces");
+                    b.ToTable("Characters");
                 });
 
-            modelBuilder.Entity("dnd_helper_backend.DataAccess.Entities.ArmorEntity", b =>
-                {
-                    b.Property<Guid>("ArmorId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<int>("ArmorClass")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("ArmorType")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("GrantsDexerityBonus")
-                        .HasColumnType("boolean");
-
-                    b.Property<int>("MaxDexterityBonus")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("MinStrength")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("StelsDisadvantage")
-                        .HasColumnType("boolean");
-
-                    b.Property<int>("Weight")
-                        .HasColumnType("integer");
-
-                    b.HasKey("ArmorId");
-
-                    b.ToTable("Armors");
-                });
-
-            modelBuilder.Entity("dnd_helper_backend.DataAccess.Entities.UserEntity", b =>
+            modelBuilder.Entity("dnd_helper_backend.Core.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -226,166 +196,20 @@ namespace dnd_helper_backend.DataAccess.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("dnd_helper_backend.Core.Models.Arms", b =>
+            modelBuilder.Entity("dnd_helper_backend.Core.Models.Character", b =>
                 {
-                    b.OwnsOne("dnd_helper_backend.Core.ValueObjects.Coins", "Price", b1 =>
-                        {
-                            b1.Property<Guid>("ArmsId")
-                                .HasColumnType("uuid");
-
-                            b1.Property<int>("Copper")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Electrum")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Golden")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Platinum")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Silver")
-                                .HasColumnType("integer");
-
-                            b1.HasKey("ArmsId");
-
-                            b1.ToTable("Arms");
-
-                            b1.ToJson("Price");
-
-                            b1.WithOwner()
-                                .HasForeignKey("ArmsId");
-                        });
-
-                    b.Navigation("Price");
-                });
-
-            modelBuilder.Entity("dnd_helper_backend.Core.Models.Race", b =>
-                {
-                    b.OwnsOne("dnd_helper_backend.Core.ValueObjects.Attributes", "Attributes", b1 =>
-                        {
-                            b1.Property<Guid>("RaceId")
-                                .HasColumnType("uuid");
-
-                            b1.Property<int>("Charisma")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Constitution")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Dexterity")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Intelligence")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Strength")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Wisdom")
-                                .HasColumnType("integer");
-
-                            b1.HasKey("RaceId");
-
-                            b1.ToTable("Races");
-
-                            b1.ToJson("Attributes");
-
-                            b1.WithOwner()
-                                .HasForeignKey("RaceId");
-                        });
-
-                    b.Navigation("Attributes")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("dnd_helper_backend.Core.Models.SubRace", b =>
-                {
-                    b.HasOne("dnd_helper_backend.Core.Models.Race", "Race")
-                        .WithMany("SubRaces")
-                        .HasForeignKey("RaceId")
+                    b.HasOne("dnd_helper_backend.Core.Models.User", "User")
+                        .WithMany("Characters")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.OwnsOne("dnd_helper_backend.Core.ValueObjects.Attributes", "Attributes", b1 =>
-                        {
-                            b1.Property<Guid>("SubRaceId")
-                                .HasColumnType("uuid");
-
-                            b1.Property<int>("Charisma")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Constitution")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Dexterity")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Intelligence")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Strength")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Wisdom")
-                                .HasColumnType("integer");
-
-                            b1.HasKey("SubRaceId");
-
-                            b1.ToTable("SubRaces");
-
-                            b1.ToJson("Attributes");
-
-                            b1.WithOwner()
-                                .HasForeignKey("SubRaceId");
-                        });
-
-                    b.Navigation("Attributes")
-                        .IsRequired();
-
-                    b.Navigation("Race");
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("dnd_helper_backend.DataAccess.Entities.ArmorEntity", b =>
+            modelBuilder.Entity("dnd_helper_backend.Core.Models.User", b =>
                 {
-                    b.OwnsOne("dnd_helper_backend.DataAccess.Aggregates.CoinsAgg", "Price", b1 =>
-                        {
-                            b1.Property<Guid>("ArmorEntityArmorId")
-                                .HasColumnType("uuid");
-
-                            b1.Property<int>("Copper")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Electrum")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Golden")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Platinum")
-                                .HasColumnType("integer");
-
-                            b1.Property<int>("Silver")
-                                .HasColumnType("integer");
-
-                            b1.HasKey("ArmorEntityArmorId");
-
-                            b1.ToTable("Armors");
-
-                            b1.ToJson("Price");
-
-                            b1.WithOwner()
-                                .HasForeignKey("ArmorEntityArmorId");
-                        });
-
-                    b.Navigation("Price")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("dnd_helper_backend.Core.Models.Race", b =>
-                {
-                    b.Navigation("SubRaces");
+                    b.Navigation("Characters");
                 });
 #pragma warning restore 612, 618
         }
