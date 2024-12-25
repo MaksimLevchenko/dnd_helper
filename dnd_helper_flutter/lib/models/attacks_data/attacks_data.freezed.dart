@@ -26,8 +26,12 @@ mixin _$AttacksData {
   DamageTypes get damageType => throw _privateConstructorUsedError;
   ActionTypes get actionCost => throw _privateConstructorUsedError;
 
+  /// Serializes this AttacksData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AttacksData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AttacksDataCopyWith<AttacksData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$AttacksDataCopyWithImpl<$Res, $Val extends AttacksData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AttacksData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +120,8 @@ class __$$AttacksDataImplCopyWithImpl<$Res>
       _$AttacksDataImpl _value, $Res Function(_$AttacksDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AttacksData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -191,12 +199,14 @@ class _$AttacksDataImpl implements _AttacksData {
                 other.actionCost == actionCost));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, name, damage, range, damageType, actionCost);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AttacksData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AttacksDataImplCopyWith<_$AttacksDataImpl> get copyWith =>
@@ -231,8 +241,11 @@ abstract class _AttacksData implements AttacksData {
   DamageTypes get damageType;
   @override
   ActionTypes get actionCost;
+
+  /// Create a copy of AttacksData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AttacksDataImplCopyWith<_$AttacksDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

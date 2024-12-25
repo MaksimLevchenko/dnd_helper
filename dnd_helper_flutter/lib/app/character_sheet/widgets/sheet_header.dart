@@ -9,14 +9,14 @@ import 'package:go_router/go_router.dart';
 class SheetHeader extends ConsumerWidget {
   const SheetHeader({
     super.key,
-    required this.characterData,
+    required this.character,
   });
 
-  final CharacterData characterData;
+  final CharacterData character;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.read(characterSheetStateProvider(characterData.id ?? ''));
+    final state = ref.read(characterSheetStateProvider(character.id!));
 
     return DefaultTabController(
       length: 6,
@@ -93,12 +93,14 @@ class SheetHeader extends ConsumerWidget {
             height: 8,
           ),
           AttributesTabBar(
-            characterId: characterData.id ?? '',
+            character: character,
           ),
           const SizedBox(
             height: 4,
           ),
-          AttributesTabBarView(characterId: characterData.id ?? ''),
+          AttributesTabBarView(
+            character: character,
+          ),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:dnd_helper_flutter/app/character_sheet/pages/pages_state/pages_state.dart';
+import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:dnd_helper_flutter/ui/basic_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,12 +7,12 @@ import 'package:gap/gap.dart';
 import 'package:shimmer/shimmer.dart';
 
 class Personality extends ConsumerWidget {
-  const Personality({super.key, required this.characterId});
-  final String characterId;
+  const Personality({super.key, required this.character});
+  final CharacterData character;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(pagesStateProvider(characterId));
+    final state = ref.watch(pagesStateProvider(character.id!));
 
     return Container(
       color: Theme.of(context).colorScheme.surface,
@@ -25,8 +26,8 @@ class Personality extends ConsumerWidget {
                   controller: data.biographyController,
                   labelText: 'Биография',
                   onEditingComplete: (text) => ref
-                      .read(pagesStateProvider(characterId).notifier)
-                      .savePersonal(characterId),
+                      .read(pagesStateProvider(character.id!).notifier)
+                      .savePersonal(character.id!),
                 ),
               ],
             );

@@ -206,7 +206,7 @@ class _SendPostRequestProviderElement
   String? get authKey => (origin as SendPostRequestProvider).authKey;
 }
 
-String _$sendDeleteRequestHash() => r'd5c80c6fc7575a40039d89efd692b388d83ecbe4';
+String _$sendDeleteRequestHash() => r'9162d0836dc6597ca822e9eca32dab9700860a34';
 
 /// See also [sendDeleteRequest].
 @ProviderFor(sendDeleteRequest)

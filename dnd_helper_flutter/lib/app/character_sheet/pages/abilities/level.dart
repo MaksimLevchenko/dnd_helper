@@ -1,4 +1,5 @@
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
+import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:dnd_helper_flutter/ui/calculator/calculator_grid.dart';
 import 'package:dnd_helper_flutter/domain/build_context_extension.dart';
 import 'package:dnd_helper_flutter/ui/calculator/calculator_state/calculator_state.dart';
@@ -6,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class Level extends ConsumerWidget {
-  const Level({super.key, required this.characterId});
-  final String characterId;
+  const Level({super.key, required this.character});
+  final CharacterData character;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -37,7 +38,7 @@ class Level extends ConsumerWidget {
                             .read(calculatorStateProvider.notifier)
                             .evaluateExpression(controller.text);
                         ref
-                            .read(characterSheetStateProvider(characterId)
+                            .read(characterSheetStateProvider(character.id!)
                                 .notifier)
                             .updateExperience(exp, ref);
                       },
@@ -64,7 +65,7 @@ class Level extends ConsumerWidget {
                 bottomLeft: Radius.circular(8),
               ),
             ),
-            child: ref.watch(characterSheetStateProvider(characterId)).when(
+            child: ref.watch(characterSheetStateProvider(character.id!)).when(
                   data: (data) => Text(
                     'УРОВЕНЬ: ${data.characterData.level.toString()} ',
                     style: TextStyle(
@@ -95,7 +96,7 @@ class Level extends ConsumerWidget {
                 bottomRight: Radius.circular(8),
               ),
             ),
-            child: ref.watch(characterSheetStateProvider(characterId)).when(
+            child: ref.watch(characterSheetStateProvider(character.id!)).when(
                   data: (data) => Text(
                     data.characterData.nextLevelExperience() != 0
                         ? ' ${data.characterData.experience.toString()} / ${data.characterData.nextLevelExperience().toString()} '

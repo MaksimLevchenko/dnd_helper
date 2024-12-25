@@ -23,7 +23,9 @@ mixin _$CalculatorParameters {
   List<String> get buttonText => throw _privateConstructorUsedError;
   List<IconData> get icons => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CalculatorParameters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CalculatorParametersCopyWith<CalculatorParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +56,8 @@ class _$CalculatorParametersCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CalculatorParameters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,6 +122,8 @@ class __$$CalculatorParametersImplCopyWithImpl<$Res>
       $Res Function(_$CalculatorParametersImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CalculatorParameters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -250,7 +256,9 @@ class _$CalculatorParametersImpl implements _CalculatorParameters {
       const DeepCollectionEquality().hash(_buttonText),
       const DeepCollectionEquality().hash(_icons));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CalculatorParameters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CalculatorParametersImplCopyWith<_$CalculatorParametersImpl>
@@ -280,8 +288,11 @@ abstract class _CalculatorParameters implements CalculatorParameters {
   List<String> get buttonText;
   @override
   List<IconData> get icons;
+
+  /// Create a copy of CalculatorParameters
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CalculatorParametersImplCopyWith<_$CalculatorParametersImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

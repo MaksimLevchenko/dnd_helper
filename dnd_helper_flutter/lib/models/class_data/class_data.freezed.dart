@@ -34,8 +34,12 @@ mixin _$ClassData {
   String get imageLink => throw _privateConstructorUsedError;
   String get source => throw _privateConstructorUsedError;
 
+  /// Serializes this ClassData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ClassData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ClassDataCopyWith<ClassData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -70,6 +74,8 @@ class _$ClassDataCopyWithImpl<$Res, $Val extends ClassData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ClassData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -170,6 +176,8 @@ class __$$ClassDataImplCopyWithImpl<$Res>
       _$ClassDataImpl _value, $Res Function(_$ClassDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ClassData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -360,7 +368,7 @@ class _$ClassDataImpl implements _ClassData {
             (identical(other.source, source) || other.source == source));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -377,7 +385,9 @@ class _$ClassDataImpl implements _ClassData {
       imageLink,
       source);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ClassData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ClassDataImplCopyWith<_$ClassDataImpl> get copyWith =>
@@ -433,8 +443,11 @@ abstract class _ClassData implements ClassData {
   String get imageLink;
   @override
   String get source;
+
+  /// Create a copy of ClassData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ClassDataImplCopyWith<_$ClassDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

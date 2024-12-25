@@ -1,9 +1,15 @@
+import 'package:dnd_helper_flutter/app/character_sheet/pages/abilities/abilities.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/fight/fight.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/inventory/inventory.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/personality.dart';
+import 'package:dnd_helper_flutter/app/character_sheet/pages/spells.dart';
 import 'package:dnd_helper_flutter/data/character_repository/character_repository.dart';
 import 'package:dnd_helper_flutter/data/character_repository/get_character.dart';
 import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
 import 'package:dnd_helper_flutter/models/enums/skills.dart';
 import 'package:dnd_helper_flutter/ui/calculator/calculator_state/calculator_state.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -143,6 +149,52 @@ class CharacterSheetState extends _$CharacterSheetState {
         return 'ВЫЖИВАНИЕ';
     }
   }
+
+  void onTabBarTap(int index) {
+    state = state.whenData((parameters) {
+      return parameters.copyWith(selectedPage: index);
+    });
+  }
+
+  void collapseTapBar() {
+    state = state.whenData((parameters) {
+      return parameters.copyWith(isTabBarViewVisible: false);
+    });
+  }
+
+  void setSelectedAttribute(int index) {
+    state = state.whenData((parameters) {
+      return parameters.selectedAttribute == index
+          ? parameters.copyWith(
+              selectedAttribute: index,
+              isTabBarViewVisible: !parameters.isTabBarViewVisible)
+          : parameters.copyWith(
+              selectedAttribute: index, isTabBarViewVisible: true);
+    });
+  }
+
+  Widget getPage(int index) {
+    switch (index) {
+      case 0:
+        return Fight(character: state.value!.characterData);
+      case 1:
+        return Abilities(character: state.value!.characterData);
+      case 2:
+        return const Inventory();
+      case 3:
+        return Personality(character: state.value!.characterData);
+      case 4:
+        return const Spells();
+      default:
+        return Fight(character: state.value!.characterData);
+    }
+  }
+
+  void toggleEditMode() {
+    state = state.whenData((parameters) {
+      return parameters.copyWith(editMode: !parameters.editMode);
+    });
+  }
 }
 
 @override
@@ -152,5 +204,9 @@ void dispose(CharacterSheetParameters parameters) {}
 class CharacterSheetParameters with _$CharacterSheetParameters {
   factory CharacterSheetParameters({
     required CharacterData characterData,
+    @Default(true) bool isTabBarViewVisible,
+    @Default(0) int selectedPage,
+    @Default(0) int selectedAttribute,
+    @Default(false) bool editMode,
   }) = _CharacterSheetParameters;
 }

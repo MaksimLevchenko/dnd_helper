@@ -27,8 +27,12 @@ mixin _$BackgroundData {
   String? get equipment => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
 
+  /// Serializes this BackgroundData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BackgroundData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BackgroundDataCopyWith<BackgroundData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$BackgroundDataCopyWithImpl<$Res, $Val extends BackgroundData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BackgroundData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -122,6 +128,8 @@ class __$$BackgroundDataImplCopyWithImpl<$Res>
       _$BackgroundDataImpl _value, $Res Function(_$BackgroundDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BackgroundData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -220,7 +228,7 @@ class _$BackgroundDataImpl implements _BackgroundData {
                 other.description == description));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -231,7 +239,9 @@ class _$BackgroundDataImpl implements _BackgroundData {
       equipment,
       description);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BackgroundData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$BackgroundDataImplCopyWith<_$BackgroundDataImpl> get copyWith =>
@@ -270,8 +280,11 @@ abstract class _BackgroundData implements BackgroundData {
   String? get equipment;
   @override
   String? get description;
+
+  /// Create a copy of BackgroundData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BackgroundDataImplCopyWith<_$BackgroundDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

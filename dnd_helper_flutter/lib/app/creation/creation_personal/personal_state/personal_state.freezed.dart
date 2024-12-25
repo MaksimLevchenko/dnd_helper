@@ -19,7 +19,9 @@ mixin _$PersonalStateModel {
   Map<String, TextEditingController> get controllers =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PersonalStateModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PersonalStateModelCopyWith<PersonalStateModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -43,6 +45,8 @@ class _$PersonalStateModelCopyWithImpl<$Res, $Val extends PersonalStateModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PersonalStateModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -76,6 +80,8 @@ class __$$PersonalStateModelImplCopyWithImpl<$Res>
       $Res Function(_$PersonalStateModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PersonalStateModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -123,7 +129,9 @@ class _$PersonalStateModelImpl implements _PersonalStateModel {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_controllers));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PersonalStateModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PersonalStateModelImplCopyWith<_$PersonalStateModelImpl> get copyWith =>
@@ -138,8 +146,11 @@ abstract class _PersonalStateModel implements PersonalStateModel {
 
   @override
   Map<String, TextEditingController> get controllers;
+
+  /// Create a copy of PersonalStateModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PersonalStateModelImplCopyWith<_$PersonalStateModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

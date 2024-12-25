@@ -1,15 +1,15 @@
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
 import 'package:dnd_helper_flutter/app/character_sheet/widgets/attributes_tab_bar_vew/item.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/widgets/widgets_state/widgets_state.dart';
+import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AttributesTabBarViewItem extends ConsumerWidget {
   const AttributesTabBarViewItem(
-      {required this.attribute, required this.characterId, super.key});
+      {required this.attribute, required this.character, super.key});
   final Attributes attribute;
-  final String characterId;
+  final CharacterData character;
 
   String getSignedValue(int value) {
     return value > 0 ? '+$value' : '$value';
@@ -17,7 +17,7 @@ class AttributesTabBarViewItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(characterSheetStateProvider(characterId));
+    final state = ref.watch(characterSheetStateProvider(character.id!));
     return state.when(
       data: (data) {
         final List<Attributes?>? savingThrows = data.characterData.savingThrows;
@@ -43,7 +43,7 @@ class AttributesTabBarViewItem extends ConsumerWidget {
               children: [
                 SelectableText(
                   ref
-                      .read(characterSheetStateProvider(characterId).notifier)
+                      .read(characterSheetStateProvider(character.id!).notifier)
                       .getAttribyteAsStringRu(attribute),
                   style: const TextStyle(fontSize: 18),
                 ),
@@ -87,7 +87,8 @@ class AttributesTabBarViewItem extends ConsumerWidget {
                                 ? modifierPlusProficiency
                                 : modifierOnly,
                     label: ref
-                        .read(characterSheetStateProvider(characterId).notifier)
+                        .read(
+                            characterSheetStateProvider(character.id!).notifier)
                         .getSkillAsStringRu(skill),
                   )
               ],
@@ -95,7 +96,7 @@ class AttributesTabBarViewItem extends ConsumerWidget {
             IconButton(
               onPressed: () {
                 ref
-                    .read(widgetsStateProvider(characterId).notifier)
+                    .read(characterSheetStateProvider(character.id!).notifier)
                     .collapseTapBar();
               },
               icon: const Icon(Icons.keyboard_arrow_up_rounded),

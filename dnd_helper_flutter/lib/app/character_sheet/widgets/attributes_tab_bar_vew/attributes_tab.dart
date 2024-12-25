@@ -1,5 +1,5 @@
 import 'package:dnd_helper_flutter/app/character_sheet/character_sheet_state/character_sheet_state.dart';
-import 'package:dnd_helper_flutter/app/character_sheet/widgets/widgets_state/widgets_state.dart';
+import 'package:dnd_helper_flutter/models/character_data/character_data.dart';
 import 'package:dnd_helper_flutter/models/enums/attributes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,10 +8,10 @@ class AttributesTab extends ConsumerWidget {
   const AttributesTab({
     required this.index,
     super.key,
-    required this.characterId,
+    required this.character,
   });
   final int index;
-  final String characterId;
+  final CharacterData character;
   static const List<String> labels = [
     'STR',
     'DEX',
@@ -23,12 +23,12 @@ class AttributesTab extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(widgetsStateProvider(characterId));
-    final character =
-        ref.read(characterSheetStateProvider(characterId).notifier);
-    final isFocused =
-        index == state.selectedAttribute && state.isTabBarViewVisible;
-    final Map<Attributes, int> attributesMap = character.getAttributes();
+    final state = ref.watch(characterSheetStateProvider(character.id!));
+    final characterState =
+        ref.read(characterSheetStateProvider(character.id!).notifier);
+    final isFocused = index == state.value!.selectedAttribute &&
+        state.value!.isTabBarViewVisible;
+    final Map<Attributes, int> attributesMap = characterState.getAttributes();
     final attributes = Attributes.values.toList();
     final primary = Theme.of(context).colorScheme.primary;
     final onSurface = Theme.of(context).colorScheme.onSurface;
